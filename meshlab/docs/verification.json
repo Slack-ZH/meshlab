@@ -1,0 +1,58 @@
+{
+  "parts": 49,
+  "js_errors": [],
+  "layouts": [
+    {
+      "width": 1440,
+      "no_overflow": true
+    },
+    {
+      "width": 834,
+      "no_overflow": true
+    },
+    {
+      "width": 390,
+      "no_overflow": true
+    },
+    {
+      "width": 320,
+      "no_overflow": true
+    }
+  ],
+  "checks": [
+    "part-search-on-mobile",
+    "selection",
+    "keyboard-Escape-and-focus",
+    "explode",
+    "play-restores",
+    "seven-step-disassembly",
+    "all-downloads",
+    "calculator",
+    "44px-mobile-main-controls",
+    "system-dark-mode",
+    "solid-mode",
+    "increased-contrast",
+    "200-percent-text-no-horizontal-overflow"
+  ],
+  "text_contrast": {
+    "#1d1d1f on #ffffff": 16.83,
+    "#646469 on #ffffff": 5.88,
+    "#0066cc on #ffffff": 5.57,
+    "#f5f5f7 on #242529": 14.06,
+    "#b6b7bf on #242529": 7.67,
+    "#72b2ff on #242529": 6.95,
+    "#ffffff on #2168d2": 5.28
+  },
+  "mobile_navigation": [
+    {
+      "width": 390,
+      "height": 844,
+      "main_controls_clear_of_navigation": true
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "main_controls_clear_of_navigation": true
+    }
+  ]
+}

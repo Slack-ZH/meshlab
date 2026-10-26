@@ -1,0 +1,50 @@
+﻿编号,名称,类别,材料,规格,数量
+input,输入齿轮轴,shaft,20CrMnTi，齿面渗碳淬火,z₁=20 · mₙ=1.5 · β=20.36° · 1440 r/min,1
+middle,中间齿轮轴,shaft,20CrMnTi，齿面渗碳淬火,z₃=20 · mₙ=2 · β=26.77° · 360 r/min,1
+gear1,一级大齿轮,gear,20CrMnTi，HRC58–62（设计要求）,z₂=80 · d₂=128 mm · b=20 mm · 左旋,1
+output,输出轴,shaft,45 钢调质,轴承位 Ø50 · 齿轮位 Ø55 · 轴伸 Ø48 · 90 r/min,1
+gear2,二级大齿轮,gear,20CrMnTi，HRC58–62（设计要求）,z₄=80 · d₄=179.2 mm · b=26 mm · 右旋,1
+key1,一级平键,fastener,45 钢,10×8×18 mm,1
+key2,二级平键,fastener,45 钢,16×10×24 mm,1
+spacer_m1,中间轴定位套筒,shaft,45 钢,Ø30/Ø40 × 15 mm,1
+spacer_m2,中间轴定位套筒,shaft,45 钢,Ø30/Ø40 × 36 mm,1
+spacer_o1,输出轴定位套筒,shaft,45 钢,Ø50/Ø60 × 68 mm,1
+spacer_o2,输出轴定位套筒,shaft,45 钢,Ø50/Ø60 × 8 mm,1
+bearing_in_f,6205 前轴承,bearing,轴承钢 GCr15,6205 · 25×52×15 mm,1
+cap_in_-1,轴承端盖 · 6205 透盖,cover,HT200,外径 Ø70 · 厚 7 mm,1
+seal_in,输入油封,seal,橡胶＋钢骨架,骨架油封，按轴伸与端盖孔选配,1
+bearing_in_r,6205 后轴承,bearing,轴承钢 GCr15,6205 · 25×52×15 mm,1
+cap_in_1,轴承端盖 · 6205闷盖,cover,HT200,外径 Ø70 · 厚 7 mm,1
+bearing_mid_f,6206 前轴承,bearing,轴承钢 GCr15,6206 · 30×62×16 mm,1
+cap_mid_-1,轴承端盖 · 6206闷盖,cover,HT200,外径 Ø80 · 厚 7 mm,1
+bearing_mid_r,6206 后轴承,bearing,轴承钢 GCr15,6206 · 30×62×16 mm,1
+cap_mid_1,轴承端盖 · 6206闷盖,cover,HT200,外径 Ø80 · 厚 7 mm,1
+bearing_out_f,6210 前轴承,bearing,轴承钢 GCr15,6210 · 50×90×20 mm,1
+cap_out_-1,轴承端盖 · 6210闷盖,cover,HT200,外径 Ø108 · 厚 7 mm,1
+bearing_out_r,6210 后轴承,bearing,轴承钢 GCr15,6210 · 50×90×20 mm,1
+cap_out_1,轴承端盖 · 6210 透盖,cover,HT200,外径 Ø108 · 厚 7 mm,1
+seal_out,输出油封,seal,橡胶＋钢骨架,骨架油封，按轴伸与端盖孔选配,1
+housing_base,下箱体,housing,HT200,箱壳 348×218×160 mm · 壁厚 10 mm,1
+housing_top,上箱盖,housing,HT200,箱壳 348×218×160 mm · 壁厚 10 mm,1
+inspection,检查孔盖,cover,Q235,96×80×7 mm,1
+breather,通气器,fastener,钢,M14 安装口（设计值）,1
+bolt_1,合箱螺栓 01,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_1,合箱螺母 01,fastener,钢,M8 · 六角螺母,1
+bolt_2,合箱螺栓 02,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_2,合箱螺母 02,fastener,钢,M8 · 六角螺母,1
+bolt_3,合箱螺栓 03,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_3,合箱螺母 03,fastener,钢,M8 · 六角螺母,1
+bolt_4,合箱螺栓 04,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_4,合箱螺母 04,fastener,钢,M8 · 六角螺母,1
+bolt_5,合箱螺栓 05,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_5,合箱螺母 05,fastener,钢,M8 · 六角螺母,1
+bolt_6,合箱螺栓 06,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_6,合箱螺母 06,fastener,钢,M8 · 六角螺母,1
+bolt_7,合箱螺栓 07,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_7,合箱螺母 07,fastener,钢,M8 · 六角螺母,1
+bolt_8,合箱螺栓 08,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_8,合箱螺母 08,fastener,钢,M8 · 六角螺母,1
+bolt_9,合箱螺栓 09,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_9,合箱螺母 09,fastener,钢,M8 · 六角螺母,1
+bolt_10,合箱螺栓 10,fastener,8.8 级钢,M8×24 · 六角头（长度按模型）,1
+nut_10,合箱螺母 10,fastener,钢,M8 · 六角螺母,1
