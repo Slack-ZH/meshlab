@@ -126,7 +126,7 @@ sub('主要零件索引')
 table([['编号','名称','材料'],*[[x['id'],x['name'],x['material']] for x in data['parts'] if x['id'] in ['input','middle','output','gear1','gear2','housing_top','housing_base']]], [110,160,220])
 def footer(c,doc):
  c.setStrokeColor(colors.HexColor('#ccd7c5'));c.line(48,40,547,40);c.setFont(FONT,8);c.setFillColor(colors.HexColor('#778571'));c.drawString(48,27,'GL16 / 课程设计说明书 · 参考工业结构的独立设计');c.drawRightString(547,27,str(doc.page))
-SimpleDocTemplate(str(DL/'GL16-design-report.pdf'),pagesize=A4,rightMargin=48,leftMargin=48,topMargin=45,bottomMargin=55,title='GL16 两级减速器课程设计说明书',author='齿轮研习室').build(story,onFirstPage=footer,onLaterPages=footer)
+SimpleDocTemplate(str(DL/'GL16-design-report.pdf'),pagesize=A4,rightMargin=48,leftMargin=48,topMargin=45,bottomMargin=55,title='GL16 两级减速器课程设计说明书',author='啮合实验室').build(story,onFirstPage=footer,onLaterPages=footer)
 
 # A3 dimensioned teaching engineering drawings. Projection sketches are constructed from the same parameters.
 W,H=landscape(A3);c=canvas.Canvas(str(DL/'GL16-drawings.pdf'),pagesize=(W,H));c.setTitle('GL16 装配及主要零件工程图')

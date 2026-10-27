@@ -34,6 +34,11 @@
     "increased-contrast",
     "200-percent-text-no-horizontal-overflow"
   ],
+  "branding": {
+    "chinese": "啮合实验室",
+    "english": "meshlab",
+    "title_header_footer_checked": true
+  },
   "text_contrast": {
     "#1d1d1f on #ffffff": 16.83,
     "#646469 on #ffffff": 5.88,

@@ -2,7 +2,11 @@
 
 ## 当前版本
 
-本目录为齿轮研习室 Apple Design 风格第二版源码。网页由原生 HTML/CSS/JavaScript 和随附 Three.js 构成，无构建步骤。直接编辑 `dist/index.html`、`dist/apple.css`、`dist/apple.js`、`dist/app.js`。旧版配色文件已从此目录清理。
+本目录为啮合实验室 Apple Design 风格第二版源码。网页由原生 HTML/CSS/JavaScript 和随附 Three.js 构成，无构建步骤。直接编辑 `dist/index.html`、`dist/apple.css`、`dist/apple.js`、`dist/app.js`。旧版配色文件已从此目录清理。
+
+## 品牌名称
+
+中文统一为“啮合实验室”，英文品牌统一为小写 `meshlab`。GL16 是减速器型号，保留工程编号、零件 ID 与单位。
 
 ## 用户希望保留的内容
 

@@ -1,4 +1,4 @@
-# MeshLab · 齿轮研习室
+# meshlab · 啮合实验室
 
 两级斜齿减速器的三维交互教学网站，当前版本为 Apple Design 风格第二版。原生 HTML/CSS/JavaScript + Three.js，静态部署即可运行，无需 Node 构建。
 
