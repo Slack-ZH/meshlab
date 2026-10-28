@@ -19,7 +19,7 @@ async function googleKey(header) {
   return importX509(certs[header.kid], 'RS256');
 }
 
-export async function authenticate(request, projectId, keyResolver = googleKey) {
+export async function authenticate(request, projectId, keyResolver = googleKey, requireEmailVerification = true) {
   const token = request.headers.get('Authorization')?.match(/^Bearer ([A-Za-z0-9_.-]+)$/)?.[1];
   if (!token || token.length > 8192 || !projectId) return null;
   try {
@@ -31,7 +31,7 @@ export async function authenticate(request, projectId, keyResolver = googleKey) 
     if (typeof payload.sub !== 'string' || !payload.sub || payload.sub.length > 128 ||
         typeof payload.iat !== 'number' || payload.iat > now + 5 ||
         typeof payload.auth_time !== 'number' || payload.auth_time > now + 5 ||
-        payload.email_verified !== true || typeof payload.email !== 'string' ||
+        (requireEmailVerification && payload.email_verified !== true) || typeof payload.email !== 'string' ||
         payload.firebase?.sign_in_provider !== 'password') return null;
     return { uid: payload.sub };
   } catch { return null; }

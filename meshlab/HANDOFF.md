@@ -1,5 +1,7 @@
 # 项目交接
 
+> 2026-10-28 更新：按网站维护者要求，暂时关闭邮箱验证。注册或邮箱密码登录后即可聊天，不自动发送验证邮件；每账号每日 2 元预算不变。恢复时将 wrangler.jsonc 的 REQUIRE_EMAIL_VERIFICATION 改为 "true" 并重新部署 Worker，前端会自动采用云端策略。以下涉及强制验证的步骤仅在重新开启后适用。
+
 ## 当前版本
 
 本目录为啮合实验室 Apple Design 风格第二版源码。网页由原生 HTML/CSS/JavaScript 和随附 Three.js 构成，无构建步骤。直接编辑 `dist/index.html`、`dist/apple.css`、`dist/apple.js`、`dist/app.js`。旧版配色文件已从此目录清理。

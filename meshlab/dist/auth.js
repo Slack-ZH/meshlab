@@ -2,11 +2,11 @@ import { initializeApp, getAuth, onIdTokenChanged, signInWithEmailAndPassword, c
   sendEmailVerification, sendPasswordResetEmail, signOut, reload, getIdToken } from './assets/firebase-auth.js';
 
 const $ = id => document.getElementById(id);
-let auth, changed = () => {}, mode = 'login', working = false, resendAfter = 0;
+let auth, changed = () => {}, mode = 'login', working = false, resendAfter = 0, requireVerification = true;
 export const currentUser = () => auth?.currentUser || null;
-export const canChat = () => Boolean(currentUser()?.emailVerified);
+export const canChat = () => Boolean(currentUser() && (!requireVerification || currentUser().emailVerified));
 export async function token() {
-  if (!canChat()) throw new Error('请先登录并完成邮箱验证。');
+  if (!canChat()) throw new Error(requireVerification ? '请先登录并完成邮箱验证。' : '请先登录账号。');
   return getIdToken(currentUser());
 }
 const errors = {
@@ -27,14 +27,15 @@ function render() {
   const user = currentUser();
   $('auth-form').hidden = Boolean(user);
   $('auth-switch').hidden = Boolean(user);
-  $('auth-verify').hidden = !user || user.emailVerified;
+  $('auth-verify').hidden = !requireVerification || !user || user.emailVerified;
   $('auth-dialog-logout').hidden = !user;
   $('chat-account-email').textContent = user?.email || '邮箱登录后即可聊天';
-  $('chat-login').textContent = user ? user.emailVerified ? '账号' : '验证邮箱' : '登录 / 注册';
+  $('chat-login').textContent = user ? canChat() ? '账号' : '验证邮箱' : '登录 / 注册';
   if (!user) $('chat-budget').textContent = '每账号每天 2 元 · 北京时间零点重置';
-  else if (!user.emailVerified) $('chat-budget').textContent = '请打开验证邮件，再点击“我已验证”';
-  $('auth-title').textContent = user ? user.emailVerified ? '账号已登录' : '验证你的邮箱' : mode === 'login' ? '邮箱登录' : '创建账号';
-  $('auth-submit').textContent = mode === 'login' ? '登录' : '注册并发送验证邮件';
+  else if (!canChat()) $('chat-budget').textContent = '请打开验证邮件，再点击“我已验证”';
+  $('auth-title').textContent = user ? canChat() ? '账号已登录' : '验证你的邮箱' : mode === 'login' ? '邮箱登录' : '创建账号';
+  $('auth-submit').textContent = mode === 'login' ? '登录' : requireVerification ? '注册并发送验证邮件' : '注册并开始聊天';
+  document.querySelector('.auth-intro').textContent = `${requireVerification ? '登录并验证邮箱后' : '注册或登录后即可聊天'}，每个账号每天可使用 2 元 AI 预算，北京时间零点重置。`;
   $('auth-confirm-wrap').hidden = mode !== 'signup';
   $('auth-confirm').required = mode === 'signup';
   $('auth-password').autocomplete = mode === 'signup' ? 'new-password' : 'current-password';
@@ -56,7 +57,8 @@ export function authUnavailable() {
   $('chat-login').disabled = true;
   $('chat-budget').textContent = '邮箱登录服务暂不可用，请刷新重试。';
 }
-export function initAuth(config, onChange) {
+export function initAuth(config, onChange, requiresEmailVerification = true) {
+  requireVerification = requiresEmailVerification !== false;
   changed = onChange;
   auth = getAuth(initializeApp(config)); auth.languageCode = 'zh-CN';
   onIdTokenChanged(auth, user => { render(); changed(user); });
@@ -76,8 +78,10 @@ $('auth-form').addEventListener('submit', async event => {
     const email = $('auth-email').value.trim(), password = $('auth-password').value;
     if (mode === 'signup') {
       const result = await createUserWithEmailAndPassword(auth, email, password);
-      await sendEmailVerification(result.user); resendAfter = Date.now() + 60000;
-      feedback('验证邮件已发送，请检查收件箱和垃圾邮件。完成后点击“我已验证”。');
+      if (requireVerification) {
+        await sendEmailVerification(result.user); resendAfter = Date.now() + 60000;
+        feedback('验证邮件已发送，请检查收件箱和垃圾邮件。完成后点击“我已验证”。');
+      } else $('auth-dialog').close();
     } else {
       await signInWithEmailAndPassword(auth, email, password);
       if (canChat()) $('auth-dialog').close();

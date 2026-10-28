@@ -1,5 +1,7 @@
 # meshlab · 啮合实验室
 
+> 2026-10-28 更新：按网站维护者要求，暂时关闭邮箱验证。注册或邮箱密码登录后即可聊天，不自动发送验证邮件；每账号每日 2 元预算不变。恢复时将 wrangler.jsonc 的 REQUIRE_EMAIL_VERIFICATION 改为 "true" 并重新部署 Worker，前端会自动采用云端策略。以下涉及强制验证的步骤仅在重新开启后适用。
+
 两级斜齿减速器的三维交互教学网站，当前版本为 Apple Design 风格第二版。原生 HTML/CSS/JavaScript + Three.js，静态部署即可运行，无需 Node 构建。
 
 ## 功能

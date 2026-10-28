@@ -12,6 +12,7 @@
   "vars": {
     "ALLOWED_ORIGINS": "https://slack-zh.github.io",
     "DEEPSEEK_MODEL": "deepseek-flash",
-    "FIREBASE_PROJECT_ID": "meshlab-680d9"
+    "FIREBASE_PROJECT_ID": "meshlab-680d9",
+    "REQUIRE_EMAIL_VERIFICATION": "false"
   }
 }

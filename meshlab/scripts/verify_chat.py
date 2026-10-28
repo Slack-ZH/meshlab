@@ -8,6 +8,7 @@ shots = root / 'test-results/previews'
 shots.mkdir(parents=True, exist_ok=True)
 base = os.environ.get('MESHLAB_BASE_URL', 'http://127.0.0.1:8080/')
 live = False
+require_verification = os.environ.get('MESHLAB_REQUIRE_EMAIL_VERIFICATION') == 'true'
 def sse(text):
     return 'data: ' + json.dumps({'choices': [{'delta': {'content': text}, 'finish_reason': 'stop'}]}) + '\n\ndata: [DONE]\n\n'
 
@@ -16,7 +17,7 @@ with sync_playwright() as p:
                                 headless=True, args=['--no-sandbox', '--enable-unsafe-swiftshader'])
     page = browser.new_page(viewport={'width': 1440, 'height': 1050}, reduced_motion='reduce')
     page.route('**/assets/firebase-auth.js', lambda r: r.fulfill(content_type='text/javascript', body=(root/'scripts/fixtures/firebase-auth.js').read_text(encoding='utf8')))
-    page.route('**/api/health', lambda r: r.fulfill(json={'ready': True, 'requiresLogin': True}))
+    page.route('**/api/health', lambda r: r.fulfill(json={'ready': True, 'requiresLogin': True, 'requiresEmailVerification': require_verification}))
     page.route('**/api/account', lambda r: r.fulfill(json={'usedCny': .04, 'remainingCny': 1.96, 'limitCny': 2}))
     errors, requests, answers = [], [], []
     page.on('pageerror', lambda e: errors.append(str(e)))
@@ -36,10 +37,14 @@ with sync_playwright() as p:
     expect(page.locator('#auth-message')).to_contain_text('不一致')
     page.locator('#auth-confirm').fill('test-password-123')
     page.locator('#auth-submit').click()
-    expect(page.locator('#auth-verify')).to_be_visible()
-    expect(page.locator('#chat-send')).to_be_disabled()
-    page.evaluate('window.__emailVerified = true')
-    page.locator('#auth-refresh').click()
+    if require_verification:
+        expect(page.locator('#auth-verify')).to_be_visible()
+        expect(page.locator('#chat-send')).to_be_disabled()
+        page.evaluate('window.__emailVerified = true')
+        page.locator('#auth-refresh').click()
+    else:
+        expect(page.locator('#auth-verify')).not_to_be_visible()
+        assert not page.evaluate('Boolean(window.__verificationSent)'), 'Registration must not send verification mail while disabled'
     expect(page.locator('#auth-dialog')).not_to_be_visible()
     expect(page.locator('#chat-budget')).to_contain_text('0.040')
     page.evaluate("window.__gearLab.select('input')")

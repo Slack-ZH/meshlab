@@ -80,7 +80,7 @@ test('cancelling a response frees a concurrent request slot', async () => {
 });
 test('deployed Worker is fail-closed without secrets and requires authentication', async () => {
   const health = await worker.fetch(new Request('https://example.workers.dev/api/health'), {});
-  assert.deepEqual(await health.json(), { ready: false, provider: 'DeepSeek', requiresLogin: true, dailyLimitCny: 2 });
+  assert.deepEqual(await health.json(), { ready: false, provider: 'DeepSeek', requiresLogin: true, requiresEmailVerification: true, dailyLimitCny: 2 });
   assert.equal((await worker.fetch(request(), { ALLOWED_ORIGINS: env.ALLOWED_ORIGINS })).status, 503);
   assert.equal((await worker.fetch(request(), env)).status, 401);
   const preflight = await worker.fetch(new Request('https://example.workers.dev/api/chat', { method: 'OPTIONS', headers: { Origin: env.ALLOWED_ORIGINS } }), env);

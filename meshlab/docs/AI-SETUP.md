@@ -1,5 +1,7 @@
 # 邮箱登录与 DeepSeek 聊天
 
+> 2026-10-28 更新：按网站维护者要求，暂时关闭邮箱验证。注册或邮箱密码登录后即可聊天，不自动发送验证邮件；每账号每日 2 元预算不变。恢复时将 wrangler.jsonc 的 REQUIRE_EMAIL_VERIFICATION 改为 "true" 并重新部署 Worker，前端会自动采用云端策略。以下涉及强制验证的步骤仅在重新开启后适用。
+
 网页部署在 GitHub Pages，聊天由 Cloudflare Worker 提供。Firebase 邮箱密码登录后，必须验证邮箱才能使用 AI。DeepSeek 密钥仅保存在服务端。
 
 ## 使用

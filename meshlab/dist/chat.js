@@ -205,7 +205,7 @@ async function connect() {
       accountRevision++;
       notice(canChat() ? '' : user ? '验证邮箱后即可聊天。' : '登录后即可聊天，每账号每天最多 2 元。');
       updateButtons(); void refreshBudget();
-    });
+    }, health.requiresEmailVerification);
   } catch (error) {
     ready = false; authUnavailable();
     $('chat-connection').textContent = 'DeepSeek · 暂未连接';
