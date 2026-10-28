@@ -4,12 +4,18 @@
   "type": "module",
   "scripts": {
     "start": "node --env-file-if-exists=.env server/local.mjs",
-    "test": "node --test scripts/test-chat.mjs",
+    "test": "node --test scripts/test-chat.mjs scripts/test-budget.mjs scripts/test-auth.mjs",
+    "build:auth": "node scripts/build-auth.mjs",
     "worker:check": "wrangler deploy --dry-run --outdir test-results/worker-bundle",
     "worker:login": "wrangler login",
     "worker:deploy": "wrangler deploy"
   },
   "devDependencies": {
+    "esbuild": "0.28.2",
     "wrangler": "4.153.0"
+  },
+  "dependencies": {
+    "firebase": "13.1.0",
+    "jose": "6.2.13"
   }
 }

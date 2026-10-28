@@ -30,7 +30,8 @@
 - 2026-10-28 Cloudflare 后端已部署：`https://meshlab-chat.meshlab-chat.workers.dev/api`。9 项 API 测试及云端真实问答、跨域预检、无口令拦截通过。已修复 Workers 不支持 `redirect:error` 的兼容问题，使用 manual 并拒绝上游跳转。
 - 前端通过 GitHub Pages 工作流发布。运行与部署见 `docs/AI-SETUP.md`，开发阶段见 `docs/AI-ROADMAP.md`。
 - 密钥由 `server/` 读取环境变量，不得放进静态网页、版本库或聊天消息。暂未增加 AI 控制模型的执行接口。
-- `.env.worker-secrets.json` 与 `.chat-access-code.txt` 为本机私有文件，已加入忽略规则；前者含部署 Secret，后者仅用于复制网页访问口令。任何公网部署都必须使用 `server/worker.mjs` 入口，不能打开本地免口令模式。
+- 2026-10-28 改为 Firebase 邮箱密码登录，验证邮箱后可聊天；按 Firebase UID 在 Cloudflare Durable Object SQLite 中统计每日 2 元预算，北京时间零点重置。价格和未知用量按保守规则核算，详见 `docs/AI-SETUP.md`。
+- `.env.worker-secrets.json` 为本机私有文件，仅保留 DeepSeek 部署密钥；旧访问口令文件和云端 Secret 已移除。公网部署必须使用 `server/worker.mjs` 入口；本地预览同样代理云端认证和预算。
 
 ## 资源边界
 

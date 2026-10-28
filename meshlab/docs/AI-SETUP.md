@@ -1,88 +1,71 @@
-# DeepSeek 本地聊天
+# 邮箱登录与 DeepSeek 聊天
 
-本地问答已经验证。Cloudflare 部署入口已准备，GitHub Pages 托管静态网页，Cloudflare Worker 提供聊天 API；发布前通过 `scripts/verify-cloud.mjs` 检查线上连通性。
+网页部署在 GitHub Pages，聊天由 Cloudflare Worker 提供。Firebase 邮箱密码登录后，必须验证邮箱才能使用 AI。DeepSeek 密钥仅保存在服务端。
 
-## 启动
+## 使用
 
-需要 Node.js 22 或更新版本。本次验证使用 Node.js 24。
+点击 AI 助手下方“登录 / 注册”，注册后打开验证邮件，再回到网页点击“我已验证”。支持退出登录、重新发送验证邮件和重置密码。选中三维零件后提问会自动附带该零件资料；Enter 发送，Shift+Enter 换行。
 
-1. 在 `meshlab/`（含 `dist/`、`server/` 的目录）打开终端。
-2. 如果终端已有 `DEEPSEEK_API_KEY` 环境变量，直接启动；否则将 `.env.example` 复制为 `.env`，在本机编辑器中填入密钥。不要把密钥发到聊天或写进 `dist/`。
-3. 运行：
+对话保留在当前页面内存中；刷新、退出或切换账号会清空。可以连续追问、停止、重试和新建对话。当前 AI 只提供文字回答，尚未执行三维操作或工程仿真。
+
+## 每账号每日 2 元
+
+- 按 Firebase 项目和已验证账号 UID 分别统计，Cloudflare Durable Object SQLite 持久保存，跨设备和服务重启共享预算。
+- 北京时间零点重置；跨零点的请求计入开始当天。
+- 先原子预留本次输入和最大输出的保守成本，再按服务端返回的 token 用量结算；同时请求不能绕过预留。剩余预算不足以容纳本次预留时会提前拒绝。
+- 当前固定模型 deepseek-flash，按 2026-10-28 核对的高峰未缓存输入价 2 元/百万 token、输出价 8 元/百万 token 统计，不计缓存和低谷优惠。因此网页预算可能高于 DeepSeek 实际账单。
+- 停止、断网或上游缺少完整用量时保留预留金额，避免未知消费被误退。生成中金额也显示在“今日预算占用”中。
+- 每账号每分钟最多 12 次、同时最多 2 次，最大输出 2048 token。更换模型前必须更新计价规则，未配置价格的模型拒绝调用。
+- 这是每个登录账号的应用预算。所有账号的实际费用仍由网站维护者的 DeepSeek API 账号承担，不是整个 API 账号每天总共 2 元；多个邮箱也是多个账号。
+
+价格依据：[DeepSeek 官方价格](https://api-docs.deepseek.com/zh-cn/quick_start/pricing)。后续调价应同步修改 server/budget.mjs，保守预留不是供应商侧账单硬限额。
+
+## 本地预览
+
+需要 Node.js 22+，在本目录运行：
 
 ```powershell
 node --env-file-if-exists=.env server/local.mjs
 ```
 
-打开终端显示的地址，默认 `http://127.0.0.1:8080`。关闭服务终端会停止聊天。当前演示服务使用 8787 端口；重启同一地址可先设置 `$env:PORT='8787'`。
+默认打开 http://127.0.0.1:8080，可通过 PORT 修改端口。服务只监听本机。本地 /api 代理到 dist/chat-config.json 指定的云端，使用同一邮箱登录和预算，不提供绕过计费的本地入口。无需在本机配置 DeepSeek 密钥。
 
-如果本机必须通过代理访问 DeepSeek，在同一个终端设置已有代理（以下端口仅为示例），再使用 Node.js 24 的代理开关：
+若本机需要使用已有代理，可在同一终端设置 HTTPS_PROXY、NO_PROXY=localhost,127.0.0.1，以 Node.js 24 的 --use-env-proxy 参数启动。不需要修改系统代理。
 
-```powershell
-$env:HTTPS_PROXY='http://127.0.0.1:7890'
-$env:NO_PROXY='localhost,127.0.0.1'
-node --use-env-proxy --env-file-if-exists=.env server/local.mjs
-```
+## Firebase 配置
 
-不要为此修改系统代理。服务器只监听 `127.0.0.1`，不对局域网开放。密钥由后端读取；浏览器仅访问本机 `/api/chat`，不会收到密钥。
+当前项目 meshlab-680d9 使用免费 Spark 方案。Authentication 中启用 Email/Password；Authorized domains 添加 slack-zh.github.io，本地测试可添加 localhost 和 127.0.0.1。前端公开配置位于 dist/chat-config.json，其中 Firebase Web API Key 是客户端项目配置，不是 DeepSeek 密钥或 Firebase 管理员私钥。
 
-## 使用
+后端验证 ID token 签名、项目、签发者、时间、账号 UID、邮箱已验证标记以及密码登录方式。浏览器提交的 UID 或金额不参与授权或计价。没有管理员服务账号密钥。
 
-- 选中三维零件，再在右侧 AI 助手提问，发送时会附带该零件的资料。
-- 可以连续追问、停止回复、失败后重试、开始新对话。
-- Enter 发送，Shift+Enter 换行；中文输入法选词时不会误发送。
-- “零件解读”保留原说明、外壳显示选项和朗读功能。
-- 对话只保留在当前页面内存中，刷新即清空。上下文最多保留最近十轮，并按长度缩短；较早的聊天记录可能仍显示，但不再发送给模型。
-- 当前 AI 只能文字问答。模型播放、展开、拆装仍由网页按钮控制。
-
-默认模型 `deepseek-flash`，在服务端环境变量 `DEEPSEEK_MODEL` 中修改。接口依据 [DeepSeek 官方文档](https://api-docs.deepseek.com/api/create-chat-completion)，固定请求 `https://api.deepseek.com/chat/completions`，关闭思考模式以缩短交互等待时间。实际请求使用你的 API 账户额度。
-
-## 文件与接口
-
-| 文件 | 用途 |
-| --- | --- |
-| `dist/chat.js`、`chat.css` | 聊天面板、上下文、流式回复和交互 |
-| `dist/chat-stream.js` | 解析 SSE 的可见回答内容 |
-| `dist/chat-config.json` | 公开后端地址；禁止填写密钥 |
-| `server/local.mjs` | 本机网页和 API 服务，无第三方运行依赖 |
-| `server/chat-api.mjs` | 校验消息、补充模型资料、调用 DeepSeek |
-
-- `GET /api/health`：报告是否配置完成，不代表已验证余额或密钥有效性。
-- `POST /api/chat`：请求 `{ "messages": [{ "role": "user", "content": "这个零件的作用？", "selectedPartId": "input" }] }`，响应为 SSE。
-- 历史消息按 user/assistant 交替排列；客户端不能提交 system/tool 消息。选中零件的资料从服务端已有模型文件取得。
-- 单问题最多 2000 字符；请求体最多 128 KiB；单实例每分钟 12 次、同时最多 2 个请求，65 秒上游超时。
-- 输出作为纯文本显示，不执行 AI 返回的 HTML 或 JavaScript。
-
-## 验证
+## 后端部署
 
 ```powershell
-node --test scripts/test-chat.mjs
-pip install -r requirements-test.txt
-python -m playwright install chromium
-python scripts/verify_browser.py
-python scripts/verify_chat.py
-```
-
-浏览器脚本默认测试 `http://127.0.0.1:8080/`，可设置 `MESHLAB_BASE_URL`。`verify_chat.py` 默认用明确的模拟响应检查界面；设置 `MESHLAB_LIVE_CHAT=1` 才会发送两次真实模型请求。结果和截图位于忽略版本控制的 `test-results/`。
-
-## 下一步：上线
-
-部署配置在 `wrangler.jsonc`，入口为 `server/worker.mjs`。当前后端地址为 `https://meshlab-chat.meshlab-chat.workers.dev/api`，前端配置在 `dist/chat-config.json`。本地服务会覆盖此配置为 `/api`，因此本地问答仍通过本机后端。
-
-部署时须使用平台的 Secret 保存 `DEEPSEEK_API_KEY` 和至少 24 字符的 `CHAT_ACCESS_TOKEN`，设置 `ALLOWED_ORIGINS=https://slack-zh.github.io`。远程调用必须有访问口令，本地模式不可直接用于公网。用户在浏览器输入的是聊天访问口令，不是 DeepSeek 密钥。当前限流仅覆盖单实例；正式多实例服务需要平台层的配额和限流。
-
-安装项目依赖后，部署步骤如下（已锁定 Wrangler 版本，使用 `pnpm install --frozen-lockfile`）：
-
-```powershell
-pnpm worker:check
+pnpm install --frozen-lockfile
 pnpm worker:login
+pnpm exec wrangler secret put DEEPSEEK_API_KEY
 pnpm worker:deploy
 ```
 
-首次部署需设置上述两个 Secret。可以在 Cloudflare 控制台的 Worker → Settings → Variables and Secrets 中添加，也可使用 `pnpm exec wrangler secret put DEEPSEEK_API_KEY` 和 `pnpm exec wrangler secret put CHAT_ACCESS_TOKEN`，在交互提示中输入。Secret 更新会触发部署。
+密钥在终端私密输入，不提交版本库。已有密钥无需重复设置。wrangler.jsonc 指定允许的网页源、Firebase 项目、模型，以及 ACCOUNT_BUDGET SQLite Durable Object。保留其名称和存储，避免重新创建而丢失预算。旧的 CHAT_ACCESS_TOKEN 和口令文件不再使用。
 
-本机此次部署使用忽略版本控制的 `.env.worker-secrets.json`，通过 `wrangler deploy --secrets-file .env.worker-secrets.json` 一次上传代码和 Secret。其中含敏感值，不能上传到 GitHub。`.chat-access-code.txt` 只保存网页访问口令，同样已忽略；可在本机复制后填入网页“聊天访问口令”。不要将 API Key 填入网页。
+网页由仓库根目录 .github/workflows/pages.yml 发布 meshlab/dist/。认证 SDK 已打包进 dist/assets/firebase-auth.js；更新 Firebase 依赖后运行 pnpm build:auth 并提交生成文件。SDK 授权声明保留在 bundle 中。
 
-部署后先执行 `node scripts/verify-cloud.mjs` 检查 HTTPS、跨域及未授权拦截。加 `--live` 会发送一次真实请求，使用 DeepSeek API 额度。需要本机代理时使用 Node.js 的 `--use-env-proxy`。新域名必须通过 HTTPS 验证，才更新发布前端。
+## 接口与验证
 
-依据：[Cloudflare 部署指南](https://developers.cloudflare.com/workers/get-started/guide/)、[Secret 配置](https://developers.cloudflare.com/workers/configuration/secrets/)。
+- GET /api/health：是否配置就绪，不代表 DeepSeek 余额充足。
+- GET /api/account：带 Firebase Bearer ID token，返回当日预算。
+- POST /api/chat：带同一 token，JSON 消息，返回 SSE。最大请求 128 KiB；禁止客户端 system/tool 消息。
+
+```powershell
+pnpm test
+node scripts/test-budget-runtime.mjs
+pnpm worker:check
+node scripts/verify-cloud.mjs
+python scripts/verify_chat.py
+python scripts/verify_browser.py
+```
+
+Python 测试需要 requirements-test.txt 和 Playwright Chromium，先启动本地网页。MESHLAB_BASE_URL 可改地址。聊天 UI 测试明确模拟认证和 AI，不产生付费调用；Workerd 测试使用独立的本地 SQLite 对象，不接触线上预算。verify-cloud.mjs --live 仅在进程环境具备已验证账号的 FIREBASE_ID_TOKEN 时发送一条真实付费问答，不要在聊天中发送 token。
+
+2026-10-28 已通过 17 项 Node 测试、真实 Workerd SQLite 并发/结算/隔离测试及浏览器模拟登录与聊天检查。真实收件箱验证需由邮箱本人完成。

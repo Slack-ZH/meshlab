@@ -1,10 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createChatApi } from '../server/chat-api.mjs';
+import { createChatApi as createRawApi } from '../server/chat-api.mjs';
+import { BudgetLedger, DAILY_LIMIT } from '../server/budget.mjs';
+import { MemoryStorage } from './test-storage.mjs';
 import { readCompletion } from '../dist/chat-stream.js';
 import worker from '../server/worker.mjs';
 
-const env = { DEEPSEEK_API_KEY: 'test-secret-never-real', ALLOWED_ORIGINS: 'http://localhost:8080', CHAT_ACCESS_TOKEN: 'test-access-code-at-least-24-chars' };
+const env = { DEEPSEEK_API_KEY: 'test-secret-never-real', ALLOWED_ORIGINS: 'http://localhost:8080', FIREBASE_PROJECT_ID: 'test-project', ACCOUNT_BUDGET: {} };
+const createChatApi = (options = {}) => createRawApi({ budget: new BudgetLedger(new MemoryStorage(), options.now), ...options });
 const event = data => `data: ${JSON.stringify(data)}\r\n\r\n`;
 const completion = text => event({ choices: [{ delta: { content: text }, finish_reason: 'stop' }] }) + 'data: [DONE]\r\n\r\n';
 const request = (messages = [{ role: 'user', content: '解释输入轴', selectedPartId: 'input' }], headers = {}) => new Request('http://localhost:8080/api/chat', {
@@ -53,10 +56,9 @@ test('reject untrusted origins, client system roles and oversized bodies before 
   assert.equal((await api(request([{ role: 'user', content: 'a'.repeat(140000) }]), env)).status, 413);
   assert.equal((await api(request(), {})).status, 403);
 });
-test('public handler requires access code and sanitizes provider failures', async () => {
+test('provider failures are sanitized', async () => {
   const api = createChatApi({ fetchImpl: async () => new Response('test-secret-never-real', { status: 401 }) });
-  assert.equal((await api(request(), env)).status, 401);
-  const response = await api(request(undefined, { 'X-Chat-Token': env.CHAT_ACCESS_TOKEN }), env);
+  const response = await api(request(), env);
   assert.equal(response.status, 502);
   const text = await response.text(); assert.match(text, /UPSTREAM_AUTH/); assert.ok(!text.includes(env.DEEPSEEK_API_KEY));
 });
@@ -78,10 +80,27 @@ test('cancelling a response frees a concurrent request slot', async () => {
 });
 test('deployed Worker is fail-closed without secrets and requires authentication', async () => {
   const health = await worker.fetch(new Request('https://example.workers.dev/api/health'), {});
-  assert.deepEqual(await health.json(), { ready: false, provider: 'DeepSeek', requiresAccessCode: true });
+  assert.deepEqual(await health.json(), { ready: false, provider: 'DeepSeek', requiresLogin: true, dailyLimitCny: 2 });
   assert.equal((await worker.fetch(request(), { ALLOWED_ORIGINS: env.ALLOWED_ORIGINS })).status, 503);
   assert.equal((await worker.fetch(request(), env)).status, 401);
   const preflight = await worker.fetch(new Request('https://example.workers.dev/api/chat', { method: 'OPTIONS', headers: { Origin: env.ALLOWED_ORIGINS } }), env);
   assert.equal(preflight.status, 204);
-  assert.match(preflight.headers.get('Access-Control-Allow-Headers'), /X-Chat-Token/);
+  assert.match(preflight.headers.get('Access-Control-Allow-Headers'), /Authorization/);
+});
+
+test('exhausted account never reaches the paid provider', async () => {
+  const budget = new BudgetLedger(new MemoryStorage());
+  const ticket = await budget.reserve(DAILY_LIMIT); await budget.settle(ticket, DAILY_LIMIT);
+  let called = false;
+  const api = createChatApi({ budget, fetchImpl: async () => { called = true; return streamResponse('no'); } });
+  const response = await api(request(), env);
+  assert.equal(response.status, 429); assert.equal((await response.json()).code, 'DAILY_BUDGET_EXCEEDED');
+  assert.equal(called, false);
+});
+test('terminal usage is settled before DONE reaches the browser', async () => {
+  const budget = new BudgetLedger(new MemoryStorage());
+  const body = event({ choices: [{ delta: { content: '正常' }, finish_reason: null }] }) + event({ choices: [{ delta: {}, finish_reason: 'stop' }], usage: { prompt_tokens: 1000, completion_tokens: 100 } }) + 'data: [DONE]\n\n';
+  const api = createChatApi({ budget, fetchImpl: async () => new Response(body, { headers: { 'Content-Type': 'text/event-stream' } }) });
+  await readCompletion((await api(request(), env)).body, () => {});
+  assert.equal((await budget.status()).usedCny, 0.0028);
 });

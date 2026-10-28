@@ -7,8 +7,11 @@
   "preview_urls": false,
   "send_metrics": false,
   "observability": { "enabled": false },
+  "durable_objects": { "bindings": [{ "name": "ACCOUNT_BUDGET", "class_name": "AccountBudget" }] },
+  "exports": { "AccountBudget": { "type": "durable-object", "storage": "sqlite" } },
   "vars": {
     "ALLOWED_ORIGINS": "https://slack-zh.github.io",
-    "DEEPSEEK_MODEL": "deepseek-flash"
+    "DEEPSEEK_MODEL": "deepseek-flash",
+    "FIREBASE_PROJECT_ID": "meshlab-680d9"
   }
 }

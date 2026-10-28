@@ -1,4 +1,5 @@
 import model from '../dist/assets/model.json' with { type: 'json' };
+import { BudgetError, MAX_OUTPUT_TOKENS, reserveCost, UsageTracker } from './budget.mjs';
 
 const MAX_BODY_BYTES = 131072;
 const parts = new Map(model.parts.map(part => [part.id, part]));
@@ -14,9 +15,7 @@ class ChatError extends Error {
   constructor(status, code, message) { super(message); this.status = status; this.code = code; }
 }
 
-export function createChatApi({ local = false, fetchImpl = fetch, now = Date.now } = {}) {
-  // One process/isolate guard. Public deployments also require a shared access code.
-  let timestamps = [], activeRequests = 0;
+export function createChatApi({ budget, fetchImpl = fetch } = {}) {
   return async function handle(request, env = {}) {
     const origin = request.headers.get('Origin');
     const allowed = (env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean);
@@ -24,35 +23,34 @@ export function createChatApi({ local = false, fetchImpl = fetch, now = Date.now
     const headers = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', Vary: 'Origin' };
     if (originAllowed) headers['Access-Control-Allow-Origin'] = origin;
     const json = (body, status = 200) => Response.json(body, { status, headers });
-    const configured = Boolean(env.DEEPSEEK_API_KEY?.trim()) && (local || (env.CHAT_ACCESS_TOKEN?.length >= 24));
+    const configured = Boolean(env.DEEPSEEK_API_KEY?.trim()) && Boolean(budget);
     const path = new URL(request.url).pathname.replace(/\/$/, '');
     try {
-      if (!['/api/health', '/api/chat'].includes(path)) throw new ChatError(404, 'NOT_FOUND', '接口不存在。');
+      if (!['/api/health', '/api/account', '/api/chat'].includes(path)) throw new ChatError(404, 'NOT_FOUND', '接口不存在。');
       if (origin && !originAllowed) throw new ChatError(403, 'ORIGIN_DENIED', '当前网站未获准连接聊天服务。');
       if (request.method === 'OPTIONS') {
         if (!originAllowed) throw new ChatError(403, 'ORIGIN_DENIED', '来源未获准。');
         return new Response(null, { status: 204, headers: { ...headers,
           'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, X-Chat-Token', 'Access-Control-Max-Age': '600' } });
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Max-Age': '600' } });
       }
       if (path === '/api/health' && request.method === 'GET') {
-        return json({ ready: configured, provider: 'DeepSeek', requiresAccessCode: !local });
+        return json({ ready: configured, provider: 'DeepSeek', requiresLogin: true, dailyLimitCny: 2 });
       }
+      if (path === '/api/account' && request.method === 'GET' && configured) return json(await budget.status());
       if (path !== '/api/chat' || request.method !== 'POST') throw new ChatError(405, 'METHOD_NOT_ALLOWED', '请求方式不支持。');
       if (!configured) throw new ChatError(503, 'NOT_CONFIGURED', 'DeepSeek 服务尚未配置完成。');
-      if (!local && !(await sameToken(request.headers.get('X-Chat-Token') || '', env.CHAT_ACCESS_TOKEN))) {
-        throw new ChatError(401, 'ACCESS_DENIED', '请输入正确的聊天访问口令。');
-      }
       if (!request.headers.get('Content-Type')?.toLowerCase().startsWith('application/json')) {
         throw new ChatError(415, 'INVALID_TYPE', '请使用 JSON 格式发送问题。');
       }
       const payload = await readJson(request);
       const messages = validateMessages(payload);
-      timestamps = timestamps.filter(t => now() - t < 60000);
-      if (timestamps.length >= 12 || activeRequests >= 2) throw new ChatError(429, 'RATE_LIMITED', '提问较频繁，请稍等片刻再试。');
-      timestamps.push(now());
-      activeRequests++;
-      let release = () => { activeRequests--; release = () => {}; };
+      const modelName = env.DEEPSEEK_MODEL || 'deepseek-flash';
+      const prompt = [{ role: 'system', content: SYSTEM }, ...messages];
+      const ticket = await budget.reserve(reserveCost(prompt, modelName));
+      const usage = new UsageTracker();
+      let settlement;
+      const settle = (amount = null) => settlement ||= budget.settle(ticket, amount);
       try {
         const signal = AbortSignal.any([request.signal, AbortSignal.timeout(65000)]);
         const upstream = await fetchImpl('https://api.deepseek.com/chat/completions', {
@@ -60,12 +58,13 @@ export function createChatApi({ local = false, fetchImpl = fetch, now = Date.now
           // Reject 3xx below so credentials never follow an upstream redirect.
           method: 'POST', signal, redirect: 'manual',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.DEEPSEEK_API_KEY.trim()}` },
-          body: JSON.stringify({ model: env.DEEPSEEK_MODEL || 'deepseek-flash',
-            messages: [{ role: 'system', content: SYSTEM }, ...messages],
-            thinking: { type: 'disabled' }, stream: true, max_tokens: 2048, temperature: 0.5 })
+          body: JSON.stringify({ model: modelName, messages: prompt,
+            thinking: { type: 'disabled' }, stream: true, stream_options: { include_usage: true },
+            max_tokens: MAX_OUTPUT_TOKENS, temperature: 0.5 })
         });
         if (!upstream.ok) {
           await upstream.body?.cancel();
+          if ([400, 401, 402, 429].includes(upstream.status)) await settle(0);
           const errors = {
             401: ['UPSTREAM_AUTH', 'DeepSeek 密钥验证失败，请联系网站维护者。'],
             402: ['UPSTREAM_BALANCE', 'DeepSeek 账户余额不足，请联系网站维护者。'],
@@ -83,36 +82,30 @@ export function createChatApi({ local = false, fetchImpl = fetch, now = Date.now
           async pull(controller) {
             try {
               const { done, value } = await reader.read();
-              if (done) { controller.close(); release(); }
-              else controller.enqueue(value);
-            } catch (error) { controller.error(error); release(); }
+              if (done) { await settle(usage.done ? usage.cost : null); controller.close(); }
+              else {
+                usage.push(value);
+                if (usage.done) await settle(usage.cost);
+                controller.enqueue(value);
+              }
+            } catch (error) { await settle(); controller.error(error); }
           },
-          async cancel(reason) { try { await reader.cancel(reason); } finally { release(); } }
+          async cancel(reason) { try { await reader.cancel(reason); } finally { await settle(usage.done ? usage.cost : null); } }
         });
         return new Response(stream, { headers: { ...headers, 'Content-Type': 'text/event-stream; charset=utf-8' } });
-      } catch (error) { release(); throw error; }
+      } catch (error) { await settle(); throw error; }
     } catch (error) {
-      if (error instanceof ChatError) return json({ code: error.code, message: error.message }, error.status);
+      if (error instanceof ChatError || error instanceof BudgetError) return json({ code: error.code, message: error.message }, error.status);
       if (['TimeoutError', 'AbortError'].includes(error.name)) return json({ code: 'TIMEOUT', message: '等待 AI 回复超时，请重试。' }, 504);
       // Record a short, redacted runtime diagnostic; never return it to clients.
       let diagnostic = String(error.message || error.name || 'unknown');
-      for (const secret of [env.DEEPSEEK_API_KEY, env.CHAT_ACCESS_TOKEN]) {
+      for (const secret of [env.DEEPSEEK_API_KEY, request.headers.get('Authorization')]) {
         if (secret) diagnostic = diagnostic.split(secret).join('[redacted]');
       }
       console.error('CHAT_RUNTIME_ERROR', error.name, diagnostic.slice(0, 200));
       return json({ code: 'SERVICE_ERROR', message: '暂时无法连接 AI，请稍后重试。' }, 502);
     }
   };
-}
-
-async function sameToken(value, expected) {
-  if (!value || value.length > 256) return false;
-  const encode = s => new TextEncoder().encode(s);
-  const [a, b] = await Promise.all([value, expected].map(s => crypto.subtle.digest('SHA-256', encode(s))));
-  const left = new Uint8Array(a), right = new Uint8Array(b);
-  let different = 0;
-  for (let i = 0; i < left.length; i++) different |= left[i] ^ right[i];
-  return different === 0;
 }
 
 async function readJson(request) {

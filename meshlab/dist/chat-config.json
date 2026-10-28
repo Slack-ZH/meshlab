@@ -1,3 +1,8 @@
 {
-  "apiBase": "https://meshlab-chat.meshlab-chat.workers.dev/api"
+  "apiBase": "https://meshlab-chat.meshlab-chat.workers.dev/api",
+  "firebase": {
+    "apiKey": "AIzaSyDFf1UER4k0pDo0EwO1uoektW27q0pF-t0",
+    "authDomain": "meshlab-680d9.firebaseapp.com",
+    "projectId": "meshlab-680d9"
+  }
 }

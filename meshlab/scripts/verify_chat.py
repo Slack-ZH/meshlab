@@ -1,4 +1,4 @@
-"""Chat UI checks. Set MESHLAB_LIVE_CHAT=1 to make two real provider requests."""
+"""Chat and email-login UI checks using explicitly mocked identity/provider services."""
 from pathlib import Path
 import json, os, shutil
 from playwright.sync_api import sync_playwright, expect
@@ -7,7 +7,7 @@ root = Path(__file__).resolve().parents[1]
 shots = root / 'test-results/previews'
 shots.mkdir(parents=True, exist_ok=True)
 base = os.environ.get('MESHLAB_BASE_URL', 'http://127.0.0.1:8080/')
-live = os.environ.get('MESHLAB_LIVE_CHAT') == '1'
+live = False
 def sse(text):
     return 'data: ' + json.dumps({'choices': [{'delta': {'content': text}, 'finish_reason': 'stop'}]}) + '\n\ndata: [DONE]\n\n'
 
@@ -15,12 +15,33 @@ with sync_playwright() as p:
     browser = p.chromium.launch(executable_path=os.environ.get('CHROMIUM_PATH') or shutil.which('chromium') or None,
                                 headless=True, args=['--no-sandbox', '--enable-unsafe-swiftshader'])
     page = browser.new_page(viewport={'width': 1440, 'height': 1050}, reduced_motion='reduce')
+    page.route('**/assets/firebase-auth.js', lambda r: r.fulfill(content_type='text/javascript', body=(root/'scripts/fixtures/firebase-auth.js').read_text(encoding='utf8')))
+    page.route('**/api/health', lambda r: r.fulfill(json={'ready': True, 'requiresLogin': True}))
+    page.route('**/api/account', lambda r: r.fulfill(json={'usedCny': .04, 'remainingCny': 1.96, 'limitCny': 2}))
     errors, requests, answers = [], [], []
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.on('request', lambda r: requests.append(r.post_data_json) if r.url.endswith('/api/chat') else None)
     page.goto(base, wait_until='networkidle')
     page.wait_for_function('window.__gearLab?.getState().ready')
     expect(page.locator('#chat-connection')).to_contain_text('服务已连接')
+    assert page.locator('#chat-access-code').count() == 0
+    page.locator('#chat-input').fill('未登录不能发送')
+    expect(page.locator('#chat-send')).to_be_disabled()
+    page.locator('#chat-login').click()
+    page.locator('#auth-mode-signup').click()
+    page.locator('#auth-email').fill('test@example.com')
+    page.locator('#auth-password').fill('test-password-123')
+    page.locator('#auth-confirm').fill('does-not-match')
+    page.locator('#auth-submit').click()
+    expect(page.locator('#auth-message')).to_contain_text('不一致')
+    page.locator('#auth-confirm').fill('test-password-123')
+    page.locator('#auth-submit').click()
+    expect(page.locator('#auth-verify')).to_be_visible()
+    expect(page.locator('#chat-send')).to_be_disabled()
+    page.evaluate('window.__emailVerified = true')
+    page.locator('#auth-refresh').click()
+    expect(page.locator('#auth-dialog')).not_to_be_visible()
+    expect(page.locator('#chat-budget')).to_contain_text('0.040')
     page.evaluate("window.__gearLab.select('input')")
     expect(page.locator('#chat-context-part')).to_contain_text('输入')
     page.locator('#chat-context-part').click()

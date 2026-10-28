@@ -38,9 +38,24 @@
 .chat-compose-actions small { color: var(--secondary); font-size: .6875rem; }
 .chat-send, .chat-stop { min-height: 44px; min-width: 64px; border-radius: 14px; padding: 10px 14px; font-size: .875rem; background: var(--accent-fill); color: var(--on-accent); }
 .chat-stop { background: var(--soft); color: var(--text); }
-.chat-access { padding: 8px 18px 12px; border-top: 1px solid var(--line); font-size: .8125rem; }
-.chat-access summary { cursor: pointer; min-height: 36px; align-content: center; }
-.chat-access input { width: 100%; margin-top: 6px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 9px; background: var(--surface); }
+.chat-account { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-top: 1px solid var(--line); font-size: .75rem; }
+.chat-account > div { flex: 1; min-width: 0; }
+#chat-account-email { overflow-wrap: anywhere; }
+#chat-budget { color: var(--secondary); margin-top: 3px; }
+#chat-login { min-height: 44px; border-radius: 12px; color: var(--accent); background: var(--selected); padding: 7px 10px; flex-shrink: 0; }
+.auth-dialog { width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; border: 1px solid var(--line); border-radius: 24px; padding: 24px; color: var(--text); background: var(--surface); }
+.auth-dialog::backdrop { background: #0007; backdrop-filter: blur(4px); }
+.auth-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.auth-heading h2 { font-size: 1.25rem; }
+#auth-close { width: 44px; height: 44px; border-radius: 50%; font-size: 1.5rem; background: var(--soft); }
+.auth-intro, #auth-message, #auth-verify p { color: var(--secondary); font-size: .875rem; line-height: 1.8; margin: 12px 0; overflow-wrap: anywhere; }
+.auth-switch { display: flex; gap: 6px; background: var(--soft); border-radius: 14px; padding: 4px; margin: 18px 0; }
+.auth-switch button { flex: 1; min-height: 44px; border-radius: 11px; background: transparent; }
+.auth-switch button[aria-pressed=true] { background: var(--surface); }
+.auth-dialog label { display: block; font-size: .875rem; margin-top: 13px; }
+.auth-dialog input { display: block; width: 100%; min-height: 44px; font-size: 1rem; padding: 10px; margin-top: 6px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); }
+.auth-primary { width: 100%; min-height: 44px; border-radius: 12px; margin-top: 20px; padding: 10px; color: var(--on-accent); background: var(--accent-fill); }
+.auth-text-button { min-height: 44px; margin-top: 8px; padding: 8px 0; background: transparent; color: var(--accent); font-size: .875rem; }
 .chat-input-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (max-width: 1200px) and (min-width: 1001px) { .workspace { grid-template-columns: minmax(0, 1fr) 320px; } .control-deck { flex-wrap: wrap; } .motion-controls { width: 100%; border-right: 0; padding: 0; } .motion-controls>div { display: flex; gap: 14px; width: auto; flex: 1; } .motion-controls input { width: 100px; flex: 1; } #free-controls { flex-basis: 100%; } #viewport { bottom: 180px; } }
 @media (max-width: 1000px) { .workspace { grid-template-columns: 1fr; } .chat-panel { height: 35rem; } }

@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f5f5f7"><meta name="description" content="啮合实验室 meshlab：探索两级斜齿减速器，真实 CAD 零件、交互爆炸视图、传动动画与工程设计资料。"><title>啮合实验室 · meshlab</title><link rel="stylesheet" href="apple.css"><link rel="stylesheet" href="chat.css"><script type="importmap">{"imports":{"three":"./assets/three.module.js","three/addons/controls/OrbitControls.js":"./assets/OrbitControls.js"}}</script></head>
 <body><a class="skip-link" href="#workspace">跳到模型与操作</a>
+<dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+  <div class="auth-heading"><h2 id="auth-title">邮箱登录</h2><button id="auth-close" type="button" aria-label="关闭登录">×</button></div>
+  <p class="auth-intro">登录并验证邮箱后，每个账号每天可使用 2 元 AI 预算，北京时间零点重置。</p>
+  <div id="auth-switch" class="auth-switch"><button id="auth-mode-login" type="button" aria-pressed="true">登录</button><button id="auth-mode-signup" type="button" aria-pressed="false">注册</button></div>
+  <form id="auth-form">
+    <label for="auth-email">邮箱地址</label><input id="auth-email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="auth-password">密码</label><input id="auth-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+    <div id="auth-confirm-wrap" hidden><label for="auth-confirm">再次输入密码</label><input id="auth-confirm" type="password" autocomplete="new-password" maxlength="128"></div>
+    <button id="auth-submit" class="auth-primary" type="submit">登录</button>
+    <button id="auth-reset-password" type="button" class="auth-text-button">忘记密码</button>
+  </form>
+  <div id="auth-verify" hidden><p>请点击验证邮件中的链接，返回后确认验证状态。</p><button id="auth-refresh" class="auth-primary" type="button">我已验证</button><button id="auth-resend" class="auth-text-button" type="button">重新发送验证邮件</button></div>
+  <p id="auth-message" role="status" aria-live="polite"></p>
+  <button id="auth-dialog-logout" class="auth-text-button" type="button" hidden>退出当前账号</button>
+</dialog>
 <header class="topbar"><a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a><nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="principle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>原理</span></button><button class="nav-button" data-tab="engineering"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>资料</span></button></nav><button class="clarity-button" id="clarity-toggle" aria-pressed="false" title="降低界面透明度"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z"/></svg><span>降低透明度</span></button></header>
 <main>
 <section class="intro"><div><p class="intro-kicker">GL16 · 结构实验</p><h1>两级斜齿减速器</h1><p class="intro-copy">从一个零件，理解整条传动链。</p></div><div class="model-tag"><span>16<span class="ratio-divider"> : </span>1</span><p>总传动比</p></div></section>
@@ -24,7 +39,7 @@
       </div>
       <div id="chat-messages" role="log" aria-label="AI 聊天记录" aria-live="off"></div>
     </div>
-    <details id="chat-access" class="chat-access" hidden><summary>输入访问口令</summary><label for="chat-access-code">此聊天服务的访问口令</label><input id="chat-access-code" type="password" autocomplete="off" placeholder="由网站维护者提供"></details>
+    <div class="chat-account"><div><p id="chat-account-email">邮箱登录后即可聊天</p><p id="chat-budget">每账号每天 2 元 · 北京时间零点重置</p></div><button id="chat-login" type="button" disabled>登录 / 注册</button></div>
     <div id="chat-notice" class="chat-notice" role="status" aria-live="polite"><span id="chat-notice-text"></span><button id="chat-retry" class="chat-retry" type="button" hidden>重新发送</button></div>
     <form id="chat-form" class="chat-compose"><label for="chat-input" class="chat-input-label">向 AI 提问</label><textarea id="chat-input" maxlength="2000" rows="2" placeholder="问问当前零件，或描述你的疑问…" aria-describedby="chat-input-hint"></textarea><div class="chat-compose-actions"><small id="chat-input-hint">Enter 发送 · Shift+Enter 换行</small><button id="chat-stop" type="button" class="chat-stop" hidden>停止</button><button id="chat-send" class="chat-send" type="submit" disabled>发送</button></div></form>
   </section><aside class="detail-panel" id="details-pane" role="tabpanel" aria-labelledby="details-tab" hidden><div class="panel-heading"><h2>零件解读</h2><span class="inspect-dot"></span></div><div id="detail-content"><p class="detail-index">01 / GET TO KNOW</p><div class="detail-symbol">⚙</div><h3>每个零件，<br>都有它的任务。</h3><p class="detail-description">点击模型或左侧零件目录，了解名称、材料、参数和它在传动中的作用。</p><div class="tip-box"><b>从这里开始</b><p>选中「输入齿轮轴」，沿动力传递的方向探索整个减速器。</p></div></div><div class="visibility-controls"><div><span>箱体显示</span><select id="housing-mode" aria-label="箱体显示"><option value="open">打开上盖</option><option value="transparent">透明箱体</option><option value="solid">完整箱体</option><option value="hidden">隐藏箱体</option></select></div><label><input type="checkbox" id="labels-toggle"> 显示主要零件标注</label></div></aside></aside>
