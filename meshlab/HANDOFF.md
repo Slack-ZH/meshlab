@@ -24,11 +24,13 @@
 
 ## 托管现状（本次交接时）
 
-- 既有生产地址：https://meshlab-gear.netlify.app
-- 第一版视觉预览：https://glass-preview--meshlab-gear.netlify.app
-- 本目录第二版已经完成本地浏览器检查，但最近发布尝试返回 Netlify Unauthorized，因此未确认发布成功。
-- 用户申请的 meshlab.localhost.cc 曾因 DNS 服务商配额满而未完成配置。
-- 本次上传不包含托管凭据，不创建自动发布工作流。GitHub 存储源码与线上部署是两个独立步骤；未来如需更新线上版本，应确认目标站点和可用授权。
+- Netlify 账户不可用，网页已迁移至 https://slack-zh.github.io/meshlab/ 。
+- 仓库根目录 `.github/workflows/pages.yml` 将 main 中的 `meshlab/dist/` 发布到 GitHub Pages。
+- 2026-10-27 新增本地 DeepSeek 聊天，真实两轮问答、原网页回归通过。
+- 2026-10-28 Cloudflare 后端已部署：`https://meshlab-chat.meshlab-chat.workers.dev/api`。9 项 API 测试及云端真实问答、跨域预检、无口令拦截通过。已修复 Workers 不支持 `redirect:error` 的兼容问题，使用 manual 并拒绝上游跳转。
+- 前端通过 GitHub Pages 工作流发布。运行与部署见 `docs/AI-SETUP.md`，开发阶段见 `docs/AI-ROADMAP.md`。
+- 密钥由 `server/` 读取环境变量，不得放进静态网页、版本库或聊天消息。暂未增加 AI 控制模型的执行接口。
+- `.env.worker-secrets.json` 与 `.chat-access-code.txt` 为本机私有文件，已加入忽略规则；前者含部署 Secret，后者仅用于复制网页访问口令。任何公网部署都必须使用 `server/worker.mjs` 入口，不能打开本地免口令模式。
 
 ## 资源边界
 

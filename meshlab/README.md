@@ -8,10 +8,15 @@
 - 爆炸展开、复原、七步拆装与按传动比例运行的演示动画。
 - 手机、平板、桌面适配，系统明暗模式、降低透明度与减少动态效果适配。
 - STEP 装配和零件、PDF 图纸和说明书、BOM、JSON 参数与完整工程包。
+- 本地 DeepSeek 聊天：流式回答、连续追问、当前零件上下文，以及停止、重试和新对话。
 
 设计参数：输入 1.5 kW / 1440 r/min，总传动比 16（4 × 4），输出 90 r/min；按总效率 0.96 估算输出转矩 152.8 N·m。
 
 ## 本地运行
+
+要使用 AI 聊天，在本目录运行 `node --env-file-if-exists=.env server/local.mjs`，需要 Node.js 22+ 和服务端 `DEEPSEEK_API_KEY`。详细步骤见 [AI 接入说明](docs/AI-SETUP.md)，后续开发见 [分步计划](docs/AI-ROADMAP.md)。
+
+仅浏览三维网页时也可使用以下静态服务（不提供聊天 API）：
 
 在本文件所在目录运行：
 
@@ -57,7 +62,7 @@ python scripts/verify_browser.py
 
 ## 部署
 
-上传 `dist/` 内全部文件到静态托管平台即可。若作为已有仓库的 `meshlab/` 子目录连接 Netlify，将 Base directory 设置为 `meshlab`，Publish directory 设置为 `dist`，无需构建命令。本项目不包含自动发布工作流。
+网页使用 [GitHub Pages](https://slack-zh.github.io/meshlab/)，仓库根目录 `.github/workflows/pages.yml` 在 main 更新时发布 `meshlab/dist/`，无需构建命令。聊天 API 由 Cloudflare Worker 提供，地址配置在 `dist/chat-config.json`，使用时需要聊天访问口令。静态托管不会运行 `server/`。后端部署与 Secret 管理见 [AI 接入说明](docs/AI-SETUP.md)。
 
 ## 设计预览
 

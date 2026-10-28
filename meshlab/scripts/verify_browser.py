@@ -26,7 +26,7 @@ with sync_playwright() as p:
  assert page.locator('#step-next').is_disabled()
  for _ in range(7):page.locator('#step-prev').click()
  assert page.locator('#step-prev').is_disabled()
- page.locator('[data-mode="explore"]').click();page.locator('#housing-mode').select_option('open')
+ page.locator('[data-mode="explore"]').click();page.locator('#details-tab').click();page.locator('#housing-mode').select_option('open');page.locator('#chat-tab').click()
  page.locator('#clarity-toggle').click();assert page.locator('body').evaluate("e=>e.classList.contains('solid-panels')")
  assert page.locator('.control-deck').evaluate("e=>getComputedStyle(e).backdropFilter")=='none'
  page.locator('#clarity-toggle').click()

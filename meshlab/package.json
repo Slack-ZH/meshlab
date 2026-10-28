@@ -1,0 +1,15 @@
+{
+  "name": "meshlab-chat",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/local.mjs",
+    "test": "node --test scripts/test-chat.mjs",
+    "worker:check": "wrangler deploy --dry-run --outdir test-results/worker-bundle",
+    "worker:login": "wrangler login",
+    "worker:deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.153.0"
+  }
+}

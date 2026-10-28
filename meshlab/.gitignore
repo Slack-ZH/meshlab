@@ -7,4 +7,8 @@ __pycache__/
 !.env.example
 .netlify/
 node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.*
+.chat-access-code.txt
 test-results/
