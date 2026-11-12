@@ -3,7 +3,7 @@
 - `dist/index.html`：网站介绍、机械档案和使用指南。
 - `dist/archive.css`：首页设计变量、响应式布局、深色与辅助功能适配。
 - `dist/liquid-glass.css`：透明玻璃视觉主题，包含背景模糊、透色、边缘高光与深色适配；用户关闭透明度或启用高对比度时切换为实色。
-- `dist/transmission-cards.js`：连续的横向空间卡片；鼠标滚轮、拖拽、触摸、方向键和按钮均可浏览。循环无底部进度条，不按项目吸附。
+- `dist/transmission-cards.js`：连续的横向空间卡片；鼠标滚轮、拖拽、触摸、方向键均可浏览。循环无底部进度条，不按项目吸附。机械档案区域不显示左右箭头或滚动提示小字。
 - `dist/lab.html`：原三维实验室。首页通过此地址进入，实验室品牌链接返回首页。
 - `dist/home-route.js`：支持 `lab.html?view=principle`、`engineering`、`assistant` 的直接入口。
 

@@ -122,8 +122,6 @@ shelf.addEventListener('wheel', event => {
   moveTo(target + Math.max(-500, Math.min(500, amount)) * .85);
 }, {passive:false});
 function navigate(direction) { moveTo((Math.round((frame ? target : shelf.scrollLeft) / step) + direction) * step); }
-document.getElementById('previous-card').addEventListener('click', () => navigate(-1));
-document.getElementById('next-card').addEventListener('click', () => navigate(1));
 shelf.addEventListener('keydown', event => {
   if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
   event.preventDefault();
