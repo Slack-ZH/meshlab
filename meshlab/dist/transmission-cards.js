@@ -22,7 +22,7 @@ for (let index = 0; index < count * 3; index++) {
   card.style.setProperty('--paper', item[2]);
   card.setAttribute('aria-label', item[0] + '，第 ' + (index % count + 1) + ' 个，共 ' + count + ' 个。使用左右方向键浏览');
   card.setAttribute('aria-pressed', 'false');
-  card.innerHTML = '<span class="card-top" aria-hidden="true"><span>传动结构 / ARCHIVE</span><span class="card-number">0' + (index % count + 1) + '</span></span>'
+  card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">0' + (index % count + 1) + ' / 05</span></span>'
     + '<span class="card-visual" aria-hidden="true"><svg viewBox="0 0 240 190">' + arts[index % count] + '</svg></span>'
     + '<span class="card-title" aria-hidden="true">' + item[0] + '</span><span class="card-sub" aria-hidden="true">' + item[1] + '</span>';
   card.addEventListener('click', () => { if (!suppressClick) moveTo(index * step); });
@@ -48,12 +48,14 @@ function update() {
   const position = shelf.scrollLeft;
   const nearest = Math.round(position / step);
   slots.forEach((slot, index) => {
-    const t = (index * step - position) / (step * 1.2);
-    const weight = Math.exp(-t * t * 1.5);
-    const angle = Math.max(-68, Math.min(68, -t * 57));
+    const t = (index * step - position) / (step * 1.05);
+    const weight = Math.exp(-t * t * 2.1);
+    const angle = Math.max(-74, Math.min(74, -t * 68));
+    const depth = shelf.clientWidth <= 700 ? weight * 80 - 35 : weight * 165 - 75;
     cards[index].style.transform = reduced.matches
-      ? 'translate(-50%,-50%) scale(.88)'
-      : 'translate(-50%,-50%) translateZ(' + (weight * 85 - 35) + 'px) rotateY(' + angle + 'deg) scale(' + (.82 + weight * .18) + ')';
+      ? 'translate(-50%,-50%) scale(.84)'
+      : 'translate(-50%,-50%) translateZ(' + depth + 'px) rotateY(' + angle + 'deg) scale(' + (.66 + weight * .4) + ')';
+    cards[index].style.opacity = reduced.matches ? '1' : String(.38 + weight * .62);
     // Keep the glass clear: a brightness filter would muddy its transmitted backdrop.
     cards[index].style.filter = 'none';
     slot.style.zIndex = String(Math.round(weight * 100));
@@ -67,6 +69,7 @@ function update() {
     card.tabIndex = selected ? 0 : -1;
     card.setAttribute('aria-pressed', String(selected));
     card.setAttribute('aria-hidden', String(!selected));
+    card.querySelector('.card-state').textContent = selected ? '当前项目' : '机械档案';
   });
   if (hasCardFocus) cards[active].focus({preventScroll:true});
   clearTimeout(captionTimer);
