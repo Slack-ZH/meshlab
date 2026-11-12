@@ -1,0 +1,17 @@
+{
+  "pages": 13,
+  "all_text_black": true,
+  "contents_links": 22,
+  "version": "第一版 V1.0",
+  "date": "2026-11-12",
+  "requirements": [
+    "开篇引言",
+    "目录与页码",
+    "标题和正文黑色",
+    "商业价值简述"
+  ],
+  "files": [
+    "啮合实验室_meshlab_项目说明书_第一版.docx",
+    "啮合实验室_meshlab_项目说明书_第一版.pdf"
+  ]
+}

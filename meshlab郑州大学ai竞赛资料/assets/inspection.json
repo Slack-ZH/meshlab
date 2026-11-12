@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-12",
+  "url": "https://slack-zh.github.io/meshlab/lab.html",
+  "initial": {
+    "ready": true,
+    "partCount": 49,
+    "selected": "gear1",
+    "playing": false,
+    "step": 0,
+    "mode": "explore",
+    "explodeTarget": 0
+  },
+  "exploded": {
+    "ready": true,
+    "partCount": 49,
+    "selected": "gear1",
+    "playing": false,
+    "step": 0,
+    "mode": "explore",
+    "explodeTarget": 1
+  },
+  "assembly_end": "07 / 07",
+  "calculation": {
+    "input": 800,
+    "output": "50"
+  }
+}

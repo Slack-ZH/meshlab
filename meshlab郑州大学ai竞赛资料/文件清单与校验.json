@@ -1,0 +1,92 @@
+{
+  "title": "meshlab郑州大学ai竞赛资料",
+  "date": "2026-11-12",
+  "repository": "Slack-ZH/meshlab",
+  "folder": "meshlab郑州大学ai竞赛资料",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2913,
+      "sha256": "3c06255afc8832e3e8f5c2882ace4c3375f3d337bc99a276e00cdd527f61b84f",
+      "git_blob_sha": "e35228c696647341d9fa15d6b7b3548e7d066ca2",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "assets/architecture.png",
+      "bytes": 105094,
+      "sha256": "78001c8cc53ac240d6134d42f5943a65b02f23338db864984e0eabc9e1daf62f",
+      "git_blob_sha": "84de17aa842a3ed7cf31a42ff7c231256b0270dd",
+      "encoding": "base64"
+    },
+    {
+      "path": "assets/exploded.png",
+      "bytes": 492057,
+      "sha256": "0d0ba0e27814201048b95bbb356aaa909348c0fbac61644efedf5843bbca3970",
+      "git_blob_sha": "b0f33da60029eaae837307eb36eb10f6284c0afa",
+      "encoding": "base64"
+    },
+    {
+      "path": "assets/inspection.json",
+      "bytes": 509,
+      "sha256": "4756fe7a485740386becc867d42885884dd647b367e70a0692c298c8dba9fc51",
+      "git_blob_sha": "5a6fe08243d19c87bfd39284084c297600d57d96",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "assets/lab.png",
+      "bytes": 482608,
+      "sha256": "652163af5df0aa402ee138e4738bff2d3734de93d8df35a2a2bc4ed318e27f23",
+      "git_blob_sha": "894d3510d07f183e8178aee2d51dbbade91b19bd",
+      "encoding": "base64"
+    },
+    {
+      "path": "啮合实验室_meshlab_项目说明书_第一版.docx",
+      "bytes": 624876,
+      "sha256": "3690ad5ba62c1039835436882f63519f14650b588ecb59a3b6fba4f09948a403",
+      "git_blob_sha": "6abc1ccab7bc639a7f795bb9d6ec9c7147048cf5",
+      "encoding": "base64"
+    },
+    {
+      "path": "啮合实验室_meshlab_项目说明书_第一版.pdf",
+      "bytes": 1037821,
+      "sha256": "bb554dff4fb5765a80501195a5d2a80d5ffcda43a855e00a6e5e843dd638476a",
+      "git_blob_sha": "d57d54730410e2bb33e0fca4f110b8659ec4caa3",
+      "encoding": "base64"
+    },
+    {
+      "path": "对话整理与需求确认.md",
+      "bytes": 3269,
+      "sha256": "8285a703f076a3d10bf12e2ae31185daa18297dc29acff709f5394faa88b0fe6",
+      "git_blob_sha": "f7aa364783fc5397a1e88150b69436d6d75131fe",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "核对记录.json",
+      "bytes": 384,
+      "sha256": "504dcbe9220847921f97f0cbe1274c5eea332aa661c8b1c7cd6131fc762006be",
+      "git_blob_sha": "a7134bc802cb1e80dfac1f124ecc41c2929f1991",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "项目研究与事实核对.md",
+      "bytes": 4164,
+      "sha256": "812658104e9a5a6ad310d0b934b24557ac3f89cea0550b1b7afa8d58cc6f8236",
+      "git_blob_sha": "bb2a6d4ab0bbd6a647d377ce652900131f5e99d7",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "项目说明书_第一版.md",
+      "bytes": 23025,
+      "sha256": "2e7e03f1dc6bc9ac1923cbac6b4e62ebbab34cb14e74ab388488af70c328d360",
+      "git_blob_sha": "c30dc1979766017cb5eba45687b012c1b23b4428",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "项目说明书确认大纲.md",
+      "bytes": 2119,
+      "sha256": "2c99303316d147db01c327b380b876a54035a75ea4eafbfde971c1ae06ddbda7",
+      "git_blob_sha": "968707c7d49016b08970f38444fb255de26a4f2c",
+      "encoding": "utf-8"
+    }
+  ]
+}
