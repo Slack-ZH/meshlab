@@ -1,5 +1,5 @@
-const cog=(x,y,r,n=18)=>{const points=Array.from({length:n*4},(_,i)=>{const a=i/(n*4)*Math.PI*2,q=i%4===1||i%4===2?r:r*.85;return `${x+Math.cos(a)*q},${y+Math.sin(a)*q}`;});return `<polygon points="${points.join(' ')}" fill="#626f59" stroke="#394633" stroke-width="1.5"/><circle cx="${x}" cy="${y}" r="${r*.45}" fill="#dce1d5" stroke="#394633" stroke-width="2"/><circle cx="${x}" cy="${y}" r="${r*.12}" fill="#394633"/>`;};
-const arts=[`${cog(84,94,51)}${cog(161,94,32,14)}<path d="M84 148v12m77-30v30M45 160h151" stroke="#495941" stroke-width="3"/>`,`<g fill="none" stroke="#53624b" stroke-width="4"><path d="M57 52 172 73M57 140l115-21"/><circle cx="57" cy="96" r="44"/><circle cx="172" cy="96" r="23"/><circle cx="57" cy="96" r="9"/><circle cx="172" cy="96" r="6"/></g>`,`<g stroke="#48573f" stroke-width="3" fill="none"><path d="M23 136H217M51 134V93"/><circle cx="51" cy="93" r="28"/><path d="m51 93 19-21 96 45" stroke-width="8"/><rect x="156" y="105" width="39" height="27" rx="3" fill="#aebca0"/><circle cx="51" cy="93" r="5" fill="#e7e8df"/><circle cx="70" cy="72" r="5" fill="#e7e8df"/><circle cx="174" cy="117" r="5" fill="#e7e8df"/></g>`,`<circle cx="120" cy="96" r="71" fill="none" stroke="#53624b" stroke-width="12"/>${cog(120,96,26,14)}${cog(120,48,22,12)}${cog(78,120,22,12)}${cog(162,120,22,12)}<path d="m120 48-42 72h84z" fill="none" stroke="#969f89" stroke-width="4"/>`,` ${cog(116,70,42)}<path d="M29 132v-13h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v13Z" fill="#8d9b7e" stroke="#48573f" stroke-width="2"/><path d="M35 147h164m-8-5 8 5-8 5" fill="none" stroke="#48573f" stroke-width="2"/>`];
+const cog=(x,y,r,n=18)=>{const points=Array.from({length:n*4},(_,i)=>{const a=i/(n*4)*Math.PI*2,q=i%4===1||i%4===2?r:r*.85;return `${x+Math.cos(a)*q},${y+Math.sin(a)*q}`;});return `<polygon points="${points.join(' ')}" fill="var(--diagram-fill)" stroke="var(--diagram-stroke)" stroke-width="1.5"/><circle cx="${x}" cy="${y}" r="${r*.45}" fill="var(--diagram-surface)" stroke="var(--diagram-stroke)" stroke-width="2"/><circle cx="${x}" cy="${y}" r="${r*.12}" fill="var(--diagram-stroke)"/>`;};
+const arts=[`${cog(84,94,51)}${cog(161,94,32,14)}<path d="M84 148v12m77-30v30M45 160h151" stroke="var(--diagram-stroke)" stroke-width="3"/>`,`<g fill="none" stroke="var(--diagram-stroke)" stroke-width="4"><path d="M57 52 172 73M57 140l115-21"/><circle cx="57" cy="96" r="44"/><circle cx="172" cy="96" r="23"/><circle cx="57" cy="96" r="9"/><circle cx="172" cy="96" r="6"/></g>`,`<g stroke="var(--diagram-stroke)" stroke-width="3" fill="none"><path d="M23 136H217M51 134V93"/><circle cx="51" cy="93" r="28"/><path d="m51 93 19-21 96 45" stroke-width="8"/><rect x="156" y="105" width="39" height="27" rx="3" fill="var(--diagram-mid)"/><circle cx="51" cy="93" r="5" fill="var(--diagram-surface)"/><circle cx="70" cy="72" r="5" fill="var(--diagram-surface)"/><circle cx="174" cy="117" r="5" fill="var(--diagram-surface)"/></g>`,`<circle cx="120" cy="96" r="71" fill="none" stroke="var(--diagram-stroke)" stroke-width="12"/>${cog(120,96,26,14)}${cog(120,48,22,12)}${cog(78,120,22,12)}${cog(162,120,22,12)}<path d="m120 48-42 72h84z" fill="none" stroke="var(--diagram-mid)" stroke-width="4"/>`,` ${cog(116,70,42)}<path d="M29 132v-13h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v-11h12v11h12v13Z" fill="var(--diagram-mid)" stroke="var(--diagram-stroke)" stroke-width="2"/><path d="M35 147h164m-8-5 8 5-8 5" fill="none" stroke="var(--diagram-stroke)" stroke-width="2"/>`];
 const entries=[['齿轮传动','GEAR DRIVE','#c6ceb9','通过相互啮合的齿轮，传递运动并改变转速与转矩。'],['带传动','BELT DRIVE','#dbd9c9','通过带与带轮连接两根轴，观察轮径与转速之间的关系。'],['曲柄滑块','SLIDER–CRANK','#c3cebf','把旋转运动转化为直线往复运动，理解曲柄、连杆与滑块的配合。'],['行星齿轮','PLANETARY GEARS','#d5cbbb','太阳轮、行星轮与齿圈共同构成紧凑的传动系统。'],['齿轮齿条','RACK & PINION','#cbd0c1','通过齿轮与齿条啮合，将旋转运动转化为直线运动。']];
 
 
@@ -54,7 +54,8 @@ function update() {
     cards[index].style.transform = reduced.matches
       ? 'translate(-50%,-50%) scale(.88)'
       : 'translate(-50%,-50%) translateZ(' + (weight * 85 - 35) + 'px) rotateY(' + angle + 'deg) scale(' + (.82 + weight * .18) + ')';
-    cards[index].style.filter = reduced.matches ? 'none' : 'brightness(' + (.8 + weight * .2) + ')';
+    // Keep the glass clear: a brightness filter would muddy its transmitted backdrop.
+    cards[index].style.filter = 'none';
     slot.style.zIndex = String(Math.round(weight * 100));
   });
   if (nearest === active) return;
@@ -162,3 +163,17 @@ shelf.addEventListener('pointerup', endDrag);
 shelf.addEventListener('pointercancel', endDrag);
 shelf.addEventListener('lostpointercapture', () => { drag = null; shelf.classList.remove('dragging'); });
 window.addEventListener('blur', () => { endDrag(); stop(); });
+
+// A small pointer-following highlight suggests a curved glass surface without moving the content.
+cards.forEach(card => {
+  card.addEventListener('pointermove', event => {
+    if (reduced.matches || drag || event.pointerType !== 'mouse') return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--light-x', ((event.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+    card.style.setProperty('--light-y', ((event.clientY - rect.top) / rect.height * 100).toFixed(1) + '%');
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.removeProperty('--light-x');
+    card.style.removeProperty('--light-y');
+  });
+});
