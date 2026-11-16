@@ -16,6 +16,9 @@ entries.push(['单级直齿圆柱齿轮','SPUR GEARS','#c8cbd7','调整齿数、
 arts.push(`${cog(39,96,25,20)}${cog(98,96,38,30)}${cog(180,96,50,40)}<path d="M39 151v9m141-4v4M39 160h141" fill="none" stroke="var(--diagram-stroke)" stroke-width="2"/><path d="m43 60 8 6-10 2m133-31-10 1 6 8" fill="none" stroke="var(--diagram-stroke)" stroke-width="3"/>`);
 entries.push(['带惰轮齿轮列','IDLER GEAR TRAIN','#c5d2c9','三个齿轮、两次啮合；切换有无惰轮，比较输出转向、总速比与效率。']);
 
+arts.push('<g fill="none" stroke="var(--diagram-stroke)" stroke-width="4"><circle cx="54" cy="96" r="34"/><circle cx="182" cy="96" r="46"/><path d="M76 70 153 131M76 122 153 61"/><path d="m101 102 24-19" stroke="var(--diagram-surface)" stroke-width="10"/><path d="m101 102 24-19"/><circle cx="54" cy="96" r="8"/><circle cx="182" cy="96" r="10"/></g>');
+entries.push(['交叉平带传动','CROSSED FLAT BELT','#d2c4b7','交叉反向、开口同向；调节轮径和中心距，观察包角、带长与传动关系。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -35,7 +38,7 @@ for (let index = 0; index < count * 3; index++) {
   card.style.setProperty('--paper', item[2]);
   card.setAttribute('aria-label', item[0] + '，第 ' + (index % count + 1) + ' 个，共 ' + count + ' 个。使用左右方向键浏览');
   card.setAttribute('aria-pressed', 'false');
-  card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">0' + (index % count + 1) + ' / ' + String(count).padStart(2,'0') + '</span></span>'
+  card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">' + String(index % count + 1).padStart(2,'0') + ' / ' + String(count).padStart(2,'0') + '</span></span>'
     + '<span class="card-visual" aria-hidden="true"><svg viewBox="0 0 240 190">' + arts[index % count] + '</svg></span>'
     + '<span class="card-title" aria-hidden="true">' + item[0] + '</span><span class="card-sub" aria-hidden="true">' + item[1] + '</span>';
   card.addEventListener('click', () => { if (!suppressClick) moveTo(index * step); });

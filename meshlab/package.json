@@ -13,7 +13,8 @@
     "test:bicycle": "node --test scripts/test-bicycle.mjs scripts/test-bicycle-chat.mjs",
     "test:friction": "node --test scripts/test-friction.mjs scripts/test-friction-chat.mjs",
     "test:spur": "node --test scripts/test-spur.mjs scripts/test-spur-chat.mjs",
-    "test:idler": "node --test scripts/test-idler.mjs scripts/test-idler-chat.mjs"
+    "test:idler": "node --test scripts/test-idler.mjs scripts/test-idler-chat.mjs",
+    "test:belt": "node --test scripts/test-belt.mjs scripts/test-belt-chat.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",
