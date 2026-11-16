@@ -16,7 +16,9 @@
     "test:idler": "node --test scripts/test-idler.mjs scripts/test-idler-chat.mjs",
     "test:belt": "node --test scripts/test-belt.mjs scripts/test-belt-chat.mjs",
     "test:timing": "node --test scripts/test-timing.mjs scripts/test-timing-chat.mjs",
-    "test:vice": "node --test scripts/test-vice.mjs scripts/test-vice-chat.mjs"
+    "test:vice": "node --test scripts/test-vice.mjs scripts/test-vice-chat.mjs",
+    "test:catalog": "node --test scripts/test-catalog-motion.mjs scripts/test-catalog-machines.mjs scripts/test-catalog-systems.mjs scripts/test-catalog-integration.mjs",
+    "build:catalog": "node scripts/build-catalog-page.mjs && node scripts/build-catalog-index.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",

@@ -50,6 +50,21 @@
 
 改变方向或运行参数保留当前位置；几何更新暂停并回中位。到 0 或最大开口自动停止，不循环；反向可从端点继续，复原则回中位。实时位移与圈数来自模型状态，理论进给速度为 `v=方向×导程×RPM/60`。给定效率下的运行推力不代表静态夹紧力或额定承载，零 RPM 不推算运动推力。说明与参考资料见 [vice/DESIGN.md](dist/vice/DESIGN.md)。
 
+## 35 项参数化机构目录
+
+入口为 [catalog.html](dist/catalog.html?model=universal-joint)，首页也提供可搜索的「机构目录」。本批覆盖清单第 24–34、36–37、39–60 项，共 35 项，包含万向节、离合器、后拨、雨刮、转向、行星传动、变速箱、凸轮及动力系统。完整编号、ID 与能力见 [catalog/README.md](dist/catalog/README.md)。
+
+视图框、AI 面板、播放/速度/爆炸/复原按钮及逐步拆装沿用现有实验布局；机构选择和参数位于模型下方。调转速保留相位；其他参数变化先验证，再暂停并重建。无效组合显示原因，当前有效模型不被非法参数替换。页面结果对应设置工况，暂停不等于把理论工况转速改为零。1× 为工况的 20% 慢放。
+
+「原理」与「资料」页提供公式、假设和来源；教学简化逐项列明，不宣称制造级全实体接触或承载验收。AI 附带每次提问时的模型、有效参数、选中组件和运动结果；原生 catalog 上下文仅在后端健康检查明确支持后使用，正式能力应在后端上线后确认。纯静态预览仍可使用全部三维功能。
+
+```sh
+npm run test:catalog
+npm run build:catalog
+```
+
+前者运行 motion、machines、systems 与 integration 四组测试，后者依次运行 page、index 两个生成脚本，更新 `dist/catalog.html`、首页机构目录和索引。模型描述符在 `dist/catalog/models-*.mjs`，公共接口见 [CONTRACT.md](dist/catalog/CONTRACT.md)。
+
 ## 本地运行
 
 要使用 AI 聊天，在本目录运行 `node --env-file-if-exists=.env server/local.mjs`，需要 Node.js 22+。本地预览代理到云端，邮箱登录及每日预算与正式网站共享，无需本机 DeepSeek 密钥。详细步骤见 [AI 接入说明](docs/AI-SETUP.md)，后续开发见 [分步计划](docs/AI-ROADMAP.md)。

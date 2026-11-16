@@ -1,0 +1,342 @@
+{
+  "count": 44,
+  "source": "https://www.kdocs.cn/l/cnXEgCQ0UECb",
+  "blankRows": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "items": [
+    {
+      "title": "两级斜齿减速器",
+      "url": "lab.html",
+      "description": "两级斜齿轮与装配拆解",
+      "number": null
+    },
+    {
+      "title": "参数化汽轮机",
+      "url": "turbine.html",
+      "description": "汽缸、动静叶与级数参数",
+      "number": null
+    },
+    {
+      "title": "自行车链传动",
+      "url": "bicycle.html",
+      "description": "牙盘、链条与后轮",
+      "number": null
+    },
+    {
+      "title": "摩擦轮传动",
+      "url": "friction.html",
+      "description": "轮径、压紧与摩擦容量",
+      "number": null
+    },
+    {
+      "title": "单级直齿圆柱齿轮",
+      "url": "spur.html",
+      "description": "齿数、模数与速比",
+      "number": null
+    },
+    {
+      "title": "带惰轮齿轮列",
+      "url": "idler.html",
+      "description": "惰轮、转向与传动比",
+      "number": null
+    },
+    {
+      "title": "交叉平带传动",
+      "url": "belt.html",
+      "description": "交叉带与开口带对照",
+      "number": null
+    },
+    {
+      "title": "同步带传动",
+      "url": "timing.html",
+      "description": "带齿、轮槽与闭合关系",
+      "number": null
+    },
+    {
+      "title": "台虎钳·丝杠螺母",
+      "url": "vice.html",
+      "description": "导程、开口与端点停机",
+      "number": null
+    },
+    {
+      "id": "universal-joint",
+      "number": 24,
+      "title": "单十字轴万向节",
+      "description": "调轴间夹角，看输入匀速时输出转速如何波动。",
+      "url": "catalog.html?model=universal-joint"
+    },
+    {
+      "id": "double-universal",
+      "number": 25,
+      "title": "双万向节传动轴",
+      "description": "调整夹角和叉头相位，找出抵消转速波动的条件。",
+      "url": "catalog.html?model=double-universal"
+    },
+    {
+      "id": "chain-conveyor",
+      "number": 26,
+      "title": "链条输送机",
+      "description": "观察托板的载物段、回程段和张紧轮的位置。",
+      "url": "catalog.html?model=chain-conveyor"
+    },
+    {
+      "id": "recirculating-ball-screw",
+      "number": 27,
+      "title": "滚珠丝杠",
+      "description": "剖开透明螺母，跟踪滚珠的循环路径。",
+      "url": "catalog.html?model=recirculating-ball-screw"
+    },
+    {
+      "id": "friction-clutch",
+      "number": 28,
+      "title": "摩擦片离合器",
+      "description": "操作压盘，观察飞轮、摩擦片接合与分离。",
+      "url": "catalog.html?model=friction-clutch"
+    },
+    {
+      "id": "roller-freewheel",
+      "number": 29,
+      "title": "滚柱式单向离合器",
+      "description": "切换相对转向，看滚柱如何楔紧和释放。",
+      "url": "catalog.html?model=roller-freewheel"
+    },
+    {
+      "id": "centrifugal-clutch",
+      "number": 30,
+      "title": "离心离合器",
+      "description": "调整转速，看蹄块张开并与离合器鼓接触。",
+      "url": "catalog.html?model=centrifugal-clutch"
+    },
+    {
+      "id": "oldham-coupling",
+      "number": 31,
+      "title": "奥尔德姆联轴器",
+      "description": "改变两根平行轴的偏置，观察中间滑块的补偿运动。",
+      "url": "catalog.html?model=oldham-coupling"
+    },
+    {
+      "id": "bicycle-rear-derailleur",
+      "number": 32,
+      "title": "自行车后拨变速机构",
+      "description": "切换飞轮档位，看链条横移与导轮补偿。",
+      "url": "catalog.html?model=bicycle-rear-derailleur"
+    },
+    {
+      "id": "dual-wiper",
+      "number": 33,
+      "title": "汽车雨刮连杆",
+      "description": "用一个电机驱动两支雨刮，观察摆幅和相位。",
+      "url": "catalog.html?model=dual-wiper"
+    },
+    {
+      "id": "steering-rack",
+      "number": 34,
+      "title": "汽车转向齿轮齿条总成",
+      "description": "联动齿条、横拉杆和转向节，对比内外轮转角。",
+      "url": "catalog.html?model=steering-rack"
+    },
+    {
+      "id": "valvetrain",
+      "number": 36,
+      "title": "发动机气门配气机构",
+      "description": "联动曲轴、凸轮轴与气门，观察四冲程中的开闭时序。",
+      "url": "catalog.html?model=valvetrain"
+    },
+    {
+      "id": "planetary",
+      "number": 37,
+      "title": "简单行星齿轮传动",
+      "description": "轮流固定太阳轮、齿圈和行星架，对比输出转向与速比。",
+      "url": "catalog.html?model=planetary"
+    },
+    {
+      "id": "three-speed-hub",
+      "number": 39,
+      "title": "自行车三速内变速花鼓",
+      "description": "切换三档，观察花鼓内部哪些零件参与传力。",
+      "url": "catalog.html?model=three-speed-hub"
+    },
+    {
+      "id": "manual-gearbox",
+      "number": 40,
+      "title": "汽车手动变速箱",
+      "description": "选择档位，高亮从输入轴到输出轴的动力路径。",
+      "url": "catalog.html?model=manual-gearbox"
+    },
+    {
+      "id": "synchronizer",
+      "number": 41,
+      "title": "变速箱同步器",
+      "description": "慢放拨叉移动、锥面同步、锁止与齿套接合。",
+      "url": "catalog.html?model=synchronizer"
+    },
+    {
+      "id": "cvt",
+      "number": 42,
+      "title": "钢带式无级变速器 CVT",
+      "description": "联动两组锥轮，观察钢带工作半径与速比连续变化。",
+      "url": "catalog.html?model=cvt"
+    },
+    {
+      "id": "rzeppa-joint",
+      "number": 43,
+      "title": "球笼式等速万向节",
+      "description": "调整半轴夹角，观察钢球在球道中的运动。",
+      "url": "catalog.html?model=rzeppa-joint"
+    },
+    {
+      "id": "conjugate-cam",
+      "number": 44,
+      "title": "双凸轮共轭机构",
+      "description": "观察两只凸轮如何共同约束从动件往返。",
+      "url": "catalog.html?model=conjugate-cam"
+    },
+    {
+      "id": "indexing-cam",
+      "number": 45,
+      "title": "分度凸轮机构",
+      "description": "用包装机转盘演示转位和停歇。",
+      "url": "catalog.html?model=indexing-cam"
+    },
+    {
+      "id": "cycloidal",
+      "number": 46,
+      "title": "摆线针轮减速器",
+      "description": "追踪偏心输入、摆线轮、针齿和输出销的运动。",
+      "url": "catalog.html?model=cycloidal"
+    },
+    {
+      "id": "harmonic",
+      "number": 47,
+      "title": "谐波减速器",
+      "description": "剖开观察柔轮变形，以及少量齿数差如何产生大速比。",
+      "url": "catalog.html?model=harmonic"
+    },
+    {
+      "id": "enveloping-worm",
+      "number": 48,
+      "title": "包络蜗杆传动",
+      "description": "对比普通圆柱蜗杆与包络蜗杆的齿面接触区域。",
+      "url": "catalog.html?model=enveloping-worm"
+    },
+    {
+      "id": "rv-reducer",
+      "number": 49,
+      "title": "RV减速器",
+      "description": "观察前级直齿轮与双摆线轮的两级减速，比较输入、偏心轴和输出。",
+      "url": "catalog.html?model=rv-reducer"
+    },
+    {
+      "id": "dual-clutch-transmission",
+      "number": 50,
+      "title": "汽车双离合变速箱DCT",
+      "description": "切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。",
+      "url": "catalog.html?model=dual-clutch-transmission"
+    },
+    {
+      "id": "planetary-automatic",
+      "number": 51,
+      "title": "行星齿轮式自动变速箱AT",
+      "description": "切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。",
+      "url": "catalog.html?model=planetary-automatic"
+    },
+    {
+      "id": "torque-converter",
+      "number": 52,
+      "title": "液力变矩器",
+      "description": "比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。",
+      "url": "catalog.html?model=torque-converter"
+    },
+    {
+      "id": "hybrid-power-split",
+      "number": 53,
+      "title": "混合动力功率分流机构",
+      "description": "调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。",
+      "url": "catalog.html?model=hybrid-power-split"
+    },
+    {
+      "id": "four-wheel-transfer",
+      "number": 54,
+      "title": "四驱分动箱与中央差速器",
+      "description": "切换高低速及中央差速锁，对比前后传动轴同速与差速。",
+      "url": "catalog.html?model=four-wheel-transfer"
+    },
+    {
+      "id": "tractor-pto",
+      "number": 55,
+      "title": "拖拉机动力输出传动",
+      "description": "选择540/1000转速挡和PTO独立离合器，观察动力输出轴与作业机具。",
+      "url": "catalog.html?model=tractor-pto"
+    },
+    {
+      "id": "cnc-feed",
+      "number": 56,
+      "title": "多轴数控机床进给传动",
+      "description": "联动丝杠直线进给和转台，观察刀具与工件的相对运动。",
+      "url": "catalog.html?model=cnc-feed"
+    },
+    {
+      "id": "robot-wrist",
+      "number": 57,
+      "title": "工业机器人腕部传动",
+      "description": "剖开多根同轴传动轴，看末端多轴动作如何合成。",
+      "url": "catalog.html?model=robot-wrist"
+    },
+    {
+      "id": "clock-escapement",
+      "number": 58,
+      "title": "机械钟表传动与擒纵机构",
+      "description": "从发条追踪至轮系、擒纵轮和摆轮，慢放锁止与释放。",
+      "url": "catalog.html?model=clock-escapement"
+    },
+    {
+      "id": "dual-rotor-gearbox",
+      "number": 59,
+      "title": "双转子直升机主减速器",
+      "description": "追踪两条动力路径，观察两套旋翼如何反向旋转。",
+      "url": "catalog.html?model=dual-rotor-gearbox"
+    },
+    {
+      "id": "wind-turbine-gearbox",
+      "number": 60,
+      "title": "风电行星—平行轴增速箱",
+      "description": "从低速叶轮轴追踪至发电机轴，逐级显示转速和转向。",
+      "url": "catalog.html?model=wind-turbine-gearbox"
+    }
+  ]
+}

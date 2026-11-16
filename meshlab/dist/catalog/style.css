@@ -1,0 +1,7 @@
+@import url('../timing/style.css');
+#reference-links { padding-left: 18px; line-height: 1.9; }
+#reference-links a { color:var(--accent); text-underline-offset:3px; }
+.parameter-field select { min-height:44px; }
+#drive-metrics { grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); }
+#model-select { max-width:480px; }
+#principle-grid .formula { white-space:pre-line; }

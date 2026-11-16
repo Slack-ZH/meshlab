@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+const source=new URL('../dist/timing.html',import.meta.url),target=new URL('../dist/catalog.html',import.meta.url);
+let html=fs.readFileSync(source,'utf8').replaceAll('timing/style.css?v=20261116-timing1','catalog/style.css?v=20261116-all1').replaceAll('timing/app.mjs?v=20261116-timing1','catalog/app.mjs?v=20261116-all1').replaceAll('chat.js?v=20261116-vice1','chat.js?v=20261116-all1').replaceAll('同步带传动','机械机构').replaceAll('播放同步带传动','播放机构运动');
+const parameterStart=html.indexOf('<section id="parameters"'),readingStart=html.indexOf('<section id="performance"');
+html=html.slice(0,parameterStart)+`<section id="parameters" class="parameter-panel" aria-labelledby="parameter-title"><div class="settings"><section id="structure">
+<div class="parameter-heading"><div><h2 id="parameter-title">参数调节</h2><p class="hint" id="parameter-hint">调整参数，观察结构与运动的关系。</p></div><button id="reset-parameters" class="subtle-button" type="button">恢复默认</button></div>
+<div class="preset-row"><label for="model-select">机构目录</label><select id="model-select" aria-label="机构目录"></select><a href="./#catalog-section" class="text-button">查看全部机构 ↗</a></div>
+<div id="geometry-fields" class="fields"></div><p id="invalid-input" class="input-error" role="alert" hidden></p>
+<div id="drive-metrics" class="drive-metrics" aria-live="off"></div><p id="contact-summary" class="contact-summary"></p><p id="model-limits" class="hint scope-note"></p>
+</section></div></section></div>
+<section id="performance" class="tab-panel reading-panel" hidden><div class="section-lead"><p class="eyebrow">MECHANISM PRINCIPLES</p><h2 id="principle-title">运动与传动原理</h2><p id="principle-description"></p></div><div id="principle-grid" class="formula-grid"></div></section>
+<section id="calibration" class="tab-panel reading-panel" hidden><div class="section-lead"><p class="eyebrow">MODEL REFERENCES</p><h2>模型范围与参考资料</h2><p id="reference-description"></p></div><div class="formula-grid"><article><h3>如何使用</h3><p>在模型下方调整几何尺寸和工作状态，点击播放观察运动；选择零件查看作用，使用爆炸滑块分离装配。几何或工作状态变化后模型暂停并返回初始相位；只调转速则保留位置。1× 演示为输入工况的20%慢放。</p></article><article><h3>本模型的范围</h3><p id="reference-limits"></p></article><article><h3>参考来源</h3><ul id="reference-links"></ul></article><article><h3>结合当前机构提问</h3><p>AI会收到本次提问时的机构、参数、选中零件和运动结果。暂停时模型不再运动，计算值仍表示设定工况。切换机构会开始新对话。</p></article></div></section>
+</main><footer><span>啮合实验室 <b> / </b> 看见结构，理解机械。</span><span id="footer-model">参数化机构实验</span></footer></body></html>\n`;
+html=html.replace(/<p class="intro-kicker">[^<]*<\/p>/,'<p class="intro-kicker">机械机构 · 结构实验</p>').replace(/<p class="intro-copy" id="model-label">[^<]*<\/p>/,'<p class="intro-copy" id="model-label">正在读取机构…</p>').replace(/<b id="ratio-count"[^>]*>[^<]*<\/b>/,'<b id="ratio-count" style="font-weight:inherit">—</b>').replace('<span class="ratio-divider"> : 1</span>','<span class="ratio-divider"> 项</span>').replace('输入 / 输出转速比','扩展清单序号');
+fs.writeFileSync(target,html);console.log('Generated dist/catalog.html with shared reducer layout');

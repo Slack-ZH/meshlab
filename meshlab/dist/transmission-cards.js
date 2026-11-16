@@ -25,6 +25,9 @@ entries.push(['同步带传动','TIMING BELT','#c0cbd9','固定节距、逐齿�
 arts.push('<g stroke="var(--diagram-stroke)" stroke-width="3"><path d="M33 65h31v73h115v19H33Z" fill="var(--diagram-fill)"/><path d="M135 64h28v49h-28Z" fill="var(--diagram-mid)"/><path d="M44 59h25v12H44Zm86 0h38v12h-38Z" fill="var(--diagram-stroke)"/><path d="M60 112h145" fill="none" stroke-width="9"/><path d="m74 106-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12" stroke="var(--diagram-surface)" stroke-width="2"/><path d="M205 80v64"/><circle cx="205" cy="79" r="5" fill="var(--diagram-stroke)"/><circle cx="205" cy="145" r="5" fill="var(--diagram-stroke)"/></g>');
 entries.push(['丝杠螺母传动','LEAD SCREW & NUT','#c7d1c4','用台虎钳观察导程与钳口位移；改变方向，实时比较开口、圈数和进给。']);
 
+arts.push('<g fill="var(--diagram-fill)" stroke="var(--diagram-stroke)" stroke-width="3"><path d="M56 56h120v88H56z"/><ellipse cx="56" cy="100" rx="20" ry="44"/><ellipse cx="176" cy="100" rx="20" ry="44"/><path d="M87 56V31h22v25M142 144v22h22v-22M196 93h27v14h-27"/></g>');
+entries.push(['参数化汽轮机','STEAM TURBINE','#c3d0d8','调整级数与动静叶参数，观察汽缸内部结构与蒸汽做功。']);
+const destinations={'齿轮传动':'lab.html','带传动':'belt.html','行星齿轮':'catalog.html?model=planetary','齿轮齿条':'catalog.html?model=steering-rack','自行车链传动':'bicycle.html','摩擦轮传动':'friction.html','单级直齿圆柱齿轮':'spur.html','带惰轮齿轮列':'idler.html','交叉平带传动':'belt.html','同步带传动':'timing.html','丝杠螺母传动':'vice.html','参数化汽轮机':'turbine.html'};
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -47,7 +50,7 @@ for (let index = 0; index < count * 3; index++) {
   card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">' + String(index % count + 1).padStart(2,'0') + ' / ' + String(count).padStart(2,'0') + '</span></span>'
     + '<span class="card-visual" aria-hidden="true"><svg viewBox="0 0 240 190">' + arts[index % count] + '</svg></span>'
     + '<span class="card-title" aria-hidden="true">' + item[0] + '</span><span class="card-sub" aria-hidden="true">' + item[1] + '</span>';
-  card.addEventListener('click', () => { if (!suppressClick) moveTo(index * step); });
+  card.addEventListener('click', () => { if (suppressClick) return; if(index===active&&destinations[item[0]])location.href=destinations[item[0]];else moveTo(index * step); });
   slot.append(card);
   shelf.append(slot);
   slots.push(slot);
@@ -91,13 +94,15 @@ function update() {
     card.tabIndex = selected ? 0 : -1;
     card.setAttribute('aria-pressed', String(selected));
     card.setAttribute('aria-hidden', String(!selected));
-    card.querySelector('.card-state').textContent = selected ? '当前项目' : '机械档案';
+    card.querySelector('.card-state').textContent = destinations[entries[index%count][0]] ? (selected?'点击进入实验':'机械档案') : '原理示意';
   });
   if (hasCardFocus) cards[active].focus({preventScroll:true});
   clearTimeout(captionTimer);
   const showCaption = () => {
     document.getElementById('caption-title').textContent = entries[active % count][0];
     document.getElementById('caption').textContent = entries[active % count][3];
+    let entry=document.getElementById('caption-entry');if(!entry){entry=document.createElement('a');entry.id='caption-entry';entry.className='text-link';document.querySelector('.caption').append(entry);}
+    const href=destinations[entries[active%count][0]];entry.href=href||'#catalog-section';entry.textContent=href?'进入这个实验 ↗':'此卡为原理示意，查看已开放实验 ↗';
   };
   captionTimer = setTimeout(showCaption, reduced.matches ? 0 : 100);
 }

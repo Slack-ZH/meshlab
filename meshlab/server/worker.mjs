@@ -23,7 +23,7 @@ export default {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Authorization' } });
     const ready = Boolean(env.DEEPSEEK_API_KEY && env.FIREBASE_PROJECT_ID && env.ACCOUNT_BUDGET);
     const requiresEmailVerification = env.REQUIRE_EMAIL_VERIFICATION !== 'false';
-    if (path === '/api/health' && request.method === 'GET') return json({ ready, provider: 'DeepSeek', requiresLogin: true, requiresEmailVerification, dailyLimitCny: 2, modelContexts: ['gear','turbine','bicycle','friction','spur','idler','belt','timing','vice'] });
+    if (path === '/api/health' && request.method === 'GET') return json({ ready, provider: 'DeepSeek', requiresLogin: true, requiresEmailVerification, dailyLimitCny: 2, modelContexts: ['gear','turbine','bicycle','friction','spur','idler','belt','timing','vice','catalog'] });
     if (!ready) return json({ code: 'NOT_CONFIGURED', message: '邮箱登录服务正在配置，请稍后再试。' }, 503);
     if ((path === '/api/chat' && request.method !== 'POST') || (path === '/api/account' && request.method !== 'GET')) return json({ code: 'METHOD_NOT_ALLOWED' }, 405);
     const user = await authenticate(request, env.FIREBASE_PROJECT_ID, undefined, requiresEmailVerification);
