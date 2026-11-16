@@ -14,6 +14,12 @@
 
 设计参数：输入 1.5 kW / 1440 r/min，总传动比 16（4 × 4），输出 90 r/min；按总效率 0.96 估算输出转矩 152.8 N·m。
 
+## 摩擦轮实验
+
+入口为 [friction.html](dist/friction.html)，复用现有减速器的公共 UI，参数放在模型下方。可调整主动/从动轮直径、轮宽、输入转速、压紧力、摩擦系数和负载转矩。几何尺寸变化会重建两轮并保持外接相切；接触载荷变化只更新计算。
+
+点击播放观察相反转向，使用爆炸、复原、逐步拆装和零件目录检查结构。原理页说明速比与摩擦容量，AI 提问会附带本次问题对应的参数和选中零件。1× 为实际输入转速的 20% 慢放；超载只提示打滑风险，不计算实际滑移速度。详细公式与范围见 [friction/DESIGN.md](dist/friction/DESIGN.md)。
+
 ## 本地运行
 
 要使用 AI 聊天，在本目录运行 `node --env-file-if-exists=.env server/local.mjs`，需要 Node.js 22+。本地预览代理到云端，邮箱登录及每日预算与正式网站共享，无需本机 DeepSeek 密钥。详细步骤见 [AI 接入说明](docs/AI-SETUP.md)，后续开发见 [分步计划](docs/AI-ROADMAP.md)。
@@ -32,6 +38,7 @@ python -m http.server 8080 --directory dist
 
 - `dist/`：可直接部署的网站，`index.html`、`app.js`、`apple.css`、`apple.js` 是网页源代码。
 - `dist/assets/`：Three.js、OrbitControls、CAD 网格和模型参数。
+- `dist/friction/`：摩擦轮参数、计算、三维模型、交互和 AI 上下文。
 - `dist/downloads/`：STEP、PDF、BOM 与工程资料包。
 - `dist/previews/`：桌面、手机和深色版实际浏览器截图。
 - `scripts/`：参数化 CAD、文档生成、工程验证及浏览器检查脚本。

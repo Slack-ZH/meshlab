@@ -7,6 +7,9 @@ const entries=[['齿轮传动','GEAR DRIVE','#c6ceb9','通过相互啮合的齿�
 arts.push(`<g fill="none" stroke="var(--diagram-stroke)" stroke-width="4"><path d="M63 55 181 75M63 139l118-22" stroke-width="7" stroke-dasharray="6 4"/>${cog(63,97,42,22)}${cog(181,97,22,12)}<path d="m63 97-20 30h-15" stroke-width="6"/><circle cx="181" cy="97" r="58" stroke-opacity=".25" stroke-width="2"/></g>`);
 entries.push(['自行车链传动','BICYCLE CHAIN','#bfcfd0','前牙盘通过链条驱动后轮，调整齿数与踏频，观察速度和转矩的变化。']);
 
+arts.push('<g stroke="var(--diagram-stroke)" fill="var(--diagram-fill)"><circle cx="64" cy="96" r="36" stroke-width="5"/><circle cx="157" cy="96" r="57" stroke-width="5"/><circle cx="64" cy="96" r="11" fill="var(--diagram-surface)" stroke-width="3"/><circle cx="157" cy="96" r="14" fill="var(--diagram-surface)" stroke-width="3"/><path d="M64 65v17m93 28v30M38 143c17 12 37 9 47-4m46-91c21-8 45-2 58 13" fill="none" stroke-width="3"/><path d="m78 137 8 2-2 8m99-89 7 4-1-9" fill="none" stroke-width="3"/></g>');
+entries.push(['摩擦轮传动','FRICTION DRIVE','#d5c8ba','两只外接摩擦轮反向转动，调整轮径和接触载荷，比较理论转速与摩擦容量。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');

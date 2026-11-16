@@ -1,14 +1,15 @@
 import { readCompletion } from './chat-stream.js';
 import { initAuth, canChat, currentUser, token, openAuth, setBudget, authUnavailable } from './auth.js';
 import { captureTurbineContext } from './turbine/chat-context.mjs';
-import { captureBicycleContext, createBicycleChatPayload as createChatPayload } from './bicycle/chat-context.mjs';
+import { captureBicycleContext } from './bicycle/chat-context.mjs';
+import { captureFrictionContext, createFrictionChatPayload as createChatPayload } from './friction/chat-context.mjs';
 
 const $ = id => document.getElementById(id);
 const input = $('chat-input'), sendButton = $('chat-send');
 const scroll = $('chat-scroll'), messages = $('chat-messages');
 let apiBase = '', ready = false, busy = false, history = [], retryTurn = null, active = null;
 let accountId = null, accountRevision = 0;
-let supportsTurbine = false, supportsBicycle = false;
+let supportsTurbine = false, supportsBicycle = false, supportsFriction = false;
 
 async function refreshBudget() {
   const revision = ++accountRevision;
@@ -42,18 +43,22 @@ for (const name of ['chat', 'details']) {
 }
 $('chat-context-part').addEventListener('click', () => showPane('details', true));
 function updateContext() {
+  const frictionState = window.__frictionLab?.getState();
+  const friction = frictionState && captureFrictionContext(frictionState);
   const bicycleState = window.__bicycleLab?.getState();
   const bicycle = bicycleState && captureBicycleContext(bicycleState);
   const state = window.__turbineLab?.getState();
   const context = state && captureTurbineContext(state);
-  $('chat-context-part').textContent = bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
+  $('chat-context-part').textContent = friction?.selectedPart?.name || bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
   const model = document.querySelector('.chat-context > span');
-  if (bicycle && model) model.textContent = `自行车 · ${bicycle.parameters.frontTeeth ?? '—'} / ${bicycle.parameters.rearTeeth ?? '—'} 齿 · ${bicycle.parameters.cadence ?? '—'} rpm`;
+  if (friction && model) model.textContent = `摩擦轮 · ${friction.parameters.driverDiameter ?? '—'} / ${friction.parameters.drivenDiameter ?? '—'} mm · ${friction.parameters.inputRPM ?? '—'} rpm`;
+  else if (bicycle && model) model.textContent = `自行车 · ${bicycle.parameters.frontTeeth ?? '—'} / ${bicycle.parameters.rearTeeth ?? '—'} 齿 · ${bicycle.parameters.cadence ?? '—'} rpm`;
   else if (context && model) model.textContent = `汽轮机 · ${context.parameters.stages ?? '—'} 级 · ${context.parameters.blades ?? '—'} 片/排`;
 }
 if ($('selection-label')) new MutationObserver(updateContext).observe($('selection-label'), { childList: true, subtree: true, characterData: true });
 window.addEventListener('turbine:statechange', updateContext);
 window.addEventListener('bicycle:statechange', updateContext);
+window.addEventListener('friction:statechange', updateContext);
 updateContext();
 
 function notice(text, retry = false) {
@@ -101,7 +106,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
   const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 75000);
   try {
     const headers = { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() };
-    const payload = createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle});
+    const payload = createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction});
     const response = await fetch(apiBase + '/chat', {
       method: 'POST', headers, credentials: 'omit', signal: controller.signal,
       body: JSON.stringify(payload)
@@ -124,7 +129,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
       if (nearBottom) scrollBottom();
     });
     if (active !== controller) return;
-    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext }, { role: 'assistant', content: result.answer });
+    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext, frictionContext: turn.frictionContext }, { role: 'assistant', content: result.answer });
     history = history.slice(-20);
     while (history.length && history.reduce((sum, message) => sum + message.content.length, 0) > 24000) {
       history.splice(0, 2);
@@ -153,14 +158,16 @@ $('chat-form').addEventListener('submit', e => {
   if (!canChat()) { openAuth(); return; }
   const turbineState = window.__turbineLab?.getState();
   const bicycleState = window.__bicycleLab?.getState();
-  if ($('geometry-fields') && !turbineState && !bicycleState) { notice('模型参数尚未就绪，请稍后再试。'); return; }
+  const frictionState = window.__frictionLab?.getState();
+  if ($('geometry-fields') && !turbineState && !bicycleState && !frictionState) { notice('模型参数尚未就绪，请稍后再试。'); return; }
   const turbineContext = turbineState ? captureTurbineContext(turbineState) : null;
   const bicycleContext = bicycleState ? captureBicycleContext(bicycleState) : null;
+  const frictionContext = frictionState ? captureFrictionContext(frictionState) : null;
   const state = window.__gearLab?.getState();
   const turn = { role: 'user', content, selectedPartId: state?.selected || null,
-    partName: bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
-    turbineContext, bicycleContext };
-  try { createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle}); }
+    partName: frictionContext?.selectedPart?.name || bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
+    turbineContext, bicycleContext, frictionContext };
+  try { createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction}); }
   catch (error) { notice(error.message); return; }
   input.value = '';
   void requestReply(turn);
@@ -212,6 +219,7 @@ async function connect() {
     if (!health.ready) throw new Error('DeepSeek 服务尚未配置完成。');
     supportsTurbine = health.modelContexts?.includes('turbine') === true;
     supportsBicycle = health.modelContexts?.includes('bicycle') === true;
+    supportsFriction = health.modelContexts?.includes('friction') === true;
     ready = true;
     $('chat-connection').textContent = 'DeepSeek · 服务已连接';
     $('chat-connection').dataset.state = 'ready';
