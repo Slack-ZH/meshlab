@@ -10,6 +10,9 @@ entries.push(['自行车链传动','BICYCLE CHAIN','#bfcfd0','前牙盘通过链
 arts.push('<g stroke="var(--diagram-stroke)" fill="var(--diagram-fill)"><circle cx="64" cy="96" r="36" stroke-width="5"/><circle cx="157" cy="96" r="57" stroke-width="5"/><circle cx="64" cy="96" r="11" fill="var(--diagram-surface)" stroke-width="3"/><circle cx="157" cy="96" r="14" fill="var(--diagram-surface)" stroke-width="3"/><path d="M64 65v17m93 28v30M38 143c17 12 37 9 47-4m46-91c21-8 45-2 58 13" fill="none" stroke-width="3"/><path d="m78 137 8 2-2 8m99-89 7 4-1-9" fill="none" stroke-width="3"/></g>');
 entries.push(['摩擦轮传动','FRICTION DRIVE','#d5c8ba','两只外接摩擦轮反向转动，调整轮径和接触载荷，比较理论转速与摩擦容量。']);
 
+arts.push(`${cog(65,96,34,20)}${cog(158,96,63,40)}<g fill="none" stroke="var(--diagram-stroke)" stroke-width="2" stroke-dasharray="4 3"><circle cx="65" cy="96" r="31"/><circle cx="158" cy="96" r="62"/></g><path d="M65 96h93" stroke="var(--diagram-stroke)" stroke-width="1.5" stroke-dasharray="3 5"/>`);
+entries.push(['单级直齿圆柱齿轮','SPUR GEARS','#c8cbd7','调整齿数、模数和齿宽，观察外啮合转向、速比及转矩与功率的关系。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>单级直齿圆柱齿轮实验 · meshlab</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="apple.css">
+  <link rel="stylesheet" href="chat.css?v=20261116-bike1">
+  <link rel="stylesheet" href="spur/style.css?v=20261116-spur1">
+  <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
+  <script type="module" src="spur/app.mjs?v=20261116-spur1"></script>
+  <script defer src="apple.js"></script>
+  <script type="module" src="chat.js?v=20261116-spur1"></script>
+</head>
+<body>
+<dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+  <div class="auth-heading"><h2 id="auth-title">邮箱登录</h2><button id="auth-close" type="button" aria-label="关闭登录">×</button></div>
+  <p class="auth-intro">每个账号每天可使用 2 元 AI 预算，北京时间零点重置。</p>
+  <div id="auth-switch" class="auth-switch"><button id="auth-mode-login" type="button" aria-pressed="true">登录</button><button id="auth-mode-signup" type="button" aria-pressed="false">注册</button></div>
+  <form id="auth-form">
+    <label for="auth-email">邮箱地址</label><input id="auth-email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="auth-password">密码</label><input id="auth-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+    <div id="auth-confirm-wrap" hidden><label for="auth-confirm">再次输入密码</label><input id="auth-confirm" type="password" autocomplete="new-password" maxlength="128"></div>
+    <button id="auth-submit" class="auth-primary" type="submit">登录</button>
+    <button id="auth-reset-password" type="button" class="auth-text-button">忘记密码</button>
+  </form>
+  <div id="auth-verify" hidden><p>请点击验证邮件中的链接，返回后确认验证状态。</p><button id="auth-refresh" class="auth-primary" type="button">我已验证</button><button id="auth-resend" class="auth-text-button" type="button">重新发送验证邮件</button></div>
+  <p id="auth-message" role="status" aria-live="polite"></p>
+  <button id="auth-dialog-logout" class="auth-text-button" type="button" hidden>退出当前账号</button>
+</dialog>
+<a class="skip-link" href="#workspace">跳到模型与操作</a>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a><nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>原理</span></button><button class="nav-button" data-tab="calibration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>资料</span></button></nav><button class="clarity-button" id="clarity-toggle" aria-pressed="false" title="降低界面透明度"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z"/></svg><span>降低透明度</span></button></header>
+<main>
+  <section class="intro"><div><p class="intro-kicker">单级直齿 · 传动实验</p><h1>直齿圆柱齿轮</h1><p class="intro-copy" id="model-label">单级外啮合 · 20 / 40 齿 · m = 3 mm</p></div><div class="model-tag"><span><b id="ratio-count" style="font-weight:inherit">2.00</b><span class="ratio-divider"> : 1</span></span><p>输入 / 输出转速比</p><a class="text-button" href="lab.html">减速器实验 ↗</a></div></section>
+  <div id="explore" class="tab-panel">
+<div class="workspace" id="workspace" tabindex="-1">
+<div class="stage-shell"><section class="viewer-panel" aria-label="三维直齿圆柱齿轮模型"><div class="viewer-top"><button id="open-parts" class="catalog-button" aria-expanded="false" aria-controls="parts-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16m4-11h4m-4 6h4"/></svg><span>零件目录</span></button><div class="control-mode"><button class="active" data-mode="free">自由探索</button><button data-mode="steps">逐步拆装</button></div><span class="view-label"><i></i><b id="mode-label">结构探索</b></span><span class="unit-tag">单位 mm</span></div><div id="viewport"><div id="loading"><span class="loader-ring"></span><b>正在装配直齿齿轮传动</b><small id="load-progress">生成参数化零件…</small></div><div id="webgl-error" hidden>三维视图暂时无法启动。请使用支持 WebGL 的现代浏览器；你仍可使用下方参数与传动计算。</div></div><div class="view-tools"><button id="home-view" title="恢复默认视角" aria-label="恢复默认视角">⌂</button><button id="top-view" title="俯视" aria-label="俯视">▤</button><button id="front-view" title="沿轴观察" aria-label="沿轴观察">⊙</button><span></span><button id="fullscreen" title="全屏" aria-label="全屏">⛶</button></div><div class="view-hint"><span>拖动旋转</span><i></i><span>双指 / 滚轮缩放</span><i></i><span>点击选取</span></div><div id="selection-label" hidden></div><div class="axis-mark"><b>Y</b><span>╱└</span><i>X</i><em>Z</em></div></section><aside class="parts-panel" id="parts-panel" hidden aria-label="零件目录"><div class="panel-heading"><h2>装配结构</h2><span id="part-count" class="count">—</span><button class="icon-button" id="close-parts" aria-label="关闭零件目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><label class="search"><span>⌕</span><input id="part-search" placeholder="搜索零件名称…" aria-label="搜索零件"></label><div class="filter-tabs"><button data-filter="all" class="active">全部</button><button data-filter="transmission">传动部件</button><button data-filter="housing">支承结构</button></div><div id="parts-list" class="parts-list" aria-label="可选择零件"></div><div class="panel-foot"><span class="little-cross">＋</span> 点击零件，查看结构与作用</div></aside><section class="control-deck" aria-label="模型操作"><div class="motion-controls"><button id="play" class="play-button" aria-label="播放齿轮传动">▶</button><div><label for="speed">演示速度 <output id="speed-value">1.0×</output></label><input id="speed" type="range" min="0.1" max="2" step="0.1" value="1"><small>1× 为实际转速的 20% 慢放</small></div></div><div id="free-controls"><div class="slider-block"><div><label for="explode">爆炸展开</label><output id="explode-value">0%</output></div><input id="explode" type="range" min="0" max="100" value="0"><small>完整装配 <span>零件分离</span></small></div><button class="subtle-button" id="explode-all" aria-label="全部展开"><span class="label-wide">全部展开</span><span class="label-compact">展开</span></button><button class="subtle-button" id="assemble-all" aria-label="复原装配"><span class="label-wide">复原装配</span><span class="label-compact">复原</span></button></div><div id="assembly-controls" hidden><button id="step-prev" class="subtle-button">← 上一步</button><div class="step-message"><span id="step-number">00 / 04</span><b id="step-title">完整装配</b><small id="step-copy">先停机，再按顺序查看拆装过程。</small></div><button id="step-next" class="primary-button">下一步 →</button></div></section></div>
+<aside class="assistant-sidebar" aria-label="模型助手">
+  <div class="assistant-tabs" role="tablist" aria-label="模型辅助面板">
+    <button id="chat-tab" role="tab" aria-selected="true" aria-controls="chat-pane">AI 助手</button>
+    <button id="details-tab" role="tab" aria-selected="false" aria-controls="details-pane" tabindex="-1">零件解读</button>
+  </div>
+  <section class="chat-panel" id="chat-pane" role="tabpanel" aria-labelledby="chat-tab">
+    <div class="chat-header"><div><h2>一起读懂直齿轮传动</h2><p id="chat-connection" class="chat-connection" role="status">正在检查连接…</p></div><button id="chat-reset" class="chat-reset" type="button" title="清空当前聊天">新对话</button></div>
+    <div class="chat-context"><span>当前模型 · 单级直齿齿轮</span><button id="chat-context-part" type="button" title="查看当前零件解读">尚未选择零件</button></div>
+    <div id="chat-scroll" class="chat-scroll">
+      <div id="chat-welcome" class="chat-welcome">
+        <div class="chat-emblem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-6 3v-3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 9h8m-8 4h5"/></svg></div>
+        <h3>从一个问题开始。</h3><p>结合当前齿数、模数与转速，理解齿轮如何啮合传动。</p>
+        <div class="chat-suggestions"><button type="button">为什么两个外啮合齿轮反向转动？</button><button type="button">增加从动轮齿数，转速怎样变化？</button><button type="button">模数改变后，速比也会改变吗？</button></div>
+      </div>
+      <div id="chat-messages" role="log" aria-label="AI 聊天记录" aria-live="off"></div>
+    </div>
+    <div class="chat-account"><div><p id="chat-account-email">邮箱登录后即可聊天</p><p id="chat-budget">每账号每天 2 元 · 北京时间零点重置</p></div><button id="chat-login" type="button" disabled>登录 / 注册</button></div>
+    <div id="chat-notice" class="chat-notice" role="status" aria-live="polite"><span id="chat-notice-text"></span><button id="chat-retry" class="chat-retry" type="button" hidden>重新发送</button></div>
+    <form id="chat-form" class="chat-compose"><label for="chat-input" class="chat-input-label">向 AI 提问</label><textarea id="chat-input" maxlength="2000" rows="2" placeholder="问问当前零件，或描述你的疑问…" aria-describedby="chat-input-hint"></textarea><div class="chat-compose-actions"><small id="chat-input-hint">Enter 发送 · Shift+Enter 换行</small><button id="chat-stop" type="button" class="chat-stop" hidden>停止</button><button id="chat-send" class="chat-send" type="submit" disabled>发送</button></div></form>
+  </section>    <aside class="detail-panel" id="details-pane" role="tabpanel" aria-labelledby="details-tab" hidden>
+      <div class="panel-heading"><h2>零件解读</h2><span class="inspect-dot"></span></div>
+      <div id="detail-content">
+        <div class="detail-body"><p id="part-index" class="detail-index">01 / DRIVER-GEAR</p><div class="detail-symbol" aria-hidden="true">⚙</div><h3 id="part-title">主动直齿轮</h3>
+        <p id="part-description" class="detail-description"></p>
+        <p id="pose-status" class="detail-spec" aria-live="polite">完整装配</p><div class="material-label">模型 / 单级外啮合直齿轮</div></div><button class="speak-button" id="speak" type="button">◖)) 朗读讲解</button>
+      </div>
+      <div class="visibility-controls"><div><span>结构显示</span><select id="housing-mode" aria-label="结构显示"><option value="open">仅看传动</option><option value="transparent">透明支承</option><option value="solid" selected>完整结构</option><option value="hidden">隐藏支承</option></select></div><label><input type="checkbox" id="labels-toggle"> 显示选中零件标注</label></div>
+    </aside></aside>
+</div>
+<div id="status-message" role="status" aria-live="polite"></div>
+<section id="parameters" class="parameter-panel" aria-labelledby="parameter-title">
+  <div class="settings"><section id="structure">
+    <div class="parameter-heading"><div><h2 id="parameter-title">参数调节</h2><p class="hint">改变齿数与模数，看齿轮和转速一起变化。</p></div><button id="reset-parameters" class="subtle-button" type="button">恢复默认</button></div>
+    <div class="preset-row"><label for="drive-preset">齿数组合</label><select id="drive-preset"><option value="reduce">减速示例 · 20 / 40 齿</option><option value="equal">等速示例 · 30 / 30 齿</option><option value="increase">增速示例 · 40 / 20 齿</option><option value="custom">自定义</option></select><span class="hint">两轮使用相同模数，外啮合反向转动。</span></div>
+    <div id="geometry-fields" class="fields"></div>
+    <p id="invalid-input" class="input-error" role="alert" hidden></p>
+    <div id="drive-metrics" class="drive-metrics" aria-live="polite"></div>
+    <p id="contact-summary" class="contact-summary"></p>
+    <details id="load-settings" open><summary>转矩与效率 <span class="hint">输入转矩 · 传动损失 · 输出功率</span></summary><div id="load-fields" class="fields"></div><p id="load-summary" class="load-summary" role="status" aria-live="polite"></p></details>
+    <p class="hint scope-note">以单级外啮合直齿轮为对象，压力角固定 20°。模数与齿宽改变尺寸；齿数比决定速比。稳态功率按指定效率计算，不作齿面接触或齿根强度校核。</p>
+  </section></div>
+</section>
+</div>
+<section id="performance" class="tab-panel reading-panel" hidden>
+  <div class="section-lead"><p class="eyebrow">ONE MESH, OPPOSITE ROTATION</p><h2>齿数决定比例，啮合改变转向。</h2><p>一对平行轴直齿轮通过交替接触的轮齿传递运动。调整两轮齿数，比较减速、等速和增速；调整模数，观察尺寸变化。</p></div>
+  <div class="flow-diagram"><div><span>01 / 主动齿轮</span><h3>输入转速</h3><strong id="principle-input">60</strong><small>r/min · 正方向输入</small></div><b>→ 齿轮啮合 →</b><div><span>02 / 齿数关系</span><h3>z₂ / z₁</h3><strong id="principle-ratio">2.00</strong><small>n₁ / |n₂| · 转速比</small></div><b>→ 反向输出 →</b><div><span>03 / 从动齿轮</span><h3>输出转速</h3><strong id="principle-output">−30.0</strong><small>r/min · 负号表示反向</small></div></div>
+  <div class="formula-grid">
+    <article><h3>每经过一个齿，就推进一个齿槽</h3><p>主动轮转过一个齿距，从动轮也转过一个齿距。齿数越多，完成一圈需要通过的齿越多，因此相同输入转速下，大齿轮转得更慢。</p><div class="formula">n₂ = −n₁ × z₁ / z₂<br>i = n₁ / |n₂| = z₂ / z₁</div><p id="ratio-example"></p></article>
+    <article><h3>模数改变尺寸，不改变齿数比</h3><p>模数 m 是齿的尺寸参数。配对齿轮使用相同模数和压力角；齿数不变时，同时放大两轮，转速比仍相同。齿宽决定轮齿沿轴向的长度。</p><div class="formula">d = mz<br>a = m(z₁ + z₂) / 2</div><p>m、节圆直径 d 与中心距 a 使用 mm。改变齿数或模数后，模型按标准中心距重新装配。</p></article>
+    <article><h3>转矩增加，功率不会凭空增加</h3><p>对给定输入转矩，减速可增加输出转矩大小；指定效率 η 表示损失。在稳态转动条件下，输入和输出的功率关系保持一致。</p><div class="formula">T₂ = T₁ × i × η<br>P₁ = T₁n₁π / 30<br>P₂ = ηP₁</div><p id="torque-example"></p></article>
+    <article><h3>一对齿退出，下一对齿接上</h3><p>端面重合度表示有效接触路径与基圆齿距的比例，用于观察多对轮齿接替传动的几何条件。当前结果基于 20°、零变位齿轮的理论几何。</p><div class="formula">连续传动需要轮齿接触有交接</div><p>动画使用固定齿数比，不求解弹性变形、齿侧间隙冲击、润滑或制造误差。展示的几何关系不代替承载能力设计。</p><button class="text-button" data-go="explore">回到模型试一试 →</button></article>
+  </div>
+</section>
+<section id="calibration" class="tab-panel reading-panel" hidden>
+  <div class="section-lead"><p class="eyebrow">SINGLE-STAGE SPUR GEARS</p><h2>看清轮齿，也看清比例。</h2><p>单级直齿圆柱齿轮实验：调整两轮齿数，观察啮合、转向和速比，进一步探索模数、齿宽、转矩与效率。</p></div>
+  <div class="formula-grid">
+    <article><h3>模型包含什么？</h3><p>主动与从动直齿轮、两根平行传动轴、轴端锁紧环和轴承支座，共 8 个可选组件。支持整体爆炸、逐步拆装和支承显示控制。</p></article>
+    <article><h3>这版怎么使用？</h3><p>先播放观察两轮反向转动，再调节下方齿数和模数。使用预设比较 20/40、30/30 和 40/20 三种组合；改变输入转矩与效率，观察输出转矩和功率。选择正视图可看清轮齿配合。</p></article>
+    <article><h3>几何与计算边界</h3><p>采用 20° 压力角、零变位的直齿轮教学几何，工作齿面按渐开线采样。基圆以下以径向线连接齿根圆弧，未生成滚刀包络或制造圆角。本页未校核齿根弯曲、齿面接触强度或轴承寿命，不作为制造图纸。</p><a class="text-button" href="spur/DESIGN.md">读取模型与计算说明 ↗</a></article>
+    <article><h3>结合模型向 AI 提问</h3><p>登录后，助手会收到本次问题对应的齿数、模数、转速、转矩、效率与选中零件。可以问“为什么只改模数不改速比？”或“相同功率下，减速为什么提高转矩？”</p><p><a class="text-button" href="spur/DESIGN.md">公式、假设与参考资料 ↗</a></p></article>
+  </div>
+</section>
+</main>
+<footer><span>啮合实验室 <b> / </b> 看见结构，理解机械。</span><span>单级直齿圆柱齿轮 · 参数化教学模型</span></footer>
+</body></html>

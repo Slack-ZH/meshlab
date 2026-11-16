@@ -20,6 +20,12 @@
 
 点击播放观察相反转向，使用爆炸、复原、逐步拆装和零件目录检查结构。原理页说明速比与摩擦容量，AI 提问会附带本次问题对应的参数和选中零件。1× 为实际输入转速的 20% 慢放；超载只提示打滑风险，不计算实际滑移速度。详细公式与范围见 [friction/DESIGN.md](dist/friction/DESIGN.md)。
 
+## 单级直齿圆柱齿轮实验
+
+入口为 [spur.html](dist/spur.html)，公共视图、控制栏、拆装和 AI 与既有实验一致，参数位于模型下方。主动齿数、从动齿数、模数和齿宽控制几何；输入转速、输入转矩与效率控制运动和计算。预设提供 20/40、30/30、40/20 齿组合。
+
+传动比定义为 `i=z₂/z₁=n₁/|n₂|`，外啮合从动轮反向；非零转速时按 `T₂=T₁iη`、`P₂=P₁η` 计算稳态输出。零转速时功率为 0，不推算静态输出转矩。1× 演示为实际输入转速的 20% 慢放；轮齿几何、假设和参考资料见 [spur/DESIGN.md](dist/spur/DESIGN.md)。
+
 ## 本地运行
 
 要使用 AI 聊天，在本目录运行 `node --env-file-if-exists=.env server/local.mjs`，需要 Node.js 22+。本地预览代理到云端，邮箱登录及每日预算与正式网站共享，无需本机 DeepSeek 密钥。详细步骤见 [AI 接入说明](docs/AI-SETUP.md)，后续开发见 [分步计划](docs/AI-ROADMAP.md)。
@@ -39,6 +45,7 @@ python -m http.server 8080 --directory dist
 - `dist/`：可直接部署的网站，`index.html`、`app.js`、`apple.css`、`apple.js` 是网页源代码。
 - `dist/assets/`：Three.js、OrbitControls、CAD 网格和模型参数。
 - `dist/friction/`：摩擦轮参数、计算、三维模型、交互和 AI 上下文。
+- `dist/spur/`：单级直齿轮参数、计算、三维模型、交互和 AI 上下文。
 - `dist/downloads/`：STEP、PDF、BOM 与工程资料包。
 - `dist/previews/`：桌面、手机和深色版实际浏览器截图。
 - `scripts/`：参数化 CAD、文档生成、工程验证及浏览器检查脚本。
