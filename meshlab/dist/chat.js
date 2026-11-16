@@ -5,14 +5,15 @@ import { captureBicycleContext } from './bicycle/chat-context.mjs';
 import { captureFrictionContext } from './friction/chat-context.mjs';
 import { captureSpurContext } from './spur/chat-context.mjs';
 import { captureIdlerContext } from './idler/chat-context.mjs';
-import { captureBeltContext, createBeltChatPayload as createChatPayload } from './belt/chat-context.mjs';
+import { captureBeltContext } from './belt/chat-context.mjs';
+import { captureTimingContext, createTimingChatPayload as createChatPayload } from './timing/chat-context.mjs';
 
 const $ = id => document.getElementById(id);
 const input = $('chat-input'), sendButton = $('chat-send');
 const scroll = $('chat-scroll'), messages = $('chat-messages');
 let apiBase = '', ready = false, busy = false, history = [], retryTurn = null, active = null;
 let accountId = null, accountRevision = 0;
-let supportsTurbine = false, supportsBicycle = false, supportsFriction = false, supportsSpur = false, supportsIdler = false, supportsBelt = false;
+let supportsTurbine = false, supportsBicycle = false, supportsFriction = false, supportsSpur = false, supportsIdler = false, supportsBelt = false, supportsTiming = false;
 
 async function refreshBudget() {
   const revision = ++accountRevision;
@@ -46,6 +47,8 @@ for (const name of ['chat', 'details']) {
 }
 $('chat-context-part').addEventListener('click', () => showPane('details', true));
 function updateContext() {
+  const timingState = window.__timingLab?.getState();
+  const timing = timingState && captureTimingContext(timingState);
   const beltState = window.__beltLab?.getState();
   const belt = beltState && captureBeltContext(beltState);
   const idlerState = window.__idlerLab?.getState();
@@ -58,9 +61,10 @@ function updateContext() {
   const bicycle = bicycleState && captureBicycleContext(bicycleState);
   const state = window.__turbineLab?.getState();
   const context = state && captureTurbineContext(state);
-  $('chat-context-part').textContent = belt?.selectedPart?.name || idler?.selectedPart?.name || spur?.selectedPart?.name || friction?.selectedPart?.name || bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
+  $('chat-context-part').textContent = timing?.selectedPart?.name || belt?.selectedPart?.name || idler?.selectedPart?.name || spur?.selectedPart?.name || friction?.selectedPart?.name || bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
   const model = document.querySelector('.chat-context > span');
-  if (belt && model) model.textContent = `平带 · ${belt.parameters.crossed===true?'交叉带':belt.parameters.crossed===false?'开口带':'模式待确认'} · ${belt.parameters.driverDiameter ?? '—'} / ${belt.parameters.drivenDiameter ?? '—'} mm`;
+  if (timing && model) model.textContent = `同步带 · ${timing.parameters.driverTeeth ?? '—'} / ${timing.parameters.drivenTeeth ?? '—'} 齿 · 节距 5 mm`;
+  else if (belt && model) model.textContent = `平带 · ${belt.parameters.crossed===true?'交叉带':belt.parameters.crossed===false?'开口带':'模式待确认'} · ${belt.parameters.driverDiameter ?? '—'} / ${belt.parameters.drivenDiameter ?? '—'} mm`;
   else if (idler && model) model.textContent = `齿轮列 · ${idler.parameters.useIdler===true?'有惰轮':idler.parameters.useIdler===false?'直接啮合':'模式待确认'} · ${idler.parameters.driverTeeth ?? '—'} / ${idler.parameters.drivenTeeth ?? '—'} 齿`;
   else if (spur && model) model.textContent = `直齿齿轮 · ${spur.parameters.driverTeeth ?? '—'} / ${spur.parameters.drivenTeeth ?? '—'} 齿 · m${spur.parameters.module ?? '—'}`;
   else if (friction && model) model.textContent = `摩擦轮 · ${friction.parameters.driverDiameter ?? '—'} / ${friction.parameters.drivenDiameter ?? '—'} mm · ${friction.parameters.inputRPM ?? '—'} rpm`;
@@ -74,6 +78,7 @@ window.addEventListener('friction:statechange', updateContext);
 window.addEventListener('spur:statechange', updateContext);
 window.addEventListener('idler:statechange', updateContext);
 window.addEventListener('belt:statechange', updateContext);
+window.addEventListener('timing:statechange', updateContext);
 updateContext();
 
 function notice(text, retry = false) {
@@ -121,7 +126,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
   const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 75000);
   try {
     const headers = { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() };
-    const payload = createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction,supportsSpur,supportsIdler,supportsBelt});
+    const payload = createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction,supportsSpur,supportsIdler,supportsBelt,supportsTiming});
     const response = await fetch(apiBase + '/chat', {
       method: 'POST', headers, credentials: 'omit', signal: controller.signal,
       body: JSON.stringify(payload)
@@ -144,7 +149,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
       if (nearBottom) scrollBottom();
     });
     if (active !== controller) return;
-    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext, frictionContext: turn.frictionContext, spurContext: turn.spurContext, idlerContext: turn.idlerContext, beltContext: turn.beltContext }, { role: 'assistant', content: result.answer });
+    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext, frictionContext: turn.frictionContext, spurContext: turn.spurContext, idlerContext: turn.idlerContext, beltContext: turn.beltContext, timingContext: turn.timingContext }, { role: 'assistant', content: result.answer });
     history = history.slice(-20);
     while (history.length && history.reduce((sum, message) => sum + message.content.length, 0) > 24000) {
       history.splice(0, 2);
@@ -177,18 +182,20 @@ $('chat-form').addEventListener('submit', e => {
   const spurState = window.__spurLab?.getState();
   const idlerState = window.__idlerLab?.getState();
   const beltState = window.__beltLab?.getState();
-  if ($('geometry-fields') && !turbineState && !bicycleState && !frictionState && !spurState && !idlerState && !beltState) { notice('模型参数尚未就绪，请稍后再试。'); return; }
+  const timingState = window.__timingLab?.getState();
+  if ($('geometry-fields') && !turbineState && !bicycleState && !frictionState && !spurState && !idlerState && !beltState && !timingState) { notice('模型参数尚未就绪，请稍后再试。'); return; }
   const turbineContext = turbineState ? captureTurbineContext(turbineState) : null;
   const bicycleContext = bicycleState ? captureBicycleContext(bicycleState) : null;
   const frictionContext = frictionState ? captureFrictionContext(frictionState) : null;
   const spurContext = spurState ? captureSpurContext(spurState) : null;
   const idlerContext = idlerState ? captureIdlerContext(idlerState) : null;
   const beltContext = beltState ? captureBeltContext(beltState) : null;
+  const timingContext = timingState ? captureTimingContext(timingState) : null;
   const state = window.__gearLab?.getState();
   const turn = { role: 'user', content, selectedPartId: state?.selected || null,
-    partName: beltContext?.selectedPart?.name || idlerContext?.selectedPart?.name || spurContext?.selectedPart?.name || frictionContext?.selectedPart?.name || bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
-    turbineContext, bicycleContext, frictionContext, spurContext, idlerContext, beltContext };
-  try { createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction,supportsSpur,supportsIdler,supportsBelt}); }
+    partName: timingContext?.selectedPart?.name || beltContext?.selectedPart?.name || idlerContext?.selectedPart?.name || spurContext?.selectedPart?.name || frictionContext?.selectedPart?.name || bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
+    turbineContext, bicycleContext, frictionContext, spurContext, idlerContext, beltContext, timingContext };
+  try { createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction,supportsSpur,supportsIdler,supportsBelt,supportsTiming}); }
   catch (error) { notice(error.message); return; }
   input.value = '';
   void requestReply(turn);
@@ -244,6 +251,7 @@ async function connect() {
     supportsSpur = health.modelContexts?.includes('spur') === true;
     supportsIdler = health.modelContexts?.includes('idler') === true;
     supportsBelt = health.modelContexts?.includes('belt') === true;
+    supportsTiming = health.modelContexts?.includes('timing') === true;
     ready = true;
     $('chat-connection').textContent = 'DeepSeek · 服务已连接';
     $('chat-connection').dataset.state = 'ready';

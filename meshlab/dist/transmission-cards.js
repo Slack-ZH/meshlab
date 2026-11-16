@@ -19,6 +19,9 @@ entries.push(['带惰轮齿轮列','IDLER GEAR TRAIN','#c5d2c9','三个齿轮、
 arts.push('<g fill="none" stroke="var(--diagram-stroke)" stroke-width="4"><circle cx="54" cy="96" r="34"/><circle cx="182" cy="96" r="46"/><path d="M76 70 153 131M76 122 153 61"/><path d="m101 102 24-19" stroke="var(--diagram-surface)" stroke-width="10"/><path d="m101 102 24-19"/><circle cx="54" cy="96" r="8"/><circle cx="182" cy="96" r="10"/></g>');
 entries.push(['交叉平带传动','CROSSED FLAT BELT','#d2c4b7','交叉反向、开口同向；调节轮径和中心距，观察包角、带长与传动关系。']);
 
+arts.push(`<path d="M49 62 170 45M49 130l121 17" fill="none" stroke="var(--diagram-stroke)" stroke-width="7"/>${cog(49,96,32,20)}${cog(170,96,49,40)}<path d="M54 69 165 53M54 123l111 16" fill="none" stroke="var(--diagram-stroke)" stroke-width="7" stroke-dasharray="3 6"/><path d="M19 96a30 34 0 0 1 30-34M49 130a30 34 0 0 1-30-34M170 45a49 51 0 0 1 0 102" fill="none" stroke="var(--diagram-stroke)" stroke-width="6"/>`);
+entries.push(['同步带传动','TIMING BELT','#c0cbd9','固定节距、逐齿啮合；调整带轮齿数，验证速比与整数带齿的闭合关系。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
