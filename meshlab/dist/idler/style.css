@@ -1,0 +1,34 @@
+/* Shared viewer, toolbar and assistant layout come from apple.css and chat.css. */
+.parameter-panel { padding-top: 14px; scroll-margin-top: 20px; max-width: calc(100% - 378px); }
+.settings > section { padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 25px; min-width: 0; }
+.parameter-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.parameter-heading h2 { font-size: 1.15rem; }
+.hint, .parameter-field small { font-size: .8125rem; color: var(--secondary); line-height: 1.8; }
+.parameter-heading .hint { margin-top: 4px; }
+.preset-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 18px 0; }
+.preset-row label { font-size: .875rem; }
+.preset-row select { flex: 1 1 190px; max-width: 310px; }
+.fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 16px; margin: 18px 0; }
+.parameter-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.parameter-field label { font-size: .875rem; }
+.settings input[type=number], .settings select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; background: var(--soft); font-variant-numeric: tabular-nums; }
+.settings input[type=range] { min-height: 32px; height: 32px; width: 100%; }
+.drive-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 22px; }
+.drive-metrics span { display: block; font-size: .8125rem; color: var(--secondary); }
+.drive-metrics strong { font-size: clamp(1.35rem, 2vw, 1.85rem); font-weight: 500; display: block; margin-top: 5px; font-variant-numeric: tabular-nums; }
+.drive-metrics small { font-size: .75rem; color: var(--secondary); }
+.contact-summary { font-size: .8125rem; line-height: 1.9; background: var(--soft); border-radius: 14px; padding: 12px 14px; margin: 18px 0 10px; }
+.input-error { padding: 12px 14px; border-inline-start: 3px solid var(--accent); border-radius: 12px; background: var(--selected); font-size: .875rem; }
+#load-settings { margin-top: 14px; border-top: 1px solid var(--line); }
+#load-settings summary { cursor: pointer; min-height: 44px; padding: 12px 0; font-size: .875rem; }
+#load-settings summary span { margin-left: 10px; }
+#load-fields { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.scope-note { margin-top: 12px; }
+@media(max-width:1200px) and (min-width:1001px) { .parameter-panel { max-width: calc(100% - 334px); } .fields { grid-template-columns: repeat(2,minmax(0,1fr)); } .drive-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:1000px) { .parameter-panel { max-width: none; } }
+@media(max-width:760px) { .settings > section { padding: 17px; border-radius: 23px; } .fields { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px 12px; } .parameter-heading .hint { max-width: 190px; } .settings input[type=number], .settings select { font-size: 1rem; } .preset-row .hint { flex-basis: 100%; } .drive-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); } #load-settings summary span { display: block; margin: 3px 0 0; } }
+
+.load-summary { font-size: .8125rem; line-height: 1.9; padding: 12px 14px; border-radius: 14px; background: var(--soft); }
+
+.parameter-inactive { opacity: .62; }
+.parameter-field input:disabled { cursor: not-allowed; }

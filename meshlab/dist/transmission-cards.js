@@ -13,6 +13,9 @@ entries.push(['摩擦轮传动','FRICTION DRIVE','#d5c8ba','两只外接摩擦�
 arts.push(`${cog(65,96,34,20)}${cog(158,96,63,40)}<g fill="none" stroke="var(--diagram-stroke)" stroke-width="2" stroke-dasharray="4 3"><circle cx="65" cy="96" r="31"/><circle cx="158" cy="96" r="62"/></g><path d="M65 96h93" stroke="var(--diagram-stroke)" stroke-width="1.5" stroke-dasharray="3 5"/>`);
 entries.push(['单级直齿圆柱齿轮','SPUR GEARS','#c8cbd7','调整齿数、模数和齿宽，观察外啮合转向、速比及转矩与功率的关系。']);
 
+arts.push(`${cog(39,96,25,20)}${cog(98,96,38,30)}${cog(180,96,50,40)}<path d="M39 151v9m141-4v4M39 160h141" fill="none" stroke="var(--diagram-stroke)" stroke-width="2"/><path d="m43 60 8 6-10 2m133-31-10 1 6 8" fill="none" stroke="var(--diagram-stroke)" stroke-width="3"/>`);
+entries.push(['带惰轮齿轮列','IDLER GEAR TRAIN','#c5d2c9','三个齿轮、两次啮合；切换有无惰轮，比较输出转向、总速比与效率。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
