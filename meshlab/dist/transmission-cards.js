@@ -22,6 +22,9 @@ entries.push(['交叉平带传动','CROSSED FLAT BELT','#d2c4b7','交叉反向�
 arts.push(`<path d="M49 62 170 45M49 130l121 17" fill="none" stroke="var(--diagram-stroke)" stroke-width="7"/>${cog(49,96,32,20)}${cog(170,96,49,40)}<path d="M54 69 165 53M54 123l111 16" fill="none" stroke="var(--diagram-stroke)" stroke-width="7" stroke-dasharray="3 6"/><path d="M19 96a30 34 0 0 1 30-34M49 130a30 34 0 0 1-30-34M170 45a49 51 0 0 1 0 102" fill="none" stroke="var(--diagram-stroke)" stroke-width="6"/>`);
 entries.push(['同步带传动','TIMING BELT','#c0cbd9','固定节距、逐齿啮合；调整带轮齿数，验证速比与整数带齿的闭合关系。']);
 
+arts.push('<g stroke="var(--diagram-stroke)" stroke-width="3"><path d="M33 65h31v73h115v19H33Z" fill="var(--diagram-fill)"/><path d="M135 64h28v49h-28Z" fill="var(--diagram-mid)"/><path d="M44 59h25v12H44Zm86 0h38v12h-38Z" fill="var(--diagram-stroke)"/><path d="M60 112h145" fill="none" stroke-width="9"/><path d="m74 106-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12m18-12-6 12" stroke="var(--diagram-surface)" stroke-width="2"/><path d="M205 80v64"/><circle cx="205" cy="79" r="5" fill="var(--diagram-stroke)"/><circle cx="205" cy="145" r="5" fill="var(--diagram-stroke)"/></g>');
+entries.push(['丝杠螺母传动','LEAD SCREW & NUT','#c7d1c4','用台虎钳观察导程与钳口位移；改变方向，实时比较开口、圈数和进给。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
