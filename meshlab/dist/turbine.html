@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>汽轮机三维实验 · meshlab</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="apple.css">
+  <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="turbine/style.css">
+  <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
+  <script type="module" src="turbine/app.mjs"></script>
+  <script defer src="apple.js"></script>
+  <script type="module" src="chat.js"></script>
+</head>
+<body>
+<dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+  <div class="auth-heading"><h2 id="auth-title">邮箱登录</h2><button id="auth-close" type="button" aria-label="关闭登录">×</button></div>
+  <p class="auth-intro">每个账号每天可使用 2 元 AI 预算，北京时间零点重置。</p>
+  <div id="auth-switch" class="auth-switch"><button id="auth-mode-login" type="button" aria-pressed="true">登录</button><button id="auth-mode-signup" type="button" aria-pressed="false">注册</button></div>
+  <form id="auth-form">
+    <label for="auth-email">邮箱地址</label><input id="auth-email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="auth-password">密码</label><input id="auth-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+    <div id="auth-confirm-wrap" hidden><label for="auth-confirm">再次输入密码</label><input id="auth-confirm" type="password" autocomplete="new-password" maxlength="128"></div>
+    <button id="auth-submit" class="auth-primary" type="submit">登录</button>
+    <button id="auth-reset-password" type="button" class="auth-text-button">忘记密码</button>
+  </form>
+  <div id="auth-verify" hidden><p>请点击验证邮件中的链接，返回后确认验证状态。</p><button id="auth-refresh" class="auth-primary" type="button">我已验证</button><button id="auth-resend" class="auth-text-button" type="button">重新发送验证邮件</button></div>
+  <p id="auth-message" role="status" aria-live="polite"></p>
+  <button id="auth-dialog-logout" class="auth-text-button" type="button" hidden>退出当前账号</button>
+</dialog>
+<a class="skip-link" href="#viewport">跳到模型与操作</a>
+<header class="topbar">
+  <a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a>
+<nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>结果</span></button><button class="nav-button" data-tab="calibration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>校准依据</span></button></nav>
+  <button id="clarity-toggle" class="clarity-button" aria-pressed="false">◐ <span>降低透明度</span></button>
+</header>
+<main>
+  <section class="intro">
+    <div><p class="intro-kicker">结构实验</p><h1>轴流式汽轮机</h1>
+      <p class="intro-copy" id="model-label">卧式 · 单缸 · 单轴</p></div>
+    <a class="subtle-button" href="lab.html">GL16 实验 ↗</a>
+  </section>
+  <div class="workspace" id="explore">
+    <div class="model-column"><div class="stage-shell">
+      <section class="viewer-panel" aria-label="汽轮机三维模型">
+        <div class="viewer-top">
+          <button id="open-parts" class="catalog-button" aria-controls="parts-panel" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9 4v16m4-11h5m-5 6h4"/></svg><span>零件目录</span>
+          </button>
+          <div class="control-mode">
+            <button class="active" data-mode="free">自由探索</button>
+            <button data-mode="steps">逐步拆装</button>
+          </div>
+          <span class="unit-tag">单位 mm</span>
+        </div>
+        <div id="viewport"><div id="selection-label" hidden></div><div id="loading"><span class="loader-ring"></span><b>正在装配汽轮机</b></div></div>
+        <div class="view-tools">
+          <button id="home-view" title="标准视角" aria-label="标准视角"></button>
+          <button id="top-view" title="侧视" aria-label="侧视"></button>
+          <button id="front-view" title="沿轴观察" aria-label="沿轴观察"></button>
+          <button id="fullscreen" title="全屏" aria-label="全屏"></button>
+        </div>
+        <div class="view-hint"><span>拖动旋转</span><i></i><span>双指 / 滚轮缩放</span></div>
+        <aside id="parts-panel" class="parts-panel" hidden aria-label="零件目录">
+          <div class="panel-heading"><h2>装配结构</h2><span id="part-count" class="count"></span><button id="close-parts" class="icon-button" type="button" aria-label="关闭零件目录">×</button></div>
+          <label class="search"><span aria-hidden="true">⌕</span><input id="part-search" placeholder="搜索零件名称…" aria-label="搜索零件"></label>
+          <div id="parts-list" class="parts-list"></div>
+        </aside>
+      </section>
+      <div class="control-deck">
+        <div id="free-controls">
+          <div class="slider-block"><div><label for="explode">爆炸展开</label><output id="explode-value">0%</output></div><input id="explode" type="range" min="0" max="100" value="0"></div>
+          <button id="explode-all" class="subtle-button">全部展开</button>
+          <button id="restore" class="subtle-button">复原</button>
+        </div>
+        <div id="assembly-controls" hidden>
+          <button id="step-prev" class="subtle-button" disabled>← 上一步</button>
+          <div class="step-message"><b id="step-label" aria-live="polite">0 / 4 · 整机装配</b></div>
+          <button id="step-next" class="primary-button">下一步 →</button>
+        </div>
+      </div>
+    </div>
+  <div id="parameters" class="parameter-panel">
+    <div class="settings"><section id="structure"><div class="parameter-heading"><div><h2>参数调节</h2><p class="hint">调节内部参数时自动开盖，即时查看变化；可随时合拢。</p></div><button id="parameter-cover" class="subtle-button" aria-pressed="false">打开上盖</button></div>
+        <div class="fields"><label>做功方式<select id="work"><option value="impulse">冲动式</option><option value="reaction">反动式</option></select></label><label>排汽方式<select id="exhaust"><option value="condensing">凝汽式</option><option value="backpressure">背压式</option></select></label></div>
+        <div id="geometry-fields" class="fields"></div>
+        <p id="invalid-input" role="status" hidden></p>
+        <div id="geometry-results" class="geometry-results" aria-live="polite"></div>
+        <details class="stage-audit"><summary>逐级叶型与间隙</summary><p id="blade-scope" class="hint">教学用参数化叶栅；叶型、通道和间隙按几何规则生成。</p><div id="stage-geometry" class="table-wrap"></div><button class="text-button" data-go="calibration">查看校准依据 →</button></details>
+      </section>
+<details id="conditions"><summary>工况与排汽预设 <span class="hint">压力 · 温度 · 流量 · 效率</span></summary>        <p id="expansion-note" class="note"></p>
+        <label class="check"><input id="lock-pressure" type="checkbox" checked>切换排汽预设时锁定排汽压力</label>
+        <p id="preset-change" class="hint" role="status">仅切换类型时，其余输入保持不变。</p>
+
+        <label>压力显示单位（绝对压力）<select id="pressure-unit"><option>MPa</option><option>kPa</option><option>bar</option></select></label>
+        <div id="condition-fields" class="fields"></div>
+        <p class="hint">支持 0.001–10 MPa、最高 800 °C 的过热蒸汽入口；出口支持过热蒸汽和湿蒸汽。边界超出时停止估算。</p>
+      </details>
+</div>
+  </div>
+    </div>
+<aside class="assistant-sidebar" aria-label="模型助手">
+  <div class="assistant-tabs" role="tablist" aria-label="模型辅助面板">
+    <button id="chat-tab" role="tab" aria-selected="true" aria-controls="chat-pane">AI 助手</button>
+    <button id="details-tab" role="tab" aria-selected="false" aria-controls="details-pane" tabindex="-1">零件解读</button>
+  </div>
+  <section class="chat-panel" id="chat-pane" role="tabpanel" aria-labelledby="chat-tab">
+    <div class="chat-header"><div><h2>一起读懂这台汽轮机</h2><p id="chat-connection" class="chat-connection" role="status">正在检查连接…</p></div><button id="chat-reset" class="chat-reset" type="button" title="清空当前聊天">新对话</button></div>
+    <div class="chat-context"><span>当前模型 · 汽轮机</span><button id="chat-context-part" type="button" title="查看当前零件解读">尚未选择零件</button></div>
+    <div id="chat-scroll" class="chat-scroll">
+      <div id="chat-welcome" class="chat-welcome">
+        <div class="chat-emblem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-6 3v-3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 9h8m-8 4h5"/></svg></div>
+        <h3>从一个问题开始。</h3><p>发送时附带当前参数与选中零件。AI 提供解释与操作建议，回答需结合校准依据核对。</p>
+        <div class="chat-suggestions"><button type="button">当前级的静叶和动叶有什么区别？</button><button type="button">增加级数为什么没有改变估算功率？</button><button type="button">当前叶片形状做了哪些工程简化？</button></div>
+      </div>
+      <div id="chat-messages" role="log" aria-label="AI 聊天记录" aria-live="off"></div>
+    </div>
+    <div class="chat-account"><div><p id="chat-account-email">邮箱登录后即可聊天</p><p id="chat-budget">每账号每天 2 元 · 北京时间零点重置</p></div><button id="chat-login" type="button" disabled>登录 / 注册</button></div>
+    <div id="chat-notice" class="chat-notice" role="status" aria-live="polite"><span id="chat-notice-text"></span><button id="chat-retry" class="chat-retry" type="button" hidden>重新发送</button></div>
+    <form id="chat-form" class="chat-compose"><label for="chat-input" class="chat-input-label">向 AI 提问</label><textarea id="chat-input" maxlength="2000" rows="2" placeholder="问问当前零件，或描述你的疑问…" aria-describedby="chat-input-hint"></textarea><div class="chat-compose-actions"><small id="chat-input-hint">Enter 发送 · Shift+Enter 换行</small><button id="chat-stop" type="button" class="chat-stop" hidden>停止</button><button id="chat-send" class="chat-send" type="submit" disabled>发送</button></div></form>
+  </section>    <aside class="detail-panel" id="details-pane" role="tabpanel" aria-labelledby="details-tab" hidden>
+      <div class="panel-heading"><h2>零件解读</h2><span class="inspect-dot"></span></div>
+      <div id="detail-content">
+        <h3 id="part-title">上汽缸</h3>
+        <p id="part-description" class="detail-description"></p>
+        <p id="pose-status" class="detail-spec" aria-live="polite">整机装配</p>
+      </div>
+      <div class="visibility-controls">
+        <button id="open-cover" class="subtle-button" aria-pressed="false">打开上盖</button>
+        <button data-go="parameters" class="subtle-button">调整参数</button>
+      </div>
+    </aside></aside>
+  </div>
+  <div id="performance" class="reading-panel" hidden><section id="results" class="results"><div class="result-heading"><div><h2>轴功率估算</h2></div><button id="save-baseline" class="primary-button">保存当前方案为基准</button></div>
+    <p id="error" role="alert" hidden></p>
+    <p id="geometry-note" class="note">类型、叶片尺寸及级数仅改变结构与几何指标。固定工况、流量及效率时，首版轴功率保持不变。</p>
+    <div id="metrics" class="metrics"></div>
+    <p class="formula">P = ṁ × (h₁ − h₂s) × ηₜ × ηₘ <span>kg/s × kJ/kg = kW · 轴功率，不含发电机效率</span></p>
+    <p id="assumptions" class="hint"></p>
+    <div id="comparison" aria-live="polite"><p>保存基准后，可并排比较结构、工况与功率。基准保存在本机浏览器。</p></div>
+    <details class="scan" open><summary>单参数扫描</summary><p class="hint">只改变所选参数，其他输入取当前方案。无效点保留并说明原因。</p><div class="scan-controls"><label>扫描参数<select id="scan-key"></select></label><label>起点<input id="scan-start" type="number" value="0.01" step="any"></label><label>终点<input id="scan-end" type="number" value="1" step="any"></label><button id="run-scan">扫描 5 点</button></div><div id="scan-results"></div></details>
+  </section>
+</div>
+  <section id="calibration" class="reading-panel" hidden>
+    <div class="section-lead"><p class="eyebrow">GEOMETRY & DESIGN BASIS</p><h2>从示意叶片，到可解释的叶栅。</h2><p>每一级包含静叶和动叶。模型用于观察结构、尺寸与叶栅排列，具体机组的叶型需要结合速度三角形、流量、转速与强度设计确定。</p></div>
+    <div class="formula-grid">
+      <article><h3>这一版校准了什么？</h3><p>区分静叶与动叶剖面、冲动式与反动式叶栅；检查相邻叶片、相邻叶排与机壳之间的几何间隙。逐级高度和通流面积可在模型下方查看。</p></article>
+      <article><h3>是否符合工程标准？</h3><p>目前是通用教学几何，没有对应厂家叶型图和完整工况设计输入，不能认定为经工程标准验证的制造叶型。没有完成三维流场、离心应力、振动或湿汽侵蚀校核。</p></article>
+      <article><h3>调尺寸后，功率如何变化？</h3><p>结构参数即时重建模型；轴功率使用入口、出口压力、温度、质量流量和指定效率估算。逐级气动损失尚未求解，因此改变几何不直接改变功率。</p><button class="text-button" data-go="performance">查看功率与工况 →</button></article>
+      <article><h3>校准记录与来源</h3><p>几何记录说明每级剖面构造、间隙判定和简化边界，便于逐项检查。</p><a href="turbine/GEOMETRY.md">读取叶型校准说明 ↗</a><p class="hint">参考来源在校准说明中逐项列出。</p></article>
+    </div>
+  </section>
+  <footer><p>通用轴流教学模型 · 无制造尺寸、公差或机组选型效力</p><p><a href="https://www1.eere.energy.gov/manufacturing/tech_assistance/pdfs/guide_chp_boiler.pdf">结构原理：美国能源部 CHP 指南 §3.1</a> · <a href="https://iapws.org/technical-guidance/release/IF97-Rev">蒸汽性质：IAPWS-IF97</a></p><p>性质库 NeutriumJS 1.2.2 © Native Dynamics · <a href="turbine/vendor/LICENSE.txt">CC BY 4.0</a> · <a href="turbine/vendor/README.md">来源与适配说明</a></p></footer>
+
+</main>
+</body>
+</html>

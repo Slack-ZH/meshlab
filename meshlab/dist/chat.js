@@ -1,11 +1,13 @@
 import { readCompletion } from './chat-stream.js';
 import { initAuth, canChat, currentUser, token, openAuth, setBudget, authUnavailable } from './auth.js';
+import { captureTurbineContext, createChatPayload } from './turbine/chat-context.mjs';
 
 const $ = id => document.getElementById(id);
 const input = $('chat-input'), sendButton = $('chat-send');
 const scroll = $('chat-scroll'), messages = $('chat-messages');
 let apiBase = '', ready = false, busy = false, history = [], retryTurn = null, active = null;
 let accountId = null, accountRevision = 0;
+let supportsTurbine = false;
 
 async function refreshBudget() {
   const revision = ++accountRevision;
@@ -39,9 +41,14 @@ for (const name of ['chat', 'details']) {
 }
 $('chat-context-part').addEventListener('click', () => showPane('details', true));
 function updateContext() {
-  $('chat-context-part').textContent = $('selection-label').textContent || '尚未选择零件';
+  const state = window.__turbineLab?.getState();
+  const context = state && captureTurbineContext(state);
+  $('chat-context-part').textContent = context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
+  const model = document.querySelector('.chat-context > span');
+  if (context && model) model.textContent = `汽轮机 · ${context.parameters.stages ?? '—'} 级 · ${context.parameters.blades ?? '—'} 片/排`;
 }
-new MutationObserver(updateContext).observe($('selection-label'), { childList: true, subtree: true, characterData: true });
+if ($('selection-label')) new MutationObserver(updateContext).observe($('selection-label'), { childList: true, subtree: true, characterData: true });
+window.addEventListener('turbine:statechange', updateContext);
 updateContext();
 
 function notice(text, retry = false) {
@@ -89,10 +96,10 @@ async function requestReply(turn, userAlreadyVisible = false) {
   const timer = setTimeout(() => { timedOut = true; controller.abort(); }, 75000);
   try {
     const headers = { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() };
-    const payload = [...history.slice(-20), turn].map(({ role, content, selectedPartId }) => ({ role, content, selectedPartId }));
+    const payload = createChatPayload([...history.slice(-20), turn], {supportsTurbine});
     const response = await fetch(apiBase + '/chat', {
       method: 'POST', headers, credentials: 'omit', signal: controller.signal,
-      body: JSON.stringify({ messages: payload })
+      body: JSON.stringify(payload)
     });
     if (!response.ok) {
       let error;
@@ -112,7 +119,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
       if (nearBottom) scrollBottom();
     });
     if (active !== controller) return;
-    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId }, { role: 'assistant', content: result.answer });
+    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext }, { role: 'assistant', content: result.answer });
     history = history.slice(-20);
     while (history.length && history.reduce((sum, message) => sum + message.content.length, 0) > 24000) {
       history.splice(0, 2);
@@ -139,9 +146,15 @@ $('chat-form').addEventListener('submit', e => {
   const content = input.value.trim();
   if (!content || content.length > 2000 || busy || !ready) return;
   if (!canChat()) { openAuth(); return; }
+  const turbineState = window.__turbineLab?.getState();
+  if ($('geometry-fields') && !turbineState) { notice('模型参数尚未就绪，请稍后再试。'); return; }
+  const turbineContext = turbineState ? captureTurbineContext(turbineState) : null;
   const state = window.__gearLab?.getState();
   const turn = { role: 'user', content, selectedPartId: state?.selected || null,
-    partName: state?.selected ? $('selection-label').textContent : '' };
+    partName: turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
+    turbineContext };
+  try { createChatPayload([...history.slice(-20), turn], {supportsTurbine}); }
+  catch (error) { notice(error.message); return; }
   input.value = '';
   void requestReply(turn);
 });
@@ -190,6 +203,7 @@ async function connect() {
     if (!response.ok) throw new Error('聊天服务暂不可用。');
     const health = await response.json();
     if (!health.ready) throw new Error('DeepSeek 服务尚未配置完成。');
+    supportsTurbine = health.modelContexts?.includes('turbine') === true;
     ready = true;
     $('chat-connection').textContent = 'DeepSeek · 服务已连接';
     $('chat-connection').dataset.state = 'ready';

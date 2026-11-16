@@ -4,6 +4,10 @@
 
 **[在线体验](https://slack-zh.github.io/meshlab/)** · **[进入 GL16 实验室](https://slack-zh.github.io/meshlab/lab.html)** · **[查看工程资料](https://slack-zh.github.io/meshlab/lab.html?view=engineering)**
 
+**[进入汽轮机实验](https://slack-zh.github.io/meshlab/turbine.html)**：无公共底座的封闭汽缸配有进排汽口，可开盖观察和分步拆装。在模型下方调整级数、叶片数、末级叶高、根部轴向弦长与轮毂直径，三维结构即时更新；AI 问答会附带当前参数和选中零件。
+
+汽轮机采用通用教学叶型，逐级尺寸和间隙规则见[叶型校准说明](meshlab/dist/turbine/GEOMETRY.md)。工况、流量和指定效率决定当前功率估算；几何尚未耦合逐级气动损失，不具备制造级设计或校核效力。
+
 ## 怎么用
 
 1. **认识零件**。进入实验室的「探索」页，拖动模型旋转，用滚轮或双指缩放。点击模型或打开「零件目录」，可在 49 个零件中查看名称、材料和作用，并播放中文讲解。
@@ -22,7 +26,7 @@ python -m http.server 8080 --directory meshlab/dist
 
 浏览器打开 [本地首页](http://127.0.0.1:8080/) 或 [本地实验室](http://127.0.0.1:8080/lab.html)。浏览器需支持 WebGL，网页通过本地 HTTP 服务加载模型。
 
-如果要使用 AI 助手，停止上述静态服务，再从仓库根目录用 Node.js 22+ 启动本地代理。它通过 Cloudflare Worker 使用与线上相同的账号和预算。
+如果要使用 AI 助手，停止上述静态服务，再从仓库根目录用 Node.js 启动本地代理（推荐 24.14+，支持读取 Windows 已有系统代理）。它通过 Cloudflare Worker 使用与线上相同的账号和预算。
 
 ```sh
 cd meshlab
