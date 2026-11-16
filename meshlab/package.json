@@ -9,7 +9,8 @@
     "worker:check": "wrangler deploy --dry-run --outdir test-results/worker-bundle",
     "worker:login": "wrangler login",
     "worker:deploy": "wrangler deploy",
-    "test:turbine": "node --test scripts/test-turbine-geometry.mjs scripts/test-turbine-chat.mjs && node scripts/test-turbine.mjs"
+    "test:turbine": "node --test scripts/test-turbine-geometry.mjs scripts/test-turbine-chat.mjs && node scripts/test-turbine.mjs",
+    "test:bicycle": "node --test scripts/test-bicycle.mjs scripts/test-bicycle-chat.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",

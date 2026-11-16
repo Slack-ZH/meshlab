@@ -6,7 +6,13 @@ import { mkdir, writeFile } from 'node:fs/promises';
 const base = new URL(process.env.MESHLAB_BASE_URL || 'http://127.0.0.1:8088/');
 if (!base.pathname.endsWith('/')) base.pathname += '/';
 const cdp = process.env.MESHLAB_CDP_URL || 'http://127.0.0.1:9337';
-const destination = new URL('../test-results/layout/', import.meta.url);
+const comparePage = process.env.MESHLAB_COMPARE_PAGE || 'turbine.html';
+const compareReady = process.env.MESHLAB_COMPARE_READY || 'window.__turbineLab?.getState().ready';
+const compareKind = new URL(comparePage,base).pathname.split('/').pop()
+  .replace(/\.html?$/i,'').replace(/[^a-z0-9_-]/gi,'-') || 'comparison';
+assert.notEqual(compareKind,'gear','Comparison page label must differ from the gear reference');
+// Keep the default report path stable; other models retain independent evidence.
+const destination = new URL(`../test-results/${compareKind==='turbine'?'layout':`layout-${compareKind}`}/`, import.meta.url);
 const tolerance = 1;
 const dimensions = [[1440,1080],[1100,900],[900,1080],[390,844],[360,740]];
 const shared = [
@@ -37,7 +43,8 @@ let activePage = '';
 let socket;
 const pending = new Map();
 let sequence = 0;
-const report = { baseUrl:base.href, tolerancePx:tolerance, testedAt:new Date().toISOString(),
+const report = { baseUrl:base.href, comparePage, compareReady, compareKind,
+  tolerancePx:tolerance, testedAt:new Date().toISOString(),
   viewports:[], errors, consoleErrors };
 
 function command(method, params = {}) {
@@ -92,15 +99,15 @@ async function screenshot(name) {
 }
 function compare(reference,current,selectors,mode) {
   const differences=[];
-  if(reference.overflow||current.overflow)differences.push({mode,problem:'horizontal overflow',gear:reference.overflow,turbine:current.overflow});
+  if(reference.overflow||current.overflow)differences.push({mode,problem:'horizontal overflow',gear:reference.overflow,[compareKind]:current.overflow});
   for(const selector of selectors){
     const a=reference.rects[selector],b=current.rects[selector];
-    if(a.missing||b.missing){differences.push({mode,selector,problem:'missing component',gear:a,turbine:b});continue;}
-    if(a.visible!==b.visible){differences.push({mode,selector,problem:'visibility mismatch',gear:a.visible,turbine:b.visible});continue;}
+    if(a.missing||b.missing){differences.push({mode,selector,problem:'missing component',gear:a,[compareKind]:b});continue;}
+    if(a.visible!==b.visible){differences.push({mode,selector,problem:'visibility mismatch',gear:a.visible,[compareKind]:b.visible});continue;}
     if(!a.visible)continue;
     for(const key of ['x','y','width','height']){
       const delta=b[key]-a[key];
-      if(Math.abs(delta)>tolerance)differences.push({mode,selector,property:key,gear:a[key],turbine:b[key],delta});
+      if(Math.abs(delta)>tolerance)differences.push({mode,selector,property:key,gear:a[key],[compareKind]:b[key],delta});
     }
   }
   return differences;
@@ -134,7 +141,7 @@ try {
     report.viewports.push(pair);
     for(const [kind,file,ready] of [
       ['gear','lab.html','window.__gearLab?.getState().ready'],
-      ['turbine','turbine.html','window.__turbineLab?.getState().ready'],
+      [compareKind,comparePage,compareReady],
     ]){
       activePage=kind+' '+width+'x'+height;
       await command('Page.navigate',{url:new URL(file,base).href});
@@ -161,7 +168,7 @@ try {
       await screenshot(`${width}-${kind}-selected-details.png`);
       await click('#chat-tab');
       let parameters=null;
-      if(kind==='turbine')parameters=await evaluate(`(()=>{
+      if(kind===compareKind)parameters=await evaluate(`(()=>{
         const p=document.getElementById('parameters'),w=document.querySelector('.workspace'),s=document.querySelector('.stage-shell');
         if(!p)return {missing:true};
         const a=p.getBoundingClientRect(),b=w.getBoundingClientRect();
@@ -169,10 +176,10 @@ try {
       })()`);
       pair.pages[kind]={free,parts,steps,details,selectedDetails,parameters};
     }
-    const gear=pair.pages.gear,turbine=pair.pages.turbine;
-    pair.differences.push(...compare(gear.free,turbine.free,shared,'free'),...compare(gear.parts,turbine.parts,panelSelectors,'parts'),...compare(gear.steps,turbine.steps,stepSelectors,'steps'));
-    pair.differences.push(...compare(gear.details,turbine.details,detailSelectors,'details'),...compare(gear.selectedDetails,turbine.selectedDetails,selectedDetailSelectors,'selected-details'));
-    const parameters=turbine.parameters;
+    const gear=pair.pages.gear,current=pair.pages[compareKind];
+    pair.differences.push(...compare(gear.free,current.free,shared,'free'),...compare(gear.parts,current.parts,panelSelectors,'parts'),...compare(gear.steps,current.steps,stepSelectors,'steps'));
+    pair.differences.push(...compare(gear.details,current.details,detailSelectors,'details'),...compare(gear.selectedDetails,current.selectedDetails,selectedDetailSelectors,'selected-details'));
+    const parameters=current.parameters;
     if(parameters.missing||!parameters.visible||parameters.insideStage||parameters.insideWorkspace||!parameters.afterWorkspace||parameters.top<parameters.workspaceBottom-1)
       pair.differences.push({mode:'parameters',problem:'parameters must follow the common workspace without changing its dimensions',parameters});
     console.log(JSON.stringify({width,height,differences:pair.differences.length,maximumDelta:Math.max(0,...pair.differences.map(d=>Math.abs(d.delta||0)))}));

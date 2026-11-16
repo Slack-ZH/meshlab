@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>自行车链传动实验 · meshlab</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="apple.css">
+  <link rel="stylesheet" href="chat.css?v=20261116-bike1">
+  <link rel="stylesheet" href="bicycle/style.css?v=20261116-bike1">
+  <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
+  <script type="module" src="bicycle/app.mjs?v=20261116-bike1"></script>
+  <script defer src="apple.js"></script>
+  <script type="module" src="chat.js?v=20261116-bike1"></script>
+</head>
+<body>
+<dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+  <div class="auth-heading"><h2 id="auth-title">邮箱登录</h2><button id="auth-close" type="button" aria-label="关闭登录">×</button></div>
+  <p class="auth-intro">每个账号每天可使用 2 元 AI 预算，北京时间零点重置。</p>
+  <div id="auth-switch" class="auth-switch"><button id="auth-mode-login" type="button" aria-pressed="true">登录</button><button id="auth-mode-signup" type="button" aria-pressed="false">注册</button></div>
+  <form id="auth-form">
+    <label for="auth-email">邮箱地址</label><input id="auth-email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="auth-password">密码</label><input id="auth-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+    <div id="auth-confirm-wrap" hidden><label for="auth-confirm">再次输入密码</label><input id="auth-confirm" type="password" autocomplete="new-password" maxlength="128"></div>
+    <button id="auth-submit" class="auth-primary" type="submit">登录</button>
+    <button id="auth-reset-password" type="button" class="auth-text-button">忘记密码</button>
+  </form>
+  <div id="auth-verify" hidden><p>请点击验证邮件中的链接，返回后确认验证状态。</p><button id="auth-refresh" class="auth-primary" type="button">我已验证</button><button id="auth-resend" class="auth-text-button" type="button">重新发送验证邮件</button></div>
+  <p id="auth-message" role="status" aria-live="polite"></p>
+  <button id="auth-dialog-logout" class="auth-text-button" type="button" hidden>退出当前账号</button>
+</dialog>
+<a class="skip-link" href="#workspace">跳到模型与操作</a>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a><nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>原理</span></button><button class="nav-button" data-tab="calibration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>资料</span></button></nav><button class="clarity-button" id="clarity-toggle" aria-pressed="false" title="降低界面透明度"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z"/></svg><span>降低透明度</span></button></header>
+<main>
+  <section class="intro"><div><p class="intro-kicker">自行车 · 传动实验</p><h1>自行车链传动</h1><p class="intro-copy" id="model-label">单速链传动 · 42 / 18 齿 · 12.7 mm 节距</p></div><div class="model-tag"><span><b id="ratio-count" style="font-weight:inherit">2.33</b><span class="ratio-divider"> : 1</span></span><p>前后齿数比</p><a class="text-button" href="lab.html">减速器实验 ↗</a></div></section>
+  <div id="explore" class="tab-panel">
+<div class="workspace" id="workspace" tabindex="-1">
+<div class="stage-shell"><section class="viewer-panel" aria-label="三维自行车链传动模型"><div class="viewer-top"><button id="open-parts" class="catalog-button" aria-expanded="false" aria-controls="parts-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16m4-11h4m-4 6h4"/></svg><span>零件目录</span></button><div class="control-mode"><button class="active" data-mode="free">自由探索</button><button data-mode="steps">逐步拆装</button></div><span class="view-label"><i></i><b id="mode-label">结构探索</b></span><span class="unit-tag">单位 mm</span></div><div id="viewport"><div id="loading"><span class="loader-ring"></span><b>正在装配自行车传动</b><small id="load-progress">生成参数化零件…</small></div><div id="webgl-error" hidden>三维视图暂时无法启动。请使用支持 WebGL 的现代浏览器；你仍可使用下方参数与传动计算。</div></div><div class="view-tools"><button id="home-view" title="恢复默认视角" aria-label="恢复默认视角">⌂</button><button id="top-view" title="俯视" aria-label="俯视">▤</button><button id="front-view" title="沿轴观察" aria-label="沿轴观察">⊙</button><span></span><button id="fullscreen" title="全屏" aria-label="全屏">⛶</button></div><div class="view-hint"><span>拖动旋转</span><i></i><span>双指 / 滚轮缩放</span><i></i><span>点击选取</span></div><div id="selection-label" hidden></div><div class="axis-mark"><b>Y</b><span>╱└</span><i>X</i><em>Z</em></div></section><aside class="parts-panel" id="parts-panel" hidden aria-label="零件目录"><div class="panel-heading"><h2>装配结构</h2><span id="part-count" class="count">—</span><button class="icon-button" id="close-parts" aria-label="关闭零件目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><label class="search"><span>⌕</span><input id="part-search" placeholder="搜索零件名称…" aria-label="搜索零件"></label><div class="filter-tabs"><button data-filter="all" class="active">全部</button><button data-filter="transmission">传动部件</button><button data-filter="housing">车架轮组</button></div><div id="parts-list" class="parts-list" aria-label="可选择零件"></div><div class="panel-foot"><span class="little-cross">＋</span> 点击零件，查看结构与作用</div></aside><section class="control-deck" aria-label="模型操作"><div class="motion-controls"><button id="play" class="play-button" aria-label="播放链条传动">▶</button><div><label for="speed">演示速度 <output id="speed-value">1.0×</output></label><input id="speed" type="range" min="0.1" max="2" step="0.1" value="1"><small>1× 为实际踏频的 20% 慢放</small></div></div><div id="free-controls"><div class="slider-block"><div><label for="explode">爆炸展开</label><output id="explode-value">0%</output></div><input id="explode" type="range" min="0" max="100" value="0"><small>完整装配 <span>零件分离</span></small></div><button class="subtle-button" id="explode-all" aria-label="全部展开"><span class="label-wide">全部展开</span><span class="label-compact">展开</span></button><button class="subtle-button" id="assemble-all" aria-label="复原装配"><span class="label-wide">复原装配</span><span class="label-compact">复原</span></button></div><div id="assembly-controls" hidden><button id="step-prev" class="subtle-button">← 上一步</button><div class="step-message"><span id="step-number">00 / 04</span><b id="step-title">完整装配</b><small id="step-copy">先停机，再按顺序查看拆装过程。</small></div><button id="step-next" class="primary-button">下一步 →</button></div></section></div>
+<aside class="assistant-sidebar" aria-label="模型助手">
+  <div class="assistant-tabs" role="tablist" aria-label="模型辅助面板">
+    <button id="chat-tab" role="tab" aria-selected="true" aria-controls="chat-pane">AI 助手</button>
+    <button id="details-tab" role="tab" aria-selected="false" aria-controls="details-pane" tabindex="-1">零件解读</button>
+  </div>
+  <section class="chat-panel" id="chat-pane" role="tabpanel" aria-labelledby="chat-tab">
+    <div class="chat-header"><div><h2>一起读懂自行车传动</h2><p id="chat-connection" class="chat-connection" role="status">正在检查连接…</p></div><button id="chat-reset" class="chat-reset" type="button" title="清空当前聊天">新对话</button></div>
+    <div class="chat-context"><span>当前模型 · 自行车链传动</span><button id="chat-context-part" type="button" title="查看当前零件解读">尚未选择零件</button></div>
+    <div id="chat-scroll" class="chat-scroll">
+      <div id="chat-welcome" class="chat-welcome">
+        <div class="chat-emblem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-6 3v-3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 9h8m-8 4h5"/></svg></div>
+        <h3>从一个问题开始。</h3><p>结合当前齿数、踏频与选中零件，理解链条如何传递运动。</p>
+        <div class="chat-suggestions"><button type="button">为什么后链轮变大，骑车更省力？</button><button type="button">当前踏频对应多少后轮转速？</button><button type="button">改变齿数后，为什么链长也要调整？</button></div>
+      </div>
+      <div id="chat-messages" role="log" aria-label="AI 聊天记录" aria-live="off"></div>
+    </div>
+    <div class="chat-account"><div><p id="chat-account-email">邮箱登录后即可聊天</p><p id="chat-budget">每账号每天 2 元 · 北京时间零点重置</p></div><button id="chat-login" type="button" disabled>登录 / 注册</button></div>
+    <div id="chat-notice" class="chat-notice" role="status" aria-live="polite"><span id="chat-notice-text"></span><button id="chat-retry" class="chat-retry" type="button" hidden>重新发送</button></div>
+    <form id="chat-form" class="chat-compose"><label for="chat-input" class="chat-input-label">向 AI 提问</label><textarea id="chat-input" maxlength="2000" rows="2" placeholder="问问当前零件，或描述你的疑问…" aria-describedby="chat-input-hint"></textarea><div class="chat-compose-actions"><small id="chat-input-hint">Enter 发送 · Shift+Enter 换行</small><button id="chat-stop" type="button" class="chat-stop" hidden>停止</button><button id="chat-send" class="chat-send" type="submit" disabled>发送</button></div></form>
+  </section>    <aside class="detail-panel" id="details-pane" role="tabpanel" aria-labelledby="details-tab" hidden>
+      <div class="panel-heading"><h2>零件解读</h2><span class="inspect-dot"></span></div>
+      <div id="detail-content">
+        <div class="detail-body"><p id="part-index" class="detail-index">01 / CHAIN</p><div class="detail-symbol" aria-hidden="true">⚙</div><h3 id="part-title">传动链条</h3>
+        <p id="part-description" class="detail-description"></p>
+        <p id="pose-status" class="detail-spec" aria-live="polite">完整装配</p><div class="material-label">模型 / 单速滚子链传动</div></div><button class="speak-button" id="speak" type="button">◖)) 朗读讲解</button>
+      </div>
+      <div class="visibility-controls"><div><span>结构显示</span><select id="housing-mode" aria-label="结构显示"><option value="open">仅看传动</option><option value="transparent">透明车架</option><option value="solid" selected>完整车架</option><option value="hidden">隐藏车架</option></select></div><label><input type="checkbox" id="labels-toggle"> 显示选中零件标注</label></div>
+    </aside></aside>
+</div>
+<div id="status-message" role="status" aria-live="polite"></div>
+<section id="parameters" class="parameter-panel" aria-labelledby="parameter-title">
+  <div class="settings"><section id="structure">
+    <div class="parameter-heading"><div><h2 id="parameter-title">参数调节</h2><p class="hint">改变齿数，看链轮、链长和转速一起变化。</p></div><button id="reset-parameters" class="subtle-button" type="button">恢复默认</button></div>
+    <div class="preset-row"><label for="drive-preset">齿数组合</label><select id="drive-preset"><option value="commute">日常搭配 · 42 / 18</option><option value="climb">轻挡示例 · 32 / 24</option><option value="cruise">重挡示例 · 50 / 14</option><option value="custom">自定义</option></select><span class="hint">更换链轮搭配，观察传动关系。</span></div>
+    <div id="geometry-fields" class="fields"></div>
+    <p id="invalid-input" class="input-error" role="alert" hidden></p>
+    <div id="drive-metrics" class="drive-metrics" aria-live="polite"></div>
+    <p id="chain-summary" class="chain-summary"></p>
+    <details id="power-settings"><summary>功率与效率 <span class="hint">输入功率 · 传动损失 · 输出转矩</span></summary><div id="power-fields" class="fields"></div><p id="power-summary" class="hint"></p></details>
+    <p class="hint scope-note">单速同平面传动示意；链长采用偶数节并同步调整实际中心距。车速按持续踩踏、轮胎纯滚动计算。</p>
+  </section></div>
+</section>
+</div>
+<section id="performance" class="tab-panel reading-panel" hidden>
+  <div class="section-lead"><p class="eyebrow">FROM PEDAL TO WHEEL</p><h2>同样踩一圈，后轮能转几圈？</h2><p>前牙盘通过链条带动后链轮。改变前后齿数组合，就能改变后轮转速与转矩的比例。</p></div>
+  <div class="flow-diagram"><div><span>01 / 脚踏输入</span><h3>曲柄与前牙盘</h3><strong id="principle-cadence">80</strong><small>r/min · 踏频</small></div><b>→ 链条传动 →</b><div><span>02 / 齿数关系</span><h3>前牙盘 / 后链轮</h3><strong id="principle-ratio">2.33</strong><small>后轮每分钟转数 / 踏频</small></div><b>→ 后轮驱动 →</b><div><span>03 / 后轮输出</span><h3>后轮转速</h3><strong id="principle-rear">186.7</strong><small>r/min · 持续踩踏时</small></div></div>
+  <div class="formula-grid">
+    <article><h3>齿比与转速</h3><p>前牙盘齿数 Z₁、后链轮齿数 Z₂。踏频相同时，前盘越大或后链轮越小，后轮转得越快。</p><div class="formula">n₂ = n₁ × Z₁ / Z₂</div><p id="ratio-example"></p></article>
+    <article><h3>后轮转速与车速</h3><p>同样的后轮转速下，轮径越大，每转一圈走过的距离越长。这里假设轮胎与地面之间没有打滑。</p><div class="formula">v = n₂ × π × D × 60 / 10⁶</div><p>D 使用 mm，计算结果 v 为 km/h。</p></article>
+    <article><h3>省力与速度的交换</h3><p>在相同输入转矩下，较大的后链轮会降低后轮转速并提高输出转矩。齿轮不会凭空增加功率，传动损失由效率 η 表示。</p><div class="formula">T₂ = T₁ × Z₂ / Z₁ × η<br>P₂ = P₁ × η</div><p id="torque-example"></p></article>
+    <article><h3>链条要一节一节地闭合</h3><p>本模型采用 12.7 mm 名义节距。常规内外链节交替配对，采用偶数链节；改变齿数后，实际轴间距随匹配链长调整。</p><div class="formula">链条、前牙盘与后链轮共享同一运动相位</div><p>连续节线动画忽略多边形效应，链片外形和齿槽为通用教学示意。</p><button class="text-button" data-go="explore">回到模型试一试 →</button></article>
+  </div>
+</section>
+<section id="calibration" class="tab-panel reading-panel" hidden>
+  <div class="section-lead"><p class="eyebrow">BICYCLE CHAIN DRIVE</p><h2>把日常骑行，拆开看清楚。</h2><p>以常见单速自行车传动为对象，观察滚子链、链轮、曲柄和后轮的关系。</p></div>
+  <div class="formula-grid">
+    <article><h3>模型包含什么？</h3><p>前牙盘、后链轮、内外链片与滚子、曲柄脚踏、后花鼓和轮组，以及用于辨认安装位置的车架局部。支持整体爆炸和逐步拆装。</p></article>
+    <article><h3>这版怎么使用？</h3><p>先播放观察动力传递，再调整下方的齿数和踏频。需要看清啮合时，可选正视图或隐藏车架；通过零件目录阅读结构说明。</p></article>
+    <article><h3>尺寸与运动的边界</h3><p>通用教学几何，不对应某个品牌的制造牙型；不模拟链条弹性、磨损、多边形速度波动或拨链换挡。停止踩踏时模型暂停，不模拟自由轮滑行。</p><a class="text-button" href="bicycle/DESIGN.md">读取模型与计算说明 ↗</a></article>
+    <article><h3>参考资料</h3><p><a href="http://chain-guide.com/applications/1-5-1-bicycle-chain.html" target="_blank" rel="noopener noreferrer">Tsubaki · 自行车链条结构与节距 ↗</a></p><p><a href="https://bike.shimano.com/stories/article/a-guide-to-shimano-1x-and-2x-gearing-setups-for-gravel.html" target="_blank" rel="noopener noreferrer">Shimano · 齿数组合与骑行关系 ↗</a></p><p><a href="https://www.ustsubaki.com/wp-content/uploads/the-complete-guide-1.pdf" target="_blank" rel="noopener noreferrer">Tsubaki · 链传动技术指南 ↗</a></p></article>
+  </div>
+</section>
+</main>
+<footer><span>啮合实验室 <b> / </b> 看见结构，理解机械。</span><span>单速自行车链传动 · 参数化教学模型</span></footer>
+</body></html>

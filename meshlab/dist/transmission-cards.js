@@ -3,6 +3,10 @@ const arts=[`${cog(84,94,51)}${cog(161,94,32,14)}<path d="M84 148v12m77-30v30M45
 const entries=[['齿轮传动','GEAR DRIVE','#c6ceb9','通过相互啮合的齿轮，传递运动并改变转速与转矩。'],['带传动','BELT DRIVE','#dbd9c9','通过带与带轮连接两根轴，观察轮径与转速之间的关系。'],['曲柄滑块','SLIDER–CRANK','#c3cebf','把旋转运动转化为直线往复运动，理解曲柄、连杆与滑块的配合。'],['行星齿轮','PLANETARY GEARS','#d5cbbb','太阳轮、行星轮与齿圈共同构成紧凑的传动系统。'],['齿轮齿条','RACK & PINION','#cbd0c1','通过齿轮与齿条啮合，将旋转运动转化为直线运动。']];
 
 
+
+arts.push(`<g fill="none" stroke="var(--diagram-stroke)" stroke-width="4"><path d="M63 55 181 75M63 139l118-22" stroke-width="7" stroke-dasharray="6 4"/>${cog(63,97,42,22)}${cog(181,97,22,12)}<path d="m63 97-20 30h-15" stroke-width="6"/><circle cx="181" cy="97" r="58" stroke-opacity=".25" stroke-width="2"/></g>`);
+entries.push(['自行车链传动','BICYCLE CHAIN','#bfcfd0','前牙盘通过链条驱动后轮，调整齿数与踏频，观察速度和转矩的变化。']);
+
 /* Three identical sets allow invisible recentering without an item snap. */
 const shelf = document.querySelector('.shelf');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -22,7 +26,7 @@ for (let index = 0; index < count * 3; index++) {
   card.style.setProperty('--paper', item[2]);
   card.setAttribute('aria-label', item[0] + '，第 ' + (index % count + 1) + ' 个，共 ' + count + ' 个。使用左右方向键浏览');
   card.setAttribute('aria-pressed', 'false');
-  card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">0' + (index % count + 1) + ' / 05</span></span>'
+  card.innerHTML = '<span class="card-top" aria-hidden="true"><span class="card-state">机械档案</span><span class="card-number">0' + (index % count + 1) + ' / ' + String(count).padStart(2,'0') + '</span></span>'
     + '<span class="card-visual" aria-hidden="true"><svg viewBox="0 0 240 190">' + arts[index % count] + '</svg></span>'
     + '<span class="card-title" aria-hidden="true">' + item[0] + '</span><span class="card-sub" aria-hidden="true">' + item[1] + '</span>';
   card.addEventListener('click', () => { if (!suppressClick) moveTo(index * step); });

@@ -61,6 +61,8 @@
 .auth-primary { width: 100%; min-height: 44px; border-radius: 12px; margin-top: 20px; padding: 10px; color: var(--on-accent); background: var(--accent-fill); }
 .auth-text-button { min-height: 44px; margin-top: 8px; padding: 8px 0; background: transparent; color: var(--accent); font-size: .875rem; }
 .chat-input-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+/* Reserve the same two-line instruction area for each model's mobile stepper. */
+@media (max-width:760px) { .step-message small { min-height: 3.2em; } }
 @media (max-width: 1200px) and (min-width: 1001px) { .workspace { grid-template-columns: minmax(0, 1fr) 320px; } .control-deck { flex-wrap: wrap; } .motion-controls { width: 100%; border-right: 0; padding: 0; } .motion-controls>div { display: flex; gap: 14px; width: auto; flex: 1; } .motion-controls input { width: 100px; flex: 1; } #free-controls { flex-basis: 100%; } #viewport { bottom: 180px; } }
 @media (max-width: 1000px) { .workspace { grid-template-columns: 1fr; } .assistant-sidebar { --assistant-pane-height: 35rem; } .assistant-sidebar .detail-panel { grid-template-rows: auto minmax(0, 1fr); } }
 /* Keep the existing numeric summary readable when users enlarge text. */
