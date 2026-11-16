@@ -1,10 +1,12 @@
 import {defaults,fields,estimate,geometry,validateGeometry,scan,changes,assumptions,pressureToMPa} from './physics.mjs';
-import {TurbineViewer,steps} from './viewer.mjs';
+import {TurbineViewer,steps} from './viewer.mjs?v=20261116-ui2';
 const $=id=>document.getElementById(id),fmt=(n,d=2)=>Number(n).toLocaleString('zh-CN',{maximumFractionDigits:d,minimumFractionDigits:d});
-let selectedMode = 'free';
+let selectedMode = 'free',partFilter='all';
 let current={...defaults},baseline=null,result=null,viewer,unit='MPa',selectedPart=null,geometryValid=true;
 const text={work:'做功方式',exhaust:'排汽方式',impulse:'冲动式',reaction:'反动式',condensing:'凝汽式',backpressure:'背压式'};
 const value=(p,k)=>fields[k]?fmt(p[k],['p1','p2'].includes(k)?4:2):text[p[k]];
+const status=message=>{$('status-message').textContent=message;};
+const stepDescriptions=['演示开始前停机。先移开汽缸，再拆轴端组件和静叶隔板。','上汽缸和进汽口向上移开，露出内部叶栅。','轴承座与轴封沿轴线退出，查看轴端支承关系。','下汽缸和排汽口向下移开，转子保持装配基准。','上下静叶隔板沿径向分离；可反向逐步装配。'];
 function read(){const p={...current,work:$('work').value,exhaust:$('exhaust').value};for(const k of Object.keys(fields)){p[k]=$(k).value===''?NaN:Number($(k).value);if((k==='p1'||k==='p2')&&Number.isFinite(p[k]))p[k]=pressureToMPa(p[k],unit);}return p;}
 for(const k of ['stages','blades','height','chord','hub',...Object.keys(fields).slice(5)]){
   const [label,u,min,max,step]=fields[k];
@@ -37,6 +39,7 @@ function update({rebuild=true}={}) {
     }
     const g = geometry(next);
     $('model-label').textContent = '卧式 · 单缸 · 单轴 · ' + next.stages + ' 级';
+    $('stage-count').textContent=next.stages;
     $('geometry-results').textContent = '末级流道 ' + fmt(g.area,4) + ' m² · 最大叶尖直径 ' + g.diameter + ' mm · 总叶片 ' + g.totalBlades + ' 片';
     renderBladeDesign();
   } catch (error) {
@@ -89,36 +92,48 @@ function syncPose() {
   $('explode').value = viewer.amount * 100;
   $('explode').style.setProperty('--progress', percent + '%');
   $('explode-value').textContent = percent + '%';
-  $('step-label').textContent = viewer.step + ' / ' + (steps.length - 1) + ' · ' + steps[viewer.step];
+  $('step-number').textContent=String(viewer.step).padStart(2,'0')+' / '+String(steps.length-1).padStart(2,'0');
+  $('step-title').textContent=steps[viewer.step];
+  $('step-copy').textContent=stepDescriptions[viewer.step];
   $('pose-status').textContent = viewer.open ? '上盖已打开'
     : viewer.amount > 0 ? '自由展开 · ' + percent + '%' : steps[viewer.step];
   $('step-prev').disabled = viewer.step === 0;
   $('step-next').disabled = viewer.step === steps.length - 1;
-  $('open-cover').textContent = viewer.open ? '关闭上盖' : '打开上盖';
-  $('open-cover').setAttribute('aria-pressed', viewer.open);
   $('parameter-cover').textContent = viewer.open ? '关闭上盖' : '打开上盖';
   $('parameter-cover').setAttribute('aria-pressed', viewer.open);
+  $('housing-mode').value=viewer.housingMode || (viewer.open?'open':'solid');
+  $('labels-toggle').checked=viewer.labelsOn;
+  $('play').textContent=viewer.playing?'Ⅱ':'▶';
+  $('play').setAttribute('aria-label',viewer.playing?'暂停转子演示':'播放转子演示');
+  $('mode-label').textContent=selectedMode==='steps'?'逐步拆装':'结构探索';
 }
 function renderParts() {
   const query = $('part-search').value.trim();
   $('part-count').textContent = viewer.parts.length;
-  $('parts-list').replaceChildren(...viewer.parts.filter(part => part.name.includes(query)).map(part => {
+  const transmission=part=>part.id==='rotor'||/^(moving-|stator-|stator-lower-|bearing)/.test(part.id);
+  const matches=viewer.parts.filter(part => part.name.includes(query) && (partFilter==='all'||(partFilter==='transmission' ? transmission(part):!transmission(part))));
+  $('parts-list').replaceChildren(...matches.map(part => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'part-item';
     button.classList.toggle('active', part.id === viewer.selected);
     button.dataset.part = part.id;
-    button.textContent = part.name;
+    button.setAttribute('aria-pressed',String(part.id===viewer.selected));
+    button.innerHTML='<span class="part-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v5m0 6v5M4 12h5m6 0h5"/></svg></span><span></span><span class="part-number"></span>';
+    button.children[1].textContent=part.name;
+    button.children[2].textContent=String(viewer.parts.indexOf(part)+1).padStart(2,'0');
     button.addEventListener('click', () => viewer.select(part.id));
     return button;
   }));
+  if(!matches.length){const empty=document.createElement('p');empty.className='detail-description';empty.textContent='没有匹配的零件';$('parts-list').append(empty);}
 }
 try {
   viewer = new TurbineViewer($('viewport'), part => {
     selectedPart={id:part.id,name:part.name,description:part.description};
     $('part-title').textContent = part.name;
     $('part-description').textContent = part.description;
-    for (const button of $('parts-list').children) button.classList.toggle('active', button.dataset.part === part.id);
+    $('part-index').textContent=String((viewer?.parts.indexOf(part)??0)+1).padStart(2,'0')+' / '+part.id.toUpperCase();
+    for (const button of $('parts-list').children) {button.classList.toggle('active', button.dataset.part === part.id);button.setAttribute('aria-pressed',String(button.dataset.part === part.id));}
     $('selection-label').textContent = part.name;
     window.dispatchEvent(new Event('turbine:statechange'));
   });
@@ -126,9 +141,10 @@ try {
 } catch (error) {
   console.error('汽轮机 WebGL 初始化失败', error);
   $('loading').textContent = '三维视图需要 WebGL，仍可使用参数和功率计算。';
-  for (const id of ['open-cover','parameter-cover','explode-all','restore','home-view','top-view','front-view','fullscreen','step-next','step-prev','explode','open-parts']) $(id).disabled = true;
+  for (const id of ['parameter-cover','explode-all','assemble-all','home-view','top-view','front-view','fullscreen','step-next','step-prev','explode','open-parts','play','speed','housing-mode','labels-toggle']) $(id).disabled = true;
 }
 $('part-search').oninput = () => { if (viewer) renderParts(); };
+for(const button of document.querySelectorAll('[data-filter]'))button.onclick=()=>{partFilter=button.dataset.filter;for(const other of document.querySelectorAll('[data-filter]'))other.classList.toggle('active',other===button);if(viewer)renderParts();};
 function showTab(id) {
   const parameters=id==='parameters';
   if(parameters)id='explore';
@@ -138,7 +154,8 @@ function showTab(id) {
     button.setAttribute('aria-pressed', String(active));
     $(button.dataset.tab).hidden = !active;
   }
-  if(parameters){$('explore').scrollIntoView({block:'start'});$('stages').focus({preventScroll:true});}
+  if(id!=='explore'){viewer?.setPlaying(false);syncPose();}
+  if(parameters){$('parameters').scrollIntoView({block:'start'});$('stages').focus({preventScroll:true});}
 }
 for (const button of document.querySelectorAll('[data-tab],[data-go]'))
   button.addEventListener('click', () => showTab(button.dataset.tab || button.dataset.go));
@@ -150,22 +167,28 @@ function setMode(mode) {
     button.classList.toggle('active', button.dataset.mode === mode);
   viewer?.restore();
   syncPose();
+  status(mode==='steps'?'按“下一步”逐步拆卸；按“上一步”反向装配。':'自由探索：拖动旋转、点击零件，或展开查看装配关系。');
 }
 for (const button of document.querySelectorAll('[data-mode]'))
   button.addEventListener('click', () => setMode(button.dataset.mode));
-$('top-view').onclick = () => viewer?.home([0,0,1]);
+$('top-view').onclick = () => viewer?.home([0,1,0]);
 $('front-view').onclick = () => viewer?.home([1,0,0]);
 $('fullscreen').onclick = async () => {
-  if (document.fullscreenElement) await document.exitFullscreen();
-  else await $('explore').querySelector('.viewer-panel').requestFullscreen();
+  try {if (document.fullscreenElement) await document.exitFullscreen();
+  else if(document.querySelector('.viewer-panel').requestFullscreen) await document.querySelector('.viewer-panel').requestFullscreen();
+  else status('当前设备不支持浏览器全屏，可横屏放大观察。');}catch{status('当前浏览器未允许全屏。');}
 };
 $('home-view').onclick=()=>viewer?.home();
-$('open-cover').onclick=()=>{if(!viewer)return;const next=!viewer.open;if (selectedMode !== 'free') setMode('free');viewer.restore();viewer.open=next;viewer.pose();viewer.fitModel();syncPose();};
-$('parameter-cover').onclick=()=>$('open-cover').click();
+$('parameter-cover').onclick=()=>{if(!viewer)return;const next=!viewer.open;if (selectedMode !== 'free') setMode('free');viewer.restore();viewer.setHousingMode(next?'open':'solid');syncPose();};
+$('housing-mode').onchange=e=>{viewer?.setHousingMode(e.target.value);syncPose();};
+$('labels-toggle').onchange=e=>viewer?.setLabels(e.target.checked);
+$('speed').oninput=e=>{viewer?.setSpeed(Number(e.target.value));$('speed-value').value=Number(e.target.value).toFixed(1)+'×';};
+$('play').onclick=()=>{if(!viewer)return;const next=!viewer.playing;if(next&&selectedMode!=='free')setMode('free');viewer.setPlaying(next);syncPose();status(next?'转子慢放演示，不代表设计转速或流场计算。':'转子演示已暂停。');};
 $('explode').oninput=e=>{viewer?.explode(Number(e.target.value)/100);syncPose();};
 $('explode-all').onclick=()=>{viewer?.explode(1);viewer?.home();syncPose();};
-$('restore').onclick=()=>{viewer?.restore();syncPose();};
+$('assemble-all').onclick=()=>{viewer?.restore();syncPose();status('已复原装配。');};
 for(const [id,delta] of [['step-next',1],['step-prev',-1]])$(id).onclick=()=>{if(!viewer)return;viewer.assembly(Math.max(0,Math.min(steps.length - 1,viewer.step+delta)));syncPose();};
+$('speak').onclick=()=>{if(!selectedPart)return;if(!('speechSynthesis'in window)){status('当前浏览器不支持语音朗读，完整文字讲解已显示。');return;}if(speechSynthesis.speaking){speechSynthesis.cancel();$('speak').textContent='◖)) 朗读讲解';return;}const utterance=new SpeechSynthesisUtterance(selectedPart.name+'。'+selectedPart.description);utterance.lang='zh-CN';utterance.rate=.95;utterance.onend=()=>{$('speak').textContent='◖)) 朗读讲解';};utterance.onerror=()=>{status('中文语音暂不可用，文字讲解仍可阅读。');$('speak').textContent='◖)) 朗读讲解';};speechSynthesis.speak(utterance);$('speak').textContent='■ 停止朗读';};
 $('work').onchange=()=>{$('preset-change').textContent='实际变化：做功方式与叶栅示意。排汽方式及所有数值输入保持不变。';update();};
 $('exhaust').onchange=()=>{let note='实际变化：排汽方式与出口连接。其余参数保持不变。';if(!$('lock-pressure').checked){const prev=$('p2').value;const target=$('exhaust').value==='condensing'?.01:.5;$('p2').value=target/pressureToMPa(1,unit);note=`实际变化：排汽方式、出口连接、排汽绝对压力 ${prev} → ${$('p2').value} ${unit}。进汽、流量、效率与结构参数保持不变。`;}else note+=' 已锁定排汽压力。';$('preset-change').textContent=note;update();};
 $('pressure-unit').onchange=e=>{ // Convert displayed values, including currently invalid input; do not silently restore a valid state.

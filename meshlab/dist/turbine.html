@@ -7,10 +7,10 @@
   <title>汽轮机三维实验 · meshlab</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="apple.css">
-  <link rel="stylesheet" href="chat.css">
-  <link rel="stylesheet" href="turbine/style.css">
+  <link rel="stylesheet" href="chat.css?v=20261116-ui2">
+  <link rel="stylesheet" href="turbine/style.css?v=20261116-ui2">
   <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
-  <script type="module" src="turbine/app.mjs"></script>
+  <script type="module" src="turbine/app.mjs?v=20261116-ui2"></script>
   <script defer src="apple.js"></script>
   <script type="module" src="chat.js"></script>
 </head>
@@ -30,77 +30,13 @@
   <p id="auth-message" role="status" aria-live="polite"></p>
   <button id="auth-dialog-logout" class="auth-text-button" type="button" hidden>退出当前账号</button>
 </dialog>
-<a class="skip-link" href="#viewport">跳到模型与操作</a>
-<header class="topbar">
-  <a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a>
-<nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>结果</span></button><button class="nav-button" data-tab="calibration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>校准依据</span></button></nav>
-  <button id="clarity-toggle" class="clarity-button" aria-pressed="false">◐ <span>降低透明度</span></button>
-</header>
+<a class="skip-link" href="#workspace">跳到模型与操作</a>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>啮合实验室<small>meshlab</small></span></a><nav aria-label="主要导航"><button class="nav-button active" data-tab="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v9l-9 5-9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v9M7.5 5.5l9 5"/></svg><span>探索</span></button><button class="nav-button" data-tab="performance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V6m0 12h16M7 14l4-5 4 3 5-7"/></svg><span>原理</span></button><button class="nav-button" data-tab="calibration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg><span>资料</span></button></nav><button class="clarity-button" id="clarity-toggle" aria-pressed="false" title="降低界面透明度"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16Z"/></svg><span>降低透明度</span></button></header>
 <main>
-  <section class="intro">
-    <div><p class="intro-kicker">结构实验</p><h1>轴流式汽轮机</h1>
-      <p class="intro-copy" id="model-label">卧式 · 单缸 · 单轴</p></div>
-    <a class="subtle-button" href="lab.html">GL16 实验 ↗</a>
-  </section>
-  <div class="workspace" id="explore">
-    <div class="model-column"><div class="stage-shell">
-      <section class="viewer-panel" aria-label="汽轮机三维模型">
-        <div class="viewer-top">
-          <button id="open-parts" class="catalog-button" aria-controls="parts-panel" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9 4v16m4-11h5m-5 6h4"/></svg><span>零件目录</span>
-          </button>
-          <div class="control-mode">
-            <button class="active" data-mode="free">自由探索</button>
-            <button data-mode="steps">逐步拆装</button>
-          </div>
-          <span class="unit-tag">单位 mm</span>
-        </div>
-        <div id="viewport"><div id="selection-label" hidden></div><div id="loading"><span class="loader-ring"></span><b>正在装配汽轮机</b></div></div>
-        <div class="view-tools">
-          <button id="home-view" title="标准视角" aria-label="标准视角"></button>
-          <button id="top-view" title="侧视" aria-label="侧视"></button>
-          <button id="front-view" title="沿轴观察" aria-label="沿轴观察"></button>
-          <button id="fullscreen" title="全屏" aria-label="全屏"></button>
-        </div>
-        <div class="view-hint"><span>拖动旋转</span><i></i><span>双指 / 滚轮缩放</span></div>
-        <aside id="parts-panel" class="parts-panel" hidden aria-label="零件目录">
-          <div class="panel-heading"><h2>装配结构</h2><span id="part-count" class="count"></span><button id="close-parts" class="icon-button" type="button" aria-label="关闭零件目录">×</button></div>
-          <label class="search"><span aria-hidden="true">⌕</span><input id="part-search" placeholder="搜索零件名称…" aria-label="搜索零件"></label>
-          <div id="parts-list" class="parts-list"></div>
-        </aside>
-      </section>
-      <div class="control-deck">
-        <div id="free-controls">
-          <div class="slider-block"><div><label for="explode">爆炸展开</label><output id="explode-value">0%</output></div><input id="explode" type="range" min="0" max="100" value="0"></div>
-          <button id="explode-all" class="subtle-button">全部展开</button>
-          <button id="restore" class="subtle-button">复原</button>
-        </div>
-        <div id="assembly-controls" hidden>
-          <button id="step-prev" class="subtle-button" disabled>← 上一步</button>
-          <div class="step-message"><b id="step-label" aria-live="polite">0 / 4 · 整机装配</b></div>
-          <button id="step-next" class="primary-button">下一步 →</button>
-        </div>
-      </div>
-    </div>
-  <div id="parameters" class="parameter-panel">
-    <div class="settings"><section id="structure"><div class="parameter-heading"><div><h2>参数调节</h2><p class="hint">调节内部参数时自动开盖，即时查看变化；可随时合拢。</p></div><button id="parameter-cover" class="subtle-button" aria-pressed="false">打开上盖</button></div>
-        <div class="fields"><label>做功方式<select id="work"><option value="impulse">冲动式</option><option value="reaction">反动式</option></select></label><label>排汽方式<select id="exhaust"><option value="condensing">凝汽式</option><option value="backpressure">背压式</option></select></label></div>
-        <div id="geometry-fields" class="fields"></div>
-        <p id="invalid-input" role="status" hidden></p>
-        <div id="geometry-results" class="geometry-results" aria-live="polite"></div>
-        <details class="stage-audit"><summary>逐级叶型与间隙</summary><p id="blade-scope" class="hint">教学用参数化叶栅；叶型、通道和间隙按几何规则生成。</p><div id="stage-geometry" class="table-wrap"></div><button class="text-button" data-go="calibration">查看校准依据 →</button></details>
-      </section>
-<details id="conditions"><summary>工况与排汽预设 <span class="hint">压力 · 温度 · 流量 · 效率</span></summary>        <p id="expansion-note" class="note"></p>
-        <label class="check"><input id="lock-pressure" type="checkbox" checked>切换排汽预设时锁定排汽压力</label>
-        <p id="preset-change" class="hint" role="status">仅切换类型时，其余输入保持不变。</p>
-
-        <label>压力显示单位（绝对压力）<select id="pressure-unit"><option>MPa</option><option>kPa</option><option>bar</option></select></label>
-        <div id="condition-fields" class="fields"></div>
-        <p class="hint">支持 0.001–10 MPa、最高 800 °C 的过热蒸汽入口；出口支持过热蒸汽和湿蒸汽。边界超出时停止估算。</p>
-      </details>
-</div>
-  </div>
-    </div>
+  <section class="intro"><div><p class="intro-kicker">轴流式 · 结构实验</p><h1>轴流式汽轮机</h1><p class="intro-copy" id="model-label">卧式 · 单缸 · 单轴 · 3 级</p></div><div class="model-tag"><span><b id="stage-count" style="font-weight:inherit">3</b><span class="ratio-divider"> 级</span></span><p>汽轮机级数</p><a class="text-button" href="lab.html">减速器实验 ↗</a></div></section>
+  <div id="explore" class="tab-panel">
+<div class="workspace" id="workspace" tabindex="-1">
+<div class="stage-shell"><section class="viewer-panel" aria-label="三维汽轮机交互模型"><div class="viewer-top"><button id="open-parts" class="catalog-button" aria-expanded="false" aria-controls="parts-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16m4-11h4m-4 6h4"/></svg><span>零件目录</span></button><div class="control-mode"><button class="active" data-mode="free">自由探索</button><button data-mode="steps">逐步拆装</button></div><span class="view-label"><i></i><b id="mode-label">结构探索</b></span><span class="unit-tag">单位 mm</span></div><div id="viewport"><div id="loading"><span class="loader-ring"></span><b>正在装配你的汽轮机</b><small id="load-progress">生成参数化零件…</small></div><div id="webgl-error" hidden>三维视图暂时无法启动。请使用支持 WebGL 的现代浏览器；你仍可使用下方参数与功率估算。</div></div><div class="view-tools"><button id="home-view" title="恢复默认视角" aria-label="恢复默认视角">⌂</button><button id="top-view" title="俯视" aria-label="俯视">▤</button><button id="front-view" title="沿轴观察" aria-label="沿轴观察">⊙</button><span></span><button id="fullscreen" title="全屏" aria-label="全屏">⛶</button></div><div class="view-hint"><span>拖动旋转</span><i></i><span>双指 / 滚轮缩放</span><i></i><span>点击选取</span></div><div id="selection-label" hidden></div><div class="axis-mark"><b>Y</b><span>╱└</span><i>X</i><em>Z</em></div></section><aside class="parts-panel" id="parts-panel" hidden aria-label="零件目录"><div class="panel-heading"><h2>装配结构</h2><span id="part-count" class="count">—</span><button class="icon-button" id="close-parts" aria-label="关闭零件目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><label class="search"><span>⌕</span><input id="part-search" placeholder="搜索零件名称…" aria-label="搜索零件"></label><div class="filter-tabs"><button data-filter="all" class="active">全部</button><button data-filter="transmission">叶栅轴系</button><button data-filter="housing">汽缸附件</button></div><div id="parts-list" class="parts-list" aria-label="可选择零件"></div><div class="panel-foot"><span class="little-cross">＋</span> 点击零件，查看结构与作用</div></aside><section class="control-deck" aria-label="模型操作"><div class="motion-controls"><button id="play" class="play-button" aria-label="播放转子演示">▶</button><div><label for="speed">演示速度 <output id="speed-value">1.0×</output></label><input id="speed" type="range" min="0.1" max="2" step="0.1" value="1"><small>慢放示意，不代表设计转速</small></div></div><div id="free-controls"><div class="slider-block"><div><label for="explode">爆炸展开</label><output id="explode-value">0%</output></div><input id="explode" type="range" min="0" max="100" value="0"><small>完整装配 <span>零件分离</span></small></div><button class="subtle-button" id="explode-all" aria-label="全部展开"><span class="label-wide">全部展开</span><span class="label-compact">展开</span></button><button class="subtle-button" id="assemble-all" aria-label="复原装配"><span class="label-wide">复原装配</span><span class="label-compact">复原</span></button></div><div id="assembly-controls" hidden><button id="step-prev" class="subtle-button">← 上一步</button><div class="step-message"><span id="step-number">00 / 04</span><b id="step-title">整机装配</b><small id="step-copy">先停机，再按顺序查看拆装过程。</small></div><button id="step-next" class="primary-button">下一步 →</button></div></section></div>
 <aside class="assistant-sidebar" aria-label="模型助手">
   <div class="assistant-tabs" role="tablist" aria-label="模型辅助面板">
     <button id="chat-tab" role="tab" aria-selected="true" aria-controls="chat-pane">AI 助手</button>
@@ -123,16 +59,33 @@
   </section>    <aside class="detail-panel" id="details-pane" role="tabpanel" aria-labelledby="details-tab" hidden>
       <div class="panel-heading"><h2>零件解读</h2><span class="inspect-dot"></span></div>
       <div id="detail-content">
-        <h3 id="part-title">上汽缸</h3>
+        <div class="detail-body"><p id="part-index" class="detail-index">01 / UPPER</p><div class="detail-symbol" aria-hidden="true">⚙</div><h3 id="part-title">上汽缸</h3>
         <p id="part-description" class="detail-description"></p>
-        <p id="pose-status" class="detail-spec" aria-live="polite">整机装配</p>
+        <p id="pose-status" class="detail-spec" aria-live="polite">整机装配</p><div class="material-label">模型 / 参数化教学几何</div></div><button class="speak-button" id="speak" type="button">◖)) 朗读讲解</button>
       </div>
-      <div class="visibility-controls">
-        <button id="open-cover" class="subtle-button" aria-pressed="false">打开上盖</button>
-        <button data-go="parameters" class="subtle-button">调整参数</button>
-      </div>
+      <div class="visibility-controls"><div><span>汽缸显示</span><select id="housing-mode" aria-label="汽缸显示"><option value="open">打开上盖</option><option value="transparent">透明汽缸</option><option value="solid" selected>完整汽缸</option><option value="hidden">隐藏汽缸</option></select></div><label><input type="checkbox" id="labels-toggle"> 显示选中零件标注</label></div>
     </aside></aside>
+</div>
+<div id="status-message" role="status" aria-live="polite"></div>
+<div id="parameters" class="parameter-panel">
+    <div class="settings"><section id="structure"><div class="parameter-heading"><div><h2>参数调节</h2><p class="hint">调节内部参数时自动开盖，即时查看变化；可随时合拢。</p></div><button id="parameter-cover" class="subtle-button" aria-pressed="false">打开上盖</button></div>
+        <div class="fields"><label>做功方式<select id="work"><option value="impulse">冲动式</option><option value="reaction">反动式</option></select></label><label>排汽方式<select id="exhaust"><option value="condensing">凝汽式</option><option value="backpressure">背压式</option></select></label></div>
+        <div id="geometry-fields" class="fields"></div>
+        <p id="invalid-input" role="status" hidden></p>
+        <div id="geometry-results" class="geometry-results" aria-live="polite"></div>
+        <details class="stage-audit"><summary>逐级叶型与间隙</summary><p id="blade-scope" class="hint">教学用参数化叶栅；叶型、通道和间隙按几何规则生成。</p><div id="stage-geometry" class="table-wrap"></div><button class="text-button" data-go="calibration">查看校准依据 →</button></details>
+      </section>
+<details id="conditions"><summary>工况与排汽预设 <span class="hint">压力 · 温度 · 流量 · 效率</span></summary>        <p id="expansion-note" class="note"></p>
+        <label class="check"><input id="lock-pressure" type="checkbox" checked>切换排汽预设时锁定排汽压力</label>
+        <p id="preset-change" class="hint" role="status">仅切换类型时，其余输入保持不变。</p>
+
+        <label>压力显示单位（绝对压力）<select id="pressure-unit"><option>MPa</option><option>kPa</option><option>bar</option></select></label>
+        <div id="condition-fields" class="fields"></div>
+        <p class="hint">支持 0.001–10 MPa、最高 800 °C 的过热蒸汽入口；出口支持过热蒸汽和湿蒸汽。边界超出时停止估算。</p>
+      </details>
+</div>
   </div>
+</div>
   <div id="performance" class="reading-panel" hidden><section id="results" class="results"><div class="result-heading"><div><h2>轴功率估算</h2></div><button id="save-baseline" class="primary-button">保存当前方案为基准</button></div>
     <p id="error" role="alert" hidden></p>
     <p id="geometry-note" class="note">类型、叶片尺寸及级数仅改变结构与几何指标。固定工况、流量及效率时，首版轴功率保持不变。</p>

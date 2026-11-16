@@ -8,6 +8,8 @@ export const steps=['整机装配','移开上汽缸','移出轴端组件','下�
 export class TurbineViewer {
   constructor(host,onSelect) {
     this.host=host;this.onSelect=onSelect;this.parts=[];this.amount=0;this.step=0;this.open=false;this.selected=null;
+    this.playing=false;this.speed=1;this.rotorAngle=0;this.housingMode='solid';this.labelsOn=false;
+    this.events=new AbortController();this.label=host.closest('.viewer-panel')?.querySelector('#selection-label');
     this.scene=new THREE.Scene();
     this.renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
@@ -16,28 +18,83 @@ export class TurbineViewer {
     host.append(this.renderer.domElement);
     this.renderer.domElement.setAttribute('aria-label','汽轮机三维视图，拖动旋转，滚轮或双指缩放；也可从部件列表选择');
     this.camera=new THREE.PerspectiveCamera(36,1,1,16000);
+    this.onControlChange=()=>this.render();
     this.controls=new OrbitControls(this.camera,this.renderer.domElement);
     this.controls.enableDamping=true;this.controls.minDistance=300;this.controls.maxDistance=9000;
+    this.controls.addEventListener('change',this.onControlChange);
     this.scene.add(new THREE.HemisphereLight(0xffffff,0x6a8195,2.8));
     for(const [x,y,z,intensity] of [[-600,1000,700,3],[700,300,-600,2]]) {const l=new THREE.DirectionalLight(0xffffff,intensity);l.position.set(x,y,z);this.scene.add(l);}
     this.home();
     this.resize=new ResizeObserver(()=>{const w=host.clientWidth,h=host.clientHeight;this.renderer.setSize(w,h);if (!w || !h) return;this.camera.aspect=w/h;this.camera.updateProjectionMatrix();if(this.root)this.fitModel();this.render();});
     this.resize.observe(host);
-    this.controls.addEventListener('change',()=>this.render());
     let down;
-    host.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);
+    host.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY],{signal:this.events.signal});
     host.addEventListener('pointerup',e=>{
       if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>6)return;
       const r=host.getBoundingClientRect(),ray=new THREE.Raycaster();
       ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),this.camera);
       const visible=[];this.scene.traverse(o=>{if(o.isMesh&&o.userData.partId&&this.isVisible(o))visible.push(o);});
       const hit=ray.intersectObjects(visible,false)[0];if(hit)this.select(hit.object.userData.partId);
-    });
-    const loop=()=>{this.frame=requestAnimationFrame(loop);this.controls.update();};loop();
+    },{signal:this.events.signal});
+    const loop=now=>{
+      if(this.disposed)return;
+      this.frame=requestAnimationFrame(loop);
+      const dt=this.lastFrame===undefined ? 0 : Math.min((now-this.lastFrame)/1000,.05);
+      this.lastFrame=now;
+      // Deliberate slow-motion demonstration (12 r/min at 1x), not an operating
+      // speed or a result of the steam-property / shaft-power calculation.
+      if(this.playing&&this.rotor){
+        this.rotorAngle=(this.rotorAngle+dt*this.speed*Math.PI*.4)%(2*Math.PI);
+        this.rotor.rotation.x=this.rotorAngle;
+      }
+      this.controls.update();
+      if(this.playing)this.render();
+    };
+    this.frame=requestAnimationFrame(loop);
   }
   isVisible(o){while(o){if(!o.visible)return false;o=o.parent;}return true;}
-  render(){this.renderer.render(this.scene,this.camera);}
+  render(){if(this.disposed)return;this.updateSelectionLabel();this.renderer.render(this.scene,this.camera);}
+  updateSelectionLabel(){
+    if(!this.label)return;
+    const part=this.parts.find(p=>p.id===this.selected);
+    this.label.hidden=!(this.labelsOn&&part&&this.isVisible(part.group));
+    if(part&&this.label.textContent!==part.name)this.label.textContent=part.name;
+  }
+  setLabels(value){this.labelsOn=Boolean(value);this.updateSelectionLabel();}
+  setSpeed(value){
+    if(!Number.isFinite(value))throw new RangeError('演示速度须为有效数值');
+    this.speed=THREE.MathUtils.clamp(value,.1,2);
+  }
+  setPlaying(value){
+    if(value){
+      if(this.amount>0||this.step>0)this.restore();
+      if(this.housingMode==='solid')this.setHousingMode('open');
+    }
+    this.playing=Boolean(value);this.lastFrame=undefined;this.render();
+  }
+  resetMotion(){
+    this.playing=false;this.rotorAngle=0;this.lastFrame=undefined;
+    if(this.rotor)this.rotor.rotation.x=0;
+  }
+  setHousingMode(mode){
+    if(!['solid','open','transparent','hidden'].includes(mode))throw new RangeError('汽缸显示方式无效');
+    this.housingMode=mode;this.open=mode==='open';this.pose();this.fitModel();
+  }
   home(direction = this.amount > 0 || this.step > 0 ? [0.38, 0.12, 1] : [0.63, 0.48, 1]) {
+    const nextUp=Math.abs(new THREE.Vector3(...direction).normalize().y)>.999
+      ? new THREE.Vector3(0,0,-1) : new THREE.Vector3(0,1,0);
+    if(!this.camera.up.equals(nextUp)){
+      // OrbitControls captures its up-axis when constructed. Recreate it when
+      // switching to exact top view, instead of mutating private quaternion data.
+      const previous=this.controls;
+      previous.removeEventListener('change',this.onControlChange);previous.dispose();
+      this.camera.up.copy(nextUp);
+      this.controls=new OrbitControls(this.camera,this.renderer.domElement);
+      this.controls.target.copy(previous.target);
+      this.controls.enableDamping=previous.enableDamping;
+      this.controls.minDistance=previous.minDistance;this.controls.maxDistance=previous.maxDistance;
+      this.controls.addEventListener('change',this.onControlChange);
+    }
     const damping = this.controls.enableDamping;
     this.controls.enableDamping = false;
     this.controls.update();
@@ -214,6 +271,7 @@ export class TurbineViewer {
     this.nozzle(exhaust, exhaustPort.x, radius - 8, [0,-.6,.8], exhaustMouth, 106);
 
     const rotor = this.part('rotor','转子总成','动叶、轮盘和主轴共轴。爆炸视图以此为装配基准。');
+    this.rotor=rotor.group;this.rotor.rotation.x=this.rotorAngle;
     this.cylinder(rotor, 35, 2 * shaftHalf, 0xaebac3);
     for (const sign of [-1,1]) {
       const bearing = this.part('bearing'+sign, sign < 0 ? '前轴承座' : '后轴承座',
@@ -283,17 +341,30 @@ export class TurbineViewer {
     this.fitModel();
   }
   pose() {
+    // Keep the original open boolean compatible with parameter-driven opening.
+    if(this.open)this.housingMode='open';
+    else if(this.housingMode==='open')this.housingMode='solid';
+    const assembled=this.step===0&&this.amount===0;
     for(const part of this.parts) {
       const progress = this.step || this.amount * (steps.length - 1);
       const factor = part.step ? THREE.MathUtils.clamp(progress - part.step + 1, 0, 1) : 0;
       part.group.position.copy(part.offset).multiplyScalar(factor);
-      part.group.visible=!(this.open&&!this.step&&this.amount===0&&['upper','inlet'].includes(part.id));
+      const casing=['upper','lower','inlet','exhaust'].includes(part.id);
+      part.group.visible=!(assembled&&casing&&(this.housingMode==='hidden'||
+        this.housingMode==='open'&&['upper','inlet'].includes(part.id)));
+      if(['upper','lower'].includes(part.id))part.group.traverse(object=>{
+        if(!object.isMesh)return;
+        const transparent=assembled&&this.housingMode==='transparent';
+        if(object.material.transparent!==transparent)object.material.needsUpdate=true;
+        object.material.transparent=transparent;object.material.opacity=transparent?.2:1;
+        object.material.depthWrite=!transparent;
+      });
     }
     this.scene.updateMatrixWorld(true);this.render();
   }
-  explode(value){this.amount=value;this.step=0;this.open=false;this.pose();this.fitModel();}
-  assembly(value){this.step=value;this.amount=0;this.open=false;this.pose();this.fitModel();}
-  restore(){this.amount=0;this.step=0;this.open=false;this.pose();this.home();}
+  explode(value){this.resetMotion();this.amount=value;this.step=0;this.open=false;this.housingMode='solid';this.pose();this.fitModel();}
+  assembly(value){this.resetMotion();this.step=value;this.amount=0;this.open=false;this.housingMode='solid';this.pose();this.fitModel();}
+  restore(){this.resetMotion();this.amount=0;this.step=0;this.open=false;this.housingMode='solid';this.pose();this.home();}
   select(id){const p=this.parts.find(x=>x.id===id);if(!p)return;this.selected=id;
     for(const part of this.parts)part.group.traverse(o=>{if(o.isMesh&&o.userData.partId===part.id)o.material.emissive.setHex(part.id===id?0x24374a:0);});
     this.onSelect(p);this.render();
@@ -308,6 +379,17 @@ export class TurbineViewer {
       };
     });
     return {selected:this.selected, amount:this.amount, step:this.step, open:this.open,bladeDesign:this.bladeDesign,
+      playing:this.playing,speed:this.speed,housingMode:this.housingMode,labelsOn:this.labelsOn,rotorAngle:this.rotorAngle,
       parts, camera:this.camera.position.toArray(), geometries:this.renderer.info.memory.geometries};
+  }
+  dispose(){
+    this.disposed=true;cancelAnimationFrame(this.frame);this.events.abort();this.resize.disconnect();
+    this.controls.removeEventListener('change',this.onControlChange);this.controls.dispose();
+    if(this.root){
+      const geometries=new Set(),materials=new Set();
+      this.root.traverse(object=>{if(object.geometry)geometries.add(object.geometry);if(object.material)materials.add(object.material);});
+      geometries.forEach(item=>item.dispose());materials.forEach(item=>item.dispose());this.scene.remove(this.root);
+    }
+    this.renderer.dispose();this.renderer.domElement.remove();this.parts=[];this.root=null;this.rotor=null;
   }
 }

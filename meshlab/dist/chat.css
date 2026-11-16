@@ -1,11 +1,15 @@
 /* The assistant shares the existing solid reading surface and color tokens. */
 .workspace { grid-template-columns: minmax(0, 1fr) 360px; }
-.assistant-sidebar { min-width: 0; border: 1px solid var(--line); border-radius: 25px; background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
+.assistant-sidebar { --assistant-pane-height: 36.75rem; min-width: 0; border: 1px solid var(--line); border-radius: 25px; background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
 .assistant-tabs { display: flex; gap: 4px; padding: 8px; border-bottom: 1px solid var(--line); }
 .assistant-tabs button { flex: 1; min-height: 44px; padding: 10px 8px; border-radius: 15px; background: transparent; color: var(--secondary); font-size: .875rem; }
 .assistant-tabs button[aria-selected=true] { background: var(--soft); color: var(--text); font-weight: 600; }
-.assistant-sidebar .detail-panel { border: 0; border-radius: 0; flex: 1; }
-.chat-panel { display: flex; flex-direction: column; height: 36.75rem; min-height: 0; }
+.assistant-sidebar .detail-panel { border: 0; border-radius: 0; flex: 0 0 auto; height: var(--assistant-pane-height); min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+/* Keep controls fixed while the complete part explanation scrolls independently. */
+.assistant-sidebar #detail-content { min-height: 0; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
+.detail-body { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; overscroll-behavior: contain; }
+.assistant-sidebar .speak-button { flex: 0 0 auto; align-self: flex-start; margin-top: 0; }
+.chat-panel { display: flex; flex-direction: column; height: var(--assistant-pane-height); min-height: 0; }
 .chat-header { padding: 17px 18px 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .chat-header h2 { font-size: 1rem; }
 .chat-connection { margin-top: 3px; color: var(--secondary); font-size: .75rem; }
@@ -58,7 +62,7 @@
 .auth-text-button { min-height: 44px; margin-top: 8px; padding: 8px 0; background: transparent; color: var(--accent); font-size: .875rem; }
 .chat-input-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (max-width: 1200px) and (min-width: 1001px) { .workspace { grid-template-columns: minmax(0, 1fr) 320px; } .control-deck { flex-wrap: wrap; } .motion-controls { width: 100%; border-right: 0; padding: 0; } .motion-controls>div { display: flex; gap: 14px; width: auto; flex: 1; } .motion-controls input { width: 100px; flex: 1; } #free-controls { flex-basis: 100%; } #viewport { bottom: 180px; } }
-@media (max-width: 1000px) { .workspace { grid-template-columns: 1fr; } .chat-panel { height: 35rem; } }
+@media (max-width: 1000px) { .workspace { grid-template-columns: 1fr; } .assistant-sidebar { --assistant-pane-height: 35rem; } .assistant-sidebar .detail-panel { grid-template-rows: auto minmax(0, 1fr); } }
 /* Keep the existing numeric summary readable when users enlarge text. */
 @media (max-width: 760px) { .metrics { grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); } }
-@media (max-width: 760px) { .assistant-sidebar { border-radius: 23px; } .chat-panel { height: 35.625rem; } .chat-context button, .chat-retry { min-height: 44px; } .chat-message-body { font-size: 1rem; } .chat-compose-actions small { font-size: .75rem; } .chat-suggestions button { font-size: .875rem; } }
+@media (max-width: 760px) { .assistant-sidebar { --assistant-pane-height: 35.625rem; border-radius: 23px; } .assistant-sidebar .detail-panel { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; } .chat-context button, .chat-retry { min-height: 44px; } .chat-message-body { font-size: 1rem; } .chat-compose-actions small { font-size: .75rem; } .chat-suggestions button { font-size: .875rem; } }
