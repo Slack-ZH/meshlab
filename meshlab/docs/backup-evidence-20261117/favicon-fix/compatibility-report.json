@@ -1,0 +1,72 @@
+{
+  "testedAt": "2026-11-17T11:44:19.945Z",
+  "checks": [
+    {
+      "name": "lab shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "turbine shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "bicycle shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "friction shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "rack shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive final assembly status matches displayed step",
+      "status": "PASS"
+    }
+  ],
+  "failedResources": [],
+  "errors": [],
+  "status": "PASS"
+}

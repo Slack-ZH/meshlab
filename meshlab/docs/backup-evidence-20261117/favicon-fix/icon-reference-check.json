@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "pages": 17,
+  "relativeIconTargetsExist": true,
+  "results": [
+    {
+      "page": "bevel-gears.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "bicycle.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "crank-rocker.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "double-rocker.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "eccentric-follower.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "friction.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "geneva-drive.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "index.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "lab.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "parallelogram.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "quick-return.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "rack.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "ratchet-pawl.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "roller-cam.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "scissor-jack.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "scotch-yoke.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    },
+    {
+      "page": "turbine.html",
+      "icons": [
+        "favicon.svg"
+      ]
+    }
+  ]
+}
