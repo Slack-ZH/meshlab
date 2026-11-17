@@ -1,0 +1,21 @@
+{
+  "baseCommit": "b63af270c49bab4c35fcd6468d691ef69f83a408",
+  "originalTrackedFiles": 257,
+  "unchangedTrackedFiles": 249,
+  "intentionalChanges": [
+    "README.md",
+    "meshlab/dist/catalog/models.json",
+    "meshlab/dist/chat.js",
+    "meshlab/dist/index.html",
+    "meshlab/dist/lab.html",
+    "meshlab/package.json",
+    "meshlab/scripts/build-catalog-index.mjs",
+    "meshlab/scripts/test-catalog-integration.mjs"
+  ],
+  "originalCatalogEntriesPreserved": 44,
+  "integratedEntries": 11,
+  "resultingEntries": 55,
+  "backendAndWorkflowUnchanged": true,
+  "dependencyLockUnchanged": true,
+  "existingModelAndViewerImplementationsUnchanged": true
+}

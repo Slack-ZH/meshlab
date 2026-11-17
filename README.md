@@ -1,5 +1,8 @@
 # 啮合实验室 · meshlab
 
+> **W 的 11 项整合分支**：基于最新主线保留原有 44 项，统一首页目录现有 55 个实验。交接范围、预览方法和检查结果见[整合说明](meshlab/docs/W11-INTEGRATION-20261117.md)。此分支尚未合并或部署，下方在线体验仍对应已发布主线。
+
+
 啮合实验室是一个面向机械课程学习的三维交互网站。以 **GL16 两级斜齿减速器**为例，你可以观察零件如何装配，沿着输入轴、中间轴和输出轴追踪动力传递，再用图纸、BOM 和设计说明书核对结构与参数。
 
 **[在线体验](https://slack-zh.github.io/meshlab/)** · **[进入 GL16 实验室](https://slack-zh.github.io/meshlab/lab.html)** · **[查看工程资料](https://slack-zh.github.io/meshlab/lab.html?view=engineering)**

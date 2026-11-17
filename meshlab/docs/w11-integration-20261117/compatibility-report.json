@@ -1,0 +1,88 @@
+{
+  "testedAt": "2026-11-17T12:15:23.560Z",
+  "checks": [
+    {
+      "name": "lab shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "turbine shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "bicycle shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "friction shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "spur shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "idler shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "belt shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "timing shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "vice shared chat loads without changing original model identity",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam final assembly status matches displayed step",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive final assembly status matches displayed step",
+      "status": "PASS"
+    }
+  ],
+  "failedResources": [],
+  "errors": [],
+  "status": "PASS"
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "group": "experiment-unit.tap",
+    "command": "node --test scripts/test-experiment-contract.mjs scripts/test-experiment-standard.mjs scripts/test-linkages.mjs scripts/test-mechanisms.mjs scripts/test-w11-integration.mjs",
+    "tests": 71,
+    "pass": 71,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "logSha256": "bafdf877de5ebbc336fd6f05804da344c51a5410a0b88720c9311feeaa865916",
+    "rawLogIncluded": false
+  },
+  {
+    "group": "main-regression.tap",
+    "command": "node --test scripts/test-belt-chat.mjs scripts/test-belt.mjs scripts/test-bicycle-chat.mjs scripts/test-bicycle.mjs scripts/test-catalog-integration.mjs scripts/test-catalog-machines-audit.mjs scripts/test-catalog-machines.mjs scripts/test-catalog-motion.mjs scripts/test-catalog-systems-audit.mjs scripts/test-catalog-systems.mjs scripts/test-friction-chat.mjs scripts/test-friction.mjs scripts/test-idler-chat.mjs scripts/test-idler.mjs scripts/test-legacy-motion-audit.mjs scripts/test-spur-chat.mjs scripts/test-spur.mjs scripts/test-timing-chat.mjs scripts/test-timing.mjs scripts/test-turbine-chat.mjs scripts/test-turbine-geometry.mjs scripts/test-vice-chat.mjs scripts/test-vice.mjs",
+    "tests": 265,
+    "pass": 265,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "logSha256": "1c6e3747b0e9bba5eba2c9717cafb1d65bb3aca5f417f9f74c99b3de14f06777",
+    "rawLogIncluded": false
+  },
+  {
+    "group": "service-unit.tap",
+    "command": "node --test scripts/test-chat.mjs scripts/test-budget.mjs scripts/test-auth.mjs",
+    "tests": 17,
+    "pass": 17,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "logSha256": "328f4914c2f11aafdda7ddbf3fa650397a5a313403380acb6f76e166d1771f91",
+    "rawLogIncluded": false
+  }
+]

@@ -96,7 +96,7 @@ test('production chat UI blocks unsupported catalog send, submit and retry; nati
   const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};for(let k=0;k<3;k++)suggestions.push(element());
   const window={addEventListener(){},...(catalog?{__catalogLab:{getState:()=>({model:{id:'planetary',title:'简单行星齿轮传动'},parameters:{inputRPM:30},result:{metrics:[]}})}}:{})};
   const context={window,document:{getElementById:get,querySelector:selector=>get(selector),querySelectorAll:()=>suggestions,createElement:()=>element()},MutationObserver:class {observe(){}},console,
-   canChat:()=>true,openAuth:()=>{throw Error('Unexpected login prompt');},captureCatalogContext,captureViceContext,captureTimingContext,captureBeltContext,captureIdlerContext,captureSpurContext,captureFrictionContext,captureBicycleContext,captureTurbineContext,createChatPayload:createCatalogChatPayload,
+   canChat:()=>true,openAuth:()=>{throw Error('Unexpected login prompt');},captureExperimentContext:()=>null,captureCatalogContext,captureViceContext,captureTimingContext,captureBeltContext,captureIdlerContext,captureSpurContext,captureFrictionContext,captureBicycleContext,captureTurbineContext,createChatPayload:createCatalogChatPayload,
    fetch:async()=>{calls++;throw Error('Unexpected provider call');},setTimeout,clearTimeout,AbortController,URL};
   runInNewContext(source,context);return {get,suggestions,api:context.chatTest,get calls(){return calls;}};
  }

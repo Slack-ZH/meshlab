@@ -8,7 +8,8 @@ import { captureIdlerContext } from './idler/chat-context.mjs';
 import { captureBeltContext } from './belt/chat-context.mjs';
 import { captureTimingContext } from './timing/chat-context.mjs';
 import { captureViceContext } from './vice/chat-context.mjs';
-import { captureCatalogContext, createCatalogChatPayload as createChatPayload } from './catalog/chat-context.mjs';
+import { captureCatalogContext } from './catalog/chat-context.mjs';
+import { captureExperimentContext, createExperimentChatPayload as createChatPayload } from './experiments/chat-context.mjs';
 
 const $ = id => document.getElementById(id);
 const input = $('chat-input'), sendButton = $('chat-send');
@@ -51,6 +52,7 @@ for (const name of ['chat', 'details']) {
 }
 $('chat-context-part').addEventListener('click', () => showPane('details', true));
 function updateContext() {
+  const experiment = captureExperimentContext(window.__experimentLab?.getState());
   const catalog = captureCatalogContext(window.__catalogLab?.getState());
   const viceState = window.__viceLab?.getState();
   const vice = viceState && captureViceContext(viceState);
@@ -68,9 +70,10 @@ function updateContext() {
   const bicycle = bicycleState && captureBicycleContext(bicycleState);
   const state = window.__turbineLab?.getState();
   const context = state && captureTurbineContext(state);
-  $('chat-context-part').textContent = catalog?.selectedPart?.name || vice?.selectedPart?.name || timing?.selectedPart?.name || belt?.selectedPart?.name || idler?.selectedPart?.name || spur?.selectedPart?.name || friction?.selectedPart?.name || bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
+  $('chat-context-part').textContent = experiment?.selectedPart?.name || catalog?.selectedPart?.name || vice?.selectedPart?.name || timing?.selectedPart?.name || belt?.selectedPart?.name || idler?.selectedPart?.name || spur?.selectedPart?.name || friction?.selectedPart?.name || bicycle?.selectedPart?.name || context?.selectedPart?.name || $('selection-label')?.textContent || '尚未选择零件';
   const model = document.querySelector('.chat-context > span');
-  if (catalog && model) model.textContent = catalog.title + ' · ' + (catalog.playing?'播放中':'已暂停');
+  if (experiment && model) model.textContent = experiment.title + (experiment.valid ? '' : ' · 参数待修正');
+  else if (catalog && model) model.textContent = catalog.title + ' · ' + (catalog.playing?'播放中':'已暂停');
   else if (vice && model) model.textContent = `台虎钳 · 开口 ${vice.runtime?.jawOpening==null?'—':Number(vice.runtime.jawOpening.toFixed(1))} mm · 导程 ${vice.parameters.lead ?? '—'} mm`;
   else if (timing && model) model.textContent = `同步带 · ${timing.parameters.driverTeeth ?? '—'} / ${timing.parameters.drivenTeeth ?? '—'} 齿 · 节距 5 mm`;
   else if (belt && model) model.textContent = `平带 · ${belt.parameters.crossed===true?'交叉带':belt.parameters.crossed===false?'开口带':'模式待确认'} · ${belt.parameters.driverDiameter ?? '—'} / ${belt.parameters.drivenDiameter ?? '—'} mm`;
@@ -91,6 +94,7 @@ window.addEventListener('belt:statechange', updateContext);
 window.addEventListener('timing:statechange', updateContext);
 window.addEventListener('vice:statechange', updateContext);
 window.addEventListener('catalog:statechange', updateContext);
+window.addEventListener('experiment:statechange', updateContext);
 updateContext();
 
 function notice(text, retry = false) {
@@ -168,7 +172,7 @@ async function requestReply(turn, userAlreadyVisible = false) {
       if (nearBottom) scrollBottom();
     });
     if (active !== controller) return;
-    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext, frictionContext: turn.frictionContext, spurContext: turn.spurContext, idlerContext: turn.idlerContext, beltContext: turn.beltContext, timingContext: turn.timingContext, viceContext: turn.viceContext, catalogContext: turn.catalogContext }, { role: 'assistant', content: result.answer });
+    history.push({ role: 'user', content: turn.content, selectedPartId: turn.selectedPartId, turbineContext: turn.turbineContext, bicycleContext: turn.bicycleContext, frictionContext: turn.frictionContext, spurContext: turn.spurContext, idlerContext: turn.idlerContext, beltContext: turn.beltContext, timingContext: turn.timingContext, viceContext: turn.viceContext, catalogContext: turn.catalogContext, experimentContext: turn.experimentContext }, { role: 'assistant', content: result.answer });
     history = history.slice(-20);
     while (history.length && history.reduce((sum, message) => sum + message.content.length, 0) > 24000) {
       history.splice(0, 2);
@@ -204,8 +208,9 @@ $('chat-form').addEventListener('submit', e => {
   const beltState = window.__beltLab?.getState();
   const timingState = window.__timingLab?.getState();
   const viceState = window.__viceLab?.getState();
+  const experimentContext = captureExperimentContext(window.__experimentLab?.getState());
   const catalogContext = captureCatalogContext(window.__catalogLab?.getState());
-  if ($('geometry-fields') && !turbineState && !bicycleState && !frictionState && !spurState && !idlerState && !beltState && !timingState && !viceState && !catalogContext) { notice('模型参数尚未就绪，请稍后再试。'); return; }
+  if ($('geometry-fields') && !turbineState && !bicycleState && !frictionState && !spurState && !idlerState && !beltState && !timingState && !viceState && !catalogContext && !experimentContext) { notice('模型参数尚未就绪，请稍后再试。'); return; }
   const turbineContext = turbineState ? captureTurbineContext(turbineState) : null;
   const bicycleContext = bicycleState ? captureBicycleContext(bicycleState) : null;
   const frictionContext = frictionState ? captureFrictionContext(frictionState) : null;
@@ -216,8 +221,8 @@ $('chat-form').addEventListener('submit', e => {
   const viceContext = viceState ? captureViceContext(viceState) : null;
   const state = window.__gearLab?.getState();
   const turn = { role: 'user', content, selectedPartId: state?.selected || null,
-    partName: catalogContext?.selectedPart?.name || viceContext?.selectedPart?.name || timingContext?.selectedPart?.name || beltContext?.selectedPart?.name || idlerContext?.selectedPart?.name || spurContext?.selectedPart?.name || frictionContext?.selectedPart?.name || bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
-    turbineContext, bicycleContext, frictionContext, spurContext, idlerContext, beltContext, timingContext, viceContext, catalogContext };
+    partName: experimentContext?.selectedPart?.name || catalogContext?.selectedPart?.name || viceContext?.selectedPart?.name || timingContext?.selectedPart?.name || beltContext?.selectedPart?.name || idlerContext?.selectedPart?.name || spurContext?.selectedPart?.name || frictionContext?.selectedPart?.name || bicycleContext?.selectedPart?.name || turbineContext?.selectedPart?.name || (state?.selected ? $('selection-label').textContent : ''),
+    turbineContext, bicycleContext, frictionContext, spurContext, idlerContext, beltContext, timingContext, viceContext, catalogContext, experimentContext };
   try { createChatPayload([...history.slice(-20), turn], {supportsTurbine,supportsBicycle,supportsFriction,supportsSpur,supportsIdler,supportsBelt,supportsTiming,supportsVice,supportsCatalog}); }
   catch (error) { notice(error.message); return; }
   input.value = '';

@@ -1,5 +1,5 @@
 {
-  "count": 44,
+  "count": 55,
   "source": "https://www.kdocs.cn/l/cnXEgCQ0UECb",
   "blankRows": [
     28,
@@ -92,6 +92,94 @@
       "url": "vice.html",
       "description": "导程、开口与端点停机",
       "number": null
+    },
+    {
+      "id": "scotch-yoke",
+      "title": "苏格兰轭机构",
+      "description": "看销在槽中滑动，并与曲柄滑块的位移曲线对比。",
+      "url": "scotch-yoke.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "crank-rocker",
+      "title": "曲柄摇杆四杆机构",
+      "description": "调整杆长，看曲柄整周转动如何带动摇杆摆动。",
+      "url": "crank-rocker.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "parallelogram",
+      "title": "平行四边形四杆机构",
+      "description": "拖动台灯臂，观察末端连杆如何保持姿态。",
+      "url": "parallelogram.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "double-rocker",
+      "title": "双摇杆机构",
+      "description": "拖动输入摇杆，观察输出摇杆的摆角范围。",
+      "url": "double-rocker.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "quick-return",
+      "title": "曲柄导杆急回机构",
+      "description": "对比牛头刨床工作行程和空回行程的用时。",
+      "url": "quick-return.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "bevel-gears",
+      "title": "直齿锥齿轮副",
+      "description": "观察动力如何在两根相交轴之间传递。",
+      "url": "bevel-gears.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "scissor-jack",
+      "title": "剪式千斤顶",
+      "description": "转动丝杠，看起升高度如何随手柄转数变化。",
+      "url": "scissor-jack.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "ratchet-pawl",
+      "title": "棘轮棘爪",
+      "description": "切换驱动和回程，观察套筒扳手如何单向传力。",
+      "url": "ratchet-pawl.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "eccentric-follower",
+      "title": "偏心轮与直动从动件",
+      "description": "调整偏心距，观察从动件行程变化。",
+      "url": "eccentric-follower.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "roller-cam",
+      "title": "盘形凸轮与滚子从动件",
+      "description": "手动转动凸轮，观察推程、停歇与回程。",
+      "url": "roller-cam.html",
+      "number": null,
+      "label": "机构实验"
+    },
+    {
+      "id": "geneva-drive",
+      "title": "日内瓦槽轮机构",
+      "description": "调整槽数，观察连续转动变成间歇分度。",
+      "url": "geneva-drive.html",
+      "number": null,
+      "label": "机构实验"
     },
     {
       "id": "universal-joint",

@@ -1,0 +1,204 @@
+{
+  "testedAt": "2026-11-17T12:15:44.442Z",
+  "checks": [
+    {
+      "name": "home 1440px preserves all 55 links and searchable W entries",
+      "status": "PASS"
+    },
+    {
+      "name": "home 390px preserves all 55 links and searchable W entries",
+      "status": "PASS"
+    },
+    {
+      "name": "home 360px preserves all 55 links and searchable W entries",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive homepage link opens the correct complete experiment",
+      "status": "PASS"
+    },
+    {
+      "name": "universal-joint existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "double-universal existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "chain-conveyor existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "recirculating-ball-screw existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "friction-clutch existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-freewheel existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "centrifugal-clutch existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "oldham-coupling existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "bicycle-rear-derailleur existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "dual-wiper existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "steering-rack existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "valvetrain existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "planetary existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "three-speed-hub existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "manual-gearbox existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "synchronizer existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "cvt existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "rzeppa-joint existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "conjugate-cam existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "indexing-cam existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "cycloidal existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "harmonic existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "enveloping-worm existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "rv-reducer existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "dual-clutch-transmission existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "planetary-automatic existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "torque-converter existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "hybrid-power-split existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "four-wheel-transfer existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "tractor-pto existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "cnc-feed existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "robot-wrist existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "clock-escapement existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "dual-rotor-gearbox existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "wind-turbine-gearbox existing catalog identity, selection, motion and assembly remain available",
+      "status": "PASS"
+    }
+  ],
+  "failedResources": [],
+  "errors": [],
+  "status": "PASS"
+}

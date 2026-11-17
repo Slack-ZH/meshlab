@@ -1,0 +1,497 @@
+[
+  {
+    "id": "scotch-yoke",
+    "title": "苏格兰轭机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "scotch-yoke-desktop-default.png",
+        "sha256": "ca1e801264407fd7e4614f5bf28b3b4f4cdde70679605f1f29a400aa0c57046d"
+      },
+      {
+        "file": "scotch-yoke-desktop-selected.png",
+        "sha256": "dee9181f1e5621b8185a574a664cf2bb7c4ed1fbce7bb1dc248177dedd096cf3"
+      },
+      {
+        "file": "scotch-yoke-desktop-exploded.png",
+        "sha256": "203c78acff5f2c8f2c1e3c6ef494857b5c892eba66f0a10ad8d79a2e2a4b5b26"
+      },
+      {
+        "file": "scotch-yoke-390-default.png",
+        "sha256": "e3179520d6a03ca933fd3ed9ce9e7148d69299f3e0f0a28abec26072df2bc828"
+      },
+      {
+        "file": "scotch-yoke-390-selected.png",
+        "sha256": "9ad24e672d7bffb61876ad98a43fe5416b37d3f279b24e1adf9dfd341eca19e2"
+      },
+      {
+        "file": "scotch-yoke-390-exploded.png",
+        "sha256": "92023722a1dcd95eb6026385608c3b0dfae72ede6b25df39696a930f849c6185"
+      },
+      {
+        "file": "scotch-yoke-360-default.png",
+        "sha256": "751b351fb5f6ca0b5badbc2a8bb5949556e3ff35a7175d816efd74d73454b677"
+      },
+      {
+        "file": "scotch-yoke-360-selected.png",
+        "sha256": "751b351fb5f6ca0b5badbc2a8bb5949556e3ff35a7175d816efd74d73454b677"
+      },
+      {
+        "file": "scotch-yoke-360-exploded.png",
+        "sha256": "a7842b5f9133e04a363d82ef5785ec46c6d54fe37c41c692d120bffb2093eb03"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "crank-rocker",
+    "title": "曲柄摇杆四杆机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "crank-rocker-desktop-default.png",
+        "sha256": "dae49a9093bfeee4e037a9cff83c3a3fb10207e4dc3e9a43313451d0df496af3"
+      },
+      {
+        "file": "crank-rocker-desktop-selected.png",
+        "sha256": "2081d32a22e33970e44586bbbc20a2886c49768f17ae81e3606775b423ee1b46"
+      },
+      {
+        "file": "crank-rocker-desktop-exploded.png",
+        "sha256": "7a156bc9fcad664a723bdfddedc9b92c9c591663d25be63e9dc8417fcf4708fb"
+      },
+      {
+        "file": "crank-rocker-390-default.png",
+        "sha256": "c7f5cbebda3058ab42c9cdd406ee06af235f9bd9de1cf13866acfe46a6930217"
+      },
+      {
+        "file": "crank-rocker-390-selected.png",
+        "sha256": "2b14fe8bfedb5e4d0e17904d6f1c89c5035ba25ed0061c9ede4ab6bc75d4483d"
+      },
+      {
+        "file": "crank-rocker-390-exploded.png",
+        "sha256": "f2123d72cea3c01cf8a802d3c3447e8c531ab8fc891c49fd759054fc86f34e2e"
+      },
+      {
+        "file": "crank-rocker-360-default.png",
+        "sha256": "dcd67b2d83cab82e671edb9d2320af8c87f80d8b003da66f4bf08c59c34bfa54"
+      },
+      {
+        "file": "crank-rocker-360-selected.png",
+        "sha256": "dcd67b2d83cab82e671edb9d2320af8c87f80d8b003da66f4bf08c59c34bfa54"
+      },
+      {
+        "file": "crank-rocker-360-exploded.png",
+        "sha256": "f5b169802fef88d00fa25438b1c9f1d00c9aa4c8afb0b8cec0ccec8d2d44b228"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "parallelogram",
+    "title": "平行四边形四杆机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "parallelogram-desktop-default.png",
+        "sha256": "7829228c4bf46bc306798caa860b3b85897329f3e7b509b918b5e71cdd3288f9"
+      },
+      {
+        "file": "parallelogram-desktop-selected.png",
+        "sha256": "419f768ca6f7955460634ca7d89b33b818cf2e0eb78eb4d6ff8c72a01a12c71d"
+      },
+      {
+        "file": "parallelogram-desktop-exploded.png",
+        "sha256": "fad224987b62246b94ee6936c10feb5c80bc529578ca9983e2cfa51f30454a63"
+      },
+      {
+        "file": "parallelogram-390-default.png",
+        "sha256": "051ddea486c831d7618283b68efe61ce309fdba327632ba8789dead7241fa1cd"
+      },
+      {
+        "file": "parallelogram-390-selected.png",
+        "sha256": "7d5cf16a0c87c893161f44a9a59bab9113bfbd66935192430a3a29753ce507cf"
+      },
+      {
+        "file": "parallelogram-390-exploded.png",
+        "sha256": "ab720932aaa45f49593ab1ddc9a3f5caa3d1858d18c6381b5e8eb2d0f46045ac"
+      },
+      {
+        "file": "parallelogram-360-default.png",
+        "sha256": "47593416a9f988fe9c14d73a3111b6ece0643db792bd5f7ce3b00701f993cd75"
+      },
+      {
+        "file": "parallelogram-360-selected.png",
+        "sha256": "47593416a9f988fe9c14d73a3111b6ece0643db792bd5f7ce3b00701f993cd75"
+      },
+      {
+        "file": "parallelogram-360-exploded.png",
+        "sha256": "b7fb0e150b375eca4cdfc035164cad74feca71ffcaf6f624e7ad8e5581c78646"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "double-rocker",
+    "title": "双摇杆机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "double-rocker-desktop-default.png",
+        "sha256": "fe999e1e9e3df3ab052a5921dbea3f577aece0d0001322022eadc96f2f5d6045"
+      },
+      {
+        "file": "double-rocker-desktop-selected.png",
+        "sha256": "a85ab8c20e9e1f29d6b416fb9d837a78e6404fd52004fe44c482823fadabcdf5"
+      },
+      {
+        "file": "double-rocker-desktop-exploded.png",
+        "sha256": "412d1d2d9bd6339e16c0d40b93f710f72d76cb4ecaccaedaa6bc7e133f4a4cb6"
+      },
+      {
+        "file": "double-rocker-390-default.png",
+        "sha256": "cf73ab60084e58a7f3bb5dd1d897091723ec51a6a51f9dd18048f3e2462a1560"
+      },
+      {
+        "file": "double-rocker-390-selected.png",
+        "sha256": "2d289cb692d7770bce0e5e1509833d36146a4fcb5a5b6261dde04598d712d718"
+      },
+      {
+        "file": "double-rocker-390-exploded.png",
+        "sha256": "7e0eb09417a5eb0ae926eda0b1c7cfa11605b95ba9435e2832332ec0a3804848"
+      },
+      {
+        "file": "double-rocker-360-default.png",
+        "sha256": "0800b67eb4977e43b76ed2cedc7581e2a821d81195f4d90fd5c0890c5829e752"
+      },
+      {
+        "file": "double-rocker-360-selected.png",
+        "sha256": "0800b67eb4977e43b76ed2cedc7581e2a821d81195f4d90fd5c0890c5829e752"
+      },
+      {
+        "file": "double-rocker-360-exploded.png",
+        "sha256": "506f04d13f36e66d099a2b18acc6bb8a0aede9ccfd8ddde7ab2d722816b8fdbd"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "quick-return",
+    "title": "曲柄导杆急回机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "quick-return-desktop-default.png",
+        "sha256": "68220694900d81f9e9f9c373fb3b9d5decddc205d8a1329df99346750bbc07bd"
+      },
+      {
+        "file": "quick-return-desktop-selected.png",
+        "sha256": "4741c4b7c338c29a10990591449b75b64298764a2828febc2c0e912eb9034416"
+      },
+      {
+        "file": "quick-return-desktop-exploded.png",
+        "sha256": "5a384921c8367f0453e08e19ace4cbe4b80fe563190c1bd6a46dd0d3e68988bd"
+      },
+      {
+        "file": "quick-return-390-default.png",
+        "sha256": "84ab72ae7faa3a0a2fd9d5d035b299570f6593e4ba2e511b550019569d94a4b5"
+      },
+      {
+        "file": "quick-return-390-selected.png",
+        "sha256": "048b8d977a40a0415b0dd12aa9b8aebffc15c486fab51888244c0e540ec5c222"
+      },
+      {
+        "file": "quick-return-390-exploded.png",
+        "sha256": "6f88f8ee6ea55ab0a674ff7c7613d19aaa56b7f7782fb86415db7943b76269b4"
+      },
+      {
+        "file": "quick-return-360-default.png",
+        "sha256": "61ac9661e7a9458d170659925b6dd2585ebfe052998ed1ab3979c53b4c5ec876"
+      },
+      {
+        "file": "quick-return-360-selected.png",
+        "sha256": "61ac9661e7a9458d170659925b6dd2585ebfe052998ed1ab3979c53b4c5ec876"
+      },
+      {
+        "file": "quick-return-360-exploded.png",
+        "sha256": "72d1a004da08fa078a8d7d45839df46234d8ef644f5ffb37f23051031066586e"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "bevel-gears",
+    "title": "直齿锥齿轮副",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "bevel-gears-desktop-default.png",
+        "sha256": "2dac31de02a370c2833b8ecc47cc035281a169dfb5f75fd8519ad43c505cc735"
+      },
+      {
+        "file": "bevel-gears-desktop-selected.png",
+        "sha256": "d0a3363e6b330d09bddcc00c91cc8d2c30cea2c889e73dd402bab8f7736836c9"
+      },
+      {
+        "file": "bevel-gears-desktop-exploded.png",
+        "sha256": "cbef97678de3ab9efe460bcbb60bd2ac2786d31062e1f45cad66eff45b6444c3"
+      },
+      {
+        "file": "bevel-gears-390-default.png",
+        "sha256": "a966e73438f3742a22641e4a8c267eacd4ea9faf9ca22e3f1ec1f9215b930dc4"
+      },
+      {
+        "file": "bevel-gears-390-selected.png",
+        "sha256": "ba7f146b7d81c37dbc69ca614854e322d09d94ba41735839f75435aa6e4d558c"
+      },
+      {
+        "file": "bevel-gears-390-exploded.png",
+        "sha256": "64aedb49939f7a1e3636d25a32e7113d4a64a16f95021af13f9da8ebe2fb2bc0"
+      },
+      {
+        "file": "bevel-gears-360-default.png",
+        "sha256": "1b4fe304dbb052744f6a96f4e352bc0208949a16731dc208ed48eeff70d12562"
+      },
+      {
+        "file": "bevel-gears-360-selected.png",
+        "sha256": "1b4fe304dbb052744f6a96f4e352bc0208949a16731dc208ed48eeff70d12562"
+      },
+      {
+        "file": "bevel-gears-360-exploded.png",
+        "sha256": "68da095fea25a74a5204d5f1a43abfa152889631b6e9d345ab8020fa18502dcc"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "scissor-jack",
+    "title": "剪式千斤顶",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "scissor-jack-desktop-default.png",
+        "sha256": "1810b63e0cef641f5695c6c6bc936352857c21226132d971497e0eaaafcd2341"
+      },
+      {
+        "file": "scissor-jack-desktop-selected.png",
+        "sha256": "5d12d17005dbf9b24a6aba9bd00cd9a991ec6a6bc7d8cf660effefc00f45a1f4"
+      },
+      {
+        "file": "scissor-jack-desktop-exploded.png",
+        "sha256": "aea43ac1668402d37cc54a16a274508495b35114f1cbfe4993c3585e1b1a8312"
+      },
+      {
+        "file": "scissor-jack-390-default.png",
+        "sha256": "0d3d93436f509b15f506c75edd625224bafb373a471092e0ee33538551a55807"
+      },
+      {
+        "file": "scissor-jack-390-selected.png",
+        "sha256": "bb5ec30dd7473031368df04f8a25b0fede9ffc286f8cb9c44ce0f96f16df3780"
+      },
+      {
+        "file": "scissor-jack-390-exploded.png",
+        "sha256": "9eaa467ef92c77c7187d423189639eff8cbdd2236c3ad5828bd420070cccc09a"
+      },
+      {
+        "file": "scissor-jack-360-default.png",
+        "sha256": "780a5713a074caba9e88fa4b030e4818fd9321a96fa635c865784acd75ba04fc"
+      },
+      {
+        "file": "scissor-jack-360-selected.png",
+        "sha256": "780a5713a074caba9e88fa4b030e4818fd9321a96fa635c865784acd75ba04fc"
+      },
+      {
+        "file": "scissor-jack-360-exploded.png",
+        "sha256": "380cbe2105a5b5bf3e8a759ea5624dc1d71894db7bcfe02f913fda5b44b6caa9"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "ratchet-pawl",
+    "title": "棘轮棘爪",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "ratchet-pawl-desktop-default.png",
+        "sha256": "5307c92e9f741121bdb2c54673f06914f944f2b381596b81aca73e44de869498"
+      },
+      {
+        "file": "ratchet-pawl-desktop-selected.png",
+        "sha256": "282b5e2afe1ee2eef4233c9d46c632a0f58b9324a774136b2a389fd26207c43c"
+      },
+      {
+        "file": "ratchet-pawl-desktop-exploded.png",
+        "sha256": "2930f8f86adabb8e1193398f922f37efb963b0b78fa9a631cc635cb5f9f2e9f1"
+      },
+      {
+        "file": "ratchet-pawl-390-default.png",
+        "sha256": "b2a71a6c1506a13877b787d9d19323f93022d96ff4a4dce4927b4c398d29c15b"
+      },
+      {
+        "file": "ratchet-pawl-390-selected.png",
+        "sha256": "9aff138dfdf106ee7799f93c74c58679a80f5c78ccf4882f991a505e6aa07bdd"
+      },
+      {
+        "file": "ratchet-pawl-390-exploded.png",
+        "sha256": "603b90e6f782d7a32e3561496f4b1b80ff592e98ed98b056eaff396df3041fbf"
+      },
+      {
+        "file": "ratchet-pawl-360-default.png",
+        "sha256": "eca14090501c4e2465e7544d43d580a366fe3a5fd530ef453672d91941725287"
+      },
+      {
+        "file": "ratchet-pawl-360-selected.png",
+        "sha256": "eca14090501c4e2465e7544d43d580a366fe3a5fd530ef453672d91941725287"
+      },
+      {
+        "file": "ratchet-pawl-360-exploded.png",
+        "sha256": "40a15dd56f34af079be3138baa035bcd9ef06ceae7e6f3ee22008eae53aec930"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "eccentric-follower",
+    "title": "偏心轮与直动从动件",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "eccentric-follower-desktop-default.png",
+        "sha256": "d4728c17eebc9e2c418626856eba93eb011f730524edc8294f27c308476241e5"
+      },
+      {
+        "file": "eccentric-follower-desktop-selected.png",
+        "sha256": "ff0c7aaac6f81e511c5ebb2126750429e296c22658b5d75e0d5c65a467740c39"
+      },
+      {
+        "file": "eccentric-follower-desktop-exploded.png",
+        "sha256": "e6edc90e2f842af02e0b66bd73fe62a74bb6900af5f80abd41ec0950fdcfdfa9"
+      },
+      {
+        "file": "eccentric-follower-390-default.png",
+        "sha256": "7389dd64e27bc1d7e6c3ce766f4f0b1359da0bcd3a7b7cb53a60939127be7c06"
+      },
+      {
+        "file": "eccentric-follower-390-selected.png",
+        "sha256": "4defafa0b675eac86647b28875be87d0e4772228fad3973a1361f380f65ecf54"
+      },
+      {
+        "file": "eccentric-follower-390-exploded.png",
+        "sha256": "7fb3037defab7fa56f055a02081d0b51feebef63814f6fe8a5a15581469f09eb"
+      },
+      {
+        "file": "eccentric-follower-360-default.png",
+        "sha256": "dd18cab104c9f705d5b1e1d1faa8f6234ee90aa6d1573623c4ebf5f74450b990"
+      },
+      {
+        "file": "eccentric-follower-360-selected.png",
+        "sha256": "dd18cab104c9f705d5b1e1d1faa8f6234ee90aa6d1573623c4ebf5f74450b990"
+      },
+      {
+        "file": "eccentric-follower-360-exploded.png",
+        "sha256": "f2744713838a4f57f34d683418a3ad915494bb56bb2ede2e7ce9398a91a12dde"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "roller-cam",
+    "title": "盘形凸轮与滚子从动件",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "roller-cam-desktop-default.png",
+        "sha256": "2587382958a22848d93872f03f6815cacf44dab37ba33ee1ca2fe6635c9bc387"
+      },
+      {
+        "file": "roller-cam-desktop-selected.png",
+        "sha256": "ed69c8ba9f255ebf9197b30c252b7883b1efee506fed8aff0c9720a5d8366123"
+      },
+      {
+        "file": "roller-cam-desktop-exploded.png",
+        "sha256": "57f77b8cdd08a31f48e297cb6ad10020d48da97872a293c100c5c5ed24097845"
+      },
+      {
+        "file": "roller-cam-390-default.png",
+        "sha256": "fd93ab07d4effc5fc4a2f61e73317380233108831e9ba590795d20d9dd8ce9e8"
+      },
+      {
+        "file": "roller-cam-390-selected.png",
+        "sha256": "cc80f8172a968b7bac88bfc910b6e43e40dcde21b7f7d65569951a7b61d32a19"
+      },
+      {
+        "file": "roller-cam-390-exploded.png",
+        "sha256": "bb7e4310c62728544178a559e3cb1d0b40af8f668e992935afbe140518b6839a"
+      },
+      {
+        "file": "roller-cam-360-default.png",
+        "sha256": "d8350891bc9520d138627edccb5060922c815ceccf1da02b235f256e0ce3fa61"
+      },
+      {
+        "file": "roller-cam-360-selected.png",
+        "sha256": "d8350891bc9520d138627edccb5060922c815ceccf1da02b235f256e0ce3fa61"
+      },
+      {
+        "file": "roller-cam-360-exploded.png",
+        "sha256": "1aabf94d7cc152ac90a4ff684d41a03f7dc144f922b1248054545544677e8218"
+      }
+    ],
+    "screenshotsIncluded": false
+  },
+  {
+    "id": "geneva-drive",
+    "title": "日内瓦槽轮机构",
+    "desktopAndPhoneContactSheetReviewed": true,
+    "review": "Assembly framing, mechanical finishes, selected highlight and separated assembly inspected; no integration regression observed.",
+    "screenshots": [
+      {
+        "file": "geneva-drive-desktop-default.png",
+        "sha256": "fe4452764a6e749dff1b6454a0e833923e851102cd43cf6d2b4104eb361cdf37"
+      },
+      {
+        "file": "geneva-drive-desktop-selected.png",
+        "sha256": "212c5f8638e28d312f76495bad042330215d0791584a005566f03030460dc8c7"
+      },
+      {
+        "file": "geneva-drive-desktop-exploded.png",
+        "sha256": "d2f1db6b6a743983300b4b13f805603acbc7097f716a8cd98c4abe6c5c97af48"
+      },
+      {
+        "file": "geneva-drive-390-default.png",
+        "sha256": "5d9ae048c4670f5d5475f97149ac4e251610362b8dc94f34d1623688a3579c36"
+      },
+      {
+        "file": "geneva-drive-390-selected.png",
+        "sha256": "c5d846234ed7a30bc11c8e56ffc01ab1ab96db747cdda6217de452d693ca0f8f"
+      },
+      {
+        "file": "geneva-drive-390-exploded.png",
+        "sha256": "42d8ba4806859a34e7ba850eafce769b7b136029118a56924ca66ec5f9f55ecb"
+      },
+      {
+        "file": "geneva-drive-360-default.png",
+        "sha256": "54c777e21e66ff855807b6c614a0688f014ccaa6d5f5502cd2b0a193e481bb02"
+      },
+      {
+        "file": "geneva-drive-360-selected.png",
+        "sha256": "54c777e21e66ff855807b6c614a0688f014ccaa6d5f5502cd2b0a193e481bb02"
+      },
+      {
+        "file": "geneva-drive-360-exploded.png",
+        "sha256": "138f16d7b50c30d1fb98fc1b6590a00fee992269c7876ab0484d63b0d6435277"
+      }
+    ],
+    "screenshotsIncluded": false
+  }
+]
