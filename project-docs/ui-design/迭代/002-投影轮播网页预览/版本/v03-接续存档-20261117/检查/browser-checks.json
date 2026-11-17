@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "case": "rack desktop selected",
+      "height": 1299,
+      "overflow": false,
+      "selected": "shaft",
+      "width": 1440
+    },
+    {
+      "case": "device mobile",
+      "height": 844,
+      "overflow": false,
+      "view": "device",
+      "width": 390
+    },
+    {
+      "case": "rack mobile selected",
+      "overflow": false,
+      "selected": "shaft"
+    },
+    {
+      "case": "friction mobile selected",
+      "overflow": false,
+      "selected": "driven-shaft"
+    },
+    {
+      "case": "v03 desktop catalogue",
+      "height": 1000,
+      "overflow": false,
+      "separate": true,
+      "width": 1440
+    },
+    {
+      "case": "v03 reduced motion and scale controls",
+      "mechanism": "rack",
+      "phase": "closing",
+      "reduced": "true",
+      "scale": "80%"
+    },
+    {
+      "case": "v03 mobile catalogue",
+      "height": 844,
+      "overflow": false,
+      "separate": true,
+      "width": 390
+    },
+    {
+      "case": "v03 mobile catalogue selection",
+      "collapsed": true,
+      "mechanism": "friction",
+      "overflow": false
+    }
+  ],
+  "logs": [],
+  "limitations": [
+    "Static visual review and browser controls; not user acceptance.",
+    "Projection animation remains a rejected provisional design pending the next iteration."
+  ]
+}

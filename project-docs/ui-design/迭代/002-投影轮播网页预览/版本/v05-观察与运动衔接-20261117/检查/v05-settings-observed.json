@@ -1,0 +1,32 @@
+{
+  "autoOffState": {
+    "auto": false,
+    "pose": {
+      "autoTurning": "false",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "1.0000",
+      "motionTime": "65.4172",
+      "pitch": "0.6444",
+      "yaw": "2.0991"
+    }
+  },
+  "reducedBefore": {
+    "autoTurning": "false",
+    "dragging": "false",
+    "drive": "1.0000",
+    "motionSpeed": "1.0000",
+    "motionTime": "65.9672",
+    "pitch": "0.6444",
+    "yaw": "2.0991"
+  },
+  "reducedAfter": {
+    "autoTurning": "false",
+    "dragging": "false",
+    "drive": "0.0000",
+    "motionSpeed": "0.0000",
+    "motionTime": "65.9672",
+    "pitch": "0.6444",
+    "yaw": "1.9491"
+  }
+}

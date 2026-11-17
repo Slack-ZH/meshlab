@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-17",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V04",
+  "method": "Local in-app browser, visible UI actions, DOM/AX observations and saved screenshots; not real mobile hardware",
+  "implementation": "local preview complete",
+  "localChecks": "passed within the scope below",
+  "designAcceptance": "pending user review",
+  "desktop": {
+    "viewport": [1440, 1000],
+    "horizontalOverflow": false,
+    "friction": ["ready", "selected: driven shaft", "exploded", "forming"],
+    "rack": ["ready", "selected: transmission shaft", "exploded", "forming"]
+  },
+  "mobile": {
+    "viewport": [390, 844],
+    "horizontalOverflow": false,
+    "friction": ["ready", "selected by tap: driven collar", "exploded", "forming"],
+    "rack": ["ready", "desktop selection retained and displayed", "exploded", "forming"],
+    "reducedMotion": {"enabled": true, "completed": true, "deviceScalePercent": 62}
+  },
+  "animation": {
+    "inspectedProgressPercent": {"10": "closing", "40": "launching", "65": "forming"},
+    "completeMechanismSwitch": true,
+    "replayCompleted": true,
+    "pauseAndResume": true,
+    "timelineSecondsAt1x": 3.62,
+    "wallClockDurationOrFrameRateMeasured": false,
+    "observedFix": "Removed the bright cap at the beam top by fading the advancing front before it reaches the upper endpoint"
+  },
+  "consoleWarningsAndErrors": [],
+  "finalObservedState": {"phase": "ready", "busy": "false", "paused": "false", "ready": "true", "documentHidden": false},
+  "observationNotes": [
+    "Some same-call AX reads preceded the next animation frame; screenshots and later ready states were used to assess outcomes.",
+    "One final replay wait reported a selector deadline; the next focused AX/DOM read showed ready=true, phase=ready and busy=false with no browser warnings/errors.",
+    "An attempted final reset button click found the tuning panel closed. State was inspected and defaults restored by reload; no blocked input was forced.",
+    "Exploded models retain the pre-existing small fit; this round preserves device/model proportions rather than redesigning exploded framing."
+  ],
+  "sourceChecks": ["node --check for all preview mjs modules", "check.mjs: existing checks plus phase order, continuity, model exchange and reduced-mode paths"],
+  "protectedFilesReport": "v04-protected-results.json",
+  "notVerified": ["real mobile GPU/performance", "all browsers", "full mechanism catalogue", "user acceptance", "real AI responses", "device speech", "login"],
+  "productionHomeModified": false,
+  "gitCommitted": false,
+  "syncedOrDeployed": false
+}

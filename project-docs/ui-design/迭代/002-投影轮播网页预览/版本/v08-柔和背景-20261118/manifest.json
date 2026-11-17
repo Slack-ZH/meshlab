@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V08",
+  "status": "pending user review",
+  "files": [
+    {
+      "path": "check.mjs",
+      "sha256": "942CDBFD01A76712DCBA09A9373444474F825487F86D3A70DC5A044EBAED6DF0",
+      "matchesSource": true
+    },
+    {
+      "path": "serve.mjs",
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0",
+      "matchesSource": true
+    },
+    {
+      "path": "记录.md",
+      "sha256": "C3AE81F409459465D4C72D358761432A45DB6699613B9C2B287FA552676D7E01",
+      "matchesSource": true
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "E8D101D2C9F42D93003BC938D96FD2A636561B857C2EA14C6301512AA4A72566",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/app.mjs",
+      "sha256": "D35A77BB88289FDA10C99F3060F1DBEC7E57C3A336996CF64453D62BC443A6BE",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/catalogue.mjs",
+      "sha256": "6916B14D602B7A1A3FA42B0FEF190B4DE1FD68BF8575A3B7E71ADC8663B6A781",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/depth-environment.mjs",
+      "sha256": "70A89BC72F69E1F348661ED4370927AAAABAE05BCD41E4DEE61CA7F548626259",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/environment.mjs",
+      "sha256": "0A510D6ACEBFDE624EFE01509B0749B5521DA784BE1FD597B03FFE62A2C9C911",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/index.html",
+      "sha256": "67ABBF8ED9448EDA3C9CFEC9217528B3B89EDC0C2C118ECE87863434D42B0EEE",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/models.mjs",
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/motion.mjs",
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/presentation.mjs",
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/projection.mjs",
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/projector.mjs",
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/soft-environment.mjs",
+      "sha256": "657271769EB80DE0506C17158AAC6B1DDCFC10A26B4BF34A29EFD27AA0F71100",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/style.css",
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/world.css",
+      "sha256": "5CA549DD400CDCAF34624F1D54296FCB55E54F8A6ED9FC9F73A047A7CBC6E8CE",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-background-compare.json",
+      "sha256": "DDF4961F0BD69D15D11B8D3392DAFC27FD10DF2469A09B9877894BE15978CB17",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-before-protected.json",
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-browser-checks.json",
+      "sha256": "D899EDADF8CB9879031C91CEFB41EAC3ED83E0D46EB6206166FA4B2FA5793065",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-compare-v07.jpg",
+      "sha256": "1DCCFC10047ADD1F99D3D1598F1B7A584D462C19C930355E4B82457BDC3E8935",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-friction-default.jpg",
+      "sha256": "CE164526BA1F3C38DECBA3B7D7671C4741FB35E85FFE8C83A0D6F9D11004CA38",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-friction-exploded.jpg",
+      "sha256": "7ACB7A94978C94E3A98ADEF79C0C813AEEF5D327FA5C2C6FC09D4164AE8C177A",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-friction-selected.jpg",
+      "sha256": "77EFF6C05DFF30800859472A126584A661CFC30160FA9B5965043444FBDC9842",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-rack-default.jpg",
+      "sha256": "E5FF3A965A3DDFCB2EAAC1F7C41391C9DFCD75E04054B23AC5DAD3F01FAE8BAA",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-rack-exploded.jpg",
+      "sha256": "E7187C3F8D3BDBB659798C6AEB296FBF0C586F9CE7B12B6063DC168B125377C8",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-desktop-rack-selected.jpg",
+      "sha256": "4ED71F78F21AE0CC75857C2E5D34455AD1BFF1BBC1F233FA6D6158A04FF50EB4",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-final-observed.json",
+      "sha256": "FAC30824F271894B7F9E26F9B144D41DAD4CC2C2D31BF0A8F7B7BA995DE13730",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-links-checks.json",
+      "sha256": "B6193BA92E2CDCEE903E6BCEA9E83268A11DA66722B6FA9016B1D3F6306B43D7",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-medium-catalogue.jpg",
+      "sha256": "4C9DC2E5014495084AA919804634EF770043CACC9EFB575F8C14F0B988A86A50",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-medium-focus.jpg",
+      "sha256": "A8198C141D9E77B9E4FCEA54986D5D9560689CE50C207765ABFC00D24D406435",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-catalogue.jpg",
+      "sha256": "7F4A67BE99945AE56F4972EFA8BFC99B6EE95EEAE5BEFAB5E356FDC7F5F95EF6",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-friction-default.jpg",
+      "sha256": "F2AEC166B482305DEB65AA3AE3B604F8F6A3D1B99DCC87FA7497721B732A7D58",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-friction-exploded.jpg",
+      "sha256": "85684BB53699468F49F740A4319988403687066C0087D881E30A5BD5760603DD",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-friction-selected.jpg",
+      "sha256": "A63EA73CF4C98605FED47DB9C31D55781FACEAD148316BD3D2E14945E959154B",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-rack-default.jpg",
+      "sha256": "B64D9D83087FF95CC1F954C03EF921F143806E6BB282B14DC6AB53D5D776E666",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-rack-exploded.jpg",
+      "sha256": "216E218563947931A1858A7434F493DC23EE75E4F47A8721C7DA56AE5259A09E",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-mobile-rack-selected.jpg",
+      "sha256": "FF4540F10A73DDEB1F8628414D800ED44737EB121EB599CF1FDC2A3510FBF84F",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-preview-current.jpg",
+      "sha256": "5CFC955202E4EBCAB15E0E87230B0AD4C85EB8DC62E0DEDB0DF02703130FA897",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-protected-files.json",
+      "sha256": "D97ADF785DBC07DA8DB62ABF09D902DAB6DD0CADAAC827CB8B68730B2C8F0B10",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v08-source-and-history-checks.json",
+      "sha256": "678EAD85AAE893765736A60ED5065C0F93864AC0C30472CF805C34A565272B86",
+      "matchesSource": true
+    }
+  ]
+}

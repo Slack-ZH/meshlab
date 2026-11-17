@@ -1,0 +1,148 @@
+{
+  "archived_on": "2026-11-17",
+  "timezone": "Asia/Hong_Kong",
+  "scope": "历史材料原样副本，不含本轮新写管理文档；原件保留",
+  "excluded": "不复制抓取原始 JSON 中的临时签名截图 URL；以公开网站 URL 和本地截图归档",
+  "artifacts": [
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-home-directions.html",
+      "label": "三版首屏源片段",
+      "status": "方向失配，未采用",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\meshlab-home-directions.html",
+      "public_source_url": null,
+      "bytes": 405030,
+      "sha256": "9e15a8bb5939589e52654201a12dea1df91bdfdbea95f46448bf6f93488e4a02"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-home-directions-preview.html",
+      "label": "三版首屏历史预览页",
+      "status": "方向失配，未采用",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\meshlab-home-directions-preview.html",
+      "public_source_url": null,
+      "bytes": 494639,
+      "sha256": "0e6b618cf8c2ad92638c25ecf236f43213dd3c8a98333d72c298c8ac2c5bde1a"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages.html",
+      "label": "六版首页源片段",
+      "status": "用户整体否定",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\meshlab-six-homepages.html",
+      "public_source_url": null,
+      "bytes": 43787,
+      "sha256": "2d639ce8568f874619a102f37e6ed2f323d7dbf04bec40262a73040baca74937"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages-preview.html",
+      "label": "六版首页历史预览页",
+      "status": "用户整体否定",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\meshlab-six-homepages-preview.html",
+      "public_source_url": null,
+      "bytes": 138299,
+      "sha256": "01f980f561092da78776db64e86f18550b3d78a9ed21eb75a61415f35dc0c5ab"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/历史设计说明.md",
+      "label": "六版首页原设计说明",
+      "status": "历史助手方案，不是当前设计共识",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\DESIGN.md",
+      "public_source_url": null,
+      "bytes": 2627,
+      "sha256": "6e3b9e011cfe6b901848c0a9481314148381d866ebe5487b40e2ea02643cb29f"
+    },
+    {
+      "path": "参考素材/网站/gears-reference.png",
+      "label": "Gears 网页截图",
+      "status": "已捕获并看过截图，未被用户选为基线",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\gears-reference.png",
+      "public_source_url": "https://ciechanow.ski/gears/",
+      "bytes": 135817,
+      "sha256": "ffc31db7928f753111d5e3ef49b37161c417451288699c6557fb4b1b0048467a"
+    },
+    {
+      "path": "参考素材/网站/phet-reference.png",
+      "label": "PhET 网页截图",
+      "status": "已捕获并看过截图，未被用户选为基线",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\phet-reference.png",
+      "public_source_url": "https://phet.colorado.edu/",
+      "bytes": 996129,
+      "sha256": "e9b1037e9be2b2322a9f7708d4608c6d15d8fe49d506f0b08313a5265ce32391"
+    },
+    {
+      "path": "参考素材/网站/real-lusion-loaded.png",
+      "label": "Lusion 加载完成后的首屏",
+      "status": "待用户评价",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-lusion-loaded.png",
+      "public_source_url": "https://lusion.co/",
+      "bytes": 828494,
+      "sha256": "d8ca17fb13ec6597c4d58b7b11a3c35dd9fdd2deacc0671be6a737fb099ef56b"
+    },
+    {
+      "path": "参考素材/网站/real-lusion.png",
+      "label": "Lusion 首次加载中截图",
+      "status": "无效视觉参考，仅保留采集过程证据",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-lusion.png",
+      "public_source_url": "https://lusion.co/",
+      "bytes": 13684,
+      "sha256": "c8d1cfd80e311518c5c60e693ee9dc9ded821b70342a21dde4477277a76526ce"
+    },
+    {
+      "path": "参考素材/网站/real-atlas.png",
+      "label": "Atlas Motion 首屏",
+      "status": "待用户评价",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-atlas.png",
+      "public_source_url": "https://atlasmotion.com/",
+      "bytes": 1207110,
+      "sha256": "c45ca8209c266a3d2ceaaead2478c8ee74f2d5a55a5858e58a547780b6ce8734"
+    },
+    {
+      "path": "参考素材/网站/real-looking-glass.png",
+      "label": "Looking Glass 首屏",
+      "status": "待用户评价",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-looking-glass.png",
+      "public_source_url": "https://lookingglassfactory.com/",
+      "bytes": 645649,
+      "sha256": "39b29a75c83a1be0c1d6880ac839ee7b2eb4d4c69fd140fb65cb0df136ea5e34"
+    },
+    {
+      "path": "参考素材/网站/real-nasa-eyes.png",
+      "label": "NASA Eyes 首屏",
+      "status": "待用户评价",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-nasa-eyes.png",
+      "public_source_url": "https://eyes.nasa.gov/apps/solar-system/",
+      "bytes": 282669,
+      "sha256": "b0e117683f9781dd8aec9a32dc75800c961d1e904541bcc7fc2b2ae8303e8c0f"
+    },
+    {
+      "path": "参考素材/网站/real-op1.png",
+      "label": "OP-1 产品页首屏",
+      "status": "待用户评价",
+      "source_kind": "prior_conversation_artifact",
+      "source_path": "C:\\Users\\13669\\.codex\\visualizations\\2026\\11\\17\\01a1e812-54f3-7692-b5d1-aff2104a1668\\real-op1.png",
+      "public_source_url": "https://teenage.engineering/products/op-1",
+      "bytes": 442907,
+      "sha256": "01711b682aa47b9f0a047315d3d27f3945a32e62054a0267d3506536d05a0a14"
+    },
+    {
+      "path": "参考素材/用户/首页目标截图-20261117.png",
+      "label": "用户明确指定要打磨的首页 UI 截图",
+      "status": "设计对象已明确；不是所有像素均获认可",
+      "source_kind": "user_attachment",
+      "source_path": "C:\\Users\\13669\\AppData\\Local\\Temp\\codex-clipboard-be4ae0f5-0717-4dee-8125-a9ebb39e7302.png",
+      "public_source_url": null,
+      "bytes": 587889,
+      "sha256": "ab1d9099f4374ea8ad6d979415d45bc1cd77c8492a613c29332ab1f92e720726"
+    }
+  ]
+}

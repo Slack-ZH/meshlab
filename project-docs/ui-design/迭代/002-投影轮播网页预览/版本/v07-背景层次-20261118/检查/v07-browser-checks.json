@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V07",
+  "basis": "U27 rejected V06 background as empty, monotonous and lacking depth",
+  "implementation": "local background proposal complete",
+  "localChecks": "passed within recorded scope",
+  "designAcceptance": "pending user review",
+  "changed": ["perspective ground markings", "soft middle-ground light pool", "receding distant structural silhouettes", "ground fade at canvas edges", "background-only comparison selector"],
+  "reviewIteration": "Initial background structures appeared too close and heavy; they were moved back and reduced before final checks",
+  "viewports": [[1440, 1000], [699, 900], [390, 844]],
+  "mechanisms": {
+    "friction": {"desktop": ["default", "selected driven shaft", "exploded"], "mobileSized": ["default", "selected driven bearing support", "exploded"]},
+    "rack": {"desktop": ["default", "selected shaft collar", "exploded"], "mobileSized": ["default", "selected pinion", "exploded"]}
+  },
+  "backgroundComparison": {"bothModesDisplayed": true, "pausedYawPitchMotionTimeUnchanged": true, "resetReturnsDepthMode": true, "evidence": "v07-background-comparison.json"},
+  "otherObserved": ["mobile focus mode and exit", "mobile catalogue", "medium viewport with no horizontal overflow"],
+  "consoleWarningsAndErrors": [],
+  "checks": ["syntax of all preview mjs modules", "retained projection, motion, drag, catalogue search and control-binding checks", "actual browser shader compilation and visual inspection"],
+  "protectedFilesReport": "v07-protected-results.json",
+  "limits": ["V07 visual acceptance", "real mobile touch and GPU performance", "all browsers", "complete mechanism catalogue", "AI, speech and login are outside this change"],
+  "productionHomeModified": false,
+  "gitCommitted": false,
+  "syncedOrDeployed": false
+}

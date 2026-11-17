@@ -1,0 +1,2389 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V08",
+  "branch": "codex/home-ui-v08-20261118",
+  "scope": "UI archive only; README navigation is versioned separately; no main merge or deployment",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 89,
+      "sha256": "60058DDC6B4049A932EE529E02371D4CF20BBEC2F4590A710FE4BCF8C4D69A9E"
+    },
+    {
+      "path": "参考素材/网站/gears-reference.png",
+      "bytes": 135817,
+      "sha256": "FFC31DB7928F753111D5E3EF49B37161C417451288699C6557FB4B1B0048467A"
+    },
+    {
+      "path": "参考素材/网站/phet-reference.png",
+      "bytes": 996129,
+      "sha256": "E9B1037E9BE2B2322A9F7708D4608C6D15D8FE49D506F0B08313A5265CE32391"
+    },
+    {
+      "path": "参考素材/网站/real-atlas.png",
+      "bytes": 1207110,
+      "sha256": "C45CA8209C266A3D2CEAAEAD2478C8EE74F2D5A55A5858E58A547780B6CE8734"
+    },
+    {
+      "path": "参考素材/网站/real-looking-glass.png",
+      "bytes": 645649,
+      "sha256": "39B29A75C83A1BE0C1D6880AC839EE7B2EB4D4C69FD140FB65CB0DF136EA5E34"
+    },
+    {
+      "path": "参考素材/网站/real-lusion-loaded.png",
+      "bytes": 828494,
+      "sha256": "D8CA17FB13EC6597C4D58B7B11A3C35DD9FDD2DEACC0671BE6A737FB099EF56B"
+    },
+    {
+      "path": "参考素材/网站/real-lusion.png",
+      "bytes": 13684,
+      "sha256": "C8D1CFD80E311518C5C60E693EE9DC9DED821B70342A21DDE4477277A76526CE"
+    },
+    {
+      "path": "参考素材/网站/real-nasa-eyes.png",
+      "bytes": 282669,
+      "sha256": "B0E117683F9781DD8AEC9A32DC75800C961D1E904541BCC7FC2B2AE8303E8C0F"
+    },
+    {
+      "path": "参考素材/网站/real-op1.png",
+      "bytes": 442907,
+      "sha256": "01711B682AA47B9F0A047315D3D27F3945A32E62054A0267D3506536D05A0A14"
+    },
+    {
+      "path": "参考素材/用户/首页目标截图-20261117.png",
+      "bytes": 587889,
+      "sha256": "AB1D9099F4374EA8AD6D979415D45BC1CD77C8492A613C29332AB1F92E720726"
+    },
+    {
+      "path": "参考网站.md",
+      "bytes": 14535,
+      "sha256": "BF9F241B327FE8B08365B632463FFBE7EA11C034546D9229997D5442858EC94F"
+    },
+    {
+      "path": "迭代/000-历史样稿/记录.md",
+      "bytes": 3289,
+      "sha256": "CE57E2220A3451271C3EDC8F37F2DD8FC145D18933A2C51105909E8290F0BF63"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/历史设计说明.md",
+      "bytes": 2627,
+      "sha256": "6E3B9E011CFE6B901848C0A9481314148381D866EBE5487B40E2EA02643CB29F"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-home-directions-preview.html",
+      "bytes": 494639,
+      "sha256": "0E6B618CF8C2AD92638C25ECF236F43213DD3C8A98333D72C298C8AC2C5BDE1A"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-home-directions.html",
+      "bytes": 405030,
+      "sha256": "9E15A8BB5939589E52654201A12DEA1DF91BDFDBEA95F46448BF6F93488E4A02"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages-preview.html",
+      "bytes": 138299,
+      "sha256": "01F980F561092DA78776DB64E86F18550B3D78A9ED21EB75A61415F35DC0C5AB"
+    },
+    {
+      "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages.html",
+      "bytes": 43787,
+      "sha256": "2D639CE8568F874619A102F37E6ED2F323D7DBF04BEC40262A73040BACA74937"
+    },
+    {
+      "path": "迭代/001-真实参考与流程/记录.md",
+      "bytes": 17248,
+      "sha256": "C3F68D16228E1BBB6B6763756DEABF88E53BBEB7675B7452AA04825C6BE38CD7"
+    },
+    {
+      "path": "迭代/001-真实参考与流程/投影器发射区参考-02.md",
+      "bytes": 3025,
+      "sha256": "44A65F4FD4D5C24BE21B14E8E1A2F04DD9E1DC1206E3A51FC94B07D53DCF35DB"
+    },
+    {
+      "path": "迭代/001-真实参考与流程/投影器外形参考-01.md",
+      "bytes": 3398,
+      "sha256": "D491E92CF64BD4BF5C3A7BFAA6A3FABC74479245FE96ECD596B1ABA5482057D8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/check.mjs",
+      "bytes": 1314,
+      "sha256": "6416F80FC9FFDF3DA6205B4FE162E8B5F19F97231378F86666FF6F341C6DDDC4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/dist/app.mjs",
+      "bytes": 17811,
+      "sha256": "FFEE4E4E090584D53DD539494B9A9D4FA0E657622AE6D3E75B8220D146E78E2B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/dist/index.html",
+      "bytes": 5400,
+      "sha256": "737205DF6E9C363DB3FEBC078A81A33C4BDF588B44FC688E46E9473FE56334EA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/dist/models.mjs",
+      "bytes": 3484,
+      "sha256": "44C334B0B8E87DB9774F1CC60E573E39495FAD2A4FF9BADB71FE8B27C3FD304B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/dist/motion.mjs",
+      "bytes": 1672,
+      "sha256": "382AD8E3704E627BAF70103BD4A83A954987E9F0ED8326170061E43B772FC736"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v01-三展位圆盘/dist/style.css",
+      "bytes": 10823,
+      "sha256": "16C106FFF7E6467FC63B544B37C9D7A9431E51EBA249ACD3573AE22076478D92"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/check.mjs",
+      "bytes": 1419,
+      "sha256": "4597A537BD6651BA697C9A036998C666C6214785BD0CCA3D6C4F21DAD3E7528D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/app.mjs",
+      "bytes": 17795,
+      "sha256": "B6385FC54D51AE40C957EC2F2F1E09088B27B56D35D22DA2AD08B4018CE42BC1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/index.html",
+      "bytes": 5774,
+      "sha256": "60A8BBF89BE8A622152429BF13E643E95387BDD7FEC27140BF996DA40DAB6C5B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/models.mjs",
+      "bytes": 3484,
+      "sha256": "44C334B0B8E87DB9774F1CC60E573E39495FAD2A4FF9BADB71FE8B27C3FD304B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/motion.mjs",
+      "bytes": 1672,
+      "sha256": "382AD8E3704E627BAF70103BD4A83A954987E9F0ED8326170061E43B772FC736"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/projector.mjs",
+      "bytes": 5486,
+      "sha256": "0AF4C6313BEC53131A05D21FFD3B05905763B6656DC798DAB10FC54DF2E865C4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v02-单台投影仪/dist/style.css",
+      "bytes": 12157,
+      "sha256": "A995E1E43BF29C879A56A62CAD40DF215FB763C49AF05E41565C3ECEFB733372"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/存档核对.json",
+      "bytes": 4265,
+      "sha256": "B4D171D57372C460AE55124010DF12C03A9D3276B827C7B8A80C9E6ECED67A9F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/工作区状态.txt",
+      "bytes": 2023,
+      "sha256": "604B7528827B7B1EF2A3CA7A85532933AF573C3AE39A473AEBFFC022A4F317C7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/检查/browser-checks.json",
+      "bytes": 1307,
+      "sha256": "7DCE59E4955E2BE93CFF7234E6C9E41B6542CF490F29E4075885725BE25E6293"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/检查/v03-desktop-catalogue.jpg",
+      "bytes": 77708,
+      "sha256": "F3A2E7A6EC546DDAC94F30393BDDCCB43F58B7E4DB8B664B04A13327B9EB5AEA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/检查/v03-desktop-default.jpg",
+      "bytes": 72662,
+      "sha256": "16FB9FEFB119A444008FA91DF21395C577D6DDC29BB57B2335155DBF75B3DE8F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/检查/v03-mobile-catalogue.jpg",
+      "bytes": 47196,
+      "sha256": "1DE4E8A46787EA11110E87194F2E730920A71742A5565BFEFD7416B6E126C396"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/检查/v03-mobile-default.jpg",
+      "bytes": 50029,
+      "sha256": "F17A4F2557E6D806412ADACA3815AA150462D808748FE36CDEF8EA3ACB662CFC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/说明.md",
+      "bytes": 1015,
+      "sha256": "403D9F3F2C2405A01FA20CA64128C5A429A957511A36A7BC4BD5732A29E39508"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/check.mjs",
+      "bytes": 1419,
+      "sha256": "4597A537BD6651BA697C9A036998C666C6214785BD0CCA3D6C4F21DAD3E7528D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/app.mjs",
+      "bytes": 19308,
+      "sha256": "DE850ACE80292ED871FFDFB7ECB34AD62983A7D25F03C4C2D9B208C3CBCA8BA6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/index.html",
+      "bytes": 6904,
+      "sha256": "E1C4ADE945849AD666687D8B4C942F306F77B453C773864F437C0B1C87805233"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/models.mjs",
+      "bytes": 3484,
+      "sha256": "44C334B0B8E87DB9774F1CC60E573E39495FAD2A4FF9BADB71FE8B27C3FD304B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/motion.mjs",
+      "bytes": 1672,
+      "sha256": "382AD8E3704E627BAF70103BD4A83A954987E9F0ED8326170061E43B772FC736"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/projector.mjs",
+      "bytes": 5486,
+      "sha256": "0AF4C6313BEC53131A05D21FFD3B05905763B6656DC798DAB10FC54DF2E865C4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/dist/style.css",
+      "bytes": 14843,
+      "sha256": "E73145DE496DF060911F4D5D27DE24459CBAA48FF40F18BD43D46209FDD3CC68"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v03-接续存档-20261117/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/记录.md",
+      "bytes": 9203,
+      "sha256": "470617582C2579C20C0A684F9EDCB96BD4AE966E73ED50F56B0C02F75ED30024"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-browser-checks.json",
+      "bytes": 2586,
+      "sha256": "EB0C1F82582535A4E2F27C41302728EFF154E5F1F19312382B783BCFA84B3C0A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-dissolving.jpg",
+      "bytes": 86466,
+      "sha256": "38D59AE93D76A72000D989043160646859B5ED0AAFAD76EFEE2F9DF1123A372E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-forming.jpg",
+      "bytes": 87440,
+      "sha256": "F9644BE30F1C27EE9195AE0C2D210431C00151DA08AFEF06218898080A2FDDFD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-friction-exploded.jpg",
+      "bytes": 65856,
+      "sha256": "686922677ADACB34619D6D691374B6C54E7B5322AFF3FF2F189873C7F56AF1C0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-friction-ready.jpg",
+      "bytes": 73526,
+      "sha256": "37F823F7A335DB7BD39D1DCC723F192D0429C62E2510468BB88A7F6B869963FA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-friction-selected.jpg",
+      "bytes": 73998,
+      "sha256": "539CA71D35C35084480C0241AA65D404767680C19D185AF6FAB3EB0801649626"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-launching.jpg",
+      "bytes": 67384,
+      "sha256": "AB308B9A299CFE9CA78BF4B7794F4EC0F79AB3B8C51A21BF7E1C92EB93E7EC9F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-rack-exploded.jpg",
+      "bytes": 63663,
+      "sha256": "08F67BDC7336C2C83F96DC9B86BC14DAB313453CA98EDDA5E2CE9CF29A1E016C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-rack-forming.jpg",
+      "bytes": 74737,
+      "sha256": "A1DCB3B285978CB8FFFDFA921D1C4B1B6C0428D003087F20A38430BA4857A0E7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-rack-ready.jpg",
+      "bytes": 66795,
+      "sha256": "06F2EC12106B47C03C2B8CC341851A1B6D8DAB0B8B81FCA118C5D7C68817E10E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-desktop-rack-selected.jpg",
+      "bytes": 66371,
+      "sha256": "8AD9F406B2A060444188411ED202F59C1E1EFC592B5F400157C91AFB9613FB05"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-friction-exploded.jpg",
+      "bytes": 35332,
+      "sha256": "520F3C3AB27088C8E52BCF7843ABEA534F1125910EFB28439F3B86207DF51796"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-friction-forming.jpg",
+      "bytes": 47365,
+      "sha256": "933D52F8793032E8710848DB2D0AF826285606D74A51343D8EC016E48E58E55F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-friction-ready.jpg",
+      "bytes": 39223,
+      "sha256": "FDA554481A436427B125C02EE917FAD7C068B776914013D9B9DDC26FA40748ED"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-friction-selected.jpg",
+      "bytes": 39783,
+      "sha256": "E201DBA73E75BA051E634145C6614C5C7225C5D9871820033C8886F86A0AE321"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-rack-exploded.jpg",
+      "bytes": 33778,
+      "sha256": "00E07CC60C42855E93D66BC96E526602284C953E787C2FE6D79EFA56C68D8690"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-rack-forming.jpg",
+      "bytes": 41130,
+      "sha256": "97DEB3127B3956F7BB82AFAC7D89A95788423681886FEC56ACD9FB2579B6C257"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-rack-ready.jpg",
+      "bytes": 34983,
+      "sha256": "3707F7561DA7337D12E581DD93F2D4B5E79A0E75E65381549F18F14CAE24F091"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-rack-selected.jpg",
+      "bytes": 35593,
+      "sha256": "B1F92FAE62F6A8CDD327F60798D170F2293D0528E6A07DF71346E410702780D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-mobile-reduced.jpg",
+      "bytes": 56139,
+      "sha256": "0CC518D7231CB76E4987DAC0B375569B8FF7A979854D5CC8849977C58BD9DCFB"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/检查/v04-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/说明.md",
+      "bytes": 1242,
+      "sha256": "28A044A2062119FAEC91E92E19C431173E2F7B3FCCA558AEFB33EDE3D725F7F6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/check.mjs",
+      "bytes": 3056,
+      "sha256": "F419F974B41D2BAEF8F6B23A85F29C746A7641E09FFC6E30B78A1F17CD0CE4DC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/app.mjs",
+      "bytes": 19008,
+      "sha256": "632F01BBCB202984C4B26AAB4FB1AB0F83A8039E28F8886DD747691D096A660C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/index.html",
+      "bytes": 7488,
+      "sha256": "985DA2C86EA3C145B636EC89BB721D1A5D27AA1035E291EDCA0FD2825866C183"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/models.mjs",
+      "bytes": 3524,
+      "sha256": "A0840FB04C9245FBC5A3CC292506AB0EFE492975353F5C110F5626759E0E3BCE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/motion.mjs",
+      "bytes": 2175,
+      "sha256": "DB08885596289CD1816A64CEF9D45294CD37A986AC8CA136E6FB37FB0F412F7C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/dist/style.css",
+      "bytes": 15704,
+      "sha256": "29CCA4B83B094389BC7A1DBC7F7E17446A49EC794C92E8228B932CF5662ED1D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/manifest.json",
+      "bytes": 5774,
+      "sha256": "8C63538C440671C2315BF0908BE6FBF877804A4F2C78E8FD5734114314E55854"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v04-启停动画-20261117/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/记录.md",
+      "bytes": 12524,
+      "sha256": "9EDDB97CBFDFF4775DE5A25BC5CB0387FC5357DF95ACE9E158A48711E4D97DBA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-browser-checks.json",
+      "bytes": 2473,
+      "sha256": "1CA6D84A17CE66A30CB9A6A7F0C1770F12311963D84F4B3B725C6610BD617B6E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-friction-default.jpg",
+      "bytes": 70548,
+      "sha256": "F0C78897242E5F4E21BD98DB671979EF4C8F2175D3DF6C4F6FFF82909F5EA4C4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-friction-dragged.jpg",
+      "bytes": 68419,
+      "sha256": "3675247A35B80A11FE5685A303FAE33ED5C8A6E2DC108AFB1432A40F8BD89D82"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-friction-exploded.jpg",
+      "bytes": 65629,
+      "sha256": "EB9C767391236B0B793D934605478128CDDB52C53805944CCDD088E3C805A3D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-friction-selected.jpg",
+      "bytes": 77912,
+      "sha256": "02C032AAD7C303739FCA1E60F49446509F56BAB33CA37FA29733CB56940EBB26"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-handoff-forming.jpg",
+      "bytes": 51895,
+      "sha256": "FA6DCC952002BCB3D53536CDFE5B0B414DD38BD2819141A4C27AD681C71CFEDE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-handoff-settling.jpg",
+      "bytes": 51757,
+      "sha256": "303F2FEF3D4E53392072CB147469A850E2CA27B455FFF99B6A297846336839F1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-rack-default.jpg",
+      "bytes": 70572,
+      "sha256": "1140BFA87FAF5BDD3052DB6731DB50EE8F37CF2261F99BBA972DBF0AB87E6147"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-rack-dragged.jpg",
+      "bytes": 64594,
+      "sha256": "F5A849802A57290D9331F263D1EBDD4C77CA7D48F84AEFDC84EA06CA8B0ACD0F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-rack-exploded.jpg",
+      "bytes": 63950,
+      "sha256": "F3B4FA3786524EAB142094322BD31386D8531B166E345FB20CDB94EFBA0B3663"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-desktop-rack-selected.jpg",
+      "bytes": 71154,
+      "sha256": "24E67569CF10A5952636D9E686A104FCCA49C9F12657E7E09351658ECD965742"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-final-observed.json",
+      "bytes": 400,
+      "sha256": "2831EDC1B563E908714B33FCF121BBAE7724D3C5514F494AF807A7BFA3255FA4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-handoff-trace.json",
+      "bytes": 13577,
+      "sha256": "837869FB419DAAB9B1731EF6CBEAC2DD5D4C703AB05C7CB378CE62122F6550D9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-friction-default.jpg",
+      "bytes": 39446,
+      "sha256": "D264D2F59A83F5E20D8444E90769BA696D2ED499F8C4BE6FD522E970C32031BE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-friction-dragged.jpg",
+      "bytes": 36451,
+      "sha256": "72926EA5031DB8921E7B7A1E80DCF92449A6A87B9D0DA73CBA01AB5A2848D95E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-friction-exploded.jpg",
+      "bytes": 35022,
+      "sha256": "7970E22E2D1D48E6F1E7A98348307CA445A6C461AC7F27221958213CC0960FD5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-friction-selected.jpg",
+      "bytes": 40003,
+      "sha256": "94754E3FA5E520C00BCB4F9A31E1ACDC85B93DF146DF1CAF39A378AC8299CFD9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-rack-default.jpg",
+      "bytes": 36815,
+      "sha256": "55BF3EB4595E8296799EA6B19130DE8518CA39B91553EBB69162FB2F00F4427D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-rack-dragged.jpg",
+      "bytes": 34253,
+      "sha256": "7AA85C9E916D84D0C4244ACB6096657B5E157247555E6EF81EDD7FD0B754260A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-rack-exploded.jpg",
+      "bytes": 34232,
+      "sha256": "1B4D276A40D2A8506591A0C891583A991502F52D1867CF1D0875DE8BAEE533A0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-rack-selected.jpg",
+      "bytes": 36885,
+      "sha256": "D2FC3A3DFC6C6EEA0F5D78595066DE45602DA82A39E72678286A7F9546A0B1F3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-reduced.jpg",
+      "bytes": 57580,
+      "sha256": "9C93D9FECF3CDA7C3C6B8A63D27F2F37916CEB7773F824E335079ADD44133ED5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-mobile-settings.jpg",
+      "bytes": 57322,
+      "sha256": "8FAE25D2C3302DB909B24F27EFA3812ECB434861B00BD321C67A7B210AC5B559"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-preview-current.jpg",
+      "bytes": 46465,
+      "sha256": "AA34F5FA17DC48B0A1F9D52AC1FEB239BAE5DF8C8727BE32D616BBC10F68B909"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/检查/v05-settings-observed.json",
+      "bytes": 662,
+      "sha256": "79BB9C2A5970B3A4315D526FBD75B6781B1BBCA2632E4A22E55FB7FA9916261C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/说明.md",
+      "bytes": 1246,
+      "sha256": "85A6BD7931AE4E3498864C9ED1775116D8887526801D3D3CF0E4259000861137"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/check.mjs",
+      "bytes": 5573,
+      "sha256": "C9100A15C87A71573619DDC075A0FB620701C2B97909FB52ED0974A50BEB259C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/app.mjs",
+      "bytes": 21338,
+      "sha256": "51A3C089F6555A9410844EC2A6BA9E4D7C9FFDBCC922506A2C850412906CDB56"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/index.html",
+      "bytes": 7758,
+      "sha256": "00BF2EBC550BDD6F55F41D71C4B1126540E5265B1E94645D78EEA9F80BDCC0B8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/dist/style.css",
+      "bytes": 15912,
+      "sha256": "E6BB65381A048D9F533D66225FDC94F8CD6A410B9F6F7C137A8413F65081CF98"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/manifest.json",
+      "bytes": 6889,
+      "sha256": "B1BD5697FE603B6BFF4717493B64356FF4C9B125A4721128106BC771B4BFF2FC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-观察与运动衔接-20261117/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/记录.md",
+      "bytes": 12940,
+      "sha256": "69723FE8C234B2CF52E73F15AF8DC33D5B756BC87CC6A194BC64D7EA3D9DBCD9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-browser-checks.json",
+      "bytes": 2751,
+      "sha256": "0A3183203FAD2CF78582DECB347CBAF4B95CC1DC20321CEBA928BE6A95A0A86D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-friction-default.jpg",
+      "bytes": 70548,
+      "sha256": "F0C78897242E5F4E21BD98DB671979EF4C8F2175D3DF6C4F6FFF82909F5EA4C4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-friction-dragged.jpg",
+      "bytes": 68419,
+      "sha256": "3675247A35B80A11FE5685A303FAE33ED5C8A6E2DC108AFB1432A40F8BD89D82"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-friction-exploded.jpg",
+      "bytes": 65629,
+      "sha256": "EB9C767391236B0B793D934605478128CDDB52C53805944CCDD088E3C805A3D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-friction-selected.jpg",
+      "bytes": 77912,
+      "sha256": "02C032AAD7C303739FCA1E60F49446509F56BAB33CA37FA29733CB56940EBB26"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-handoff-forming.jpg",
+      "bytes": 51895,
+      "sha256": "FA6DCC952002BCB3D53536CDFE5B0B414DD38BD2819141A4C27AD681C71CFEDE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-handoff-settling.jpg",
+      "bytes": 51757,
+      "sha256": "303F2FEF3D4E53392072CB147469A850E2CA27B455FFF99B6A297846336839F1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-rack-default.jpg",
+      "bytes": 70572,
+      "sha256": "1140BFA87FAF5BDD3052DB6731DB50EE8F37CF2261F99BBA972DBF0AB87E6147"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-rack-dragged.jpg",
+      "bytes": 64594,
+      "sha256": "F5A849802A57290D9331F263D1EBDD4C77CA7D48F84AEFDC84EA06CA8B0ACD0F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-rack-exploded.jpg",
+      "bytes": 63950,
+      "sha256": "F3B4FA3786524EAB142094322BD31386D8531B166E345FB20CDB94EFBA0B3663"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-desktop-rack-selected.jpg",
+      "bytes": 71154,
+      "sha256": "24E67569CF10A5952636D9E686A104FCCA49C9F12657E7E09351658ECD965742"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-final-observed.json",
+      "bytes": 400,
+      "sha256": "2831EDC1B563E908714B33FCF121BBAE7724D3C5514F494AF807A7BFA3255FA4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-handoff-trace.json",
+      "bytes": 13577,
+      "sha256": "837869FB419DAAB9B1731EF6CBEAC2DD5D4C703AB05C7CB378CE62122F6550D9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-friction-default.jpg",
+      "bytes": 39446,
+      "sha256": "D264D2F59A83F5E20D8444E90769BA696D2ED499F8C4BE6FD522E970C32031BE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-friction-dragged.jpg",
+      "bytes": 36451,
+      "sha256": "72926EA5031DB8921E7B7A1E80DCF92449A6A87B9D0DA73CBA01AB5A2848D95E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-friction-exploded.jpg",
+      "bytes": 35022,
+      "sha256": "7970E22E2D1D48E6F1E7A98348307CA445A6C461AC7F27221958213CC0960FD5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-friction-selected.jpg",
+      "bytes": 40003,
+      "sha256": "94754E3FA5E520C00BCB4F9A31E1ACDC85B93DF146DF1CAF39A378AC8299CFD9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-rack-default.jpg",
+      "bytes": 36815,
+      "sha256": "55BF3EB4595E8296799EA6B19130DE8518CA39B91553EBB69162FB2F00F4427D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-rack-dragged.jpg",
+      "bytes": 34253,
+      "sha256": "7AA85C9E916D84D0C4244ACB6096657B5E157247555E6EF81EDD7FD0B754260A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-rack-exploded.jpg",
+      "bytes": 34232,
+      "sha256": "1B4D276A40D2A8506591A0C891583A991502F52D1867CF1D0875DE8BAEE533A0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-rack-selected.jpg",
+      "bytes": 36885,
+      "sha256": "D2FC3A3DFC6C6EEA0F5D78595066DE45602DA82A39E72678286A7F9546A0B1F3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-reduced.jpg",
+      "bytes": 57580,
+      "sha256": "9C93D9FECF3CDA7C3C6B8A63D27F2F37916CEB7773F824E335079ADD44133ED5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-mobile-settings.jpg",
+      "bytes": 57322,
+      "sha256": "8FAE25D2C3302DB909B24F27EFA3812ECB434861B00BD321C67A7B210AC5B559"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-preview-current-fixed.jpg",
+      "bytes": 50593,
+      "sha256": "3DB8D66AC7624EA7BB197291FF2E7FE3BD76A83029D56B4E85535D495CAAF9F6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-preview-current.jpg",
+      "bytes": 46465,
+      "sha256": "AA34F5FA17DC48B0A1F9D52AC1FEB239BAE5DF8C8727BE32D616BBC10F68B909"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/检查/v05-settings-observed.json",
+      "bytes": 662,
+      "sha256": "79BB9C2A5970B3A4315D526FBD75B6781B1BBCA2632E4A22E55FB7FA9916261C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/说明.md",
+      "bytes": 988,
+      "sha256": "599AA80132C9B9C4F4497041E4EEBAF71A24D8D2F5300C1C1399543E21064EB9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/check.mjs",
+      "bytes": 5573,
+      "sha256": "C9100A15C87A71573619DDC075A0FB620701C2B97909FB52ED0974A50BEB259C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/app.mjs",
+      "bytes": 21338,
+      "sha256": "51A3C089F6555A9410844EC2A6BA9E4D7C9FFDBCC922506A2C850412906CDB56"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/index.html",
+      "bytes": 7758,
+      "sha256": "00BF2EBC550BDD6F55F41D71C4B1126540E5265B1E94645D78EEA9F80BDCC0B8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/dist/style.css",
+      "bytes": 16101,
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/manifest.json",
+      "bytes": 7002,
+      "sha256": "17B634B76E9255A6876762AFFC9283E076335F1A8670BC3519D41D065F2C264B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v05-中等窗口复核-20261117/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/记录.md",
+      "bytes": 16887,
+      "sha256": "8609708C9F585A5EABCB1A7B21C58A734D72F60BCB8A98AB3C73F8322F91E601"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-browser-checks.json",
+      "bytes": 2911,
+      "sha256": "1578D1C7C51AE017116D6A1A1F951F2B5D1F3B1E52C724DE19523043635537AC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-catalogue.jpg",
+      "bytes": 71354,
+      "sha256": "CB6A80ACC6A58E34F4583CFC59891024234AC45FCADE7598330B85CE71B4D0C3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-default.jpg",
+      "bytes": 56688,
+      "sha256": "A479BE9BD33CB5802243486E9829C4100F5AEAAEB5A458721DDC41F31882AFBE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-device.jpg",
+      "bytes": 65585,
+      "sha256": "F122E3F5BFB1DA5DC6913F7C315B7894B00DDCFA3C654FE2136A33DBBB3E6B3B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-focus.jpg",
+      "bytes": 42814,
+      "sha256": "2AE208477EA0956D0B195E6648E4094ACC2540947882726659AB5FDC9CE35FC4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-friction-exploded.jpg",
+      "bytes": 60765,
+      "sha256": "31500C41667497EC2E921F2B16074178B98D46C7D55FB54FDB06894C7C843A21"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-friction-selected.jpg",
+      "bytes": 61326,
+      "sha256": "C417A1154FA15096872D894EF5668BEF0F7DC2A3C7F3D407567F61E36690A206"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-rack-default.jpg",
+      "bytes": 51046,
+      "sha256": "14DEA44E0FDD56F0DE0CF22BBF0C947690FCDB2A85BA9145880B6B89F15534A4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-rack-exploded.jpg",
+      "bytes": 58536,
+      "sha256": "ACF6077F0E730716381850948015A722FEA77507EC115BAD8DBC3B4E7C4E8974"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-rack-selected.jpg",
+      "bytes": 52517,
+      "sha256": "9E0088EAF39344CD2A8C94777B769F6EB98EAAC1815988A7AC72C3DBEEB19770"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-desktop-settings.jpg",
+      "bytes": 69672,
+      "sha256": "F71FF5354C1A452B10DEBEC7DBAEE5BE8A000BB47FA019B7B6108FF0A3DE47CD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-final-observed.json",
+      "bytes": 255,
+      "sha256": "E947D3974CA9CBB87EFCEE7E02E02C06ECE6AD864B9B938FEC4126F707017E58"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-medium-catalogue.jpg",
+      "bytes": 50574,
+      "sha256": "F4247904B75BA432474597820521C95A683F435FAA6DFBCCC89EA8A943E7AD88"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-medium-default.jpg",
+      "bytes": 37963,
+      "sha256": "1E1C03D4AAE8E00576A7E252BC0B31C6169C89A7335BC4506F46F9AE6BE4A571"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-catalogue.jpg",
+      "bytes": 34185,
+      "sha256": "A2183E34B53ECA8E2C6632F5E8755E9A5C49F9256EF5C19166C59A7E9AA34F2C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-focus.jpg",
+      "bytes": 13763,
+      "sha256": "1A0D26C763231AD017A9B110DEA31E512D5C212AF154D4946267089952C11773"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-friction-default.jpg",
+      "bytes": 29661,
+      "sha256": "9037F158EC6C492FF093430C340BF1DFBF735DE7579F4EA0122FC0686A253295"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-friction-exploded.jpg",
+      "bytes": 25602,
+      "sha256": "A85E3BB2D03319F8BB87C421AFB8965DB31BB0072413B65BCCE216F2A0261B97"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-friction-selected.jpg",
+      "bytes": 31509,
+      "sha256": "3205528BF0CD59493BA1E3E9F449AF0D9B16FE971BF4D7A0C3079F003EEF5DD6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-rack-default.jpg",
+      "bytes": 24491,
+      "sha256": "5D544992BA4232948ED08FD96D928D3B3058A27A36D51A3DBD363131BE3BE077"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-rack-exploded.jpg",
+      "bytes": 23812,
+      "sha256": "D031D2DB3269B56668C4D308F46E0C502339E603054A337BC7D8D070127A10A7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-rack-selected.jpg",
+      "bytes": 25576,
+      "sha256": "76B5FD213185269314CDF18420DE359FB432AD1759A3AC9050AA1A0EAFABF109"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-mobile-settings.jpg",
+      "bytes": 37198,
+      "sha256": "832EA5576FC71D3C7C3101BD384E34849E1707D43B89004D6412C249F48EE10C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-observed-interactions.json",
+      "bytes": 3017,
+      "sha256": "7B68BA6458458886315C07BFEDC8035ABCDEE05C1F1BE052D6F75C4502EB4F81"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-preview-current.jpg",
+      "bytes": 29898,
+      "sha256": "2B8F15AA75C6C46400DF454319DFBEC54A2DD1CB5649B2A664FED686FA4F04DA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/检查/v06-retained-v05.json",
+      "bytes": 348,
+      "sha256": "28C22AC95BB5DC78C33D7E7AD534E8168231816D8FBDD35FE5124C9F4EE9E572"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/说明.md",
+      "bytes": 1477,
+      "sha256": "3A2D439650EC007509E2F89D757CE4120220EEB725B136A4A2C3DE04011D5B4E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/check.mjs",
+      "bytes": 6110,
+      "sha256": "942CDBFD01A76712DCBA09A9373444474F825487F86D3A70DC5A044EBAED6DF0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/DESIGN.md",
+      "bytes": 3023,
+      "sha256": "91BD876021B1A0C45509DD96E3810FD577BDC39A1A9B35D23C192620D05EF84F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/app.mjs",
+      "bytes": 23046,
+      "sha256": "C5DC56D405CA661183A42CF1D81B8B385F348D503D6C4421DC9ECAFF52B96AE6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/catalogue.mjs",
+      "bytes": 255,
+      "sha256": "6916B14D602B7A1A3FA42B0FEF190B4DE1FD68BF8575A3B7E71ADC8663B6A781"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/environment.mjs",
+      "bytes": 1775,
+      "sha256": "0A510D6ACEBFDE624EFE01509B0749B5521DA784BE1FD597B03FFE62A2C9C911"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/index.html",
+      "bytes": 9356,
+      "sha256": "0C54075F96C7F5E618DBECA9C1806D35E25E5EB5940C25B56DBF4C61D4AEC36D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/style.css",
+      "bytes": 16101,
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/dist/world.css",
+      "bytes": 15866,
+      "sha256": "7E943B80B7BBEFC10DFA79220F60280FDA10437BD371DEB902E6EB3F7EBF1921"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/manifest.json",
+      "bytes": 7668,
+      "sha256": "73DF438562E267F745168E277F2EF1210420C1172FA78EEAFF7974D8057DE9AF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v06-目录与开放场景-20261118/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/记录.md",
+      "bytes": 19521,
+      "sha256": "CC52FF65BDA8E4E1C964019FAC4C3A95CB0A3106953704A3E5E78AC792FEB08A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-background-comparison.json",
+      "bytes": 548,
+      "sha256": "D0D2F3CA7EAB210F6018EA5D41075534F182BE758CEEC6188599C9C10E52CA55"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-before-protected.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-browser-checks.json",
+      "bytes": 1847,
+      "sha256": "DFCE1FEA2F63E82647BFA4F009B1CA08C293A187397E409F4371DE5612C49104"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-compare-depth.jpg",
+      "bytes": 84330,
+      "sha256": "96FE3AFEAF3FFE2B1D43B1859AE00779203FA981B00276C0EE846A861EF24D44"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-compare-legacy.jpg",
+      "bytes": 75879,
+      "sha256": "497E7B7117750545931EE6E387117B8E8AC8C67B3E90AF4A423330DD456523B8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-friction-default.jpg",
+      "bytes": 67582,
+      "sha256": "6997804F3D5C7C196C0363DB3B0412A3FF679367C68020A63DBDBEEEBA47BCCE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-friction-exploded.jpg",
+      "bytes": 73622,
+      "sha256": "EBEA926A20FF3E9435B2D13D38CB57135669AC959FC72486A34FB70093D4EF51"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-friction-selected.jpg",
+      "bytes": 69585,
+      "sha256": "3A93DB9BC49029C8FBED91BE34210206C291D946BE82FB49BA264C874200BFFF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-rack-default.jpg",
+      "bytes": 59167,
+      "sha256": "82107D9EDEAB8762FCB660C9C64ACF71DF7638404337C78DA20EBEBC859364C8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-rack-exploded.jpg",
+      "bytes": 71739,
+      "sha256": "F1F8158F17F481BE49B18A27599E9E0A63E6859632C15526F422C4046A9A873B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-desktop-rack-selected.jpg",
+      "bytes": 60779,
+      "sha256": "06AF77355B01578DA5645B08F4EC755BDFCBED11CF30F864A6BB24AE461286C2"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-final-observed.json",
+      "bytes": 261,
+      "sha256": "5B7BCEA3060C6DC850484CB3268EF84882F7D841C87B89E741E807C03DC6DE69"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-medium-default.jpg",
+      "bytes": 41627,
+      "sha256": "791552547EC93D1D4991A3AC949383E9DDC94510718A2048DA198BB0EB6E84D7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-catalogue.jpg",
+      "bytes": 37989,
+      "sha256": "FCD282C922C8F6AC9B34DD5D97F45F964E5C59A77098A881FE1F6CB974C3ED23"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-focus.jpg",
+      "bytes": 15415,
+      "sha256": "D766BF36BE24987268246F75B63D3C23D96162BC10013DA600F2E6A4EF3C51A6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-friction-default.jpg",
+      "bytes": 30815,
+      "sha256": "BF379CF7F865BB3325132B09C8493F3E68126A685043E7B7ECD98EBD1DAB1246"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-friction-exploded.jpg",
+      "bytes": 27700,
+      "sha256": "788265831306A1033F218428DF2FC94EFB5A722CC2295C05A8DFFFB97AD24D27"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-friction-selected.jpg",
+      "bytes": 32451,
+      "sha256": "BE39E3D29E9830C799C8F3E6DAC5937DC3C32FEC9CCF7EBD993B128DF74C3435"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-rack-default.jpg",
+      "bytes": 26453,
+      "sha256": "253624760145E8A30042A11D8AE77108CF77C8FB0523EA97ADD613EA98CD387C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-rack-exploded.jpg",
+      "bytes": 26401,
+      "sha256": "7172A10BB637911EF07E4BCD20931D64265B0C4C51EB82FD0A0364FED103AC82"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-mobile-rack-selected.jpg",
+      "bytes": 27754,
+      "sha256": "D937428422C16B73B55F57EB4865FD75FD1F748EC5AAF31F371973C3DF14B3D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-preview-current.jpg",
+      "bytes": 36393,
+      "sha256": "41DA266DDF9FD6768F95B96F54EEF9F36A67CB74D3116F418726EF36568D7EB6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/检查/v07-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/说明.md",
+      "bytes": 1278,
+      "sha256": "B1E157B1BA58267E46382D0F9CE6A9CC50A27F2C08E2234E616999991D2D184F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/check.mjs",
+      "bytes": 6110,
+      "sha256": "942CDBFD01A76712DCBA09A9373444474F825487F86D3A70DC5A044EBAED6DF0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/DESIGN.md",
+      "bytes": 4160,
+      "sha256": "741DD2F686926446C70FA10C672235A1B4C19865D2B2C1078B5242660711D487"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/app.mjs",
+      "bytes": 23644,
+      "sha256": "C379285FCFC13D72427E53BC4E2710F592C37321D1E97EC1D6174599FCD91AC9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/catalogue.mjs",
+      "bytes": 255,
+      "sha256": "6916B14D602B7A1A3FA42B0FEF190B4DE1FD68BF8575A3B7E71ADC8663B6A781"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/depth-environment.mjs",
+      "bytes": 3416,
+      "sha256": "70A89BC72F69E1F348661ED4370927AAAABAE05BCD41E4DEE61CA7F548626259"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/environment.mjs",
+      "bytes": 1775,
+      "sha256": "0A510D6ACEBFDE624EFE01509B0749B5521DA784BE1FD597B03FFE62A2C9C911"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/index.html",
+      "bytes": 9655,
+      "sha256": "89C062ACA5F00AAC6C81E4B3F5043AFE40B12EA600811E414F59B05110E9EA3D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/style.css",
+      "bytes": 16101,
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/dist/world.css",
+      "bytes": 16291,
+      "sha256": "5D74CAA24793C07CCAD4FFFD92A51781FF758539C633F585D36AC17B548AE610"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/manifest.json",
+      "bytes": 6977,
+      "sha256": "BF77E031574AA4FF379AEE9AF27D52EA664F399632A190285DED4001BD15B385"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v07-背景层次-20261118/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/记录.md",
+      "bytes": 23074,
+      "sha256": "C3AE81F409459465D4C72D358761432A45DB6699613B9C2B287FA552676D7E01"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-background-compare.json",
+      "bytes": 838,
+      "sha256": "DDF4961F0BD69D15D11B8D3392DAFC27FD10DF2469A09B9877894BE15978CB17"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-browser-checks.json",
+      "bytes": 3703,
+      "sha256": "D899EDADF8CB9879031C91CEFB41EAC3ED83E0D46EB6206166FA4B2FA5793065"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-compare-v07.jpg",
+      "bytes": 68268,
+      "sha256": "1DCCFC10047ADD1F99D3D1598F1B7A584D462C19C930355E4B82457BDC3E8935"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-friction-default.jpg",
+      "bytes": 61044,
+      "sha256": "CE164526BA1F3C38DECBA3B7D7671C4741FB35E85FFE8C83A0D6F9D11004CA38"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-friction-exploded.jpg",
+      "bytes": 49342,
+      "sha256": "7ACB7A94978C94E3A98ADEF79C0C813AEEF5D327FA5C2C6FC09D4164AE8C177A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-friction-selected.jpg",
+      "bytes": 62256,
+      "sha256": "77EFF6C05DFF30800859472A126584A661CFC30160FA9B5965043444FBDC9842"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-rack-default.jpg",
+      "bytes": 52382,
+      "sha256": "E5FF3A965A3DDFCB2EAAC1F7C41391C9DFCD75E04054B23AC5DAD3F01FAE8BAA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-rack-exploded.jpg",
+      "bytes": 46894,
+      "sha256": "E7187C3F8D3BDBB659798C6AEB296FBF0C586F9CE7B12B6063DC168B125377C8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-desktop-rack-selected.jpg",
+      "bytes": 54076,
+      "sha256": "4ED71F78F21AE0CC75857C2E5D34455AD1BFF1BBC1F233FA6D6158A04FF50EB4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-final-observed.json",
+      "bytes": 1022,
+      "sha256": "FAC30824F271894B7F9E26F9B144D41DAD4CC2C2D31BF0A8F7B7BA995DE13730"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-links-checks.json",
+      "bytes": 65,
+      "sha256": "B6193BA92E2CDCEE903E6BCEA9E83268A11DA66722B6FA9016B1D3F6306B43D7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-medium-catalogue.jpg",
+      "bytes": 44493,
+      "sha256": "4C9DC2E5014495084AA919804634EF770043CACC9EFB575F8C14F0B988A86A50"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-medium-focus.jpg",
+      "bytes": 25495,
+      "sha256": "A8198C141D9E77B9E4FCEA54986D5D9560689CE50C207765ABFC00D24D406435"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-catalogue.jpg",
+      "bytes": 35367,
+      "sha256": "7F4A67BE99945AE56F4972EFA8BFC99B6EE95EEAE5BEFAB5E356FDC7F5F95EF6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-friction-default.jpg",
+      "bytes": 29075,
+      "sha256": "F2AEC166B482305DEB65AA3AE3B604F8F6A3D1B99DCC87FA7497721B732A7D58"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-friction-exploded.jpg",
+      "bytes": 24833,
+      "sha256": "85684BB53699468F49F740A4319988403687066C0087D881E30A5BD5760603DD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-friction-selected.jpg",
+      "bytes": 30288,
+      "sha256": "A63EA73CF4C98605FED47DB9C31D55781FACEAD148316BD3D2E14945E959154B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-rack-default.jpg",
+      "bytes": 25715,
+      "sha256": "B64D9D83087FF95CC1F954C03EF921F143806E6BB282B14DC6AB53D5D776E666"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-rack-exploded.jpg",
+      "bytes": 23988,
+      "sha256": "216E218563947931A1858A7434F493DC23EE75E4F47A8721C7DA56AE5259A09E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-mobile-rack-selected.jpg",
+      "bytes": 26903,
+      "sha256": "FF4540F10A73DDEB1F8628414D800ED44737EB121EB599CF1FDC2A3510FBF84F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-preview-current.jpg",
+      "bytes": 30513,
+      "sha256": "5CFC955202E4EBCAB15E0E87230B0AD4C85EB8DC62E0DEDB0DF02703130FA897"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-protected-files.json",
+      "bytes": 1651,
+      "sha256": "D97ADF785DBC07DA8DB62ABF09D902DAB6DD0CADAAC827CB8B68730B2C8F0B10"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/检查/v08-source-and-history-checks.json",
+      "bytes": 3764,
+      "sha256": "678EAD85AAE893765736A60ED5065C0F93864AC0C30472CF805C34A565272B86"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/说明.md",
+      "bytes": 1383,
+      "sha256": "89B5A8CFB33D737B24A96A8B9A6D83D68447BDC0FE7461F4D258CAD173D12055"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/check.mjs",
+      "bytes": 6110,
+      "sha256": "942CDBFD01A76712DCBA09A9373444474F825487F86D3A70DC5A044EBAED6DF0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/DESIGN.md",
+      "bytes": 5457,
+      "sha256": "E8D101D2C9F42D93003BC938D96FD2A636561B857C2EA14C6301512AA4A72566"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/app.mjs",
+      "bytes": 23697,
+      "sha256": "D35A77BB88289FDA10C99F3060F1DBEC7E57C3A336996CF64453D62BC443A6BE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/catalogue.mjs",
+      "bytes": 255,
+      "sha256": "6916B14D602B7A1A3FA42B0FEF190B4DE1FD68BF8575A3B7E71ADC8663B6A781"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/depth-environment.mjs",
+      "bytes": 3416,
+      "sha256": "70A89BC72F69E1F348661ED4370927AAAABAE05BCD41E4DEE61CA7F548626259"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/environment.mjs",
+      "bytes": 1775,
+      "sha256": "0A510D6ACEBFDE624EFE01509B0749B5521DA784BE1FD597B03FFE62A2C9C911"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/index.html",
+      "bytes": 9659,
+      "sha256": "67ABBF8ED9448EDA3C9CFEC9217528B3B89EDC0C2C118ECE87863434D42B0EEE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/soft-environment.mjs",
+      "bytes": 3352,
+      "sha256": "657271769EB80DE0506C17158AAC6B1DDCFC10A26B4BF34A29EFD27AA0F71100"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/style.css",
+      "bytes": 16101,
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/dist/world.css",
+      "bytes": 16622,
+      "sha256": "5CA549DD400CDCAF34624F1D54296FCB55E54F8A6ED9FC9F73A047A7CBC6E8CE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/manifest.json",
+      "bytes": 7292,
+      "sha256": "C3D5630572266943789815CF590A33FCB3C7995974007C22CC5D6201A8219F33"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/版本/v08-柔和背景-20261118/serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/记录.md",
+      "bytes": 23774,
+      "sha256": "6980D987E6B45197EBC8167831B7B428838EFE4A0CAAA73EBF4DB4D63B97BF17"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/browser-checks.json",
+      "bytes": 1307,
+      "sha256": "7DCE59E4955E2BE93CFF7234E6C9E41B6542CF490F29E4075885725BE25E6293"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/desktop-default.jpg",
+      "bytes": 83201,
+      "sha256": "8FC3776A22B88901399CDA63F4B767CED278A3080C9183EBC498EA052B2FDADD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/desktop-exploded.jpg",
+      "bytes": 72101,
+      "sha256": "C51F7BD7736B7703ADC7810EE0844F3CDAF0985C5D77D60BD21AB689F7F5C9DD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/desktop-selected.jpg",
+      "bytes": 83970,
+      "sha256": "432F9815491231BBCA49E67725F7A80FE17B894CBF853189447C7313B0DA95D6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-device-desktop.jpg",
+      "bytes": 57781,
+      "sha256": "FD2398DA5F4DFFA236E0F39BF9F5A7BF57F69774178AD1F34CB53966AF38840E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-device-mobile.jpg",
+      "bytes": 26950,
+      "sha256": "5FE27041FF78850197B974060E7DCFD6665DDEE1887F09A89C1ABBD95E395743"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-device-rotated.jpg",
+      "bytes": 62256,
+      "sha256": "ACE56105C8B4AACD882470E1CA27C03AABF14DCA253D958AD850F4F0F68A71AF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-friction-mobile-default.jpg",
+      "bytes": 40671,
+      "sha256": "2A798BC56701E800B58368D9D1B0F08ADF55FB8205335DCE9CE7BD11191C3053"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-friction-mobile-exploded.jpg",
+      "bytes": 38079,
+      "sha256": "88B139837D3DB74111DCF4D87E96D8F07937649BC29A61F28B5B53C538B7BF6F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-friction-mobile-selected.jpg",
+      "bytes": 41426,
+      "sha256": "C0899214320DF2A280CA72FE6AF076EBC6147FCA2F94ECE18153838D96D0E04D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-projecting.jpg",
+      "bytes": 66908,
+      "sha256": "DAF071790D82433C5010E6BD583B6A319F2ADDF87C5C3C12E1A80D80FCFFB05F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-rack-desktop-exploded.jpg",
+      "bytes": 72053,
+      "sha256": "41DB5CFD8B9BE3EA52514C1B8243BEFDE3B1D9A44D2D37532A8D3EE1985E3D98"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-rack-desktop-selected.jpg",
+      "bytes": 62435,
+      "sha256": "A0151F80D24822F2A6274F2749E6FDC3D3E93D3FEF367FF48E580BC5F8888FD7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-rack-mobile-default.jpg",
+      "bytes": 36874,
+      "sha256": "304887FF512F137EDFFC7CFEB119E41DCB5EF87991045FF02EE20E245118F609"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-rack-mobile-exploded.jpg",
+      "bytes": 37035,
+      "sha256": "71868BFFA6D8E417ABB0A791967BEFD86A41E8F9AB3FB6DE78DD35994629B4F4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v02-rack-mobile-selected.jpg",
+      "bytes": 37477,
+      "sha256": "6B155ED0EAADAD6E29F609EEDD3079F55B3BBBF9F87F27B87F252DC87DA7372B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v03-desktop-catalogue.jpg",
+      "bytes": 77708,
+      "sha256": "F3A2E7A6EC546DDAC94F30393BDDCCB43F58B7E4DB8B664B04A13327B9EB5AEA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v03-desktop-default.jpg",
+      "bytes": 72662,
+      "sha256": "16FB9FEFB119A444008FA91DF21395C577D6DDC29BB57B2335155DBF75B3DE8F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v03-mobile-catalogue.jpg",
+      "bytes": 47196,
+      "sha256": "1DE4E8A46787EA11110E87194F2E730920A71742A5565BFEFD7416B6E126C396"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v03-mobile-default.jpg",
+      "bytes": 50029,
+      "sha256": "F17A4F2557E6D806412ADACA3815AA150462D808748FE36CDEF8EA3ACB662CFC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-browser-checks.json",
+      "bytes": 2586,
+      "sha256": "EB0C1F82582535A4E2F27C41302728EFF154E5F1F19312382B783BCFA84B3C0A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-dissolving.jpg",
+      "bytes": 86466,
+      "sha256": "38D59AE93D76A72000D989043160646859B5ED0AAFAD76EFEE2F9DF1123A372E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-forming.jpg",
+      "bytes": 87440,
+      "sha256": "F9644BE30F1C27EE9195AE0C2D210431C00151DA08AFEF06218898080A2FDDFD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-friction-exploded.jpg",
+      "bytes": 65856,
+      "sha256": "686922677ADACB34619D6D691374B6C54E7B5322AFF3FF2F189873C7F56AF1C0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-friction-ready.jpg",
+      "bytes": 73526,
+      "sha256": "37F823F7A335DB7BD39D1DCC723F192D0429C62E2510468BB88A7F6B869963FA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-friction-selected.jpg",
+      "bytes": 73998,
+      "sha256": "539CA71D35C35084480C0241AA65D404767680C19D185AF6FAB3EB0801649626"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-launching.jpg",
+      "bytes": 67384,
+      "sha256": "AB308B9A299CFE9CA78BF4B7794F4EC0F79AB3B8C51A21BF7E1C92EB93E7EC9F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-rack-exploded.jpg",
+      "bytes": 63663,
+      "sha256": "08F67BDC7336C2C83F96DC9B86BC14DAB313453CA98EDDA5E2CE9CF29A1E016C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-rack-forming.jpg",
+      "bytes": 74737,
+      "sha256": "A1DCB3B285978CB8FFFDFA921D1C4B1B6C0428D003087F20A38430BA4857A0E7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-rack-ready.jpg",
+      "bytes": 66795,
+      "sha256": "06F2EC12106B47C03C2B8CC341851A1B6D8DAB0B8B81FCA118C5D7C68817E10E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-desktop-rack-selected.jpg",
+      "bytes": 66371,
+      "sha256": "8AD9F406B2A060444188411ED202F59C1E1EFC592B5F400157C91AFB9613FB05"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-friction-exploded.jpg",
+      "bytes": 35332,
+      "sha256": "520F3C3AB27088C8E52BCF7843ABEA534F1125910EFB28439F3B86207DF51796"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-friction-forming.jpg",
+      "bytes": 47365,
+      "sha256": "933D52F8793032E8710848DB2D0AF826285606D74A51343D8EC016E48E58E55F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-friction-ready.jpg",
+      "bytes": 39223,
+      "sha256": "FDA554481A436427B125C02EE917FAD7C068B776914013D9B9DDC26FA40748ED"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-friction-selected.jpg",
+      "bytes": 39783,
+      "sha256": "E201DBA73E75BA051E634145C6614C5C7225C5D9871820033C8886F86A0AE321"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-rack-exploded.jpg",
+      "bytes": 33778,
+      "sha256": "00E07CC60C42855E93D66BC96E526602284C953E787C2FE6D79EFA56C68D8690"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-rack-forming.jpg",
+      "bytes": 41130,
+      "sha256": "97DEB3127B3956F7BB82AFAC7D89A95788423681886FEC56ACD9FB2579B6C257"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-rack-ready.jpg",
+      "bytes": 34983,
+      "sha256": "3707F7561DA7337D12E581DD93F2D4B5E79A0E75E65381549F18F14CAE24F091"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-rack-selected.jpg",
+      "bytes": 35593,
+      "sha256": "B1F92FAE62F6A8CDD327F60798D170F2293D0528E6A07DF71346E410702780D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-mobile-reduced.jpg",
+      "bytes": 56139,
+      "sha256": "0CC518D7231CB76E4987DAC0B375569B8FF7A979854D5CC8849977C58BD9DCFB"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v04-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-browser-checks.json",
+      "bytes": 2751,
+      "sha256": "0A3183203FAD2CF78582DECB347CBAF4B95CC1DC20321CEBA928BE6A95A0A86D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-friction-default.jpg",
+      "bytes": 70548,
+      "sha256": "F0C78897242E5F4E21BD98DB671979EF4C8F2175D3DF6C4F6FFF82909F5EA4C4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-friction-dragged.jpg",
+      "bytes": 68419,
+      "sha256": "3675247A35B80A11FE5685A303FAE33ED5C8A6E2DC108AFB1432A40F8BD89D82"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-friction-exploded.jpg",
+      "bytes": 65629,
+      "sha256": "EB9C767391236B0B793D934605478128CDDB52C53805944CCDD088E3C805A3D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-friction-selected.jpg",
+      "bytes": 77912,
+      "sha256": "02C032AAD7C303739FCA1E60F49446509F56BAB33CA37FA29733CB56940EBB26"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-handoff-forming.jpg",
+      "bytes": 51895,
+      "sha256": "FA6DCC952002BCB3D53536CDFE5B0B414DD38BD2819141A4C27AD681C71CFEDE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-handoff-settling.jpg",
+      "bytes": 51757,
+      "sha256": "303F2FEF3D4E53392072CB147469A850E2CA27B455FFF99B6A297846336839F1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-rack-default.jpg",
+      "bytes": 70572,
+      "sha256": "1140BFA87FAF5BDD3052DB6731DB50EE8F37CF2261F99BBA972DBF0AB87E6147"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-rack-dragged.jpg",
+      "bytes": 64594,
+      "sha256": "F5A849802A57290D9331F263D1EBDD4C77CA7D48F84AEFDC84EA06CA8B0ACD0F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-rack-exploded.jpg",
+      "bytes": 63950,
+      "sha256": "F3B4FA3786524EAB142094322BD31386D8531B166E345FB20CDB94EFBA0B3663"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-desktop-rack-selected.jpg",
+      "bytes": 71154,
+      "sha256": "24E67569CF10A5952636D9E686A104FCCA49C9F12657E7E09351658ECD965742"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-final-observed.json",
+      "bytes": 400,
+      "sha256": "2831EDC1B563E908714B33FCF121BBAE7724D3C5514F494AF807A7BFA3255FA4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-handoff-trace.json",
+      "bytes": 13577,
+      "sha256": "837869FB419DAAB9B1731EF6CBEAC2DD5D4C703AB05C7CB378CE62122F6550D9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-friction-default.jpg",
+      "bytes": 39446,
+      "sha256": "D264D2F59A83F5E20D8444E90769BA696D2ED499F8C4BE6FD522E970C32031BE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-friction-dragged.jpg",
+      "bytes": 36451,
+      "sha256": "72926EA5031DB8921E7B7A1E80DCF92449A6A87B9D0DA73CBA01AB5A2848D95E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-friction-exploded.jpg",
+      "bytes": 35022,
+      "sha256": "7970E22E2D1D48E6F1E7A98348307CA445A6C461AC7F27221958213CC0960FD5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-friction-selected.jpg",
+      "bytes": 40003,
+      "sha256": "94754E3FA5E520C00BCB4F9A31E1ACDC85B93DF146DF1CAF39A378AC8299CFD9"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-rack-default.jpg",
+      "bytes": 36815,
+      "sha256": "55BF3EB4595E8296799EA6B19130DE8518CA39B91553EBB69162FB2F00F4427D"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-rack-dragged.jpg",
+      "bytes": 34253,
+      "sha256": "7AA85C9E916D84D0C4244ACB6096657B5E157247555E6EF81EDD7FD0B754260A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-rack-exploded.jpg",
+      "bytes": 34232,
+      "sha256": "1B4D276A40D2A8506591A0C891583A991502F52D1867CF1D0875DE8BAEE533A0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-rack-selected.jpg",
+      "bytes": 36885,
+      "sha256": "D2FC3A3DFC6C6EEA0F5D78595066DE45602DA82A39E72678286A7F9546A0B1F3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-reduced.jpg",
+      "bytes": 57580,
+      "sha256": "9C93D9FECF3CDA7C3C6B8A63D27F2F37916CEB7773F824E335079ADD44133ED5"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-mobile-settings.jpg",
+      "bytes": 57322,
+      "sha256": "8FAE25D2C3302DB909B24F27EFA3812ECB434861B00BD321C67A7B210AC5B559"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-preview-current-fixed.jpg",
+      "bytes": 50593,
+      "sha256": "3DB8D66AC7624EA7BB197291FF2E7FE3BD76A83029D56B4E85535D495CAAF9F6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-preview-current.jpg",
+      "bytes": 46465,
+      "sha256": "AA34F5FA17DC48B0A1F9D52AC1FEB239BAE5DF8C8727BE32D616BBC10F68B909"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v05-settings-observed.json",
+      "bytes": 662,
+      "sha256": "79BB9C2A5970B3A4315D526FBD75B6781B1BBCA2632E4A22E55FB7FA9916261C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-browser-checks.json",
+      "bytes": 2911,
+      "sha256": "1578D1C7C51AE017116D6A1A1F951F2B5D1F3B1E52C724DE19523043635537AC"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-catalogue.jpg",
+      "bytes": 71354,
+      "sha256": "CB6A80ACC6A58E34F4583CFC59891024234AC45FCADE7598330B85CE71B4D0C3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-default.jpg",
+      "bytes": 56688,
+      "sha256": "A479BE9BD33CB5802243486E9829C4100F5AEAAEB5A458721DDC41F31882AFBE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-device.jpg",
+      "bytes": 65585,
+      "sha256": "F122E3F5BFB1DA5DC6913F7C315B7894B00DDCFA3C654FE2136A33DBBB3E6B3B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-focus.jpg",
+      "bytes": 42814,
+      "sha256": "2AE208477EA0956D0B195E6648E4094ACC2540947882726659AB5FDC9CE35FC4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-friction-exploded.jpg",
+      "bytes": 60765,
+      "sha256": "31500C41667497EC2E921F2B16074178B98D46C7D55FB54FDB06894C7C843A21"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-friction-selected.jpg",
+      "bytes": 61326,
+      "sha256": "C417A1154FA15096872D894EF5668BEF0F7DC2A3C7F3D407567F61E36690A206"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-rack-default.jpg",
+      "bytes": 51046,
+      "sha256": "14DEA44E0FDD56F0DE0CF22BBF0C947690FCDB2A85BA9145880B6B89F15534A4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-rack-exploded.jpg",
+      "bytes": 58536,
+      "sha256": "ACF6077F0E730716381850948015A722FEA77507EC115BAD8DBC3B4E7C4E8974"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-rack-selected.jpg",
+      "bytes": 52517,
+      "sha256": "9E0088EAF39344CD2A8C94777B769F6EB98EAAC1815988A7AC72C3DBEEB19770"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-desktop-settings.jpg",
+      "bytes": 69672,
+      "sha256": "F71FF5354C1A452B10DEBEC7DBAEE5BE8A000BB47FA019B7B6108FF0A3DE47CD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-final-observed.json",
+      "bytes": 255,
+      "sha256": "E947D3974CA9CBB87EFCEE7E02E02C06ECE6AD864B9B938FEC4126F707017E58"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-medium-catalogue.jpg",
+      "bytes": 50574,
+      "sha256": "F4247904B75BA432474597820521C95A683F435FAA6DFBCCC89EA8A943E7AD88"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-medium-default.jpg",
+      "bytes": 37963,
+      "sha256": "1E1C03D4AAE8E00576A7E252BC0B31C6169C89A7335BC4506F46F9AE6BE4A571"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-catalogue.jpg",
+      "bytes": 34185,
+      "sha256": "A2183E34B53ECA8E2C6632F5E8755E9A5C49F9256EF5C19166C59A7E9AA34F2C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-focus.jpg",
+      "bytes": 13763,
+      "sha256": "1A0D26C763231AD017A9B110DEA31E512D5C212AF154D4946267089952C11773"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-friction-default.jpg",
+      "bytes": 29661,
+      "sha256": "9037F158EC6C492FF093430C340BF1DFBF735DE7579F4EA0122FC0686A253295"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-friction-exploded.jpg",
+      "bytes": 25602,
+      "sha256": "A85E3BB2D03319F8BB87C421AFB8965DB31BB0072413B65BCCE216F2A0261B97"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-friction-selected.jpg",
+      "bytes": 31509,
+      "sha256": "3205528BF0CD59493BA1E3E9F449AF0D9B16FE971BF4D7A0C3079F003EEF5DD6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-rack-default.jpg",
+      "bytes": 24491,
+      "sha256": "5D544992BA4232948ED08FD96D928D3B3058A27A36D51A3DBD363131BE3BE077"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-rack-exploded.jpg",
+      "bytes": 23812,
+      "sha256": "D031D2DB3269B56668C4D308F46E0C502339E603054A337BC7D8D070127A10A7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-rack-selected.jpg",
+      "bytes": 25576,
+      "sha256": "76B5FD213185269314CDF18420DE359FB432AD1759A3AC9050AA1A0EAFABF109"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-mobile-settings.jpg",
+      "bytes": 37198,
+      "sha256": "832EA5576FC71D3C7C3101BD384E34849E1707D43B89004D6412C249F48EE10C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-observed-interactions.json",
+      "bytes": 3017,
+      "sha256": "7B68BA6458458886315C07BFEDC8035ABCDEE05C1F1BE052D6F75C4502EB4F81"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-preview-current.jpg",
+      "bytes": 29898,
+      "sha256": "2B8F15AA75C6C46400DF454319DFBEC54A2DD1CB5649B2A664FED686FA4F04DA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v06-retained-v05.json",
+      "bytes": 348,
+      "sha256": "28C22AC95BB5DC78C33D7E7AD534E8168231816D8FBDD35FE5124C9F4EE9E572"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-background-comparison.json",
+      "bytes": 548,
+      "sha256": "D0D2F3CA7EAB210F6018EA5D41075534F182BE758CEEC6188599C9C10E52CA55"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-before-protected.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-browser-checks.json",
+      "bytes": 1847,
+      "sha256": "DFCE1FEA2F63E82647BFA4F009B1CA08C293A187397E409F4371DE5612C49104"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-compare-depth.jpg",
+      "bytes": 84330,
+      "sha256": "96FE3AFEAF3FFE2B1D43B1859AE00779203FA981B00276C0EE846A861EF24D44"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-compare-legacy.jpg",
+      "bytes": 75879,
+      "sha256": "497E7B7117750545931EE6E387117B8E8AC8C67B3E90AF4A423330DD456523B8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-friction-default.jpg",
+      "bytes": 67582,
+      "sha256": "6997804F3D5C7C196C0363DB3B0412A3FF679367C68020A63DBDBEEEBA47BCCE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-friction-exploded.jpg",
+      "bytes": 73622,
+      "sha256": "EBEA926A20FF3E9435B2D13D38CB57135669AC959FC72486A34FB70093D4EF51"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-friction-selected.jpg",
+      "bytes": 69585,
+      "sha256": "3A93DB9BC49029C8FBED91BE34210206C291D946BE82FB49BA264C874200BFFF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-rack-default.jpg",
+      "bytes": 59167,
+      "sha256": "82107D9EDEAB8762FCB660C9C64ACF71DF7638404337C78DA20EBEBC859364C8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-rack-exploded.jpg",
+      "bytes": 71739,
+      "sha256": "F1F8158F17F481BE49B18A27599E9E0A63E6859632C15526F422C4046A9A873B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-desktop-rack-selected.jpg",
+      "bytes": 60779,
+      "sha256": "06AF77355B01578DA5645B08F4EC755BDFCBED11CF30F864A6BB24AE461286C2"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-final-observed.json",
+      "bytes": 261,
+      "sha256": "5B7BCEA3060C6DC850484CB3268EF84882F7D841C87B89E741E807C03DC6DE69"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-medium-default.jpg",
+      "bytes": 41627,
+      "sha256": "791552547EC93D1D4991A3AC949383E9DDC94510718A2048DA198BB0EB6E84D7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-catalogue.jpg",
+      "bytes": 37989,
+      "sha256": "FCD282C922C8F6AC9B34DD5D97F45F964E5C59A77098A881FE1F6CB974C3ED23"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-focus.jpg",
+      "bytes": 15415,
+      "sha256": "D766BF36BE24987268246F75B63D3C23D96162BC10013DA600F2E6A4EF3C51A6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-friction-default.jpg",
+      "bytes": 30815,
+      "sha256": "BF379CF7F865BB3325132B09C8493F3E68126A685043E7B7ECD98EBD1DAB1246"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-friction-exploded.jpg",
+      "bytes": 27700,
+      "sha256": "788265831306A1033F218428DF2FC94EFB5A722CC2295C05A8DFFFB97AD24D27"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-friction-selected.jpg",
+      "bytes": 32451,
+      "sha256": "BE39E3D29E9830C799C8F3E6DAC5937DC3C32FEC9CCF7EBD993B128DF74C3435"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-rack-default.jpg",
+      "bytes": 26453,
+      "sha256": "253624760145E8A30042A11D8AE77108CF77C8FB0523EA97ADD613EA98CD387C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-rack-exploded.jpg",
+      "bytes": 26401,
+      "sha256": "7172A10BB637911EF07E4BCD20931D64265B0C4C51EB82FD0A0364FED103AC82"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-mobile-rack-selected.jpg",
+      "bytes": 27754,
+      "sha256": "D937428422C16B73B55F57EB4865FD75FD1F748EC5AAF31F371973C3DF14B3D1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-preview-current.jpg",
+      "bytes": 36393,
+      "sha256": "41DA266DDF9FD6768F95B96F54EEF9F36A67CB74D3116F418726EF36568D7EB6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v07-protected-results.json",
+      "bytes": 1159,
+      "sha256": "8D87E14B6DE7BD0095FBEAF633F51BC35D2521A62CCB4E059F3C1CCB12169479"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-background-compare.json",
+      "bytes": 838,
+      "sha256": "DDF4961F0BD69D15D11B8D3392DAFC27FD10DF2469A09B9877894BE15978CB17"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-before-protected.json",
+      "bytes": 1003,
+      "sha256": "A46AE3EC5BE9A517852017DABF947E9CD241972FE684948BC1574B189A508989"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-browser-checks.json",
+      "bytes": 3703,
+      "sha256": "D899EDADF8CB9879031C91CEFB41EAC3ED83E0D46EB6206166FA4B2FA5793065"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-compare-v07.jpg",
+      "bytes": 68268,
+      "sha256": "1DCCFC10047ADD1F99D3D1598F1B7A584D462C19C930355E4B82457BDC3E8935"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-friction-default.jpg",
+      "bytes": 61044,
+      "sha256": "CE164526BA1F3C38DECBA3B7D7671C4741FB35E85FFE8C83A0D6F9D11004CA38"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-friction-exploded.jpg",
+      "bytes": 49342,
+      "sha256": "7ACB7A94978C94E3A98ADEF79C0C813AEEF5D327FA5C2C6FC09D4164AE8C177A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-friction-selected.jpg",
+      "bytes": 62256,
+      "sha256": "77EFF6C05DFF30800859472A126584A661CFC30160FA9B5965043444FBDC9842"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-rack-default.jpg",
+      "bytes": 52382,
+      "sha256": "E5FF3A965A3DDFCB2EAAC1F7C41391C9DFCD75E04054B23AC5DAD3F01FAE8BAA"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-rack-exploded.jpg",
+      "bytes": 46894,
+      "sha256": "E7187C3F8D3BDBB659798C6AEB296FBF0C586F9CE7B12B6063DC168B125377C8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-desktop-rack-selected.jpg",
+      "bytes": 54076,
+      "sha256": "4ED71F78F21AE0CC75857C2E5D34455AD1BFF1BBC1F233FA6D6158A04FF50EB4"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-final-observed.json",
+      "bytes": 1022,
+      "sha256": "FAC30824F271894B7F9E26F9B144D41DAD4CC2C2D31BF0A8F7B7BA995DE13730"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-links-checks.json",
+      "bytes": 65,
+      "sha256": "B6193BA92E2CDCEE903E6BCEA9E83268A11DA66722B6FA9016B1D3F6306B43D7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-medium-catalogue.jpg",
+      "bytes": 44493,
+      "sha256": "4C9DC2E5014495084AA919804634EF770043CACC9EFB575F8C14F0B988A86A50"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-medium-focus.jpg",
+      "bytes": 25495,
+      "sha256": "A8198C141D9E77B9E4FCEA54986D5D9560689CE50C207765ABFC00D24D406435"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-catalogue.jpg",
+      "bytes": 35367,
+      "sha256": "7F4A67BE99945AE56F4972EFA8BFC99B6EE95EEAE5BEFAB5E356FDC7F5F95EF6"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-friction-default.jpg",
+      "bytes": 29075,
+      "sha256": "F2AEC166B482305DEB65AA3AE3B604F8F6A3D1B99DCC87FA7497721B732A7D58"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-friction-exploded.jpg",
+      "bytes": 24833,
+      "sha256": "85684BB53699468F49F740A4319988403687066C0087D881E30A5BD5760603DD"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-friction-selected.jpg",
+      "bytes": 30288,
+      "sha256": "A63EA73CF4C98605FED47DB9C31D55781FACEAD148316BD3D2E14945E959154B"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-rack-default.jpg",
+      "bytes": 25715,
+      "sha256": "B64D9D83087FF95CC1F954C03EF921F143806E6BB282B14DC6AB53D5D776E666"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-rack-exploded.jpg",
+      "bytes": 23988,
+      "sha256": "216E218563947931A1858A7434F493DC23EE75E4F47A8721C7DA56AE5259A09E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-mobile-rack-selected.jpg",
+      "bytes": 26903,
+      "sha256": "FF4540F10A73DDEB1F8628414D800ED44737EB121EB599CF1FDC2A3510FBF84F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-preview-current.jpg",
+      "bytes": 30513,
+      "sha256": "5CFC955202E4EBCAB15E0E87230B0AD4C85EB8DC62E0DEDB0DF02703130FA897"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-protected-files.json",
+      "bytes": 1651,
+      "sha256": "D97ADF785DBC07DA8DB62ABF09D902DAB6DD0CADAAC827CB8B68730B2C8F0B10"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-source-and-history-checks.json",
+      "bytes": 3764,
+      "sha256": "678EAD85AAE893765736A60ED5065C0F93864AC0C30472CF805C34A565272B86"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/检查/v08-upload-checks.json",
+      "bytes": 3421,
+      "sha256": "828D6FF73968F43936FC91E3A482598561A3A2CCEC753896EBB36B244D65468A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/check.mjs",
+      "bytes": 6110,
+      "sha256": "942CDBFD01A76712DCBA09A9373444474F825487F86D3A70DC5A044EBAED6DF0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/DESIGN.md",
+      "bytes": 5457,
+      "sha256": "E8D101D2C9F42D93003BC938D96FD2A636561B857C2EA14C6301512AA4A72566"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/app.mjs",
+      "bytes": 23697,
+      "sha256": "D35A77BB88289FDA10C99F3060F1DBEC7E57C3A336996CF64453D62BC443A6BE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/catalogue.mjs",
+      "bytes": 255,
+      "sha256": "6916B14D602B7A1A3FA42B0FEF190B4DE1FD68BF8575A3B7E71ADC8663B6A781"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/depth-environment.mjs",
+      "bytes": 3416,
+      "sha256": "70A89BC72F69E1F348661ED4370927AAAABAE05BCD41E4DEE61CA7F548626259"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/environment.mjs",
+      "bytes": 1775,
+      "sha256": "0A510D6ACEBFDE624EFE01509B0749B5521DA784BE1FD597B03FFE62A2C9C911"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/index.html",
+      "bytes": 9659,
+      "sha256": "67ABBF8ED9448EDA3C9CFEC9217528B3B89EDC0C2C118ECE87863434D42B0EEE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/models.mjs",
+      "bytes": 3930,
+      "sha256": "56D45EC1AE128DA91E32670328F530302C94BB7E731F6519A6529B8E1BEC74D0"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/motion.mjs",
+      "bytes": 2291,
+      "sha256": "4C7581E8D7039F2453E2F63D878CCE0D88918F285F1DFD46D6E7278379BC7683"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/presentation.mjs",
+      "bytes": 2125,
+      "sha256": "8B1FE6DCE19522577C7063EEC529FA9FFC2EA9EB26557BCB52856A09124E39F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/projection.mjs",
+      "bytes": 4944,
+      "sha256": "C04DDA259DDA875386E99C3B26EEA8C8BFD902DF7ACCDBF3042E4B71C938338A"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/projector.mjs",
+      "bytes": 5730,
+      "sha256": "BD659D6FDAA335A52DC1CCEB4534CF84133203D1605117FC81389B27D398B471"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/soft-environment.mjs",
+      "bytes": 3352,
+      "sha256": "657271769EB80DE0506C17158AAC6B1DDCFC10A26B4BF34A29EFD27AA0F71100"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/style.css",
+      "bytes": 16101,
+      "sha256": "57768AA129EBC91B3D4BAC2B0F86F88DE42543C51BE54D975FC00512A1C642FF"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/dist/world.css",
+      "bytes": 16622,
+      "sha256": "5CA549DD400CDCAF34624F1D54296FCB55E54F8A6ED9FC9F73A047A7CBC6E8CE"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/serve.mjs",
+      "bytes": 2257,
+      "sha256": "456EEADB6185888A1710B2D025624758798D9095A1BACAB34F97AE143F22AEF2"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/assets/OrbitControls.js",
+      "bytes": 33657,
+      "sha256": "00021F896FEE7ACCAD035ADA2B72ABD9E12F21DE349896576E8FD75D9542989E"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/assets/reference-stage.mjs",
+      "bytes": 5702,
+      "sha256": "AA6915D1EFD9D8203CD309D2471325D9B21B939A46D8174EE21665A9692BADA1"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/assets/three.module.js",
+      "bytes": 1369252,
+      "sha256": "DA7F8AECB0B1E4A55E820CCE5DC5A5A8EB13DC379758F215E8FB07937BE7A6A3"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/friction/mechanics.mjs",
+      "bytes": 3250,
+      "sha256": "37A262CA5077EDDE805CE3E455A8BEABDBC79D976B0D822528F0ABC2D3DB779F"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/friction/viewer.mjs",
+      "bytes": 15923,
+      "sha256": "BB4BB76DAB4DAB0D7E74C045E93BA405EFAADC5953E1DAC84310BB54575BFA09"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/manifest.json",
+      "bytes": 1629,
+      "sha256": "2CE7EF2C3015D1AC4CC85E214375E1A4A3531A2611907F88F507EEA2D966180C"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/rack/mechanics.mjs",
+      "bytes": 4486,
+      "sha256": "1A09FF274ABCF384D1BE0F286972260923C42952C7730D852DF3FF116321ABD7"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/rack/viewer.mjs",
+      "bytes": 18606,
+      "sha256": "2D21498C4724363AEBAF9714783F78534C8D26C1A682D86328A769DDCA604515"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/README.md",
+      "bytes": 754,
+      "sha256": "80AA40AD7BEA36CF3C749F0AFCA30F48BF5E6B76B4158BC3B7A3A203754670F8"
+    },
+    {
+      "path": "迭代/002-投影轮播网页预览/shared/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "B7177386993451AF97C46525CEAC74D714C9A50BA6A2944D2CC28FD93E397007"
+    },
+    {
+      "path": "归档清单.json",
+      "bytes": 7627,
+      "sha256": "F85C1213001FAA02293BAF1B3C0A3A5B0EA7250BB286E5F7B47EA067FAFFA781"
+    },
+    {
+      "path": "核对记录.json",
+      "bytes": 5750,
+      "sha256": "31BB0FBD358854E54BD5E03304955FD4BFB75A1C387A6A3E868DF67875C387CA"
+    },
+    {
+      "path": "阶段汇总.md",
+      "bytes": 9816,
+      "sha256": "B00A93842396EDB39D8F4FA1E1AB864499FB63DB51AC93F37C972866AFA4BCD0"
+    },
+    {
+      "path": "接续说明.md",
+      "bytes": 7825,
+      "sha256": "47A2D5AF6311FAEE77D99EAE5DFAAD898CDD8DEE0916CCD2C181384301BFCC1C"
+    },
+    {
+      "path": "决策记录.md",
+      "bytes": 11910,
+      "sha256": "9C0F8EEFA831D46FE958915660F12337EE045730FF7295755A42C297C3D7897A"
+    },
+    {
+      "path": "上传归档-20261118.md",
+      "bytes": 2066,
+      "sha256": "5F7D032BD57AEE5A9D0A0077C8463754B3A12A58A2FF4D911400E802FABCCB5D"
+    },
+    {
+      "path": "设计共识.md",
+      "bytes": 11783,
+      "sha256": "D1F9C724D27B092E5527D880A13F5AEB84F4CF694D890332D252B73B9A450713"
+    },
+    {
+      "path": "讨论记录.md",
+      "bytes": 21170,
+      "sha256": "9A0599B29FC085DF1B1F8569BF29CD6CC9691D4CA6461DB2E38AD944D344C11F"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1103,
+      "sha256": "808D8C2F2E052E1C1178431C76699100F97FE30790AFFDFC21076A840F552A96"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9603,
+      "sha256": "4B571924F905A8A63153807F5DCF42C42FA7E66FE5B62848BC2A4D7FDF50FC27"
+    }
+  ]
+}

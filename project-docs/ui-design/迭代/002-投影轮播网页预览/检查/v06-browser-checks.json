@@ -1,0 +1,33 @@
+{
+  "started": "2026-11-17",
+  "completed": "2026-11-18",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V06",
+  "authorization": "U26: retain V05; refine catalogue and projection background, NASA-inspired spaciousness and fewer obstructing controls",
+  "implementation": "local preview complete",
+  "localChecks": "passed within recorded scope",
+  "designAcceptance": "V05 temporarily retained; V06 pending user review",
+  "reference": {"url": "https://eyes.nasa.gov/apps/solar-system/", "captureDate": "2026-11-17", "used": "existing inspected archive screenshot", "freshFetch": "not executed: Firecrawl credits unavailable", "nasaAssetsUsedInPreview": false},
+  "viewports": [
+    {"width": 1440, "height": 1000, "horizontalOverflow": false, "catalogueRight": 328, "sceneLeft": 348},
+    {"width": 699, "height": 900, "horizontalOverflow": false, "catalogueBottom": 414, "sceneTop": 430},
+    {"width": 390, "height": 844, "horizontalOverflow": false, "catalogueBottom": 414, "sceneTop": 430}
+  ],
+  "catalogue": {"query": "直线", "matchingIndices": [1], "noMatchCount": 0, "clearRestoresCount": 2, "selectionUpdatesScene": true, "mobileSelectionClosesPanel": true, "catalogueAndSettingsMutuallyExclusive": true},
+  "focusMode": {"visibleButtons": ["focus-toggle"], "axContainsOnlySceneAndExit": true, "regularInterfaceHasInertAttribute": true, "escapeAndButtonExit": true, "note": "An initial DOM IDL property read was incomplete; actual inert attributes, hidden styles and AX state were checked afterwards"},
+  "mechanisms": {
+    "friction": {"desktop": ["default", "selected driven shaft", "exploded"], "mobileSized": ["default", "selected driven wheel", "exploded"]},
+    "rack": {"desktop": ["default", "selected shaft collar", "exploded"], "mobileSized": ["default", "selected pinion", "exploded"]}
+  },
+  "relocatedControlsChecked": ["device close-up", "return to projection", "explode/restore", "replay closes settings and completes", "reduced-motion replay", "pause", "Home view reset"],
+  "layoutFixes": ["Move selection label upward: mobile label bottom 668, hint top 677.6", "Use quiet keyboard-focus corner markers instead of a frame crossing the introductory text"],
+  "consoleWarningsAndErrors": [],
+  "evidence": "v06-observed-interactions.json",
+  "codeChecks": ["retained timeline and continuous-motion checks", "retained drag/auto-turn checks", "all control IDs resolve", "catalogue Chinese/English, full-width Unicode, multiword, empty and unmatched queries", "syntax of every preview mjs module"],
+  "retainedV05Modules": "v06-retained-v05.json",
+  "protectedFilesReport": "v06-protected-results.json",
+  "limits": ["real mobile touch hardware and GPU performance", "all browsers", "full mechanism data population", "V06 design acceptance", "real AI, speech and login are outside this change"],
+  "productionHomeModified": false,
+  "gitCommitted": false,
+  "syncedOrDeployed": false
+}

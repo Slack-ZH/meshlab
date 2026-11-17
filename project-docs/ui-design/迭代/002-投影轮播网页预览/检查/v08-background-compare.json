@@ -1,0 +1,40 @@
+{
+  "before": {
+    "model": "摩擦轮传动",
+    "pose": {
+      "autoTurning": "false",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "0.0000",
+      "motionTime": "0.5326",
+      "pitch": "0.0000",
+      "yaw": "0.0000"
+    }
+  },
+  "depth": {
+    "environment": "depth",
+    "model": "摩擦轮传动",
+    "pose": {
+      "autoTurning": "false",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "0.0000",
+      "motionTime": "0.5326",
+      "pitch": "0.0000",
+      "yaw": "0.0000"
+    }
+  },
+  "after": {
+    "environment": "soft",
+    "model": "摩擦轮传动",
+    "pose": {
+      "autoTurning": "false",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "0.0000",
+      "motionTime": "0.5326",
+      "pitch": "0.0000",
+      "yaw": "0.0000"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "checked_on": "2026-11-17",
+  "timezone": "Asia/Hong_Kong",
+  "result": "通过",
+  "scope": "本地归档完整性、链接和文件改动范围；不是网页视觉或功能验收",
+  "artifact_copies": {
+    "count": 14,
+    "bytes": 6224730,
+    "files": [
+      {
+        "path": "迭代/000-历史样稿/样稿/meshlab-home-directions.html",
+        "bytes": 405030,
+        "sha256": "9e15a8bb5939589e52654201a12dea1df91bdfdbea95f46448bf6f93488e4a02",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "迭代/000-历史样稿/样稿/meshlab-home-directions-preview.html",
+        "bytes": 494639,
+        "sha256": "0e6b618cf8c2ad92638c25ecf236f43213dd3c8a98333d72c298c8ac2c5bde1a",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages.html",
+        "bytes": 43787,
+        "sha256": "2d639ce8568f874619a102f37e6ed2f323d7dbf04bec40262a73040baca74937",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "迭代/000-历史样稿/样稿/meshlab-six-homepages-preview.html",
+        "bytes": 138299,
+        "sha256": "01f980f561092da78776db64e86f18550b3d78a9ed21eb75a61415f35dc0c5ab",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "迭代/000-历史样稿/样稿/历史设计说明.md",
+        "bytes": 2627,
+        "sha256": "6e3b9e011cfe6b901848c0a9481314148381d866ebe5487b40e2ea02643cb29f",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/gears-reference.png",
+        "bytes": 135817,
+        "sha256": "ffc31db7928f753111d5e3ef49b37161c417451288699c6557fb4b1b0048467a",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/phet-reference.png",
+        "bytes": 996129,
+        "sha256": "e9b1037e9be2b2322a9f7708d4608c6d15d8fe49d506f0b08313a5265ce32391",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-lusion-loaded.png",
+        "bytes": 828494,
+        "sha256": "d8ca17fb13ec6597c4d58b7b11a3c35dd9fdd2deacc0671be6a737fb099ef56b",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-lusion.png",
+        "bytes": 13684,
+        "sha256": "c8d1cfd80e311518c5c60e693ee9dc9ded821b70342a21dde4477277a76526ce",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-atlas.png",
+        "bytes": 1207110,
+        "sha256": "c45ca8209c266a3d2ceaaead2478c8ee74f2d5a55a5858e58a547780b6ce8734",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-looking-glass.png",
+        "bytes": 645649,
+        "sha256": "39b29a75c83a1be0c1d6880ac839ee7b2eb4d4c69fd140fb65cb0df136ea5e34",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-nasa-eyes.png",
+        "bytes": 282669,
+        "sha256": "b0e117683f9781dd8aec9a32dc75800c961d1e904541bcc7fc2b2ae8303e8c0f",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/网站/real-op1.png",
+        "bytes": 442907,
+        "sha256": "01711b682aa47b9f0a047315d3d27f3945a32e62054a0267d3506536d05a0a14",
+        "manifest_matches": true,
+        "original_matches": true
+      },
+      {
+        "path": "参考素材/用户/首页目标截图-20261117.png",
+        "bytes": 587889,
+        "sha256": "ab1d9099f4374ea8ad6d979415d45bc1cd77c8492a613c29332ab1f92e720726",
+        "manifest_matches": true,
+        "original_matches": true
+      }
+    ]
+  },
+  "links": {
+    "markdown_files_checked": 12,
+    "local_links_checked": 94,
+    "missing": [],
+    "remote_links_refetched": false
+  },
+  "preservation": {
+    "baseline_existing_files": 253,
+    "protected_existing_files": 249,
+    "protected_existing_files_unchanged": true,
+    "changed_existing_files": [
+      "AGENTS.md",
+      "PROJECT.md",
+      "README.md",
+      "project-docs/04-当前状态.md"
+    ],
+    "unexpected_changes": [],
+    "missing_existing_files": [],
+    "new_files_outside_ui_archive": [],
+    "dist_files_checked": 148,
+    "dist_files_unchanged": true,
+    "git_head_before": "56743457a2ef9b173002b845fd37e64027893be3",
+    "git_head_after": "56743457a2ef9b173002b845fd37e64027893be3",
+    "git_head_unchanged": true
+  },
+  "historical_variants": {
+    "meshlab-home-directions.html": [
+      "精密机械展厅",
+      "机械剧场",
+      "工程图鉴"
+    ],
+    "meshlab-six-homepages.html": [
+      "深蓝玻璃",
+      "冰白玻璃",
+      "石墨银",
+      "工程蓝图",
+      "暖白图鉴",
+      "交互学习馆 · 网站参考版"
+    ]
+  },
+  "temporary_signed_urls_in_archive": [],
+  "not_performed": [
+    "正式首页修改",
+    "投影轮播新原型制作",
+    "复制后样稿浏览器或离线运行验收",
+    "产品测试",
+    "真实 AI 调用",
+    "设备语音验证",
+    "重新联网刷新参考",
+    "提交/同步/推送/部署"
+  ],
+  "user_acceptance": "未由用户验收；本报告仅记录本地归档检查",
+  "evidence_scope_note": "文件保护比较覆盖建档前 Git 可见的已跟踪与未忽略未跟踪文件；不覆盖被 Git 忽略的文件或目录。"
+}

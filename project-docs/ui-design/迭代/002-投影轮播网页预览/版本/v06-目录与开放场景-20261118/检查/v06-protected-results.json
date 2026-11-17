@@ -1,0 +1,32 @@
+[
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\dist\\index.html",
+    "sha256": "D9A01D08AEBCB1E4D8FFF887045E2454A2E8E21CB45E6FEB99C4143869140627",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\dist\\chat.js",
+    "sha256": "56AD659A6C508EBDAF2EFDCC4CD3F1AD7AADD5A33C45E4895121AA9E7124FBD3",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\package.json",
+    "sha256": "0A43441B313526D8D7CB8F887531D2B4579B4BD651F05DFD00C54A41AD8B867E",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\dist\\assets\\reference-stage.mjs",
+    "sha256": "AA6915D1EFD9D8203CD309D2471325D9B21B939A46D8174EE21665A9692BADA1",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\dist\\friction\\viewer.mjs",
+    "sha256": "BB4BB76DAB4DAB0D7E74C045E93BA405EFAADC5953E1DAC84310BB54575BFA09",
+    "unchanged": true
+  },
+  {
+    "path": "D:\\学习\\比赛\\meshlab\\meshlab\\dist\\rack\\viewer.mjs",
+    "sha256": "2D21498C4724363AEBAF9714783F78534C8D26C1A682D86328A769DDCA604515",
+    "unchanged": true
+  }
+]

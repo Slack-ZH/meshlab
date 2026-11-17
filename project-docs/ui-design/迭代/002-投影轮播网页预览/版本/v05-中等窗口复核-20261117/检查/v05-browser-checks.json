@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-17",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V05",
+  "basis": "U25: user satisfied with V04 and requested drag observation, idle turn and smooth mechanical handoff",
+  "implementation": "complete for local preview",
+  "localChecks": "passed within stated scope",
+  "designAcceptance": "V04 explicitly liked; V05 additions pending user review",
+  "browserMethod": "Visible in-app browser controls, screenshots, DOM/AX observations; no physical mobile device",
+  "desktop": {
+    "viewport": [1440, 1000],
+    "friction": ["default", "mouse drag changes yaw and pitch without selecting", "selected driven shaft", "exploded", "Home and double-click reset", "keyboard arrows"],
+    "rack": ["default", "selected transmission shaft", "exploded", "large yaw and pitch drag"],
+    "overflow": false
+  },
+  "mobileSized": {
+    "viewport": [390, 844],
+    "friction": ["default", "selected driven shaft", "exploded", "mouse drag at mobile dimensions"],
+    "rack": ["default", "selected pinion by click", "exploded", "retained large-angle view from desktop"],
+    "overflow": false,
+    "touchHardwareTested": false
+  },
+  "runtimeHandoff": {
+    "trace": "v05-handoff-trace.json",
+    "model": "friction",
+    "formingSpeedObserved": 0.057,
+    "settlingSpeedsObserved": [0.2201, 0.4570, 0.7051, 0.8933],
+    "poseTimeMonotonicDuringReplay": true,
+    "note": "UI diagnostics refresh around 180 ms; observations confirm a running model before ready, not a frame-rate benchmark"
+  },
+  "settings": {
+    "autoTurnDisabledWhileMechanismContinues": true,
+    "reducedModeStopsModelAndAutoTurn": true,
+    "manualKeyboardTurnWorksInReducedMode": true,
+    "evidence": "v05-settings-observed.json"
+  },
+  "logicChecks": [
+    "retained V04 phase order, continuity, blackout, reduced mode and binding checks",
+    "mechanical handoff sampled at simulated 30/60/120 FPS",
+    "per-model phase retention and pause/resume without catch-up",
+    "drag bounds, hold after release, auto rotation, reset and frame-rate independent integration",
+    "node --check for all preview mjs modules"
+  ],
+  "consoleWarningsAndErrors": [],
+  "finalResponsiveFix": {"width": 699, "overflow": false, "pauseButtonHeight": 44, "replayButtonHeight": 45.6, "change": "Wrap the control strip at 641-700px and prevent playback button text wrapping", "screenshot": "v05-preview-current-fixed.jpg", "motionCodeChanged": false},
+  "protectedFilesReport": "v05-protected-results.json",
+  "limits": ["real mobile touch and GPU performance", "all browsers", "full catalogue", "user acceptance of V05 hand feel and pacing", "real AI, speech and login are outside this change"],
+  "productionHomeModified": false,
+  "gitCommitted": false,
+  "syncedOrDeployed": false
+}

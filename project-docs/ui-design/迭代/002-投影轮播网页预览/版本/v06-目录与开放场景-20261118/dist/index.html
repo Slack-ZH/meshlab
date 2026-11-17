@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark"><meta name="description" content="啮合实验室：在开放的三维空间中探索机械传动。">
+  <title>开放场景 · MeshLab 预览 06</title>
+  <link rel="stylesheet" href="./world.css">
+  <script type="importmap">{"imports":{"three":"/shared/assets/three.module.js"}}</script>
+</head>
+<body data-view="projection" data-panel="none" data-focus="false">
+  <a class="skip interface" href="#preview-controls">跳到观看操作</a>
+  <main class="world" id="exhibit-layout">
+    <header class="topbar">
+      <a href="./" class="brand interface" aria-label="MeshLab 首页预览">mesh<span>lab</span><i></i></a>
+      <span class="project-name interface">啮合实验室</span>
+      <div class="header-tools">
+        <button class="header-button interface" id="catalogue-toggle" aria-expanded="false" aria-controls="catalogue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v5H4zM14 15h6v5h-6z"/></svg><span>机构目录</span></button>
+        <button class="header-button interface" id="tune-toggle" aria-expanded="false" aria-controls="tuning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg><span>观看设置</span></button>
+        <button class="header-button focus-toggle" id="focus-toggle" aria-pressed="false" aria-label="专注观看"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg><span>专注</span></button>
+      </div>
+    </header>
+
+    <div class="intro interface"><p class="eyebrow">MECHANISMS, IN MOTION</p><h1>让传动，<br>清晰发生。</h1><p class="intro-note">转动视角，发现结构之间的联系。</p></div>
+
+    <aside class="panel catalogue interface" id="catalogue" aria-labelledby="catalogue-title" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">EXPLORE THE COLLECTION</p><h2 id="catalogue-title">机构目录</h2></div><button class="icon-button" id="catalogue-close" aria-label="收起机构目录">×</button></div>
+      <label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="catalogue-search" type="search" placeholder="搜索机构或传动方式" aria-label="搜索机构或传动方式" autocomplete="off"></label>
+      <div class="catalogue-summary"><span>当前可预览</span><output id="catalogue-count" aria-live="polite">2 个机构</output></div>
+      <div class="catalogue-list" role="group" aria-label="选择机构">
+        <button class="catalogue-item" data-index="0" data-search="摩擦轮传动 friction 接触传动 旋转 轮径" aria-pressed="true" disabled>
+          <span class="catalogue-art" aria-hidden="true"><svg viewBox="0 0 240 104"><g><circle cx="75" cy="56" r="25"/><circle cx="151" cy="56" r="50"/><circle cx="75" cy="56" r="7"/><circle cx="151" cy="56" r="8"/><path d="M75 31v18m0 14v18M50 56h18m14 0h18M151 6v42m0 16v42M101 56h42m16 0h42M116 21l29 29m12 12 29 29M116 91l29-29m12-12 29-29"/></g></svg></span>
+          <span class="catalogue-kind">接触传动 <span>01</span></span><b>摩擦轮传动</b><span class="catalogue-description">两轮相接，让转动传递。</span><span class="catalogue-bottom"><small>旋转 → 旋转</small><i>查看机构 ↗</i></span>
+        </button>
+        <button class="catalogue-item" data-index="1" data-search="齿轮齿条 rack pinion 啮合传动 旋转 直线" aria-pressed="false" disabled>
+          <span class="catalogue-art" aria-hidden="true"><svg viewBox="0 0 240 104"><g><path d="M20 75h14l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h7l4-9 7 9h14v12H20Z"/><circle cx="122" cy="39" r="29" stroke-dasharray="9 3"/><circle cx="122" cy="39" r="21"/><circle cx="122" cy="39" r="7"/><path d="M122 18v14m0 14v14M101 39h14m14 0h14"/></g></svg></span>
+          <span class="catalogue-kind">啮合传动 <span>02</span></span><b>齿轮齿条传动</b><span class="catalogue-description">把旋转，变成直线运动。</span><span class="catalogue-bottom"><small>旋转 → 直线</small><i>查看机构 ↗</i></span>
+        </button>
+      </div>
+      <div class="catalogue-empty" id="catalogue-empty" hidden><p>没有找到匹配的机构</p><button class="text-button" id="search-clear">清空搜索</button></div>
+      <p class="panel-footnote">选择一个机构，在同一场景里观察。</p>
+    </aside>
+
+    <section class="showcase" aria-label="三维投影场景">
+      <div id="viewport" role="region" tabindex="0" aria-label="三维机构投影，可拖拽或用方向键观察，双击或 Home 键复位，点击零件查看名称。"></div>
+      <div class="load-message" id="loading">正在准备三维场景<span></span></div>
+      <div class="error-message" id="error" hidden><p>三维预览暂时无法显示</p><span id="error-detail"></span><button id="retry">重新载入</button></div>
+      <div class="selection interface" id="selection" hidden><span>当前零件</span><b id="part-name"></b><button id="clear-selection" aria-label="取消零件选择">×</button></div>
+    </section>
+
+    <section class="mechanism-info interface" aria-labelledby="mechanism-title">
+      <div class="info-overline"><span id="scene-index">01 / 02</span><p class="eyebrow" id="mechanism-english">FRICTION DRIVE</p><span class="live-status" role="status" id="status"><i></i><span>准备投影</span></span></div>
+      <h2 id="mechanism-title">摩擦轮传动</h2><p id="mechanism-description">两轮相接，让转动传递。</p>
+    </section>
+    <div class="scene-hint interface"><span>↔</span><span id="scene-hint-text">拖拽观察 · 双击复位 · 点击选择零件</span></div>
+    <div class="control-strip interface" id="preview-controls">
+      <button id="pause" class="icon-button pause-button" aria-pressed="false" title="暂停动画" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span class="sr-only">暂停动画</span></button>
+      <button id="quick-next" class="next-button" disabled>下一机构 <span>→</span></button>
+    </div>
+
+    <section class="panel tuning interface" id="tuning" aria-labelledby="tuning-title" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">MAKE ROOM TO LOOK</p><h2 id="tuning-title">观看设置</h2></div><button class="icon-button" id="tuning-close" aria-label="收起观看设置">×</button></div>
+      <div class="view-switch" role="group" aria-label="预览内容"><button id="view-projection" aria-pressed="true">机构投影</button><button id="view-device" aria-pressed="false">设备近景</button></div>
+      <div class="action-pair"><button class="panel-action" id="structure" aria-pressed="false" disabled><span>拆开观察</span><span aria-hidden="true">↗</span></button><button class="panel-action" id="replay" disabled><span>↻</span> 重播投影</button></div>
+      <div class="mechanism-spec"><span id="parameter-note">轮径</span><strong id="parameter">120 / 240 mm</strong></div>
+      <div class="tuning-grid">
+        <label class="check-label"><input type="checkbox" id="auto-turn" checked><span>自动旋转展示<small>拖拽后稍停再续转，选中或拆开时停转。</small></span></label>
+        <label class="check-label"><input type="checkbox" id="reduced"><span>减少动态<small>停止自动运动，保留手动观察。</small></span></label>
+        <label for="light"><span>投影光强 <output id="light-value" for="light">45%</output></span><input id="light" type="range" min="0" max="100" value="45"></label>
+        <label for="device-scale"><span>投影仪比例 <output id="device-scale-value" for="device-scale">62%</output></span><input id="device-scale" type="range" min="45" max="80" value="62"></label>
+        <label for="speed"><span>启停速度 <output id="speed-value" for="speed">1.0×</output></span><input id="speed" type="range" min="50" max="150" step="10" value="100"></label>
+      </div>
+      <div class="motion-review"><button id="inspect-toggle" class="text-button" aria-expanded="false" aria-controls="motion-inspector">分解查看启停 <span>＋</span></button><div id="motion-inspector" hidden><label for="motion-progress">启停进度 <output id="motion-progress-value" for="motion-progress">轮廓凝实</output></label><input id="motion-progress" type="range" min="0" max="100" value="65" step="1"><div class="sequence-strip" aria-label="投影切换步骤"><ol><li data-phase="closing">消散</li><li data-phase="igniting">预热</li><li data-phase="launching">上行</li><li data-phase="forming">凝实</li><li data-phase="settling">回落</li></ol><p id="phase-caption">拖动查看每一刻</p></div></div></div>
+      <button id="reset-tuning" class="text-button reset-button">恢复默认设置</button>
+    </section>
+  </main>
+  <footer class="interface"><span>MESHLAB · 看见结构，理解机械。</span><span>首页局部预览 06</span></footer>
+  <noscript><p class="noscript">此交互预览需要启用 JavaScript。</p></noscript>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

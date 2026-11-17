@@ -1,0 +1,150 @@
+{
+  "searchLinear": {
+    "count": "1 个机构",
+    "visible": [
+      "1"
+    ]
+  },
+  "searchEmpty": {
+    "count": "0 个机构",
+    "emptyVisible": true
+  },
+  "mobileCatalogueBounds": {
+    "panel": {
+      "bottom": 414,
+      "height": 330,
+      "left": 14,
+      "right": 376.3999938964844,
+      "top": 84,
+      "width": 362.3999938964844,
+      "x": 14,
+      "y": 84
+    },
+    "scrollWidth": 390,
+    "viewport": {
+      "bottom": 992,
+      "height": 562,
+      "left": 0,
+      "right": 390.3999938964844,
+      "top": 430,
+      "width": 390.3999938964844,
+      "x": 0,
+      "y": 430
+    },
+    "width": 390
+  },
+  "mobileSelectionBounds": {
+    "hint": {
+      "bottom": 696.000036239624,
+      "height": 18.399999618530273,
+      "left": 108.01250457763672,
+      "right": 282.3875045776367,
+      "top": 677.6000366210938,
+      "width": 174.375,
+      "x": 108.01250457763672,
+      "y": 677.6000366210938
+    },
+    "selected": "driven-wheel",
+    "selection": {
+      "bottom": 668,
+      "height": 44,
+      "left": 111.5562515258789,
+      "right": 278.84375762939453,
+      "top": 624,
+      "width": 167.28750610351562,
+      "x": 111.5562515258789,
+      "y": 624
+    }
+  },
+  "reduced": {
+    "panel": "none",
+    "phase": "ready",
+    "reduced": true
+  },
+  "focus": {
+    "buttons": [
+      "focus-toggle"
+    ],
+    "focus": "true",
+    "interfaces": [
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "A",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "A",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "SPAN",
+        "visibility": "hidden"
+      },
+      {
+        "id": "catalogue-toggle",
+        "inertAttribute": "",
+        "tag": "BUTTON",
+        "visibility": "hidden"
+      },
+      {
+        "id": "tune-toggle",
+        "inertAttribute": "",
+        "tag": "BUTTON",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "DIV",
+        "visibility": "hidden"
+      },
+      {
+        "id": "catalogue",
+        "inertAttribute": "",
+        "tag": "ASIDE",
+        "visibility": "hidden"
+      },
+      {
+        "id": "selection",
+        "inertAttribute": "",
+        "tag": "DIV",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "SECTION",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "DIV",
+        "visibility": "hidden"
+      },
+      {
+        "id": "preview-controls",
+        "inertAttribute": "",
+        "tag": "DIV",
+        "visibility": "hidden"
+      },
+      {
+        "id": "tuning",
+        "inertAttribute": "",
+        "tag": "SECTION",
+        "visibility": "hidden"
+      },
+      {
+        "id": "",
+        "inertAttribute": "",
+        "tag": "FOOTER",
+        "visibility": "hidden"
+      }
+    ]
+  }
+}

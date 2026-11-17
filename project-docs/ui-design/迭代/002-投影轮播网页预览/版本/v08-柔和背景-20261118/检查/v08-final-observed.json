@@ -1,0 +1,49 @@
+{
+  "state": {
+    "autoTurn": true,
+    "body": {
+      "busy": "false",
+      "dragging": "false",
+      "environment": "soft",
+      "expanded": "false",
+      "focus": "false",
+      "mechanism": "friction",
+      "panel": "none",
+      "paused": "false",
+      "phase": "ready",
+      "ready": "true",
+      "reduced": "false",
+      "selected": "",
+      "view": "projection"
+    },
+    "errorHidden": true,
+    "reduced": false,
+    "scrollWidth": 684,
+    "title": "柔和空间 · MeshLab 预览 08",
+    "viewport": {
+      "autoTurning": "false",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "0.0000",
+      "motionTime": "9.0033",
+      "pitch": "0.0000",
+      "yaw": "0.0000"
+    },
+    "width": 684
+  },
+  "logs": [],
+  "medium": {
+    "count": "1 个机构",
+    "panelBottom": 414,
+    "sceneTop": 430,
+    "scrollWidth": 684,
+    "width": 684
+  },
+  "focus": {
+    "focus": "true",
+    "inertCount": 13,
+    "interfaceCount": 13,
+    "scrollWidth": 699,
+    "width": 699
+  }
+}

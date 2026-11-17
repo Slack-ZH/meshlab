@@ -1,0 +1,20 @@
+{
+  "state": {
+    "auto": true,
+    "busy": "false",
+    "paused": "false",
+    "phase": "ready",
+    "pose": {
+      "autoTurning": "true",
+      "dragging": "false",
+      "drive": "1.0000",
+      "motionSpeed": "1.0000",
+      "motionTime": "29.0093",
+      "pitch": "0.0000",
+      "yaw": "2.2617"
+    },
+    "reduced": false,
+    "title": "单机投影 · MeshLab 预览 05"
+  },
+  "logs": []
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "dist/models.mjs",
+    "unchanged": true
+  },
+  {
+    "path": "dist/motion.mjs",
+    "unchanged": true
+  },
+  {
+    "path": "dist/presentation.mjs",
+    "unchanged": true
+  },
+  {
+    "path": "dist/projection.mjs",
+    "unchanged": true
+  },
+  {
+    "path": "dist/projector.mjs",
+    "unchanged": true
+  }
+]

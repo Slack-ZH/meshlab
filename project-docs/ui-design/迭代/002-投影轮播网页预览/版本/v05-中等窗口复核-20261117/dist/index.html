@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark"><meta name="description" content="啮合实验室投影轮播局部预览：简洁底座、中央发光盘、清晰的机械结构。">
+  <title>单机投影 · MeshLab 预览 05</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"/shared/assets/three.module.js"}}</script>
+</head>
+<body data-view="projection">
+  <a class="skip" href="#preview-controls">跳到预览操作</a>
+  <div class="shell">
+    <header class="topbar">
+      <a href="./" class="brand" aria-label="MeshLab 投影轮播预览">mesh<span>lab</span><i></i></a>
+      <span class="project-name">啮合实验室<span> / </span>投影轮播</span>
+      <button class="quiet-button" id="tune-toggle" aria-expanded="false" aria-controls="tuning"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg><span>调节效果</span></button>
+    </header>
+    <main>
+      <div class="intro"><div><p class="eyebrow"><span></span> MECHANISM / IN FOCUS</p><h1>让传动，清晰发生。</h1></div><p class="edition">交互预览 <b>05</b></p></div>
+      <div class="view-switch" role="group" aria-label="预览内容"><button id="view-projection" aria-pressed="true">机构投影</button><button id="view-device" aria-pressed="false">设备近景 <span>↗</span></button><button id="catalogue-toggle" aria-expanded="false" aria-controls="catalogue">机构目录 <span>☰</span></button></div>
+      <div class="exhibit-layout" id="exhibit-layout">
+      <aside class="catalogue" id="catalogue" aria-label="机构目录" hidden>
+        <div class="catalogue-heading"><h2>机构目录</h2><button id="catalogue-close" aria-label="收起机构目录">×</button></div>
+        <p class="catalogue-note">本次预览 · 2 个机构</p>
+        <div class="catalogue-list" role="group" aria-label="选择机构">
+          <button data-index="0" aria-pressed="true" disabled><span class="catalogue-number">01</span><span><b>摩擦轮传动</b><small>接触传动 / 旋转 → 旋转</small></span><i>↗</i></button>
+          <button data-index="1" aria-pressed="false" disabled><span class="catalogue-number">02</span><span><b>齿轮齿条</b><small>啮合传动 / 旋转 → 直线</small></span><i>↗</i></button>
+        </div>
+      </aside>
+      <section class="showcase" aria-label="三维投影展台">
+        <div class="scene-bar"><span class="mono">PROJECTION <b id="scene-index">01 / 02</b></span><span class="live-status" role="status" id="status"><i></i><span>准备投影</span></span></div>
+        <div id="viewport" role="region" tabindex="0" aria-label="三维机构投影，可拖拽或用方向键观察，双击或 Home 键复位，点击模型可选择零件。"></div>
+        <div class="load-message" id="loading">正在准备三维展台<span></span></div>
+        <div class="error-message" id="error" hidden><p>三维预览暂时无法显示</p><span id="error-detail"></span><button id="retry">重新载入</button></div>
+        <div class="selection" id="selection" hidden><span>当前零件</span><b id="part-name"></b><button id="clear-selection" aria-label="取消零件选择">×</button></div>
+        <div class="scene-hint"><span class="hint-mark">↔</span><span id="scene-hint-text">拖动查看设备 · 双击恢复视角</span></div>
+        <button class="scene-arrow previous" id="previous" aria-label="上一个机构" disabled>←</button>
+        <button class="scene-arrow next" id="next" aria-label="下一个机构" disabled>→</button>
+      </section>
+      </div>
+      <div class="motion-review">
+        <button id="inspect-toggle" class="text-button" aria-expanded="false" aria-controls="motion-inspector">分解查看启停 <span>＋</span></button>
+        <div id="motion-inspector" hidden><label for="motion-progress">启停进度 <output id="motion-progress-value" for="motion-progress">轮廓凝实</output></label><input id="motion-progress" type="range" min="0" max="100" value="65" step="1"><p>拖动停在任意一刻 · 点“重播投影”恢复完整动画</p></div>
+      </div>
+      <section class="mechanism-info" aria-labelledby="mechanism-title">
+        <div><p class="eyebrow" id="mechanism-english">FRICTION DRIVE</p><h2 id="mechanism-title">摩擦轮传动</h2><p id="mechanism-description">两轮相接，让转动传递。</p></div>
+        <div class="mechanism-spec"><span id="parameter-note">轮径</span><strong id="parameter">120 / 240 mm</strong></div>
+        <button class="structure-button" id="structure" aria-pressed="false" disabled><span>拆开观察</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4Zm-8 9 8 4 8-4M4 17l8 4 8-4"/></svg></button>
+      </section>
+      <div class="device-details"><span><b>01</b> 内凹发射腔</span><span><b>02</b> 光学核心</span><span><b>03</b> 一体式机身</span></div>
+      <div class="control-strip" id="preview-controls">
+        <div class="browse-next"><span id="item-counter">01 / 02</span><button id="quick-next" disabled>下一机构 <span>→</span></button></div>
+        <div class="playback"><button id="pause" class="quiet-button" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>暂停动画</span></button><button id="replay" class="replay-button" disabled><span>↻</span> 重播投影</button></div>
+      </div>
+      <section class="tuning" id="tuning" aria-label="调节预览效果" hidden>
+        <div class="tuning-heading"><h3>展示设置</h3><button id="reset-tuning" class="text-button">恢复默认</button></div>
+        <div class="tuning-grid">
+          <label for="device-scale"><span>投影仪比例 <output id="device-scale-value" for="device-scale">62%</output></span><input id="device-scale" type="range" min="45" max="80" value="62"><small>相对上一版设备大小；机构尺寸保持不变。</small></label>
+          <label for="light"><span>投影光强 <output id="light-value" for="light">45%</output></span><input id="light" type="range" min="0" max="100" value="45"><small>只调节盘面与光束，机构保持清晰。</small></label>
+          <label for="speed"><span>切换速度 <output id="speed-value" for="speed">1.0×</output></span><input id="speed" type="range" min="50" max="150" step="10" value="100"><small>调好后点“重播投影”感受变化。</small></label>
+          <label class="reduced-label"><input type="checkbox" id="auto-turn" checked><span>自动旋转展示<small>拖拽后稍停再续转；选中零件或拆开观察时保持视角。</small></span></label>
+          <label class="reduced-label"><input type="checkbox" id="reduced"><span>减少动态<small>停止自转与机构运转，以短淡入淡出切换；仍可手动拖拽。</small></span></label>
+        </div>
+      </section>
+      <div class="sequence-strip" aria-label="投影切换步骤"><span>切换节奏</span><ol><li data-phase="closing">消散</li><li data-phase="igniting">预热</li><li data-phase="launching">上行</li><li data-phase="forming">凝实</li><li data-phase="settling">回落</li></ol><p id="phase-caption">中央发光盘 · 简洁底座 · 机构优先</p></div>
+    </main>
+    <footer><span>MESHLAB <span class="footer-line">—</span> 看见结构，理解机械。</span><span>投影轮播局部预览 · 正式首页未改动</span></footer>
+  </div>
+  <noscript><p class="noscript">此交互预览需要启用 JavaScript。</p></noscript>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

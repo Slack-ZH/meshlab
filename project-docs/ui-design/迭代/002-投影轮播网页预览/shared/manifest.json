@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-18",
+  "reason": "Reproducible V08 branch archive authorized by U29",
+  "files": [
+    {
+      "path": "assets/three.module.js",
+      "source": "meshlab/dist/assets/three.module.js",
+      "bytes": 1369252,
+      "sha256": "DA7F8AECB0B1E4A55E820CCE5DC5A5A8EB13DC379758F215E8FB07937BE7A6A3"
+    },
+    {
+      "path": "assets/OrbitControls.js",
+      "source": "meshlab/dist/assets/OrbitControls.js",
+      "bytes": 33657,
+      "sha256": "00021F896FEE7ACCAD035ADA2B72ABD9E12F21DE349896576E8FD75D9542989E"
+    },
+    {
+      "path": "assets/reference-stage.mjs",
+      "source": "meshlab/dist/assets/reference-stage.mjs",
+      "bytes": 5702,
+      "sha256": "AA6915D1EFD9D8203CD309D2471325D9B21B939A46D8174EE21665A9692BADA1"
+    },
+    {
+      "path": "friction/viewer.mjs",
+      "source": "meshlab/dist/friction/viewer.mjs",
+      "bytes": 15923,
+      "sha256": "BB4BB76DAB4DAB0D7E74C045E93BA405EFAADC5953E1DAC84310BB54575BFA09"
+    },
+    {
+      "path": "friction/mechanics.mjs",
+      "source": "meshlab/dist/friction/mechanics.mjs",
+      "bytes": 3250,
+      "sha256": "37A262CA5077EDDE805CE3E455A8BEABDBC79D976B0D822528F0ABC2D3DB779F"
+    },
+    {
+      "path": "rack/viewer.mjs",
+      "source": "meshlab/dist/rack/viewer.mjs",
+      "bytes": 18606,
+      "sha256": "2D21498C4724363AEBAF9714783F78534C8D26C1A682D86328A769DDCA604515"
+    },
+    {
+      "path": "rack/mechanics.mjs",
+      "source": "meshlab/dist/rack/mechanics.mjs",
+      "bytes": 4486,
+      "sha256": "1A09FF274ABCF384D1BE0F286972260923C42952C7730D852DF3FF116321ABD7"
+    }
+  ]
+}

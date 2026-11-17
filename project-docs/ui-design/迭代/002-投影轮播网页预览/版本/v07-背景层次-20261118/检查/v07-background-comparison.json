@@ -1,0 +1,29 @@
+{
+  "before": {
+    "autoTurning": "false",
+    "dragging": "false",
+    "drive": "1.0000",
+    "motionSpeed": "0.0000",
+    "motionTime": "74.9943",
+    "pitch": "0.0000",
+    "yaw": "0.0000"
+  },
+  "after": {
+    "autoTurning": "false",
+    "dragging": "false",
+    "drive": "1.0000",
+    "motionSpeed": "0.0000",
+    "motionTime": "74.9943",
+    "pitch": "0.0000",
+    "yaw": "0.0000"
+  },
+  "medium": {
+    "environment": "depth",
+    "scrollWidth": 699,
+    "width": 699
+  },
+  "reset": {
+    "environment": "depth",
+    "value": "depth"
+  }
+}

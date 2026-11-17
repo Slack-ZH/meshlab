@@ -39,6 +39,8 @@ node --env-file-if-exists=.env server/local.mjs
 
 ## AI 协作与任务交接
 
+首页 UI 新对话从 [接续说明](project-docs/ui-design/接续说明.md) 开始；要求、参考网站、历史样稿和反馈集中在 [UI 设计工作区](project-docs/ui-design/README.md)。V05 先保留；V08 用连续曲面、柔光与淡落影保留背景纵深，具体效果待用户评审。U29 已授权 [归档上传到独立分支](project-docs/ui-design/上传归档-20261118.md)，不合并 main、不部署；正式首页尚未接入新方案。
+
 执行账号从 [任务队列](https://github.com/Slack-ZH/meshlab/blob/handoff/handoff/README.md) 找到待办，再阅读对应任务单。任务单包含改动范围、实施建议、验收标准，以及此次要提交的截图或测试结果。
 
 规划账号负责把仓库维护者的需求写进任务队列，并按标准检查 PR。执行账号从任务单指定的基准开工作分支，完成实现和验证，再向 `main` 提交草稿 PR，按任务单回传结果。合并由仓库维护者决定。具体流程见 [交接说明](handoff/README.md)。
@@ -51,6 +53,7 @@ node --env-file-if-exists=.env server/local.mjs
 | [`meshlab/server/`](meshlab/server/) | AI 聊天接口、Firebase 认证、账号预算和本地预览代理 |
 | [`meshlab/scripts/`](meshlab/scripts/) | CAD 与工程文档生成、浏览器验证和后端测试 |
 | [`meshlab/docs/`](meshlab/docs/) | 设计审查、AI 接入和开发规划 |
+| [UI 设计工作区](project-docs/ui-design/README.md) | 首页 UI 共识、参考素材、样稿、反馈和逐轮决策；与正式页面分开 |
 | [`handoff/`](handoff/) | AI 协作说明和任务模板 |
 | [郑州大学 AI 竞赛资料](meshlab郑州大学ai竞赛资料/) | 项目说明书、研究记录和配图 |
 

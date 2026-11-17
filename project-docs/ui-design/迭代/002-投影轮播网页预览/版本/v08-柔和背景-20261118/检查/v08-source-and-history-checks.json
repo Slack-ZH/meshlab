@@ -1,0 +1,192 @@
+{
+  "date": "2026-11-18",
+  "history": [
+    {
+      "path": "check.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "serve.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "记录.md",
+      "unchanged": true
+    },
+    {
+      "path": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "path": "dist/app.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/catalogue.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/depth-environment.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/environment.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/index.html",
+      "unchanged": true
+    },
+    {
+      "path": "dist/models.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/motion.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/presentation.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/projection.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/projector.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/style.css",
+      "unchanged": true
+    },
+    {
+      "path": "dist/world.css",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-background-comparison.json",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-before-protected.json",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-browser-checks.json",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-compare-depth.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-compare-legacy.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-friction-default.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-friction-exploded.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-friction-selected.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-rack-default.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-rack-exploded.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-desktop-rack-selected.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-final-observed.json",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-medium-default.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-catalogue.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-focus.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-friction-default.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-friction-exploded.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-friction-selected.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-rack-default.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-rack-exploded.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-mobile-rack-selected.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-preview-current.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "检查/v07-protected-results.json",
+      "unchanged": true
+    }
+  ],
+  "core": [
+    {
+      "path": "dist/models.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/motion.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/presentation.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/projection.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/projector.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/depth-environment.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "dist/catalogue.mjs",
+      "unchanged": true
+    }
+  ],
+  "pass": true
+}

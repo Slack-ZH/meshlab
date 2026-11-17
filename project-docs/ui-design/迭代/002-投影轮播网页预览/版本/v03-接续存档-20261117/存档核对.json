@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-17",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V03",
+  "status": "Pending user feedback; animation requires redesign",
+  "files": [
+    {
+      "path": "check.mjs",
+      "bytes": 1419,
+      "sha256": "4597A537BD6651BA697C9A036998C666C6214785BD0CCA3D6C4F21DAD3E7528D",
+      "matchesSource": true
+    },
+    {
+      "path": "serve.mjs",
+      "bytes": 2208,
+      "sha256": "C8F0230C70F32C92A0F5D2D1F93B54A3C256BCC630DFC277B39C11D4AAB058E0",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/app.mjs",
+      "bytes": 19308,
+      "sha256": "DE850ACE80292ED871FFDFB7ECB34AD62983A7D25F03C4C2D9B208C3CBCA8BA6",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 6904,
+      "sha256": "E1C4ADE945849AD666687D8B4C942F306F77B453C773864F437C0B1C87805233",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/models.mjs",
+      "bytes": 3484,
+      "sha256": "44C334B0B8E87DB9774F1CC60E573E39495FAD2A4FF9BADB71FE8B27C3FD304B",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/motion.mjs",
+      "bytes": 1672,
+      "sha256": "382AD8E3704E627BAF70103BD4A83A954987E9F0ED8326170061E43B772FC736",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/projector.mjs",
+      "bytes": 5486,
+      "sha256": "0AF4C6313BEC53131A05D21FFD3B05905763B6656DC798DAB10FC54DF2E865C4",
+      "matchesSource": true
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 14843,
+      "sha256": "E73145DE496DF060911F4D5D27DE24459CBAA48FF40F18BD43D46209FDD3CC68",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/browser-checks.json",
+      "bytes": 1307,
+      "sha256": "7DCE59E4955E2BE93CFF7234E6C9E41B6542CF490F29E4075885725BE25E6293",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v03-desktop-catalogue.jpg",
+      "bytes": 77708,
+      "sha256": "F3A2E7A6EC546DDAC94F30393BDDCCB43F58B7E4DB8B664B04A13327B9EB5AEA",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v03-desktop-default.jpg",
+      "bytes": 72662,
+      "sha256": "16FB9FEFB119A444008FA91DF21395C577D6DDC29BB57B2335155DBF75B3DE8F",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v03-mobile-catalogue.jpg",
+      "bytes": 47196,
+      "sha256": "1DE4E8A46787EA11110E87194F2E730920A71742A5565BFEFD7416B6E126C396",
+      "matchesSource": true
+    },
+    {
+      "path": "检查/v03-mobile-default.jpg",
+      "bytes": 50029,
+      "sha256": "F17A4F2557E6D806412ADACA3815AA150462D808748FE36CDEF8EA3ACB662CFC",
+      "matchesSource": true
+    }
+  ],
+  "sharedDependencies": [
+    {
+      "path": "meshlab/dist/assets/three.module.js",
+      "sha256": "DA7F8AECB0B1E4A55E820CCE5DC5A5A8EB13DC379758F215E8FB07937BE7A6A3"
+    },
+    {
+      "path": "meshlab/dist/assets/OrbitControls.js",
+      "sha256": "00021F896FEE7ACCAD035ADA2B72ABD9E12F21DE349896576E8FD75D9542989E"
+    },
+    {
+      "path": "meshlab/dist/assets/reference-stage.mjs",
+      "sha256": "AA6915D1EFD9D8203CD309D2471325D9B21B939A46D8174EE21665A9692BADA1"
+    },
+    {
+      "path": "meshlab/dist/friction/viewer.mjs",
+      "sha256": "BB4BB76DAB4DAB0D7E74C045E93BA405EFAADC5953E1DAC84310BB54575BFA09"
+    },
+    {
+      "path": "meshlab/dist/friction/mechanics.mjs",
+      "sha256": "37A262CA5077EDDE805CE3E455A8BEABDBC79D976B0D822528F0ABC2D3DB779F"
+    },
+    {
+      "path": "meshlab/dist/rack/viewer.mjs",
+      "sha256": "2D21498C4724363AEBAF9714783F78534C8D26C1A682D86328A769DDCA604515"
+    },
+    {
+      "path": "meshlab/dist/rack/mechanics.mjs",
+      "sha256": "1A09FF274ABCF384D1BE0F286972260923C42952C7730D852DF3FF116321ABD7"
+    }
+  ],
+  "note": "serve.mjs is an unchanged source snapshot: run the active iteration server, not this deeper archive copy. Dependencies are recorded by hash and are not overwritten by this checkpoint.",
+  "handoffVerification": {
+    "date": "2026-11-17",
+    "copiedFilesVerified": 13,
+    "activeFilesUnchanged": 13,
+    "sharedDependenciesUnchanged": 7,
+    "handoffDocuments": 7,
+    "localLinksVerified": 73,
+    "brokenLinks": [],
+    "productTestsRerun": false,
+    "gitCommitted": false,
+    "deployed": false
+  }
+}

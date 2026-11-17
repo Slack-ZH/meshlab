@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-18",
+  "archive": [
+    {
+      "version": "v03-接续存档-20261117",
+      "files": 13,
+      "pass": true
+    },
+    {
+      "version": "v04-启停动画-20261117",
+      "files": 32,
+      "pass": true
+    },
+    {
+      "version": "v05-中等窗口复核-20261117",
+      "files": 39,
+      "pass": true
+    },
+    {
+      "version": "v05-观察与运动衔接-20261117",
+      "files": 38,
+      "pass": true
+    },
+    {
+      "version": "v06-目录与开放场景-20261118",
+      "files": 43,
+      "pass": true
+    },
+    {
+      "version": "v07-背景层次-20261118",
+      "files": 39,
+      "pass": true
+    },
+    {
+      "version": "v08-柔和背景-20261118",
+      "files": 41,
+      "pass": true
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "assets/three.module.js",
+      "pass": true
+    },
+    {
+      "path": "assets/OrbitControls.js",
+      "pass": true
+    },
+    {
+      "path": "assets/reference-stage.mjs",
+      "pass": true
+    },
+    {
+      "path": "friction/viewer.mjs",
+      "pass": true
+    },
+    {
+      "path": "friction/mechanics.mjs",
+      "pass": true
+    },
+    {
+      "path": "rack/viewer.mjs",
+      "pass": true
+    },
+    {
+      "path": "rack/mechanics.mjs",
+      "pass": true
+    }
+  ],
+  "http": [
+    {
+      "path": "/",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/app.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/catalogue.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/depth-environment.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/environment.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/index.html",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/models.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/motion.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/presentation.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/projection.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/projector.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/soft-environment.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/style.css",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/world.css",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/assets/three.module.js",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/assets/OrbitControls.js",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/assets/reference-stage.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/friction/viewer.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/friction/mechanics.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/rack/viewer.mjs",
+      "status": 200,
+      "byteIdentical": true
+    },
+    {
+      "path": "/shared/rack/mechanics.mjs",
+      "status": 200,
+      "byteIdentical": true
+    }
+  ],
+  "isolatedPreview": true,
+  "deniedOutsideWhitelist": 404,
+  "pass": true
+}

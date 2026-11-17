@@ -1,0 +1,53 @@
+ M README.md
+ M meshlab/dist/bicycle/viewer.mjs
+ M meshlab/dist/chat.js
+ M meshlab/dist/friction/viewer.mjs
+ M meshlab/dist/index.html
+ M meshlab/package.json
+ M meshlab/scripts/test-friction.mjs
+?? AGENTS.md
+?? PROJECT.md
+?? meshlab/dist/assets/reference-stage.mjs
+?? meshlab/dist/bevel-gears.html
+?? meshlab/dist/crank-rocker.html
+?? meshlab/dist/double-rocker.html
+?? meshlab/dist/eccentric-follower.html
+?? meshlab/dist/experiments/
+?? meshlab/dist/geneva-drive.html
+?? meshlab/dist/linkages/
+?? meshlab/dist/mechanisms/
+?? meshlab/dist/parallelogram.html
+?? meshlab/dist/quick-return.html
+?? meshlab/dist/rack.html
+?? meshlab/dist/rack/
+?? meshlab/dist/ratchet-pawl.html
+?? meshlab/dist/roller-cam.html
+?? meshlab/dist/scissor-jack.html
+?? meshlab/dist/scotch-yoke.html
+?? meshlab/docs/eleven-mechanisms-full-standard-20261117.md
+?? meshlab/docs/eleven-mechanisms-standard-audit-20261116.md
+?? meshlab/docs/linkages-acceptance-20261116.md
+?? meshlab/docs/w-mechanisms-acceptance-20261116.md
+?? meshlab/scripts/build-experiments.mjs
+?? meshlab/scripts/build-linkage-pages.mjs
+?? meshlab/scripts/build-mechanism-pages.mjs
+?? meshlab/scripts/check-experiment-standard.mjs
+?? meshlab/scripts/experiment-page-contract.mjs
+?? meshlab/scripts/experiment-teaching-checks.mjs
+?? meshlab/scripts/inspect-full-standard.mjs
+?? meshlab/scripts/inspect-linkages.mjs
+?? meshlab/scripts/inspect-mechanisms.mjs
+?? meshlab/scripts/linkage-browser.mjs
+?? meshlab/scripts/serve-linkages.mjs
+?? meshlab/scripts/test-experiment-contract.mjs
+?? meshlab/scripts/test-experiment-standard.mjs
+?? meshlab/scripts/test-linkages.mjs
+?? meshlab/scripts/test-mechanisms.mjs
+?? meshlab/scripts/test-rack.mjs
+?? meshlab/scripts/verify-experiment-chat.mjs
+?? meshlab/scripts/verify-experiment-compatibility.mjs
+?? meshlab/scripts/verify-experiment-input.mjs
+?? meshlab/scripts/verify-full-standard.mjs
+?? meshlab/scripts/verify-linkages.mjs
+?? meshlab/scripts/verify-mechanisms.mjs
+?? project-docs/

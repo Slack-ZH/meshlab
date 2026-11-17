@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-18",
+  "timezone": "Asia/Hong_Kong",
+  "version": "V08 柔和背景",
+  "url": "http://127.0.0.1:8092/",
+  "status": {
+    "implementation": "complete locally",
+    "localChecks": "passed",
+    "userReview": "pending"
+  },
+  "scope": "Only background refinement for the existing friction and rack/pinion local preview; no production homepage integration, commit, sync, push or deployment.",
+  "static": {
+    "moduleSyntax": "10 preview modules passed node --check",
+    "checkScript": "check.mjs passed unchanged projection, motion handoff, drag/auto-turn, control and catalogue assertions",
+    "protectedFiles": "v08-protected-files.json",
+    "coreAndHistory": "v08-source-and-history-checks.json"
+  },
+  "visualChecks": [
+    {"viewport": "1440x1000", "model": "friction", "states": ["default", "clicked driven shaft selected", "exploded", "restored"], "images": ["v08-desktop-friction-default.jpg", "v08-desktop-friction-selected.jpg", "v08-desktop-friction-exploded.jpg"]},
+    {"viewport": "1440x1000", "model": "rack", "states": ["default", "clicked shaft collar selected", "exploded", "restored"], "images": ["v08-desktop-rack-default.jpg", "v08-desktop-rack-selected.jpg", "v08-desktop-rack-exploded.jpg"]},
+    {"viewport": "390x844", "model": "friction", "states": ["default", "clicked driven shaft selected", "exploded", "restored"], "images": ["v08-mobile-friction-default.jpg", "v08-mobile-friction-selected.jpg", "v08-mobile-friction-exploded.jpg"]},
+    {"viewport": "390x844", "model": "rack", "states": ["default", "clicked shaft selected", "exploded", "restored"], "images": ["v08-mobile-rack-default.jpg", "v08-mobile-rack-selected.jpg", "v08-mobile-rack-exploded.jpg"]}
+  ],
+  "backgroundComparison": {
+    "sequence": "soft -> depth (V07) -> soft while paused",
+    "sameYawPitchMotionTime": true,
+    "rawEvidence": "v08-background-compare.json",
+    "comparisonImage": "v08-compare-v07.jpg",
+    "resetDefault": "After selecting depth, reset restored soft, auto-turn enabled, reduced motion disabled and 62% projector scale. Playback remains separately controlled."
+  },
+  "layoutAndControls": {
+    "mobileCatalogue": {"clientWidth": 390, "scrollWidth": 390, "panelBottom": 414, "sceneTop": 430},
+    "medium699x900": {"clientWidth": 684, "scrollWidth": 684, "query": "直线", "results": 1, "panelBottom": 414, "sceneTop": 430},
+    "singlePanel": "Opening tuning closed catalogue",
+    "focus": "Only scene and exit control remained accessible; all 13 interface elements had inert; Escape restored normal view",
+    "final": "Soft background, friction, assembled, no selection, panels closed, pause false, auto-turn checked, reduced false; temporary viewport override reset. See v08-final-observed.json."
+  },
+  "observations": [
+    "The default environment has no frames, engineering grid, rings or ticks. Curved matte backdrop, broad lighting and low-contrast floor shadows retain depth; visual acceptance is for the user to decide.",
+    "One automation wait for a model switch timed out. The next AX/DOM read showed ready=true, phase=ready and busy=false, and the rack was visible. The remaining checks proceeded from that observed state.",
+    "Warning/error console log was empty. No GPU frame-rate measurement was made.",
+    "Final resume-state DOM sample was taken immediately after input; it records pause=false and auto-turn enabled, not a settled-speed measurement. Live auto-turn and mechanical movement were observed after the rack switch."
+  ],
+  "notVerified": ["Physical phone touch and GPU", "All browsers", "Full mechanism catalogue", "Actual AI responses, device speech and login (outside this change)", "User design acceptance"]
+}
