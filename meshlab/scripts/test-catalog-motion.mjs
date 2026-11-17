@@ -33,7 +33,7 @@ test('conveyor integer chain loop, carrying/return routes, dual-chain slats and 
   const m=by(26);for(const teeth of [12,16,24])for(const straightLinks of [12,24]){
     const p={...defaults(m),teeth,straightLinks},g=d.conveyorGeometry(p);close(g.path.length,g.N*25);assert.equal(g.N%2,0);
     const top=g.path.sections.find(x=>x.type==='line'&&x.index===0),bottom=g.path.sections.find(x=>x.type==='line'&&x.index===1);close(top.a[1],g.R);close(bottom.a[1],-g.R);close(top.length,g.Centre);close(bottom.length,g.Centre);
-    const b=m.build(p),takeup=b.parts.find(x=>x.id==='takeup');close(takeup.position[1]+18,-g.R);
+    const b=m.build(p),takeup=b.parts.find(x=>x.id==='takeup');close(takeup.position[1]+18,-g.R-25*.22);
     for(const phase of [0,.4,2]){const s=m.sample(p,phase);close(s.poses.drive.rotation[2],s.poses.idler.rotation[2]);const first=s.poses.link0,last=m.sample(p,phase-TAU*g.N/p.teeth).poses.link0;close(length(sub(first.position,last.position)),0,1e-7);for(let i=0;i<4;i++){const cargo=s.poses['load'+i],slat=s.poses['link'+2*Math.floor(i*g.N/8)];if(cargo.scale[0]){close(cargo.position[0],slat.position[0]);close(cargo.position[1]-slat.position[1],8.5);}}}
   }
 });

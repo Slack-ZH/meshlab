@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const source=new URL('../dist/timing.html',import.meta.url),target=new URL('../dist/catalog.html',import.meta.url);
-let html=fs.readFileSync(source,'utf8').replaceAll('timing/style.css?v=20261116-timing1','catalog/style.css?v=20261116-all1').replaceAll('timing/app.mjs?v=20261116-timing1','catalog/app.mjs?v=20261116-all1').replaceAll('chat.js?v=20261116-vice1','chat.js?v=20261116-all1').replaceAll('同步带传动','机械机构').replaceAll('播放同步带传动','播放机构运动');
+let html=fs.readFileSync(source,'utf8').replaceAll('timing/style.css?v=20261116-timing1','catalog/style.css?v=20261116-all1').replaceAll('timing/app.mjs?v=20261116-timing1','catalog/app.mjs?v=20261117-audit1').replaceAll('chat.js?v=20261116-vice1','chat.js?v=20261116-all1').replaceAll('同步带传动','机械机构').replaceAll('播放同步带传动','播放机构运动');
 const parameterStart=html.indexOf('<section id="parameters"'),readingStart=html.indexOf('<section id="performance"');
 html=html.slice(0,parameterStart)+`<section id="parameters" class="parameter-panel" aria-labelledby="parameter-title"><div class="settings"><section id="structure">
 <div class="parameter-heading"><div><h2 id="parameter-title">参数调节</h2><p class="hint" id="parameter-hint">调整参数，观察结构与运动的关系。</p></div><button id="reset-parameters" class="subtle-button" type="button">恢复默认</button></div>

@@ -6,11 +6,11 @@ export const rv=define({id:'rv-reducer',number:49,title:'RV减速器',descriptio
   fields:[num('sunTeeth','输入太阳轮齿数','齿',12,30,3,18),num('crankTeeth','曲柄齿轮齿数','齿',30,54,6,36),num('pins','针齿数','个',14,24,2,18)],
   validate(p){integer(p.sunTeeth,p.crankTeeth,p.pins);if((p.sunTeeth+p.crankTeeth)%3)throw Error('三曲柄装配要求前级齿数和可被3整除');},
   build(p){const g=rvData(p),out=[];
-    out.push(part('rv-input','前级输入齿轮','相对输出架驱动三个曲柄齿轮。',[gear(p.sunTeeth,1,8,C.input),cylinder(4,40,C.input,[0,0,-15])],[0,0,-28]));
+    out.push(part('rv-input','前级输入齿轮','相对输出架驱动三个曲柄齿轮。',[{...gear(p.sunTeeth,1,8,C.input),hole:4},cylinder(4,40,C.input,[0,0,-15])],[0,0,-28]));
     out.push(part('rv-ring','固定针齿壳','针齿数比摆线盘齿数多1，提供少齿差约束。',[ring(65,61,22,C.dark),...Array.from({length:p.pins},(_,i)=>cylinder(g.roller,24,C.steel,xy(g.R,i*TAU/p.pins)))],[0,0,4]));
-    for(let i=0;i<2;i++){const holes=Array.from({length:3},(_,j)=>circle(6,xy(g.c,TAU*j/3+i*Math.PI/(p.pins-1)).slice(0,2)));out.push(part('rv-disc'+i,'摆线盘 '+(i+1),'双盘偏心相位相差180°；盘齿比针齿少1。透明显示便于追踪后方前级齿轮。',[{kind:'polygon',points:cycloidOutline(p.pins,g.R,g.e,g.roller),holes,depth:6,color:i?C.mid:C.output,opacity:i?.4:.5}],[i?-g.e:g.e,0,i*9]));}
-    out.push(part('rv-output','输出架','与盘的低速姿态保持一致，支承三根曲柄。',[ring(13,5,7,C.output,[0,0,25]),cylinder(5,35,C.output,[0,0,43]),...Array.from({length:3},(_,i)=>rod([0,0,25],xy(g.c,TAU*i/3,25),4,C.output))]));
-    for(let i=0;i<3;i++){const phase=(1+p.sunTeeth/p.crankTeeth)*TAU*i/3+Math.PI-Math.PI/p.crankTeeth;out.push(part('rv-crank'+i,'曲柄齿轮与偏心轴 '+(i+1),'前级外啮合驱动偏心部；轴中心随输出架公转。',[{...gear(p.crankTeeth,1,8,C.steel,[0,0,-28]),rotation:[0,0,phase]},cylinder(3,60,C.mid,[0,0,-3]),cylinder(5,6,C.input,[g.e,0,0]),cylinder(5,6,C.input,[-g.e,0,9])],xy(g.c,TAU*i/3)));}
+    for(let i=0;i<2;i++){const holes=Array.from({length:3},(_,j)=>circle(6,xy(g.c,TAU*j/3+i*Math.PI/(p.pins-1)).slice(0,2)));out.push(part('rv-disc'+i,'摆线盘 '+(i+1),'双盘偏心相位相差180°；盘齿比针齿少1。透明显示便于追踪后方前级齿轮。',[{kind:'polygon',points:cycloidOutline(p.pins,g.R,g.e,g.roller+.01),holes,depth:6,color:i?C.mid:C.output,opacity:i?.4:.5},...Array.from({length:3},(_,j)=>ring(6,5,6,C.steel,xy(g.c,TAU*j/3+i*Math.PI/(p.pins-1))))],[i?-g.e:g.e,0,i*9]));}
+    out.push(part('rv-output','输出架','与盘的低速姿态保持一致，支承三根曲柄。',[ring(13,5,7,C.output,[0,0,25]),cylinder(5,35,C.output,[0,0,43]),...Array.from({length:3},(_,i)=>rod([0,0,25],xy(g.c-8,TAU*i/3,25),4,C.output)),...Array.from({length:3},(_,i)=>ring(7,3.2,7,C.output,xy(g.c,TAU*i/3,25)))]));
+    for(let i=0;i<3;i++){const phase=(1+p.sunTeeth/p.crankTeeth)*TAU*i/3+Math.PI-Math.PI/p.crankTeeth;out.push(part('rv-crank'+i,'曲柄齿轮与偏心轴 '+(i+1),'前级外啮合驱动偏心部；轴中心随输出架公转。',[{...gear(p.crankTeeth,1,8,C.steel,[0,0,-28]),hole:3,rotation:[0,0,phase]},cylinder(3,60,C.mid,[0,0,-3]),cylinder(5,6,C.input,[g.e,0,0]),cylinder(5,6,C.input,[-g.e,0,9])],xy(g.c,TAU*i/3)));}
     return {parts:out};},
   sample(p,a){const g=rvData(p),c=a/g.ratio,k=-(p.pins-1)*c,poses={'rv-input':rz(a),'rv-output':rz(c)};
     poses['rv-disc0']=rz(c,xy(g.e,k,0));poses['rv-disc1']=rz(c-Math.PI/(p.pins-1),xy(g.e,k+Math.PI,9));
@@ -19,21 +19,21 @@ export const rv=define({id:'rv-reducer',number:49,title:'RV减速器',descriptio
   principle:[{title:'两级耦合',text:'前级曲柄中心随输出架运动，不能简单把两个固定轴速比相乘。',formula:'i = 1 + N针 × Z曲柄 / Z输入'},
     {title:'少齿差',text:'摆线盘比固定针齿少1齿，偏心运动产生低速输出。',formula:'ω曲柄 = −(N针−1)ω输出'}],
   sources:[{title:'Nabtesco：摆线减速器原理',url:'https://www.nabtesco.de/en/service/faq/technologies/functional-principle-of-cycloidal-gears'}],
-  limits:'按RV运动约束和滚针包络构造双盘教学模型；曲柄孔、偏心轴承及双盘负载分配经过简化，未校核齿面修形、完整干涉、回差和制造公差。'});
+  limits:'按RV运动约束和滚针包络构造双盘教学模型；轮廓按每齿128点采样并留0.01 mm展示间隙；曲柄孔、偏心轴承及双盘负载分配经过简化，未校核齿面修形、完整干涉、回差和制造公差。'});
 
-const dctPairs=[[18,52],[24,46],[30,40],[36,34]],dctZ=[-45,-15,15,45];
+const dctPairs=[[18,52],[24,46],[30,40],[36,34]],dctZ=[15,-45,45,-15];
 function dctMotion(p,a){const k=Number(p.gear),selected=k?k-1:0,next=k===4?2:Math.min(3,selected+1),out=k?-a*dctPairs[selected][0]/dctPairs[selected][1]:0;
   const active=k?(selected%2):null,shaft=[0,0];if(k){shaft[active]=a;if(p.preselect==='on')shaft[1-active]=-out*dctPairs[next][1]/dctPairs[next][0];}return {k,selected,next,out,shaft,active};}
 export const dct=define({id:'dual-clutch-transmission',number:50,title:'汽车双离合变速箱DCT',description:'切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。',
   fields:[choice('gear','接合挡位','1',[['0','空挡'],['1','1挡'],['2','2挡'],['3','3挡'],['4','4挡']]),choice('preselect','另一半变速器','on',[['on','预选下一挡'],['off','未预选']])],
   build(p){const q=dctMotion(p,0),parts=[part('dct-engine','发动机侧飞轮','两个离合器共用的输入端。',[cylinder(30,7,C.input),cylinder(5,45,C.input,[0,0,-20])],[-35,0,-145]),
     part('dct-odd-shaft','奇数挡实心轴','连接1、3挡输入齿轮。',[cylinder(4,220,C.input)],[-35,0,-30]),
-    part('dct-even-shaft','偶数挡空心轴','套在奇数挡轴外，独立连接2、4挡齿轮。',[{...ring(8,5,185,C.mid),opacity:.5}],[-35,0,-10]),
+    part('dct-even-shaft','偶数挡空心轴','套在奇数挡轴外，2、4挡集中在空心轴段；1、3挡位于其末端之外。',[{...ring(8,5,80,C.mid),opacity:.5}],[-35,0,-50]),
     part('dct-output','公共输出轴','承载挡与预选挡可各有一个从动轮锁合，预选支路离合器保持分离。',[cylinder(5,170,C.output)],[35,0,0]),
-    part('dct-dog','承载挡接合套','当前位置显示承载挡位的从动齿轮；空挡移至末端。',[ring(11,5.5,9,q.k?C.output:C.red)],[35,0,q.k?dctZ[q.selected]+8:78]),
-    part('dct-predog','预选挡接合套','预选挡被公共输出轴反拖，但对应发动机离合器分离。',[ring(11,5.5,7,p.preselect==='on'&&q.k?C.mid:C.red)],[35,0,p.preselect==='on'&&q.k?dctZ[q.next]+8:-75])];
-    for(let j=0;j<2;j++){const c=clutch('dct-clutch'+j,j?'偶数挡离合器 K2':'奇数挡离合器 K1',0,23,q.active===j);c.position=[-35,0,-105+j*28];parts.push(c);}
-    dctPairs.forEach(([z1,z2],i)=>{parts.push(part('dct-driver'+i,(i+1)+'挡输入轮','与对应奇/偶输入轴刚性连接。',[gear(z1,2,8,i%2?C.mid:C.input)],[-35,0,dctZ[i]]));parts.push(part('dct-driven'+i,(i+1)+'挡从动轮','未选中时为空套齿轮，可随对应输入轴空转。',[gear(z2,2,8,q.selected===i&&q.k?C.output:C.steel)],[35,0,dctZ[i]]));});
+    part('dct-dog','承载挡接合套','当前位置显示承载挡位的从动齿轮；空挡移至末端。',[ring(11,5.5,9,q.k?C.output:C.red)],[35,0,q.k?dctZ[q.selected]+10:78]),
+    part('dct-predog','预选挡接合套','预选挡被公共输出轴反拖，但对应发动机离合器分离。',[ring(11,5.5,7,p.preselect==='on'&&q.k?C.mid:C.red)],[35,0,p.preselect==='on'&&q.k?dctZ[q.next]+10:-75])];
+    for(let j=0;j<2;j++){const c=clutch('dct-clutch'+j,j?'偶数挡离合器 K2':'奇数挡离合器 K1',0,23,q.active===j);c.position=[-35,0,-105+j*28];if(j)c.shapes[0].inner=8;parts.push(c);}
+    dctPairs.forEach(([z1,z2],i)=>{parts.push(part('dct-driver'+i,(i+1)+'挡输入轮','与对应奇/偶输入轴刚性连接。',[{...gear(z1,2,8,i%2?C.mid:C.input),hole:i%2?8:4}],[-35,0,dctZ[i]]));parts.push(part('dct-driven'+i,(i+1)+'挡从动轮','未选中时为空套齿轮，可随对应输入轴空转。',[gear(z2,2,8,q.selected===i&&q.k?C.output:C.steel)],[35,0,dctZ[i]]));});
     return {parts};},
   sample(p,a){const q=dctMotion(p,a),poses={'dct-engine':rz(a),'dct-odd-shaft':rz(q.shaft[0]),'dct-even-shaft':rz(q.shaft[1]),'dct-output':rz(q.out),'dct-dog':rz(q.out),'dct-predog':rz(q.out)};
     for(let j=0;j<2;j++)poses['dct-clutch'+j]=rz(q.shaft[j]);dctPairs.forEach(([x,y],i)=>{poses['dct-driver'+i]=rz(q.shaft[i%2]);poses['dct-driven'+i]=rz(-q.shaft[i%2]*x/y+Math.PI-Math.PI/y);});
@@ -47,9 +47,9 @@ export const dct=define({id:'dual-clutch-transmission',number:50,title:'汽车�
 function atState(p,a){const ns=p.sunTeeth,nr=ns+36;switch(p.mode){case'low':return {s:a,r:0,c:a*ns/(ns+nr),out:a*ns/(ns+nr),label:'内齿圈制动，太阳轮输入，行星架输出'};case'reverse':return {s:a,r:-a*ns/nr,c:0,out:-a*ns/nr,label:'行星架制动，太阳轮输入，内齿圈输出'};case'overdrive':return {s:0,r:a*(ns+nr)/nr,c:a,out:a*(ns+nr)/nr,label:'太阳轮制动，行星架输入，内齿圈输出'};default:return{s:a,r:a,c:a,out:a,label:'锁合任意两构件，整体1:1旋转'};}}
 export const automatic=define({id:'planetary-automatic',number:51,title:'行星齿轮式自动变速箱AT',description:'切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。',
   fields:[choice('mode','离合/制动组合','low',[['low','低挡：锁内齿圈'],['direct','直接挡：整体锁合'],['overdrive','超速挡：锁太阳轮'],['reverse','倒挡：锁行星架']]),num('sunTeeth','太阳轮齿数','齿',18,36,6,24)],validate(p){integer(p.sunTeeth);if(p.sunTeeth%6)throw Error('太阳轮齿数须为6的倍数');},
-  build(p){const g=planetary(p.sunTeeth,18,1.4,'at'),q=atState(p,0),R=g.nr*.7,brake=p.mode==='reverse'?ring(14,10,6,C.red,[0,0,14]):p.mode==='overdrive'?ring(9,5,6,C.red,[0,0,-27]):ring(R+9,R+4,10,p.mode==='direct'?C.steel:C.red),ringOutput=p.mode==='reverse'||p.mode==='overdrive',connection=ringOutput?[ring(R+4.5,R+3.5,20,C.output,[0,0,-25]),...Array.from({length:3},(_,i)=>rod([0,0,-15],xy(R+4,TAU*i/3,-15),3,C.output))]:[];return {parts:[...g.parts,clutch('at-clutch','换挡离合器组',-24,27,p.mode==='direct'),
+  build(p){const g=planetary(p.sunTeeth,18,1.4,'at'),q=atState(p,0),R=g.nr*.7,brake=p.mode==='reverse'?ring(14,10,6,C.red,[0,0,14]):p.mode==='overdrive'?ring(9,5,6,C.red,[0,0,-27]):ring(R+9,R+4,10,p.mode==='direct'?C.steel:C.red),ringOutput=p.mode==='reverse'||p.mode==='overdrive',connection=ringOutput?[ring(R+4.5,R+3.5,20,C.output,[0,0,-25]),...Array.from({length:3},(_,i)=>rod(xy(9,TAU*i/3,-15),xy(R+4,TAU*i/3,-15),3,C.output))]:[];return {parts:[...g.parts,clutch('at-clutch','换挡离合器组',-24,27,p.mode==='direct'),
     part('at-brake','壳体制动器','制动片随工况连接到内齿圈、行星架或太阳轮；直接挡释放。',[{...brake,opacity:.7}]),
-    part('at-port','输出接合鼓',q.label,[ring(18,6,6,C.output),ring(8,5.5,35,C.output,[0,0,-12]),cylinder(6,30,C.output,[0,0,15]),...connection],[0,0,35]),cage(R+12,90,[0,0,0],'at-case')]};},
+    part('at-port','输出接合鼓',q.label,[ring(18,6,6,C.output),ring(8,5.5,ringOutput?23:35,C.output,[0,0,ringOutput?-6:-12]),cylinder(6,30,C.output,[0,0,15]),...connection],[0,0,35]),{...cage(R+12,90,[0,0,0],'at-case'),shapes:cage(R+12,90).shapes.map(s=>s.kind==='ring'&&s.outer===10?{...s,inner:6.3}:s)}]};},
   sample(p,a){const g=planetary(p.sunTeeth,18,1.4,'at'),q=atState(p,a),unit=atState(p,1);return {poses:{...planetaryPoses(g,q.s,q.r,q.c),'at-clutch':rz(p.mode==='direct'?a:0),'at-port':rz(q.out)},metrics:[M('太阳轮转速',unit.s*p.inputRPM,'r/min'),M('内齿圈转速',unit.r*p.inputRPM,'r/min'),M('行星架转速',unit.c*p.inputRPM,'r/min'),M('输出转速',unit.out*p.inputRPM,'r/min'),M('Willis残差',p.sunTeeth*unit.s+g.nr*unit.r-(p.sunTeeth+g.nr)*unit.c)],status:q.label};},
   principle:[{title:'同一行星排，多种速比',text:'改变谁输入、谁输出、谁制动，改变三个构件的约束。',formula:'Zs ωs + Zr ωr = (Zs+Zr) ωc'}],sources:[planetarySource],
   limits:'单排行星排展示AT换挡约束，不代表任何量产多排行星八挡变速箱；离合器离散锁合，未求换挡瞬态、阀体与液压。'});
@@ -59,7 +59,7 @@ function converter(p){const s=p.mode==='locked'?1:p.speedRatio,anchors=[[0,2.232
   const pin=p.inputTorque*p.inputRPM*TAU/60;return {s,t,eta:s*t,pin,pout:pin*s*t,torque:p.inputRPM>0?p.inputTorque*t:0};}
 function vanes(count,hand,color){return Array.from({length:count},(_,i)=>{const a=TAU*i/count,points=[];for(let j=0;j<7;j++){const r=13+31*j/6,t=a+hand*.32*j/6;points.push([r*Math.cos(t),r*Math.sin(t)]);}for(let j=6;j>=0;j--){const r=13+31*j/6,t=a+hand*.32*j/6+.045;points.push([r*Math.cos(t),r*Math.sin(t)]);}return {kind:'polygon',points,depth:13,color};});}
 export const torqueConverter=define({id:'torque-converter',number:52,title:'液力变矩器',description:'比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。',
-  fields:[choice('mode','传动状态','fluid',[['fluid','液力传动'],['locked','锁止离合器接合']]),num('speedRatio','涡轮/泵轮速比','',0,.98,.01,.65),num('inputTorque','泵轮输入转矩','N·m',0,200,5,60)],
+  fields:[choice('mode','传动状态','fluid',[['fluid','液力传动'],['locked','锁止离合器接合']]),{...num('speedRatio','涡轮/泵轮速比','',0,.98,.01,.65),enabledWhen:p=>p.mode==='fluid',inactiveHint:'锁止工况强制1:1，液力速比不参与计算。'},num('inputTorque','泵轮输入转矩','N·m',0,200,5,60)],
   build(p){const parts=[part('tc-pump','泵轮','与发动机相连，推动液体；透明背板便于看叶片。',[{...ring(46,10,3,C.input),opacity:.2},cylinder(12,4,C.input),...vanes(18,1,C.input),cylinder(5,40,C.input,[0,0,-20])],[0,0,-14]),
     part('tc-turbine','涡轮','接收流体角动量并向变速器输出；背板透明用于内部观察。',[{...ring(46,10,3,C.output),opacity:.2},cylinder(12,4,C.output),...vanes(16,-1,C.output),cylinder(5,40,C.output,[0,0,20])],[0,0,14]),
     part('tc-stator','导轮','通过单向支承改变回流方向；此页以固定参考位置显示，不求自由轮转速。',[{...ring(27,10,3,C.mid),opacity:.2},...vanes(10,.45,C.mid).map(s=>({...s,points:s.points.map(([x,y])=>[x*.6,y*.6]),depth:7}))]),
@@ -75,10 +75,10 @@ export const torqueConverter=define({id:'torque-converter',number:52,title:'液�
 function hybridState(p){const ns=30,nr=78,c=p.mode==='accelerate'?1:0,r=p.roadRatio,s=((ns+nr)*c-nr*r)/ns,T=p.mode==='accelerate'?p.engineTorque:0,ts=-ns/(ns+nr)*T,tr=-nr/(ns+nr)*T,w=p.inputRPM*TAU/60,tm=p.mode==='recover'?-p.motorTorque:p.motorTorque;
   return {ns,nr,c,r,s,T,ts,tr,engineP:T*c*w,mg1P:ts*s*w,mg2P:tm*r*w,outputP:(-tr+tm)*r*w};}
 export const hybrid=define({id:'hybrid-power-split',number:53,title:'混合动力功率分流机构',description:'调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。',
-  fields:[choice('mode','运行方式','accelerate',[['start','电动起步'],['accelerate','发动机+电机加速'],['recover','制动回收']]),num('roadRatio','车轮支路/参考轴转速','',0,3,.1,1.2),num('engineTorque','发动机转矩','N·m',0,150,5,80),num('motorTorque','MG2驱动/回收转矩幅值','N·m',0,120,5,40)],
+  fields:[choice('mode','运行方式','accelerate',[['start','电动起步'],['accelerate','发动机+电机加速'],['recover','制动回收']]),num('roadRatio','车轮支路/参考轴转速','',0,3,.1,1.2),{...num('engineTorque','发动机转矩','N·m',0,150,5,80),enabledWhen:p=>p.mode==='accelerate',inactiveHint:'当前工况发动机停机，发动机转矩不参与计算。'},num('motorTorque','MG2驱动/回收转矩幅值','N·m',0,120,5,40)],
   build(p){const g=planetary(30,24,1.2,'hsd');return {parts:[...g.parts,
     part('hsd-engine','发动机曲轴 → 行星架','发动机曲轴通过空心连接段驱动行星架，太阳轮轴从内部通过。',[ring(9,5.5,48,C.input,[0,0,38]),cylinder(6,32,C.input,[0,0,78])]),
-    part('hsd-engine-case','固定发动机机体','机体保持静止，内部曲轴驱动行星架。',[{...box([42,32,35],C.dark),opacity:.35}],[0,0,90],[0,0,0],'housing'),
+    part('hsd-engine-case','固定发动机机体','机体保持静止，内部曲轴驱动行星架。',[{kind:'polygon',points:[[-21,-16],[21,-16],[21,16],[-21,16]],holes:[circle(7)],depth:35,color:C.dark,opacity:.35}],[0,0,90],[0,0,0],'housing'),
     part('hsd-mg1','MG1 转子 → 太阳轮','MG1转速由行星约束决定，可正转、静止或反转。',[cylinder(15,20,C.mid),cylinder(5,35,C.mid),box([4,4,22],C.steel,[14,0,0])],[0,0,-40]),
     part('hsd-mg1-case','MG1 固定定子','定子不跟随太阳轮旋转。',[{...ring(26,18,30,C.dark),opacity:.3}],[0,0,-40],[0,0,0],'housing'),
     part('hsd-mg2','MG2 环形转子 → 齿圈支路','本页环形电机与齿圈1:1连接；按给定转矩计算理想功率。',[ring(57,50,18,C.output),box([4,4,20],C.steel,[55,0,0])]),
@@ -91,7 +91,7 @@ export const hybrid=define({id:'hybrid-power-split',number:53,title:'混合动�
 
 function transferState(p){const factor=p.range==='low'?1/3:1,d=p.lock==='locked'?0:p.difference;return {factor,front:factor*(1+d),rear:factor*(1-d),d};}
 export const transfer=define({id:'four-wheel-transfer',number:54,title:'四驱分动箱与中央差速器',description:'切换高低速及中央差速锁，对比前后传动轴同速与差速。',
-  fields:[choice('range','分动箱挡位','high',[['high','高速直连'],['low','低速3:1']]),choice('lock','中央差速器','open',[['open','允许差速'],['locked','锁止']]),num('difference','前后速度差比例','',-.8,.8,.1,.2)],
+  fields:[choice('range','分动箱挡位','high',[['high','高速直连'],['low','低速3:1']]),choice('lock','中央差速器','open',[['open','允许差速'],['locked','锁止']]),{...num('difference','前后速度差比例','',-.8,.8,.1,.2),enabledWhen:p=>p.lock==='open',inactiveHint:'中央差速锁止时前后同速，速度差不参与计算。'}],
   build(p){const g=planetary(24,12,1.4,'tr',[0,0,-35]);return {parts:[...g.parts,clutch('tr-range','高低挡锁合套',-70,24,p.range==='high'),
     part('tr-diff','中央差速器壳','壳体转速是前后输出转速平均值；空心连接段来自行星架。',[ring(35,28,35,C.output),rod([-25,0,0],[25,0,0],3,C.output),ring(14,10,76,C.output,[0,0,-38]),ring(14,6,5,C.output,[0,0,-76]),...Array.from({length:3},(_,i)=>rod([0,0,0],xy(33,TAU*i/3),3,C.output))],[0,0,55]),
     part('tr-front','前传动轴侧齿轮','允许差速时可相对壳体转动。',[bevel(24,25,10,C.input),cylinder(5,58,C.input,[0,0,32])],[0,0,72]),
@@ -112,11 +112,11 @@ export const pto=define({id:'tractor-pto',number:55,title:'拖拉机动力输出
     part('pto-shaft','PTO输出轴','花键轴与接合挡位相连，向机具传递动力。',[cylinder(6,115,C.output),...Array.from({length:6},(_,i)=>box([3,3,32],C.output,xy(7,TAU*i/6,53),[0,0,TAU*i/6]))],[30,0,10]),
     part('pto-implement','机具转子示意','输出连接示意，不代表真实刀具或机具安全防护设计。',[cylinder(10,12,C.output),box([80,7,4],C.output)],[30,0,77]),
     part('pto-selector','PTO选挡套','只将一个空套齿轮锁到输出轴。',[ring(12,6.5,8,C.output)],[30,0,p.mode==='slow'?-6:24])];
-    const cc=clutch('pto-clutch','独立PTO离合器',0,21,p.clutch==='engaged');cc.position=[-30,0,-65];parts.push(cc);
-    Object.entries(ptoPairs).forEach(([id,[a,b]],j)=>{const m=120/(a+b),z=j*30-15;parts.push(part('pto-in-'+id,id==='slow'?'540挡主动轮':'1000挡主动轮','固定总中心距，选择不同齿数比。',[{...gear(a,m,8,C.input),hole:7.5}],[-30,0,z]));parts.push(part('pto-out-'+id,id==='slow'?'540挡从动轮':'1000挡从动轮','未接合挡位可以空转，不能同时锁合两挡。',[{...gear(b,m,8,C.steel),hole:6.4}],[30,0,z]));});
-    Object.entries(wheelPairs).forEach(([id,[a,b]],j)=>{const z=40+j*25;parts.push(part('drive-in-'+id,'行驶'+(id==='low'?'低挡':'高挡')+'主动轮','从发动机侧单独分出行驶支路。',[gear(a,2,8,C.input)],[-30,0,z]));parts.push(part('drive-out-'+id,'行驶'+(id==='low'?'低挡':'高挡')+'从动轮','由行驶选挡套决定是否锁合到中间轴。',[gear(b,2,8,p.driveGear===id?C.output:C.steel)],[-90,0,z]));});
+    const cc=clutch('pto-clutch','独立PTO离合器',0,21,p.clutch==='engaged');cc.position=[-30,0,-65];cc.shapes[0].inner=8;parts.push(cc);
+    Object.entries(ptoPairs).forEach(([id,[a,b]],j)=>{const m=120/(a+b),z=j*30-15;parts.push(part('pto-in-'+id,id==='slow'?'540挡主动轮':'1000挡主动轮','固定总中心距，选择不同齿数比。',[{...gear(a,m,8,C.input),hole:8}],[-30,0,z]));parts.push(part('pto-out-'+id,id==='slow'?'540挡从动轮':'1000挡从动轮','未接合挡位可以空转，不能同时锁合两挡。',[{...gear(b,m,8,C.steel),hole:6.4}],[30,0,z]));});
+    Object.entries(wheelPairs).forEach(([id,[a,b]],j)=>{const z=40+j*25;parts.push(part('drive-in-'+id,'行驶'+(id==='low'?'低挡':'高挡')+'主动轮','从发动机侧单独分出行驶支路。',[{...gear(a,2,8,C.input),hole:4}],[-30,0,z]));parts.push(part('drive-out-'+id,'行驶'+(id==='low'?'低挡':'高挡')+'从动轮','由行驶选挡套决定是否锁合到中间轴。',[gear(b,2,8,p.driveGear===id?C.output:C.steel)],[-90,0,z]));});
     parts.push(part('drive-counter','行驶中间轴与末级小齿轮','与PTO离合器独立，驱动车轮末级。',[cylinder(5,65,C.mid),gear(15,2,8,C.mid,[0,0,33])],[-90,0,60]),
-      part('drive-axle','车轮末级与车轴','末级60齿轮与中间轴15齿轮减速。',[gear(60,2,8,C.output),cylinder(6,160,C.output)],[-165,0,93]),
+      part('drive-axle','车轮末级与车轴','末级60齿轮与中间轴15齿轮减速。',[{...gear(60,2,8,C.output),hole:6},cylinder(6,160,C.output)],[-165,0,93]),
       part('drive-wheels','左右车轮','本页两轮共用刚性轴，未包含后桥差速。',[{kind:'torus',radius:31,tube:9,color:C.dark,position:[0,0,-65]},{kind:'torus',radius:31,tube:9,color:C.dark,position:[0,0,65]},...[-65,65].flatMap(z=>[rod([-25,0,z],[25,0,z],3,C.steel),rod([0,-25,z],[0,25,z],3,C.steel)])],[-165,0,93]),
       part('drive-selector','行驶选挡套','行驶空挡与PTO接合可同时存在。',[ring(12,5.5,7,p.driveGear==='neutral'?C.red:C.output)],[-90,0,p.driveGear==='low'?48:p.driveGear==='high'?73:22]));return {parts};},
   sample(p,a){const active=p.clutch==='engaged',input=active?a:0,[z1,z2]=ptoPairs[p.mode],out=-input*z1/z2,poses={'pto-engine':rz(a),'pto-input-tube':rz(input),'pto-clutch':rz(input),'pto-shaft':rz(out),'pto-selector':rz(out),'pto-implement':rz(out)};

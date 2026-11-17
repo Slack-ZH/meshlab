@@ -35,7 +35,7 @@ export function planetaryBuild(zs,zp,m=1.6,highlight='carrier'){
  const zr=zs+2*zp,C=m*(zs+zp)/2,R=m*zr/2,parts=[
   part('sun','太阳轮',[gear(zs,m,12,highlight==='sun'?colors.active:colors.input)]),
   part('ring','内齿圈',[gear(zr,m,12,highlight==='ring'?colors.active:colors.steel,{internal:true,hole:0})]),
-  part('carrier','三臂行星架',[ring(C+5,C-1,4,colors.output,[0,0,13]),cylinder(10,8,colors.output,[0,0,13]),...Array.from({length:3},(_,k)=>rod([0,0,13],[C*Math.cos(TAU*k/3),C*Math.sin(TAU*k/3),13],4,highlight==='carrier'?colors.active:colors.output))]),
+  part('carrier','三臂行星架',[ring(C+5,C-1,4,colors.output,[0,0,13]),ring(10,5.3,8,colors.output,[0,0,13]),...Array.from({length:3},(_,k)=>rod([10*Math.cos(TAU*k/3),10*Math.sin(TAU*k/3),13],[C*Math.cos(TAU*k/3),C*Math.sin(TAU*k/3),13],4,highlight==='carrier'?colors.active:colors.output))]),
   shaft('sun-shaft','中心轴',5,76,colors.input,[0,0,-22]),
   part('support','观察支承环',[ring(R+10,R+5,5,colors.case,[0,0,-17])],[0,0,0],'支承环避开齿轮平面',{category:'housing'})
  ];
@@ -100,4 +100,35 @@ export function wormTooth(teeth,module,starts,index,width){
  for(let j=0;j<=6;j++){const z=-width/2+width*j/6,sag=wr-Math.sqrt(wr*wr-z*z);for(const [radius,sign] of [[R-module*1.15,-1],[R+module,-1],[R+module,1],[R-module*1.15,1]]){const a=TAU*index/teeth+z*Math.tan(gamma)/R+sign*Math.PI*.42/teeth;vertices.push((radius+sag)*Math.cos(a),(radius+sag)*Math.sin(a),z);}}
  for(let j=0;j<6;j++)for(let k=0;k<4;k++){const next=(k+1)%4,a=j*4+k,b=j*4+next,c=(j+1)*4+next,d=(j+1)*4+k;indices.push(a,b,c,a,c,d);}
  indices.push(0,2,1,0,3,2,24,25,26,24,26,27);return {kind:'mesh',vertices,indices,color:colors.brass};
+}
+
+// Steel elements taper radially to the 11-degree sheave faces; 0.08 mm visual clearance.
+export function pushbeltElement(length,color){
+ const vertices=[],indices=[],slope=Math.tan(rad(11));
+ for(const x of [-length/2,length/2])for(const y of [-1.5,1.5])for(const side of [-1,1])vertices.push(x,y,side*(9+y*slope-.08));
+ for(const [a,b,c,d]of [[0,1,3,2],[4,6,7,5],[0,4,5,1],[2,3,7,6],[0,2,6,4],[1,5,7,3]])indices.push(a,b,c,a,c,d);
+ return {kind:'mesh',vertices,indices,color};
+}
+
+// Teaching strain-wave mesh: matching involute gap in engaged arcs, smooth withdrawal
+// before material teeth traverse between zones. Not a manufacturer S-tooth surface.
+export function harmonicTooth(z){
+ const R=z/2,N=z+2,Rp=N/2,base=Rp*Math.cos(Math.PI/9),iv=a=>Math.tan(a)-a;
+ const half=r=>Math.PI/(2*N)-(iv(Math.acos(Math.min(1,base/r)))-iv(Math.PI/9))-.0006;
+ const points=[],root=R-1.8,tip=R+1.25;
+ for(let i=0;i<=24;i++){const r=root+(tip-root)*i/24,a=half(Math.max(base,r));points.push([r*Math.cos(a)-R,-r*Math.sin(a)]);}
+ for(let i=24;i>=0;i--){const r=root+(tip-root)*i/24,a=half(Math.max(base,r));points.push([r*Math.cos(a)-R,r*Math.sin(a)]);}
+ return points;
+}
+export function harmonicToothPose(z,phase,k){
+ const R=z/2,a=TAU*k/z-2*phase/z,d=mod(a-phase+Math.PI/2,Math.PI)-Math.PI/2,u=Math.abs(d);
+ const weight=1-smooth5((u-rad(45))/rad(30)),withdrawal=3*smooth5((u-rad(15))/rad(30)),angle=a-2/(z+2)*d*weight;
+ return {rotation:[0,0,angle],position:[(R-withdrawal)*Math.cos(angle),(R-withdrawal)*Math.sin(angle),0],materialAngle:a,withdrawal};
+}
+
+export function hollowFrustum(z0,z1,inner0,inner1,outer0,outer1,color){
+ const vertices=[],indices=[],n=96;
+ for(let i=0;i<n;i++){const a=TAU*i/n;for(const [z,r]of [[z0,inner0],[z0,outer0],[z1,inner1],[z1,outer1]])vertices.push(r*Math.cos(a),r*Math.sin(a),z);}
+ for(let i=0;i<n;i++){const j=(i+1)%n;for(const [a,b]of [[0,1],[1,3],[3,2],[2,0]])indices.push(i*4+a,j*4+a,j*4+b,i*4+a,j*4+b,i*4+b);}
+ return {kind:'mesh',vertices,indices,color};
 }

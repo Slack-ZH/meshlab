@@ -6,16 +6,28 @@ let model,params={},modelParameters=null,viewer,result=null,selectedPart=null,va
 const announce=()=>window.dispatchEvent(new Event('catalog:statechange')),status=s=>text('status-message',s);
 function fieldValue(f){return parseParameterValue(f,$(f.key).value);}
 function syncRange(f){const r=$(f.key+'-slider');if(r){r.value=$(f.key).value;r.style.setProperty('--progress',100*(Number(r.value)-f.min)/(f.max-f.min)+'%');}}
+function syncFieldAvailability(){
+ for(const f of modelFields(model)){
+  const enabled=!f.enabledWhen||f.enabledWhen(params),input=$(f.key),range=$(f.key+'-slider'),hint=$(f.key+'-inactive');
+  if(input)input.disabled=!enabled;if(range)range.disabled=!enabled;if(hint)hint.hidden=enabled;
+ }
+}
 function buildFields(){
  $('geometry-fields').replaceChildren(...modelFields(model).map(f=>{
   const box=document.createElement('div');box.className='parameter-field';const label=document.createElement('label');label.htmlFor=f.key;label.textContent=f.label+(f.unit?' / '+f.unit:'');box.append(label);
   if(f.options){const select=document.createElement('select');select.id=f.key;for(const [value,name]of f.options){const o=new Option(name,String(value));select.add(o);}select.value=String(params[f.key]);select.onchange=apply;box.append(select);}
   else {const input=document.createElement('input');input.type='number';input.id=f.key;input.min=f.min;input.max=f.max;input.step=f.step||1;input.value=params[f.key];input.oninput=()=>{syncRange(f);apply();};const range=document.createElement('input');range.type='range';range.id=f.key+'-slider';range.min=f.min;range.max=f.max;range.step=f.step||1;range.value=params[f.key];range.setAttribute('aria-label','调节'+f.label);let frame;range.oninput=()=>{input.value=range.value;syncRange(f);cancelAnimationFrame(frame);frame=requestAnimationFrame(apply);};const hint=document.createElement('small');hint.textContent=`${f.min}–${f.max} ${f.unit||''}`;box.append(input,range,hint);}
+  if(f.enabledWhen){const hint=document.createElement('small');hint.id=f.key+'-inactive';hint.textContent=f.inactiveHint||'当前工况不使用此参数';hint.setAttribute('role','status');box.append(hint);box.querySelector('input,select')?.setAttribute('aria-describedby',hint.id);}
   return box;
  }));for(const f of modelFields(model))syncRange(f);
 }
 function apply(){
  params=Object.fromEntries(modelFields(model).map(f=>[f.key,fieldValue(f)]));
+ for(const f of modelFields(model)){
+  const value=params[f.key],fieldValid=f.options?f.options.some(o=>o[0]===value):Number.isFinite(value)&&value>=f.min&&value<=f.max;
+  if(f.enabledWhen&&!f.enabledWhen(params)&&!fieldValid){params[f.key]=modelParameters?.[f.key]??f.value;$(f.key).value=String(params[f.key]);syncRange(f);}
+ }
+ syncFieldAvailability();
  try{
   validateParameters(model,params);const rpmOnly=modelParameters&&Object.keys(params).every(k=>k==='inputRPM'||params[k]===modelParameters[k]);
   if(viewer){if(rpmOnly)viewer.setParameters(params);else {step=0;viewer.build(model,params);renderParts();}result=viewer.result;}

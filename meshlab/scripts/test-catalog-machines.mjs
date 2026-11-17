@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {models} from '../dist/catalog/models-machines.mjs';
-import {TAU,rad,rot,flatCam,valveLift,conjugateLift,cvtGeometry,beltPath,openBeltLength,synchronizerState,cvBall,indexProfile,indexState,cycloidGeometry,ellipseRadius} from '../dist/catalog/models-machines-geometry.mjs';
+import {TAU,rad,rot,flatCam,valveLift,conjugateLift,cvtGeometry,beltPath,openBeltLength,synchronizerState,cvBall,indexProfile,indexState,cycloidGeometry,ellipseRadius,harmonicToothPose} from '../dist/catalog/models-machines-geometry.mjs';
 
 const defaults=m=>Object.fromEntries([['inputRPM',30],...m.fields.map(f=>[f.key,f.value])]);
 const get=id=>models.find(m=>m.id===id);
@@ -62,9 +62,9 @@ test('cycloidal roller envelope and eccentric/output pin compensation hold at bo
 });
 
 test('harmonic material teeth move slowly while deformation lobes follow input',()=>{
- const m=get('harmonic');for(const flexTeeth of [40,60,80]){const p={...defaults(m),flexTeeth},R=flexTeeth/2,s=m.sample(p,TAU);close(s.poses.output.rotation[2],-2*TAU/flexTeeth);close(s.poses.wave.rotation[2],TAU);for(const t of [0,.7,2.1]){const state=m.sample(p,t);for(let k=0;k<flexTeeth;k++){const a=TAU*k/flexTeeth-2*t/flexTeeth,q=state.poses['flex-tooth-'+k].position;close(Math.hypot(q[0],q[1]),ellipseRadius(a-t,R+1,R-1));}}}
+ const m=get('harmonic');for(const flexTeeth of [40,60,80]){const p={...defaults(m),flexTeeth},R=flexTeeth/2,s=m.sample(p,TAU);close(s.poses.output.rotation[2],-2*TAU/flexTeeth);close(s.poses.wave.rotation[2],TAU);for(const t of [0,.7,2.1]){const state=m.sample(p,t);for(let k=0;k<flexTeeth;k++){const a=TAU*k/flexTeeth-2*t/flexTeeth,q=state.poses['flex-tooth-'+k].position;const expected=harmonicToothPose(flexTeeth,t,k);close(q[0],expected.position[0]);close(q[1],expected.position[1]);}}}
 });
 
 test('ordinary/enveloping worm geometry differs while starts/teeth keep the same ratio',()=>{
- const m=get('enveloping-worm'),p=defaults(m),ordinary=m.build({...p,wormType:'cylindrical'}),enveloping=m.build(p);assert.notDeepEqual(ordinary.parts[0].shapes[0].vertices,enveloping.parts[0].shapes[0].vertices);assert.equal(m.build({...p,contactOverlay:'off'}).parts.some(p=>p.id==='contact-guide'),false);for(const starts of [1,2,4])for(const wheelTeeth of [24,40,60])for(const wormType of ['cylindrical','enveloping']){const q={...p,starts,wheelTeeth,wormType};close(m.sample(q,TAU).poses.wheel.rotation[2],TAU*starts/wheelTeeth);}assert.match(m.limits,/TCA/);assert.match(m.limits,/人为选作教学/);
+ const m=get('enveloping-worm'),p=defaults(m),ordinary=m.build({...p,wormType:'cylindrical'}),enveloping=m.build(p);assert.notDeepEqual(ordinary.parts[0].shapes[0].vertices,enveloping.parts[0].shapes[0].vertices);assert.equal(m.build({...p,contactOverlay:'off'}).parts.some(p=>p.id==='contact-guide'),false);for(const starts of [1,2,4])for(const wheelTeeth of [24,40,60])for(const wormType of ['cylindrical','enveloping']){const q={...p,starts,wheelTeeth,wormType};close(m.sample(q,TAU).poses.wheel.rotation[2]-m.sample(q,0).poses.wheel.rotation[2],TAU*starts/wheelTeeth);}assert.match(m.limits,/TCA/);assert.match(m.limits,/人为选作教学/);
 });

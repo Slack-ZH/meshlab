@@ -58,7 +58,7 @@ export class BicycleViewer {
     const shape=new THREE.Shape();shape.absarc(0,0,outer,0,2*Math.PI);const hole=new THREE.Path();hole.absarc(0,0,inner,0,2*Math.PI,true);shape.holes.push(hole);
     const geo=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:48});geo.translate(0,0,-depth/2);return this.mesh(p,geo,color,[0,0,0],parent);
   }
-  sprocket(p,teeth,radius,color,parent){
+  sprocket(p,teeth,radius,color,parent,bore){
     const shape=new THREE.Shape(),pitch=2*Math.PI/teeth;
     // Rounded roller pockets with thin tooth tips: a generic teaching profile.
     const profile=[[0,radius-4.7],[.12,radius-4.15],[.26,radius-1.3],[.38,radius+1.65],
@@ -68,8 +68,8 @@ export class BicycleViewer {
     }
     shape.closePath();const hole=new THREE.Path();hole.absarc(0,0,radius-13,0,2*Math.PI,true);shape.holes.push(hole);
     const geo=new THREE.ExtrudeGeometry(shape,{depth:2.7,bevelEnabled:false,curveSegments:20});geo.translate(0,0,-1.35);this.mesh(p,geo,color,[0,0,0],parent);
-    this.ring(p,13,7,4,color,parent);
-    for(let i=0;i<5;i++){const a=i*2*Math.PI/5;this.tube(p,[9*Math.cos(a),9*Math.sin(a),0],[(radius-9)*Math.cos(a),(radius-9)*Math.sin(a),0],3.8,color,parent);}
+    this.ring(p,13,bore,4,color,parent);
+    for(let i=0;i<5;i++){const a=i*2*Math.PI/5;this.tube(p,[11*Math.cos(a),11*Math.sin(a),0],[(radius-9)*Math.cos(a),(radius-9)*Math.sin(a),0],3.8,color,parent);}
   }
   makeChain(part){
     const n=this.g.chainLinks;
@@ -86,34 +86,36 @@ export class BicycleViewer {
   }
   build(p){
     validate(p);
-    if(this.p&&geometryKeys.every(key=>this.p[key]===p[key])){this.p={...p};return;}
+    if(this.p&&geometryKeys.every(key=>this.p[key]===p[key])){this.p={...p};if(p.cadence===0)this.playing=false;return;}
     const hadRoot=!!this.root;this.clearGeometry();this.resetMotion();this.amount=0;this.step=0;this.p={...p};this.g=geometry(p);this.parts=[];this.root=new THREE.Group();this.scene.add(this.root);
     const C=this.g.effectiveCenterDistance,front=-C/2,rear=C/2;
     const frame=this.part('frame','后车架','后车架约束中轴与后轮轴的位置。输入中心距会按偶数链节自动匹配为实际中心距。','实际中心距 '+C.toFixed(1)+' mm',4);
     const seat=[front+70,280,-39],bb=[front,0,-39],drop=[rear,0,-39];
-    for(const [a,b,r] of [[bb,seat,11],[seat,drop,8],[drop,bb,8]])this.tube(frame,a,b,r,blue);
-    this.cylinder(frame,23,48,blue,[front,0,-28]);this.tube(frame,seat,[front+92,365,-39],8,dark);
+    const inset=(a,b,d)=>new THREE.Vector3(...b).sub(new THREE.Vector3(...a)).normalize().multiplyScalar(d).add(new THREE.Vector3(...a)).toArray();
+    for(const [a,b,r] of [[inset(bb,seat,16),seat,11],[seat,inset(drop,seat,15),8],[inset(drop,bb,15),inset(bb,drop,16),8]])this.tube(frame,a,b,r,blue);
+    this.ring(frame,18,10.5,12,blue).position.set(...drop);
+    this.ring(frame,23,8.3,48,blue).position.set(front,0,-28);this.tube(frame,seat,[front+92,365,-39],8,dark);
     const saddle=this.mesh(frame,new THREE.BoxGeometry(87,12,38),dark,[front+68,368,-39]);saddle.rotation.z=-.06;
     const wheel=this.part('wheel','后轮与花鼓','后链轮把转矩传给花鼓，后轮在踩踏状态下与链轮同转速。轮胎直径影响无滑移条件下的理想车速。','后轮外径 '+p.wheelDiameter+' mm',4);
     this.wheelSpin=new THREE.Group();this.wheelSpin.position.set(rear,0,-64);wheel.group.add(this.wheelSpin);
     this.torus(wheel,p.wheelDiameter/2-9,9,0x384350,[0,0,0],this.wheelSpin);this.torus(wheel,p.wheelDiameter/2-21,3,steel,[0,0,0],this.wheelSpin);
-    this.cylinder(wheel,16,38,steel,[0,0,0],this.wheelSpin);this.cylinder(wheel,24,5,steel,[0,0,-20],this.wheelSpin);this.cylinder(wheel,24,5,steel,[0,0,20],this.wheelSpin);
+    this.ring(wheel,16,5.3,38,steel,this.wheelSpin);this.ring(wheel,24,5.3,5,steel,this.wheelSpin).position.z=-20;this.ring(wheel,24,5.3,5,steel,this.wheelSpin).position.z=20;
     for(let i=0;i<28;i++){const a=i*2*Math.PI/28,b=a+(i%2?-.12:.12);this.tube(wheel,[20*Math.cos(b),20*Math.sin(b),i%2?18:-18],[(p.wheelDiameter/2-22)*Math.cos(a),(p.wheelDiameter/2-22)*Math.sin(a),0],.9,steel,this.wheelSpin);}
     const axle=this.part('rear-axle','后轮轴','后轮轴与车架固定，花鼓围绕轴承旋转。示意轴承和锁紧件用于说明轴系装配。','轴线与中轴平行',4);
     this.cylinder(axle,5,110,dark,[rear,0,-43]);for(const z of [-96,10])this.cylinder(axle,10,7,steel,[rear,0,z]);
     const bracket=this.part('bottom-bracket','中轴','中轴支承曲柄与牙盘旋转。曲柄长度改变脚踏轨迹，不直接改变前后齿比。','曲柄长度 '+p.crankLength+' mm',4);
-    this.cylinder(bracket,8,85,dark,[front,0,-28]);for(const z of [-58,-7])this.cylinder(bracket,17,6,steel,[front,0,z]);
+    this.cylinder(bracket,8,112,dark,[front,0,-35]);for(const z of [-58,-7])this.ring(bracket,17,8.3,6,steel).position.set(front,0,z);
     const rearPart=this.part('rear-sprocket','后链轮','链条驱动后链轮。相同踏频下，增加后链轮齿数会降低后轮转速，并提高理想输出转矩。',p.rearTeeth+' 齿 · 同平面单速链线',3);
-    this.rearSpin=new THREE.Group();this.rearSpin.position.set(rear,0,0);rearPart.group.add(this.rearSpin);this.sprocket(rearPart,p.rearTeeth,this.g.rearRadius,steel,this.rearSpin);
-    this.cylinder(rearPart,10,28,dark,[0,0,-15],this.rearSpin);
+    this.rearSpin=new THREE.Group();this.rearSpin.position.set(rear,0,0);rearPart.group.add(this.rearSpin);this.sprocket(rearPart,p.rearTeeth,this.g.rearRadius,steel,this.rearSpin,5.3);
+    this.ring(rearPart,10,5.3,42,dark,this.rearSpin).position.z=-22;
     const ringPart=this.part('chainring','前牙盘','前牙盘随曲柄旋转，通过滚子链向后链轮传递运动。修改齿数会重建齿形并同步调整链条长度与中心距。',p.frontTeeth+' 齿 · 名义节距 12.7 mm',3);
-    this.frontSpin=new THREE.Group();this.frontSpin.position.set(front,0,0);ringPart.group.add(this.frontSpin);this.sprocket(ringPart,p.frontTeeth,this.g.frontRadius,warm,this.frontSpin);
+    this.frontSpin=new THREE.Group();this.frontSpin.position.set(front,0,0);ringPart.group.add(this.frontSpin);this.sprocket(ringPart,p.frontTeeth,this.g.frontRadius,warm,this.frontSpin,8.3);
     const chain=this.part('chain','滚子链','内外链节交替连接，滚子在链轮齿槽中通过。模型将运动近似为连续节线；完整链条整体移开，不把链片当作可无工具分离的零件。',this.g.chainLinks+' 节 · 12.7 mm 名义节距 · 内宽 3.30 mm',2);this.makeChain(chain);
     const crank=this.part('crank','曲柄与脚踏','曲柄把踩踏运动传给前牙盘。左右曲柄相差 180°，脚踏绕自己的轴转动；演示中脚踏保持水平。','两侧曲柄 '+p.crankLength+' mm',1);
     this.crankSpin=new THREE.Group();this.crankSpin.position.set(front,0,0);crank.group.add(this.crankSpin);
     for(const [a,z] of [[0,14],[Math.PI,-84]]){
-      this.tube(crank,[0,0,z],[p.crankLength*Math.cos(a),p.crankLength*Math.sin(a),z],7,steel,this.crankSpin);
-      this.cylinder(crank,12,9,dark,[0,0,z],this.crankSpin);
+      this.tube(crank,[10*Math.cos(a),10*Math.sin(a),z],[p.crankLength*Math.cos(a),p.crankLength*Math.sin(a),z],7,steel,this.crankSpin);
+      this.ring(crank,12,8.3,9,dark,this.crankSpin).position.z=z;
     }
     this.pedals=[];
     for(const z of [31,-101]){const pedal=new THREE.Group();crank.group.add(pedal);this.mesh(crank,new THREE.BoxGeometry(43,12,28),dark,[0,0,0],pedal);for(const x of [-15,0,15])this.mesh(crank,new THREE.BoxGeometry(2,13,29),steel,[x,0,0],pedal);this.pedals.push({group:pedal,z});}
@@ -144,7 +146,7 @@ export class BicycleViewer {
     for(const mesh of Object.values(this.chainMeshes)){mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingBox();mesh.computeBoundingSphere();}
   }
   resetMotion(){this.playing=false;this.time=0;this.lastFrame=undefined;this.rotations={front:0,rear:0,wheel:0};this.chainPhase=0;if(this.root)this.updateMotion();}
-  setPlaying(value){if(value&&(this.amount>0||this.step>0))this.restore();this.playing=Boolean(value);this.lastFrame=undefined;this.render();}
+  setPlaying(value){if(value&&(this.amount>0||this.step>0))this.restore();this.playing=Boolean(value)&&this.p?.cadence>0;this.lastFrame=undefined;this.render();}
   setSpeed(value){if(!Number.isFinite(value))throw new RangeError('无效演示速度');this.speed=THREE.MathUtils.clamp(value,.1,2);}
   setLabels(value){this.labelsOn=Boolean(value);this.render();}
   setHousingMode(mode){if(!['solid','open','transparent','hidden'].includes(mode))throw new RangeError('无效车架显示方式');this.housingMode=mode;this.open=mode==='open';this.pose();this.fitModel();}

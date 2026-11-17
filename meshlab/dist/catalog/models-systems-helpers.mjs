@@ -25,8 +25,8 @@ export function planetary(ns=24,np=18,module=1.4,prefix='pg',origin=[0,0,0]){
   const nr=ns+2*np,c=(ns+np)*module/2;
   const parts=[part(prefix+'-sun','太阳轮','中心外齿轮，转速满足行星排约束。',[gear(ns,module,10,colors.input),cylinder(5,60,colors.input)],origin),
     part(prefix+'-ring','内齿圈','与行星轮内啮合；制动或驱动状态由工况指定。',[gear(nr,module,10,colors.mid,[0,0,0],true)],origin),
-    part(prefix+'-carrier','行星架','保持各行星轮中心距，支承行星销。',[ring(10,5,5,colors.output,[0,0,14]),...Array.from({length:3},(_,i)=>rod([0,0,14],xy(c,TAU*i/3,14),3,colors.output)),...Array.from({length:3},(_,i)=>cylinder(3,24,colors.output,xy(c,TAU*i/3,2)))],origin)];
-  for(let i=0;i<3;i++)parts.push(part(prefix+'-planet'+i,'行星轮 '+(i+1),'同时与太阳轮和内齿圈啮合。',[gear(np,module,10,colors.steel)],add(origin,xy(c,TAU*i/3))));
+    part(prefix+'-carrier','行星架','保持各行星轮中心距，支承行星销。',[ring(10,5,5,colors.output,[0,0,14]),...Array.from({length:3},(_,i)=>rod(xy(9,TAU*i/3,14),xy(c,TAU*i/3,14),3,colors.output)),...Array.from({length:3},(_,i)=>cylinder(3,24,colors.output,xy(c,TAU*i/3,2)))],origin)];
+  for(let i=0;i<3;i++)parts.push(part(prefix+'-planet'+i,'行星轮 '+(i+1),'同时与太阳轮和内齿圈啮合。',[gear(np,module,10,colors.steel),ring(5,3,10,colors.dark)],add(origin,xy(c,TAU*i/3))));
   return {parts,ns,np,nr,c,module,prefix,origin};
 }
 export function planetaryPoses(g,sun,ringAngle,carrier){
@@ -51,7 +51,7 @@ export function bevel(teeth=20,radius=24,width=10,color=colors.mid){
   }return {kind:'mesh',vertices,indices,color};
 }
 export function cycloidOutline(pins,R,e,roller){
-  const points=[],count=(pins-1)*32;
+  const points=[],count=(pins-1)*128;
   for(let i=0;i<count;i++){
     const t=i*TAU/count,dx=-R*Math.sin(t)+e*pins*Math.sin(pins*t),dy=R*Math.cos(t)-e*pins*Math.cos(pins*t),n=Math.hypot(dx,dy);
     points.push([R*Math.cos(t)-e*Math.cos(pins*t)-roller*dy/n,R*Math.sin(t)-e*Math.sin(pins*t)+roller*dx/n]);
@@ -60,7 +60,7 @@ export function cycloidOutline(pins,R,e,roller){
 export const circle=(r,c=[0,0],n=32)=>Array.from({length:n},(_,i)=>[c[0]+r*Math.cos(i*TAU/n),c[1]+r*Math.sin(i*TAU/n)]);
 export function helix(radius,lead,length,axis='z',color=colors.input){
   const turns=length/lead,n=Math.ceil(turns*24),points=Array.from({length:n+1},(_,i)=>{
-    const a=TAU*turns*i/n,z=-length/2+length*i/n,x=radius*Math.cos(a),y=radius*Math.sin(a);return axis==='x'?[z,x,y]:axis==='y'?[x,z,y]:[x,y,z];});
+    const a=TAU*turns*i/n,z=-length/2+length*i/n,x=radius*Math.cos(a),y=radius*Math.sin(a);return axis==='x'?[z,x,-y]:axis==='y'?[x,z,y]:[x,-y,z];});
   return {kind:'tube',points,radius:.7,color};
 }
 export const Rz=a=>[[Math.cos(a),-Math.sin(a),0],[Math.sin(a),Math.cos(a),0],[0,0,1]];
