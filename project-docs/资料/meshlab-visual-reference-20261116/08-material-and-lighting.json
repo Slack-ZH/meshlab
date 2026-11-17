@@ -1,0 +1,444 @@
+{
+  "referencePage": "https://slack-zh.github.io/meshlab/lab.html",
+  "capture": "Local rendering of the GL16 page and assets, not an AI-generated reconstruction",
+  "sourceCommit": "3c0b00d5948bd0dbb09a1f71f46b406bc517c5d1",
+  "render": {
+    "material": "THREE.MeshStandardMaterial",
+    "outputColorSpace": "THREE.SRGBColorSpace",
+    "toneMapping": "THREE.ACESFilmicToneMapping",
+    "toneMappingExposure": 1.25,
+    "shadows": "THREE.PCFSoftShadowMap"
+  },
+  "lights": [
+    {
+      "type": "HemisphereLight",
+      "skyColor": "#ffffff",
+      "groundColor": "#a8adb5",
+      "intensity": 2.2
+    },
+    {
+      "type": "DirectionalLight",
+      "color": "#ffffff",
+      "intensity": 3,
+      "position": [
+        -180,
+        460,
+        270
+      ],
+      "castsShadow": true
+    },
+    {
+      "type": "DirectionalLight",
+      "color": "#dceaff",
+      "intensity": 1.8,
+      "position": [
+        300,
+        100,
+        -300
+      ]
+    }
+  ],
+  "selection": {
+    "emissive": "#226ad8",
+    "emissiveIntensity": 0.32,
+    "note": "The blue tint is a selected-part highlight, not the permanent base material."
+  },
+  "transparency": {
+    "housingOpacity": 0.16,
+    "depthWrite": false
+  },
+  "parts": [
+    {
+      "id": "input",
+      "name": "输入齿轮轴",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "middle",
+      "name": "中间齿轮轴",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "gear1",
+      "name": "一级大齿轮",
+      "category": "gear",
+      "color": "#b3bcc8",
+      "metalness": 0.62,
+      "roughness": 0.38
+    },
+    {
+      "id": "output",
+      "name": "输出轴",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "gear2",
+      "name": "二级大齿轮",
+      "category": "gear",
+      "color": "#b3bcc8",
+      "metalness": 0.62,
+      "roughness": 0.38
+    },
+    {
+      "id": "key1",
+      "name": "一级平键",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "key2",
+      "name": "二级平键",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "spacer_m1",
+      "name": "中间轴定位套筒",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "spacer_m2",
+      "name": "中间轴定位套筒",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "spacer_o1",
+      "name": "输出轴定位套筒",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "spacer_o2",
+      "name": "输出轴定位套筒",
+      "category": "shaft",
+      "color": "#8c9caa",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_in_f",
+      "name": "6205 前轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_in_-1",
+      "name": "轴承端盖 · 6205 透盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "seal_in",
+      "name": "输入油封",
+      "category": "seal",
+      "color": "#323c43",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_in_r",
+      "name": "6205 后轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_in_1",
+      "name": "轴承端盖 · 6205闷盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_mid_f",
+      "name": "6206 前轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_mid_-1",
+      "name": "轴承端盖 · 6206闷盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_mid_r",
+      "name": "6206 后轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_mid_1",
+      "name": "轴承端盖 · 6206闷盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_out_f",
+      "name": "6210 前轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_out_-1",
+      "name": "轴承端盖 · 6210闷盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bearing_out_r",
+      "name": "6210 后轴承",
+      "category": "bearing",
+      "color": "#b9c6cd",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "cap_out_1",
+      "name": "轴承端盖 · 6210 透盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "seal_out",
+      "name": "输出油封",
+      "category": "seal",
+      "color": "#323c43",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "housing_base",
+      "name": "下箱体",
+      "category": "housing",
+      "color": "#a6adb6",
+      "metalness": 0.2,
+      "roughness": 0.7
+    },
+    {
+      "id": "housing_top",
+      "name": "上箱盖",
+      "category": "housing",
+      "color": "#a6adb6",
+      "metalness": 0.2,
+      "roughness": 0.7
+    },
+    {
+      "id": "inspection",
+      "name": "检查孔盖",
+      "category": "cover",
+      "color": "#64707d",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "breather",
+      "name": "通气器",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_1",
+      "name": "合箱螺栓 01",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_1",
+      "name": "合箱螺母 01",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_2",
+      "name": "合箱螺栓 02",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_2",
+      "name": "合箱螺母 02",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_3",
+      "name": "合箱螺栓 03",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_3",
+      "name": "合箱螺母 03",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_4",
+      "name": "合箱螺栓 04",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_4",
+      "name": "合箱螺母 04",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_5",
+      "name": "合箱螺栓 05",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_5",
+      "name": "合箱螺母 05",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_6",
+      "name": "合箱螺栓 06",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_6",
+      "name": "合箱螺母 06",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_7",
+      "name": "合箱螺栓 07",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_7",
+      "name": "合箱螺母 07",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_8",
+      "name": "合箱螺栓 08",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_8",
+      "name": "合箱螺母 08",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_9",
+      "name": "合箱螺栓 09",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_9",
+      "name": "合箱螺母 09",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "bolt_10",
+      "name": "合箱螺栓 10",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    },
+    {
+      "id": "nut_10",
+      "name": "合箱螺母 10",
+      "category": "fastener",
+      "color": "#647381",
+      "metalness": 0.65,
+      "roughness": 0.38
+    }
+  ]
+}

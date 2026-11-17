@@ -1,0 +1,21 @@
+{
+  "scope": "Selected public backup payload only; heuristic scan, not a guarantee of absence of secrets. Binary images/video and PDF contents are not comprehensively scanned.",
+  "sourceBaseline": "56743457a2ef9b173002b845fd37e64027893be3",
+  "files": 275,
+  "originalFilesPreserved": 253,
+  "originalProductAndResourceBytesUnchanged": true,
+  "documentationEdits": [
+    "PROJECT.md",
+    "README.md",
+    "meshlab/docs/eleven-mechanisms-full-standard-20261117.md",
+    "meshlab/docs/eleven-mechanisms-standard-audit-20261116.md",
+    "meshlab/docs/linkages-acceptance-20261116.md",
+    "meshlab/docs/w-mechanisms-acceptance-20261116.md",
+    "project-docs/04-当前状态.md",
+    "project-docs/07-决策记录.md"
+  ],
+  "textUnitsScanned": 232,
+  "archivesInspected": 3,
+  "localReferencesChecked": 332,
+  "findings": []
+}

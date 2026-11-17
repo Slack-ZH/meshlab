@@ -1,0 +1,535 @@
+{
+  "testedAt": "2026-11-16T16:17:44.638Z",
+  "checks": [
+    {
+      "name": "scotch-yoke full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam dark appearance",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive full baseline shell, real service health and login entry",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive searchable categorized catalogue and all part specifications",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive details, narration API, highlight label, clarity and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive free explosion and four distinct assembly steps preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive immediate numeric/slider changes, invalid-state isolation and recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive input, 20% playback, pause and zero RPM",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive orthographic views and fullscreen",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive specific teaching behaviour",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive live principles and JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive 390px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive 360px default, selected, exploded and controls layout",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive dark appearance",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

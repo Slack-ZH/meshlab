@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-11-17T14:02:07.948275+08:00",
+  "command": "node --test scripts/test-experiment-contract.mjs scripts/test-experiment-standard.mjs scripts/test-linkages.mjs scripts/test-mechanisms.mjs scripts/test-rack.mjs scripts/test-friction.mjs scripts/test-friction-chat.mjs scripts/test-bicycle.mjs scripts/test-bicycle-chat.mjs scripts/test-turbine-geometry.mjs scripts/test-turbine-chat.mjs",
+  "workingDirectory": "meshlab/",
+  "tests": 120,
+  "pass": 120,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "todo": 0,
+  "exitCode": 0,
+  "durationMs": 11745.6381,
+  "evidence": "Summary transcribed from the completed command output; original console output was not saved as a full TAP file.",
+  "limitations": [
+    "This is not npm test; full authentication/common-chat suite was not run in this backup task.",
+    "No real AI question or device audio verification."
+  ]
+}

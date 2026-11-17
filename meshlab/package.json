@@ -11,7 +11,13 @@
     "worker:deploy": "wrangler deploy",
     "test:turbine": "node --test scripts/test-turbine-geometry.mjs scripts/test-turbine-chat.mjs && node scripts/test-turbine.mjs",
     "test:bicycle": "node --test scripts/test-bicycle.mjs scripts/test-bicycle-chat.mjs",
-    "test:friction": "node --test scripts/test-friction.mjs scripts/test-friction-chat.mjs"
+    "test:friction": "node --test scripts/test-friction.mjs scripts/test-friction-chat.mjs",
+    "test:linkages": "node --test scripts/test-linkages.mjs",
+    "test:mechanisms": "node --test scripts/test-mechanisms.mjs",
+    "test:experiments": "node --test scripts/test-experiment-contract.mjs scripts/test-experiment-standard.mjs scripts/test-linkages.mjs scripts/test-mechanisms.mjs",
+    "build:experiments": "node scripts/build-experiments.mjs",
+    "check:experiments": "node scripts/check-experiment-standard.mjs",
+    "verify:experiments": "npm run check:experiments && npm run test:experiments && node scripts/verify-full-standard.mjs && node scripts/verify-experiment-chat.mjs && node scripts/verify-experiment-input.mjs && node scripts/verify-experiment-compatibility.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",

@@ -1,0 +1,1998 @@
+{
+  "testedAt": "2026-11-16T15:01:16.213Z",
+  "baseline": [
+    "friction",
+    "rack"
+  ],
+  "scope": [
+    "scotch-yoke",
+    "crank-rocker",
+    "parallelogram",
+    "double-rocker",
+    "quick-return",
+    "bevel-gears",
+    "scissor-jack",
+    "ratchet-pawl",
+    "eccentric-follower",
+    "roller-cam",
+    "geneva-drive"
+  ],
+  "externalRequestsBlocked": true,
+  "productChanges": false,
+  "pages": [
+    {
+      "name": "friction",
+      "baseline": true,
+      "desktop": {
+        "title": "摩擦轮传动实验 · meshlab",
+        "ready": true,
+        "parts": 8,
+        "features": {
+          "aiPanel": true,
+          "login": true,
+          "partSearch": true,
+          "partFilters": true,
+          "speak": true,
+          "clarity": true,
+          "partSpec": false,
+          "stepExplanation": true,
+          "parameterSliders": 7,
+          "parameterNumbers": 7,
+          "applyButton": false,
+          "jointLabels": false,
+          "selectedLabelToggle": true,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": false,
+          "csv": false,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 37,
+            "y": 273,
+            "width": 973,
+            "height": 495
+          },
+          "sidebar": {
+            "x": 1029,
+            "y": 237,
+            "width": 360,
+            "height": 652
+          },
+          "parameters": {
+            "x": 36,
+            "y": 921,
+            "width": 975,
+            "height": 1174.40625
+          },
+          "controls": {
+            "x": 54,
+            "y": 763.5,
+            "width": 939,
+            "height": 107.5
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "apple.css",
+          "chat.css?v=20261116-bike1",
+          "friction/style.css?v=20261116-friction1"
+        ],
+        "scripts": [
+          "friction/app.mjs?v=20261116-friction1",
+          "apple.js",
+          "chat.js?v=20261116-friction1"
+        ]
+      },
+      "sourceHash": "95a4b048d7259f716b716614086e9d395e2021fce72e968487f19b34f2e437cd",
+      "detail": {
+        "title": "主动摩擦轮",
+        "description": "主动轮通过接触处的静摩擦力驱动从动轮。轮径改变时，两轮自动保持外接相切；外周胶圈是接触面。",
+        "speak": true
+      },
+      "step": {
+        "title": "取下轴端锁紧环",
+        "copy": "继续分离组件；按“上一步”可反向装配。"
+      },
+      "parameter": {
+        "id": "driverDiameter",
+        "value": "120",
+        "step": 1,
+        "params": {
+          "driverDiameter": 120,
+          "drivenDiameter": 240,
+          "wheelWidth": 32,
+          "inputRPM": 60,
+          "normalForce": 200,
+          "frictionCoefficient": 0.4,
+          "loadTorque": 1
+        },
+        "updatesImmediately": true
+      },
+      "mobile": {
+        "title": "摩擦轮传动实验 · meshlab",
+        "ready": true,
+        "parts": 8,
+        "features": {
+          "aiPanel": true,
+          "login": true,
+          "partSearch": true,
+          "partFilters": true,
+          "speak": true,
+          "clarity": true,
+          "partSpec": false,
+          "stepExplanation": true,
+          "parameterSliders": 7,
+          "parameterNumbers": 7,
+          "applyButton": false,
+          "jointLabels": false,
+          "selectedLabelToggle": true,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": false,
+          "csv": false,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 268.59375,
+            "width": 345,
+            "height": 287
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 764.59375,
+            "width": 347,
+            "height": 633
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1431.1875,
+            "width": 347,
+            "height": 1472.8125
+          },
+          "controls": {
+            "x": 26,
+            "y": 575.59375,
+            "width": 323,
+            "height": 162
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "apple.css",
+          "chat.css?v=20261116-bike1",
+          "friction/style.css?v=20261116-friction1"
+        ],
+        "scripts": [
+          "friction/app.mjs?v=20261116-friction1",
+          "apple.js",
+          "chat.js?v=20261116-friction1"
+        ]
+      }
+    },
+    {
+      "name": "rack",
+      "baseline": true,
+      "desktop": {
+        "title": "齿轮齿条传动实验 · meshlab",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": true,
+          "login": true,
+          "partSearch": true,
+          "partFilters": true,
+          "speak": true,
+          "clarity": true,
+          "partSpec": true,
+          "stepExplanation": true,
+          "parameterSliders": 5,
+          "parameterNumbers": 5,
+          "applyButton": false,
+          "jointLabels": false,
+          "selectedLabelToggle": true,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 37,
+            "y": 273,
+            "width": 973,
+            "height": 495
+          },
+          "sidebar": {
+            "x": 1029,
+            "y": 237,
+            "width": 360,
+            "height": 651
+          },
+          "parameters": {
+            "x": 36,
+            "y": 921,
+            "width": 975,
+            "height": 1292.9375
+          },
+          "controls": {
+            "x": 54,
+            "y": 763.5,
+            "width": 939,
+            "height": 107.5
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "apple.css",
+          "chat.css?v=20261116-bike1",
+          "rack/style.css?v=20261116-rack2"
+        ],
+        "scripts": [
+          "rack/app.mjs?v=20261116-rack2",
+          "apple.js",
+          "chat.js?v=20261116-rack2"
+        ]
+      },
+      "sourceHash": "b9c4567d9e7a731da52741723665ec0d95ab07cc0df56d8a0e3945f51c5e7874",
+      "detail": {
+        "title": "小齿轮",
+        "description": "小齿轮通过齿面啮合推动齿条。分度圆直径等于模数乘齿数；轮辐上的孔方便看清旋转相位。转过一齿，齿条前进一个齿距。",
+        "spec": "模数 2 mm · 24 齿 · 分度圆 Ø48 mm",
+        "speak": true
+      },
+      "step": {
+        "title": "取下锁紧环",
+        "copy": "沿轴端取下锁紧环，释放小齿轮的轴向定位。"
+      },
+      "parameter": {
+        "id": "module",
+        "value": "2",
+        "step": 0.25,
+        "params": {
+          "module": 2,
+          "teeth": 24,
+          "rackTeeth": 64,
+          "faceWidth": 18,
+          "inputRPM": 12
+        },
+        "updatesImmediately": true
+      },
+      "mobile": {
+        "title": "齿轮齿条传动实验 · meshlab",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": true,
+          "login": true,
+          "partSearch": true,
+          "partFilters": true,
+          "speak": true,
+          "clarity": true,
+          "partSpec": true,
+          "stepExplanation": true,
+          "parameterSliders": 5,
+          "parameterNumbers": 5,
+          "applyButton": false,
+          "jointLabels": false,
+          "selectedLabelToggle": true,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 268.59375,
+            "width": 345,
+            "height": 252
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 2541.46875,
+            "width": 347,
+            "height": 633
+          },
+          "parameters": {
+            "x": 14,
+            "y": 864.1875,
+            "width": 347,
+            "height": 1663.28125
+          },
+          "controls": {
+            "x": 26,
+            "y": 655.59375,
+            "width": 323,
+            "height": 162
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "apple.css",
+          "chat.css?v=20261116-bike1",
+          "rack/style.css?v=20261116-rack2"
+        ],
+        "scripts": [
+          "rack/app.mjs?v=20261116-rack2",
+          "apple.js",
+          "chat.js?v=20261116-rack2"
+        ]
+      }
+    },
+    {
+      "name": "scotch-yoke",
+      "baseline": false,
+      "desktop": {
+        "title": "苏格兰轭机构 · 啮合实验室",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 616.59375
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      },
+      "sourceHash": "d1e049320422e2130b1f09d701cf7d37e7c4c95fba5700644f0f4b40b63addf9",
+      "detail": {
+        "title": "机架与轴承支座",
+        "description": "固定转轴与底座构成机架，轴承支承输入轴，约束机构的固定端。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下铰链销与挡圈",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-r",
+        "value": "40",
+        "step": 1,
+        "params": {
+          "r": 40,
+          "rod": 140,
+          "rpm": 12
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "苏格兰轭机构 · 啮合实验室",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1164.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "crank-rocker",
+      "baseline": false,
+      "desktop": {
+        "title": "曲柄摇杆四杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 616.59375
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      },
+      "sourceHash": "f2c87f498fadeb1fdedcac334cb1480e61b4e83d29534dc364ca3b5347157621",
+      "detail": {
+        "title": "机架与轴承支座",
+        "description": "固定转轴与底座构成机架，轴承支承输入轴，约束机构的固定端。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下铰链销与挡圈",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-a",
+        "value": "40",
+        "step": 1,
+        "params": {
+          "a": 40,
+          "b": 140,
+          "c": 100,
+          "d": 130,
+          "rpm": 10
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "曲柄摇杆四杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1256.78125
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "parallelogram",
+      "baseline": false,
+      "desktop": {
+        "title": "平行四边形四杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 616.59375
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      },
+      "sourceHash": "f9b97d8f8892f6dcc6ccc19299b56d84ccfc1d9de1f5573404de728681512bdd",
+      "detail": {
+        "title": "机架与轴承支座",
+        "description": "固定转轴与底座构成机架，轴承支承输入轴，约束机构的固定端。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下铰链销与挡圈",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-a",
+        "value": "110",
+        "step": 1,
+        "params": {
+          "a": 110,
+          "d": 150,
+          "rpm": 6
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "平行四边形四杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1142.78125
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "double-rocker",
+      "baseline": false,
+      "desktop": {
+        "title": "双摇杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 616.59375
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      },
+      "sourceHash": "a734a6f173c9f9d88d525842b16514eb7567db97e77b2cebb05274516fb23594",
+      "detail": {
+        "title": "机架与轴承支座",
+        "description": "固定转轴与底座构成机架，轴承支承输入轴，约束机构的固定端。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下铰链销与挡圈",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-a",
+        "value": "95",
+        "step": 1,
+        "params": {
+          "a": 95,
+          "b": 45,
+          "c": 110,
+          "d": 140,
+          "rpm": 6
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "双摇杆机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1256.78125
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "quick-return",
+      "baseline": false,
+      "desktop": {
+        "title": "曲柄导杆急回机构 · 啮合实验室",
+        "ready": true,
+        "parts": 8,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 691.59375
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      },
+      "sourceHash": "7827417d99cae1e6b51240bd222710ef7459db8dee694cce8223eff469d3186b",
+      "detail": {
+        "title": "机架与轴承支座",
+        "description": "固定转轴与底座构成机架，轴承支承输入轴，约束机构的固定端。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下铰链销与挡圈",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-r",
+        "value": "30",
+        "step": 1,
+        "params": {
+          "r": 30,
+          "d": 90,
+          "lever": 220,
+          "rod": 120,
+          "rpm": 12
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "曲柄导杆急回机构 · 啮合实验室",
+        "ready": true,
+        "parts": 8,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 5,
+          "applyButton": true,
+          "jointLabels": true,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 466.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1352.328125,
+            "width": 347,
+            "height": 1331.78125
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "linkages/style.css"
+        ],
+        "scripts": [
+          "linkages/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "bevel-gears",
+      "baseline": false,
+      "desktop": {
+        "title": "直齿锥齿轮副 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 4,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "65cee6d36b8c76f4d8de5656d9fd53d9cb37c9c1c3e0c4b680b4a8eeb31c5bde",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-z1",
+        "value": "18",
+        "step": 1,
+        "params": {
+          "z1": 18,
+          "z2": 30,
+          "module": 3,
+          "rpm": 10
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "直齿锥齿轮副 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 4,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1327.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "scissor-jack",
+      "baseline": false,
+      "desktop": {
+        "title": "剪式千斤顶 · 啮合实验室",
+        "ready": true,
+        "parts": 10,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 762.578125
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1046.0625,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "9742d9c3494166e01402b77df1ac779d9174401f7b1f79f04966c615652b052d",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-arm",
+        "value": "140",
+        "step": 1,
+        "params": {
+          "arm": 140,
+          "lead": 4,
+          "rpm": 12
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "剪式千斤顶 · 啮合实验室",
+        "ready": true,
+        "parts": 10,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 511.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1397.328125,
+            "width": 347,
+            "height": 1270.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "ratchet-pawl",
+      "baseline": false,
+      "desktop": {
+        "title": "棘轮棘爪 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "e83a0799bb7f9d17af6d86a95cfb7db8d158b539e49d31b2f985f7136233d147",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-teeth",
+        "value": "24",
+        "step": 1,
+        "params": {
+          "teeth": 24,
+          "advanceTeeth": 2,
+          "rpm": 12
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "棘轮棘爪 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": false
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1270.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "eccentric-follower",
+      "baseline": false,
+      "desktop": {
+        "title": "偏心轮与直动从动件 · 啮合实验室",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "0e3d1e7d6c727c231f036a6fcb2ae05eb63722a23209a812a543d345453b849f",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-radius",
+        "value": "48",
+        "step": 1,
+        "params": {
+          "radius": 48,
+          "eccentricity": 12,
+          "rpm": 10
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "偏心轮与直动从动件 · 啮合实验室",
+        "ready": true,
+        "parts": 6,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 421.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1307.328125,
+            "width": 347,
+            "height": 1270.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "roller-cam",
+      "baseline": false,
+      "desktop": {
+        "title": "盘形凸轮与滚子从动件 · 啮合实验室",
+        "ready": true,
+        "parts": 7,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 7,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "1dd660a7552a10b9fe76de5eef32ac21a7870cc317379be948e5bb98751fca10",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-base",
+        "value": "42",
+        "step": 1,
+        "params": {
+          "base": 42,
+          "lift": 28,
+          "roller": 8,
+          "rise": 120,
+          "dwell": 60,
+          "fall": 120,
+          "rpm": 8
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "盘形凸轮与滚子从动件 · 啮合实验室",
+        "ready": true,
+        "parts": 7,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 7,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 466.484375
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1352.328125,
+            "width": 347,
+            "height": 1498.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    },
+    {
+      "name": "geneva-drive",
+      "baseline": false,
+      "desktop": {
+        "title": "日内瓦槽轮机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 39,
+            "y": 254.484375,
+            "width": 1019,
+            "height": 550.796875
+          },
+          "sidebar": {
+            "x": 1077,
+            "y": 253.484375,
+            "width": 310,
+            "height": 748.796875
+          },
+          "parameters": {
+            "x": 38,
+            "y": 1032.28125,
+            "width": 1349,
+            "height": 726.1875
+          },
+          "controls": {
+            "x": 56,
+            "y": 805.28125,
+            "width": 985,
+            "height": 95
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      },
+      "sourceHash": "c22e4872c3019650d198ba37b40d311adca25e6679e449409a092b2ec86b5bd1",
+      "detail": {
+        "title": "底座与固定支承",
+        "description": "固定轴承和底座构成机架，保持各固定转轴与导向位置。",
+        "speak": false
+      },
+      "step": {
+        "title": "取下销轴与接触件",
+        "copy": null
+      },
+      "parameter": {
+        "id": "param-slots",
+        "value": "4",
+        "step": 1,
+        "params": {
+          "slots": 4,
+          "center": 140,
+          "rpm": 10
+        },
+        "updatesImmediately": false
+      },
+      "mobile": {
+        "title": "日内瓦槽轮机构 · 啮合实验室",
+        "ready": true,
+        "parts": 5,
+        "features": {
+          "aiPanel": false,
+          "login": false,
+          "partSearch": false,
+          "partFilters": false,
+          "speak": false,
+          "clarity": false,
+          "partSpec": false,
+          "stepExplanation": false,
+          "parameterSliders": 0,
+          "parameterNumbers": 3,
+          "applyButton": true,
+          "jointLabels": false,
+          "selectedLabelToggle": false,
+          "play": true,
+          "explode": true,
+          "steps": true,
+          "views": true,
+          "principle": true,
+          "resources": true,
+          "json": true,
+          "csv": true,
+          "directDrive": true
+        },
+        "rects": {
+          "viewport": {
+            "x": 15,
+            "y": 248.84375,
+            "width": 345,
+            "height": 370
+          },
+          "sidebar": {
+            "x": 14,
+            "y": 865.84375,
+            "width": 347,
+            "height": 443.078125
+          },
+          "parameters": {
+            "x": 14,
+            "y": 1328.921875,
+            "width": 347,
+            "height": 1270.375
+          },
+          "controls": {
+            "x": 25,
+            "y": 618.84375,
+            "width": 325,
+            "height": 138
+          }
+        },
+        "overflow": false,
+        "styles": [
+          "mechanisms/style.css"
+        ],
+        "scripts": [
+          "mechanisms/app.mjs"
+        ]
+      }
+    }
+  ],
+  "runtimeErrors": [],
+  "status": "COMPLETE",
+  "runtimeExceptions": []
+}

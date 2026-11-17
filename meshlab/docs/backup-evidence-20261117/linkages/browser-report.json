@@ -1,0 +1,171 @@
+{
+  "testedAt": "2026-11-16T13:49:59.786Z",
+  "checks": [
+    {
+      "name": "scotch-yoke default model and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke selection, support visibility, exploded and reverse assembly",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke playback, angle control and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke invalid parameters retain model and valid geometry changes rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke pointer drag drives input in front view",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke documentation, export and tab roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke 390px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke 360px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker default model and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker selection, support visibility, exploded and reverse assembly",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker playback, angle control and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker invalid parameters retain model and valid geometry changes rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker pointer drag drives input in front view",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker documentation, export and tab roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker 390px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker 360px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram default model and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram selection, support visibility, exploded and reverse assembly",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram playback, angle control and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram invalid parameters retain model and valid geometry changes rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram pointer drag drives input in front view",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram documentation, export and tab roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram 390px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram 360px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker default model and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker selection, support visibility, exploded and reverse assembly",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker playback, angle control and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker invalid parameters retain model and valid geometry changes rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker pointer drag drives input in front view",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker documentation, export and tab roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker 390px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker 360px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return default model and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return selection, support visibility, exploded and reverse assembly",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return playback, angle control and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return invalid parameters retain model and valid geometry changes rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return pointer drag drives input in front view",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return documentation, export and tab roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return 390px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return 360px default, selected, exploded, controls and chart",
+      "status": "PASS"
+    },
+    {
+      "name": "homepage provides all five entry links",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

@@ -50,6 +50,7 @@ const moduleUrl=path=>new URL(path,import.meta.url).href;
 const source=(await readFile(new URL('../dist/friction/viewer.mjs',import.meta.url),'utf8'))
   .replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`)
   .replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};')
+  .replace("from '../assets/reference-stage.mjs'",`from '${moduleUrl('../dist/assets/reference-stage.mjs')}'`)
   .replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/friction/mechanics.mjs')}'`);
 const {FrictionViewer,steps}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 function cpuViewer(){

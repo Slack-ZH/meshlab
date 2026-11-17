@@ -1,0 +1,1617 @@
+[
+  {
+    "path": "full-standard/bevel-gears-360-default.png",
+    "bytes": 121652,
+    "sha256": "1b4fe304dbb052744f6a96f4e352bc0208949a16731dc208ed48eeff70d12562"
+  },
+  {
+    "path": "full-standard/bevel-gears-360-exploded.png",
+    "bytes": 122038,
+    "sha256": "68da095fea25a74a5204d5f1a43abfa152889631b6e9d345ab8020fa18502dcc"
+  },
+  {
+    "path": "full-standard/bevel-gears-360-parameters.png",
+    "bytes": 34943,
+    "sha256": "5f0cd961c23f83c6b677ef7b65a1a243029dafb601bc4016c4c9ec731e7f9abc"
+  },
+  {
+    "path": "full-standard/bevel-gears-360-selected.png",
+    "bytes": 121652,
+    "sha256": "1b4fe304dbb052744f6a96f4e352bc0208949a16731dc208ed48eeff70d12562"
+  },
+  {
+    "path": "full-standard/bevel-gears-360-step4.png",
+    "bytes": 112619,
+    "sha256": "8f76b923140cd0ddc7bb266c0c604466758d50f81587505c758524a10791249a"
+  },
+  {
+    "path": "full-standard/bevel-gears-390-default.png",
+    "bytes": 136247,
+    "sha256": "a966e73438f3742a22641e4a8c267eacd4ea9faf9ca22e3f1ec1f9215b930dc4"
+  },
+  {
+    "path": "full-standard/bevel-gears-390-exploded.png",
+    "bytes": 137545,
+    "sha256": "64aedb49939f7a1e3636d25a32e7113d4a64a16f95021af13f9da8ebe2fb2bc0"
+  },
+  {
+    "path": "full-standard/bevel-gears-390-parameters.png",
+    "bytes": 42234,
+    "sha256": "9d15fcdd94ae0b2014b2aa7da807048c47d6dad47a2953608982ade4f09aa70b"
+  },
+  {
+    "path": "full-standard/bevel-gears-390-selected.png",
+    "bytes": 136673,
+    "sha256": "ba7f146b7d81c37dbc69ca614854e322d09d94ba41735839f75435aa6e4d558c"
+  },
+  {
+    "path": "full-standard/bevel-gears-dark.png",
+    "bytes": 448399,
+    "sha256": "89bf2931973b2d98a82cde392437792df77dd4e25fc8dd627961233fc31a89dc"
+  },
+  {
+    "path": "full-standard/bevel-gears-desktop-default.png",
+    "bytes": 423122,
+    "sha256": "2dac31de02a370c2833b8ecc47cc035281a169dfb5f75fd8519ad43c505cc735"
+  },
+  {
+    "path": "full-standard/bevel-gears-desktop-exploded.png",
+    "bytes": 421519,
+    "sha256": "6584d71ebacafe86e902769d3dd170bcfac98963a728b1544dcb344e1834ca06"
+  },
+  {
+    "path": "full-standard/bevel-gears-desktop-selected.png",
+    "bytes": 422568,
+    "sha256": "d0a3363e6b330d09bddcc00c91cc8d2c30cea2c889e73dd402bab8f7736836c9"
+  },
+  {
+    "path": "full-standard/bevel-gears-desktop.png",
+    "bytes": 424915,
+    "sha256": "8c12ebe64f80546296317c7d0cb1a39c31f59f6ee27a76095c980ae90d6025d5"
+  },
+  {
+    "path": "full-standard/crank-rocker-360-default.png",
+    "bytes": 115733,
+    "sha256": "dcd67b2d83cab82e671edb9d2320af8c87f80d8b003da66f4bf08c59c34bfa54"
+  },
+  {
+    "path": "full-standard/crank-rocker-360-exploded.png",
+    "bytes": 122879,
+    "sha256": "f5b169802fef88d00fa25438b1c9f1d00c9aa4c8afb0b8cec0ccec8d2d44b228"
+  },
+  {
+    "path": "full-standard/crank-rocker-360-parameters.png",
+    "bytes": 36545,
+    "sha256": "0cb5f6014d8b2def7aff39bbea7714634a7ddd3cf4b2666ea4be16abb2dc556f"
+  },
+  {
+    "path": "full-standard/crank-rocker-360-selected.png",
+    "bytes": 115733,
+    "sha256": "dcd67b2d83cab82e671edb9d2320af8c87f80d8b003da66f4bf08c59c34bfa54"
+  },
+  {
+    "path": "full-standard/crank-rocker-360-step4.png",
+    "bytes": 111153,
+    "sha256": "cbb44d022018645f75f6f1a560a229f1873433fada04a999b714b4fc6c10f8a0"
+  },
+  {
+    "path": "full-standard/crank-rocker-390-default.png",
+    "bytes": 128947,
+    "sha256": "c7f5cbebda3058ab42c9cdd406ee06af235f9bd9de1cf13866acfe46a6930217"
+  },
+  {
+    "path": "full-standard/crank-rocker-390-exploded.png",
+    "bytes": 138237,
+    "sha256": "f2123d72cea3c01cf8a802d3c3447e8c531ab8fc891c49fd759054fc86f34e2e"
+  },
+  {
+    "path": "full-standard/crank-rocker-390-parameters.png",
+    "bytes": 42144,
+    "sha256": "73deb6600a2607ef5d4abfd6a0333d8ce400f1db50d89f8534c1adcd3e026966"
+  },
+  {
+    "path": "full-standard/crank-rocker-390-selected.png",
+    "bytes": 129743,
+    "sha256": "2b14fe8bfedb5e4d0e17904d6f1c89c5035ba25ed0061c9ede4ab6bc75d4483d"
+  },
+  {
+    "path": "full-standard/crank-rocker-dark.png",
+    "bytes": 428010,
+    "sha256": "ad5d9a0aa0a002ae54aa97d7688ea71d930510db69813cf2a84c75427c15b490"
+  },
+  {
+    "path": "full-standard/crank-rocker-desktop-default.png",
+    "bytes": 404244,
+    "sha256": "dae49a9093bfeee4e037a9cff83c3a3fb10207e4dc3e9a43313451d0df496af3"
+  },
+  {
+    "path": "full-standard/crank-rocker-desktop-exploded.png",
+    "bytes": 417605,
+    "sha256": "761245352a4817bce10adb4cf0a73471b4b3b4e22f2af05a17ad35b09540eff7"
+  },
+  {
+    "path": "full-standard/crank-rocker-desktop-selected.png",
+    "bytes": 394214,
+    "sha256": "2081d32a22e33970e44586bbbc20a2886c49768f17ae81e3606775b423ee1b46"
+  },
+  {
+    "path": "full-standard/crank-rocker-desktop.png",
+    "bytes": 401329,
+    "sha256": "2a7f0376222b0f357494f09912563e8232f5665786f14c5113812a0d1e3f264c"
+  },
+  {
+    "path": "full-standard/double-rocker-360-default.png",
+    "bytes": 116171,
+    "sha256": "0800b67eb4977e43b76ed2cedc7581e2a821d81195f4d90fd5c0890c5829e752"
+  },
+  {
+    "path": "full-standard/double-rocker-360-exploded.png",
+    "bytes": 123297,
+    "sha256": "506f04d13f36e66d099a2b18acc6bb8a0aede9ccfd8ddde7ab2d722816b8fdbd"
+  },
+  {
+    "path": "full-standard/double-rocker-360-parameters.png",
+    "bytes": 35813,
+    "sha256": "3e1c9afc39603c3d0d004187e48f5058fd425b84db01313bb02cc14123d522c9"
+  },
+  {
+    "path": "full-standard/double-rocker-360-selected.png",
+    "bytes": 116171,
+    "sha256": "0800b67eb4977e43b76ed2cedc7581e2a821d81195f4d90fd5c0890c5829e752"
+  },
+  {
+    "path": "full-standard/double-rocker-360-step4.png",
+    "bytes": 112886,
+    "sha256": "09b8034b3b44a4b5a72eb3cc1bf4136692c560bba74271f1c8d153091b3e67b3"
+  },
+  {
+    "path": "full-standard/double-rocker-390-default.png",
+    "bytes": 130459,
+    "sha256": "cf73ab60084e58a7f3bb5dd1d897091723ec51a6a51f9dd18048f3e2462a1560"
+  },
+  {
+    "path": "full-standard/double-rocker-390-exploded.png",
+    "bytes": 138984,
+    "sha256": "7e0eb09417a5eb0ae926eda0b1c7cfa11605b95ba9435e2832332ec0a3804848"
+  },
+  {
+    "path": "full-standard/double-rocker-390-parameters.png",
+    "bytes": 40565,
+    "sha256": "a22703b42865fa7a68526a52a5ff0f080f9f918e3200b2a44fd07d3c442e9aa7"
+  },
+  {
+    "path": "full-standard/double-rocker-390-selected.png",
+    "bytes": 131128,
+    "sha256": "2d289cb692d7770bce0e5e1509833d36146a4fcb5a5b6261dde04598d712d718"
+  },
+  {
+    "path": "full-standard/double-rocker-dark.png",
+    "bytes": 428591,
+    "sha256": "c4a50dc25036bdba5c2e37e3c03bc28d538d88ea67f2c7772b54e0fdb9aaa21e"
+  },
+  {
+    "path": "full-standard/double-rocker-desktop-default.png",
+    "bytes": 405304,
+    "sha256": "fe999e1e9e3df3ab052a5921dbea3f577aece0d0001322022eadc96f2f5d6045"
+  },
+  {
+    "path": "full-standard/double-rocker-desktop-exploded.png",
+    "bytes": 415119,
+    "sha256": "edf912b69c7b22598c94852115095e1e423a4bbc78454fea18f853560b4b34c0"
+  },
+  {
+    "path": "full-standard/double-rocker-desktop-selected.png",
+    "bytes": 394860,
+    "sha256": "a85ab8c20e9e1f29d6b416fb9d837a78e6404fd52004fe44c482823fadabcdf5"
+  },
+  {
+    "path": "full-standard/double-rocker-desktop.png",
+    "bytes": 401967,
+    "sha256": "8e15d13a81af4ed6936eb581519a5a0bf17795d3c8d253640943f7b831d80efa"
+  },
+  {
+    "path": "full-standard/eccentric-follower-360-default.png",
+    "bytes": 117348,
+    "sha256": "dd18cab104c9f705d5b1e1d1faa8f6234ee90aa6d1573623c4ebf5f74450b990"
+  },
+  {
+    "path": "full-standard/eccentric-follower-360-exploded.png",
+    "bytes": 123547,
+    "sha256": "f2744713838a4f57f34d683418a3ad915494bb56bb2ede2e7ce9398a91a12dde"
+  },
+  {
+    "path": "full-standard/eccentric-follower-360-parameters.png",
+    "bytes": 37404,
+    "sha256": "5a5c4ab160cc809a4f14e92887cd875c92568fb064fcedaa06fa25df67057d7e"
+  },
+  {
+    "path": "full-standard/eccentric-follower-360-selected.png",
+    "bytes": 117348,
+    "sha256": "dd18cab104c9f705d5b1e1d1faa8f6234ee90aa6d1573623c4ebf5f74450b990"
+  },
+  {
+    "path": "full-standard/eccentric-follower-360-step4.png",
+    "bytes": 109610,
+    "sha256": "fcf2ae5c5d4851f6bf3ac7332f2238a6d24c9286382ca564f1b9d7ca160eda38"
+  },
+  {
+    "path": "full-standard/eccentric-follower-390-default.png",
+    "bytes": 132316,
+    "sha256": "7389dd64e27bc1d7e6c3ce766f4f0b1359da0bcd3a7b7cb53a60939127be7c06"
+  },
+  {
+    "path": "full-standard/eccentric-follower-390-exploded.png",
+    "bytes": 139402,
+    "sha256": "7fb3037defab7fa56f055a02081d0b51feebef63814f6fe8a5a15581469f09eb"
+  },
+  {
+    "path": "full-standard/eccentric-follower-390-parameters.png",
+    "bytes": 44579,
+    "sha256": "9d5fbaa6efaff0b2d082bd3d62666afa42c6c229f3b765326621cafa634487ac"
+  },
+  {
+    "path": "full-standard/eccentric-follower-390-selected.png",
+    "bytes": 132969,
+    "sha256": "4defafa0b675eac86647b28875be87d0e4772228fad3973a1361f380f65ecf54"
+  },
+  {
+    "path": "full-standard/eccentric-follower-dark.png",
+    "bytes": 428152,
+    "sha256": "ac11a8fbe80b445f785a10aad702aed43139021b411a186fed20d3d57d549200"
+  },
+  {
+    "path": "full-standard/eccentric-follower-desktop-default.png",
+    "bytes": 401489,
+    "sha256": "d4728c17eebc9e2c418626856eba93eb011f730524edc8294f27c308476241e5"
+  },
+  {
+    "path": "full-standard/eccentric-follower-desktop-exploded.png",
+    "bytes": 406067,
+    "sha256": "35f9e2f12669f732a53e8e56cb8e142b0752913b5beb9c1cbba6041d0cfc8fc4"
+  },
+  {
+    "path": "full-standard/eccentric-follower-desktop-selected.png",
+    "bytes": 395191,
+    "sha256": "ff0c7aaac6f81e511c5ebb2126750429e296c22658b5d75e0d5c65a467740c39"
+  },
+  {
+    "path": "full-standard/eccentric-follower-desktop.png",
+    "bytes": 399825,
+    "sha256": "1b2c18a1716d23c246b1406186995ddd33039c2b8866a1021c9916822b7c3981"
+  },
+  {
+    "path": "full-standard/geneva-drive-360-default.png",
+    "bytes": 115338,
+    "sha256": "54c777e21e66ff855807b6c614a0688f014ccaa6d5f5502cd2b0a193e481bb02"
+  },
+  {
+    "path": "full-standard/geneva-drive-360-exploded.png",
+    "bytes": 120246,
+    "sha256": "138f16d7b50c30d1fb98fc1b6590a00fee992269c7876ab0484d63b0d6435277"
+  },
+  {
+    "path": "full-standard/geneva-drive-360-parameters.png",
+    "bytes": 36290,
+    "sha256": "588a682784166c895d691fdcc4a53d8be60d0fa367b726e078780b339b6a330d"
+  },
+  {
+    "path": "full-standard/geneva-drive-360-selected.png",
+    "bytes": 115338,
+    "sha256": "54c777e21e66ff855807b6c614a0688f014ccaa6d5f5502cd2b0a193e481bb02"
+  },
+  {
+    "path": "full-standard/geneva-drive-360-step4.png",
+    "bytes": 109816,
+    "sha256": "4b3cfb155eb45fd76a1d46e5c4cdf646522b878b87be2fd2d228f35ff33af54f"
+  },
+  {
+    "path": "full-standard/geneva-drive-390-default.png",
+    "bytes": 127941,
+    "sha256": "5d9ae048c4670f5d5475f97149ac4e251610362b8dc94f34d1623688a3579c36"
+  },
+  {
+    "path": "full-standard/geneva-drive-390-exploded.png",
+    "bytes": 134841,
+    "sha256": "42d8ba4806859a34e7ba850eafce769b7b136029118a56924ca66ec5f9f55ecb"
+  },
+  {
+    "path": "full-standard/geneva-drive-390-parameters.png",
+    "bytes": 43774,
+    "sha256": "921f2f3c8015061e2578598a8ccebb8f54fb575e0b073d00effee39b5d8a4b07"
+  },
+  {
+    "path": "full-standard/geneva-drive-390-selected.png",
+    "bytes": 128563,
+    "sha256": "c5d846234ed7a30bc11c8e56ffc01ab1ab96db747cdda6217de452d693ca0f8f"
+  },
+  {
+    "path": "full-standard/geneva-drive-dark.png",
+    "bytes": 420712,
+    "sha256": "f276b4adf6e55fd922b4180416ac685643bcd885499f6ae53ba45906a6d09a06"
+  },
+  {
+    "path": "full-standard/geneva-drive-desktop-default.png",
+    "bytes": 396847,
+    "sha256": "fe4452764a6e749dff1b6454a0e833923e851102cd43cf6d2b4104eb361cdf37"
+  },
+  {
+    "path": "full-standard/geneva-drive-desktop-exploded.png",
+    "bytes": 408461,
+    "sha256": "67812b814ce9803b48caf7248785c094cdda84b383edc8e1ed72b03e7eeca548"
+  },
+  {
+    "path": "full-standard/geneva-drive-desktop-selected.png",
+    "bytes": 389178,
+    "sha256": "212c5f8638e28d312f76495bad042330215d0791584a005566f03030460dc8c7"
+  },
+  {
+    "path": "full-standard/geneva-drive-desktop.png",
+    "bytes": 391420,
+    "sha256": "d52b13511b7e7f52466637aa0b55a34596b4195568635eed992f5747a8492112"
+  },
+  {
+    "path": "full-standard/parallelogram-360-default.png",
+    "bytes": 121122,
+    "sha256": "47593416a9f988fe9c14d73a3111b6ece0643db792bd5f7ce3b00701f993cd75"
+  },
+  {
+    "path": "full-standard/parallelogram-360-exploded.png",
+    "bytes": 124377,
+    "sha256": "b7fb0e150b375eca4cdfc035164cad74feca71ffcaf6f624e7ad8e5581c78646"
+  },
+  {
+    "path": "full-standard/parallelogram-360-parameters.png",
+    "bytes": 34742,
+    "sha256": "7bc32697c05b62885335553a5a0b276ce0a8f867319e41f45431143602425e7b"
+  },
+  {
+    "path": "full-standard/parallelogram-360-selected.png",
+    "bytes": 121122,
+    "sha256": "47593416a9f988fe9c14d73a3111b6ece0643db792bd5f7ce3b00701f993cd75"
+  },
+  {
+    "path": "full-standard/parallelogram-360-step4.png",
+    "bytes": 110396,
+    "sha256": "479d9b6c2619962af7e1d91e9f9a1e529874ca4aa85088d5e77e32e24fd7d867"
+  },
+  {
+    "path": "full-standard/parallelogram-390-default.png",
+    "bytes": 135580,
+    "sha256": "051ddea486c831d7618283b68efe61ce309fdba327632ba8789dead7241fa1cd"
+  },
+  {
+    "path": "full-standard/parallelogram-390-exploded.png",
+    "bytes": 139281,
+    "sha256": "ab720932aaa45f49593ab1ddc9a3f5caa3d1858d18c6381b5e8eb2d0f46045ac"
+  },
+  {
+    "path": "full-standard/parallelogram-390-parameters.png",
+    "bytes": 39597,
+    "sha256": "3d1502cc8d34155c3355be6abbf9c7b6abc2617002e7b2eea8212723c1d45a39"
+  },
+  {
+    "path": "full-standard/parallelogram-390-selected.png",
+    "bytes": 136288,
+    "sha256": "7d5cf16a0c87c893161f44a9a59bab9113bfbd66935192430a3a29753ce507cf"
+  },
+  {
+    "path": "full-standard/parallelogram-dark.png",
+    "bytes": 437610,
+    "sha256": "3816e2bbf2a4d93a39de8c21b118144ec2434ca2387956d4a60e88d243d6c0fd"
+  },
+  {
+    "path": "full-standard/parallelogram-desktop-default.png",
+    "bytes": 409787,
+    "sha256": "7829228c4bf46bc306798caa860b3b85897329f3e7b509b918b5e71cdd3288f9"
+  },
+  {
+    "path": "full-standard/parallelogram-desktop-exploded.png",
+    "bytes": 423800,
+    "sha256": "4983540d4e98614120c4511f5991987df9b92f0f8ab91e1a8600a3e15b7def83"
+  },
+  {
+    "path": "full-standard/parallelogram-desktop-selected.png",
+    "bytes": 399491,
+    "sha256": "419f768ca6f7955460634ca7d89b33b818cf2e0eb78eb4d6ff8c72a01a12c71d"
+  },
+  {
+    "path": "full-standard/parallelogram-desktop.png",
+    "bytes": 407588,
+    "sha256": "748aa55846e51cef2ad21cb680b509f8b108b7a28c0d782074a7a0d55871c8de"
+  },
+  {
+    "path": "full-standard/quick-return-360-default.png",
+    "bytes": 118245,
+    "sha256": "61ac9661e7a9458d170659925b6dd2585ebfe052998ed1ab3979c53b4c5ec876"
+  },
+  {
+    "path": "full-standard/quick-return-360-exploded.png",
+    "bytes": 123626,
+    "sha256": "72d1a004da08fa078a8d7d45839df46234d8ef644f5ffb37f23051031066586e"
+  },
+  {
+    "path": "full-standard/quick-return-360-parameters.png",
+    "bytes": 36839,
+    "sha256": "8c4612c7a92df6009a8302fe610be50445e9086781913e39ab4e18bd23f8daae"
+  },
+  {
+    "path": "full-standard/quick-return-360-selected.png",
+    "bytes": 118245,
+    "sha256": "61ac9661e7a9458d170659925b6dd2585ebfe052998ed1ab3979c53b4c5ec876"
+  },
+  {
+    "path": "full-standard/quick-return-360-step4.png",
+    "bytes": 113554,
+    "sha256": "fe09869fcd0d0371b1c4c30e0c4677d233b8eb7fff3fe924be5fc2f4ca1e953f"
+  },
+  {
+    "path": "full-standard/quick-return-390-default.png",
+    "bytes": 132888,
+    "sha256": "84ab72ae7faa3a0a2fd9d5d035b299570f6593e4ba2e511b550019569d94a4b5"
+  },
+  {
+    "path": "full-standard/quick-return-390-exploded.png",
+    "bytes": 138926,
+    "sha256": "6f88f8ee6ea55ab0a674ff7c7613d19aaa56b7f7782fb86415db7943b76269b4"
+  },
+  {
+    "path": "full-standard/quick-return-390-parameters.png",
+    "bytes": 41314,
+    "sha256": "942b34f7d9b6ce00f82f66d4570c7eb03b99af2b646f5237990e5043644edbec"
+  },
+  {
+    "path": "full-standard/quick-return-390-selected.png",
+    "bytes": 133444,
+    "sha256": "048b8d977a40a0415b0dd12aa9b8aebffc15c486fab51888244c0e540ec5c222"
+  },
+  {
+    "path": "full-standard/quick-return-dark.png",
+    "bytes": 435290,
+    "sha256": "8f779c9da487b904dda85f7f3437f4ce221fbed9fd7865f8b626a1acbcac3df3"
+  },
+  {
+    "path": "full-standard/quick-return-desktop-default.png",
+    "bytes": 408491,
+    "sha256": "68220694900d81f9e9f9c373fb3b9d5decddc205d8a1329df99346750bbc07bd"
+  },
+  {
+    "path": "full-standard/quick-return-desktop-exploded.png",
+    "bytes": 414095,
+    "sha256": "099bce9fc82a885f5901e361db01d61c88cbdf47ec9948ea356d0996b1357bd5"
+  },
+  {
+    "path": "full-standard/quick-return-desktop-selected.png",
+    "bytes": 400186,
+    "sha256": "4741c4b7c338c29a10990591449b75b64298764a2828febc2c0e912eb9034416"
+  },
+  {
+    "path": "full-standard/quick-return-desktop.png",
+    "bytes": 406444,
+    "sha256": "dbc64f48a3837dafbc159d74c0945f8f7b873e8d8b4c960a1dfb0c3059f19e46"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-360-default.png",
+    "bytes": 115111,
+    "sha256": "eca14090501c4e2465e7544d43d580a366fe3a5fd530ef453672d91941725287"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-360-exploded.png",
+    "bytes": 121001,
+    "sha256": "40a15dd56f34af079be3138baa035bcd9ef06ceae7e6f3ee22008eae53aec930"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-360-parameters.png",
+    "bytes": 37942,
+    "sha256": "e14b562d6a3774101aca90ad485ea6102287dee2a65da609003cb5cb30dce672"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-360-selected.png",
+    "bytes": 115111,
+    "sha256": "eca14090501c4e2465e7544d43d580a366fe3a5fd530ef453672d91941725287"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-360-step4.png",
+    "bytes": 114006,
+    "sha256": "9f3b884f59f979999583ffc68ac24dc821c45012ad7aaf8a2512aa7c42af044b"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-390-default.png",
+    "bytes": 128534,
+    "sha256": "b2a71a6c1506a13877b787d9d19323f93022d96ff4a4dce4927b4c398d29c15b"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-390-exploded.png",
+    "bytes": 135857,
+    "sha256": "603b90e6f782d7a32e3561496f4b1b80ff592e98ed98b056eaff396df3041fbf"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-390-parameters.png",
+    "bytes": 45957,
+    "sha256": "75990f35f9ba8db40bd3a8b6389b8ff2b947dcf64059e3c7612715ca0ae9d731"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-390-selected.png",
+    "bytes": 129033,
+    "sha256": "9aff138dfdf106ee7799f93c74c58679a80f5c78ccf4882f991a505e6aa07bdd"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-dark.png",
+    "bytes": 428185,
+    "sha256": "53adb4434b0989aa3f0d90d64a8f23666842f2eb406f15db2e7c8deb6228ab78"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-desktop-default.png",
+    "bytes": 403024,
+    "sha256": "5307c92e9f741121bdb2c54673f06914f944f2b381596b81aca73e44de869498"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-desktop-exploded.png",
+    "bytes": 411174,
+    "sha256": "51a22111ffab46e859b130f0d94ca279cc136864a65e1f537701b1b164c8f96d"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-desktop-selected.png",
+    "bytes": 397681,
+    "sha256": "282b5e2afe1ee2eef4233c9d46c632a0f58b9324a774136b2a389fd26207c43c"
+  },
+  {
+    "path": "full-standard/ratchet-pawl-desktop.png",
+    "bytes": 399117,
+    "sha256": "fc30edbcc7bdbd96b6ca2b24f7375fa6fcf8d35ab2c1f4129d2310a5cd1a64c6"
+  },
+  {
+    "path": "full-standard/roller-cam-360-default.png",
+    "bytes": 118076,
+    "sha256": "d8350891bc9520d138627edccb5060922c815ceccf1da02b235f256e0ce3fa61"
+  },
+  {
+    "path": "full-standard/roller-cam-360-exploded.png",
+    "bytes": 124843,
+    "sha256": "1aabf94d7cc152ac90a4ff684d41a03f7dc144f922b1248054545544677e8218"
+  },
+  {
+    "path": "full-standard/roller-cam-360-parameters.png",
+    "bytes": 35908,
+    "sha256": "c93c6166d2444ea43541c5cef20a085daab73cfbb2da26348c82ecc83e76f847"
+  },
+  {
+    "path": "full-standard/roller-cam-360-selected.png",
+    "bytes": 118076,
+    "sha256": "d8350891bc9520d138627edccb5060922c815ceccf1da02b235f256e0ce3fa61"
+  },
+  {
+    "path": "full-standard/roller-cam-360-step4.png",
+    "bytes": 109798,
+    "sha256": "5d6462585ab01ffd99ab708c18b097420f23d8b1e4e772f2e6807d4d1f460c49"
+  },
+  {
+    "path": "full-standard/roller-cam-390-default.png",
+    "bytes": 133326,
+    "sha256": "fd93ab07d4effc5fc4a2f61e73317380233108831e9ba590795d20d9dd8ce9e8"
+  },
+  {
+    "path": "full-standard/roller-cam-390-exploded.png",
+    "bytes": 140526,
+    "sha256": "bb7e4310c62728544178a559e3cb1d0b40af8f668e992935afbe140518b6839a"
+  },
+  {
+    "path": "full-standard/roller-cam-390-parameters.png",
+    "bytes": 42486,
+    "sha256": "bbba56a0a396f4d86b510748c51fc5044300b2cc71e3e9f1380c8b91e52c2c83"
+  },
+  {
+    "path": "full-standard/roller-cam-390-selected.png",
+    "bytes": 134207,
+    "sha256": "cc80f8172a968b7bac88bfc910b6e43e40dcde21b7f7d65569951a7b61d32a19"
+  },
+  {
+    "path": "full-standard/roller-cam-dark.png",
+    "bytes": 429266,
+    "sha256": "ffe03ad204a3bb8884c195e2a262cfa0ccaa2a5d53c2dbcfc23326753e709bc3"
+  },
+  {
+    "path": "full-standard/roller-cam-desktop-default.png",
+    "bytes": 402634,
+    "sha256": "2587382958a22848d93872f03f6815cacf44dab37ba33ee1ca2fe6635c9bc387"
+  },
+  {
+    "path": "full-standard/roller-cam-desktop-exploded.png",
+    "bytes": 408434,
+    "sha256": "5d123e5f0e6eba01faa9d49cd36254a08341b3573b4515b780284b46672caf2e"
+  },
+  {
+    "path": "full-standard/roller-cam-desktop-selected.png",
+    "bytes": 395630,
+    "sha256": "ed69c8ba9f255ebf9197b30c252b7883b1efee506fed8aff0c9720a5d8366123"
+  },
+  {
+    "path": "full-standard/roller-cam-desktop.png",
+    "bytes": 400489,
+    "sha256": "9b4cfa6a51c133ccdfa5cde7f046272ff0132f81c65c0564763c4e262309df47"
+  },
+  {
+    "path": "full-standard/scissor-jack-360-default.png",
+    "bytes": 121232,
+    "sha256": "ba047da72e0e8aefef7e201b6c18c41b4c60eb1dc1870f6406cfc9e7c450135b"
+  },
+  {
+    "path": "full-standard/scissor-jack-360-exploded.png",
+    "bytes": 123091,
+    "sha256": "81bb68a31832e56129fea5bbedffa2a4ffef19d8f25596bd88de3b4d4cd74298"
+  },
+  {
+    "path": "full-standard/scissor-jack-360-parameters.png",
+    "bytes": 37325,
+    "sha256": "f1d6b213cc40b1c66705bc81acaa4043bf6a46070427537ce5872b60498c9030"
+  },
+  {
+    "path": "full-standard/scissor-jack-360-selected.png",
+    "bytes": 121232,
+    "sha256": "ba047da72e0e8aefef7e201b6c18c41b4c60eb1dc1870f6406cfc9e7c450135b"
+  },
+  {
+    "path": "full-standard/scissor-jack-360-step4.png",
+    "bytes": 116422,
+    "sha256": "8590aeaf77264b3442de7f17d954bc24ab13b8a0f5244d757708a089b46fe494"
+  },
+  {
+    "path": "full-standard/scissor-jack-390-default.png",
+    "bytes": 136598,
+    "sha256": "3660882097e5b4f4c7b9480eb35e59331fd0a6485e01ccc0ee8eb30d9515314e"
+  },
+  {
+    "path": "full-standard/scissor-jack-390-exploded.png",
+    "bytes": 139365,
+    "sha256": "2c865d5b8031ce49d47c3107fee7e12366fb5cc2c7b8a5d3b8eb032c0ebeaf43"
+  },
+  {
+    "path": "full-standard/scissor-jack-390-parameters.png",
+    "bytes": 45537,
+    "sha256": "eef6062a4511689c5327ddd00d33d0746f77332765347584a01c0ae57c8530c2"
+  },
+  {
+    "path": "full-standard/scissor-jack-390-selected.png",
+    "bytes": 137362,
+    "sha256": "1d5cf8238f732613b0d8a956459f1aefe03b3038731ff5206db6b82a1b670e94"
+  },
+  {
+    "path": "full-standard/scissor-jack-dark.png",
+    "bytes": 443959,
+    "sha256": "09fe47715ca8ad42f24083d56f6c01ce071442d0d2ea10a66de3e790829ae714"
+  },
+  {
+    "path": "full-standard/scissor-jack-desktop-default.png",
+    "bytes": 413354,
+    "sha256": "1810b63e0cef641f5695c6c6bc936352857c21226132d971497e0eaaafcd2341"
+  },
+  {
+    "path": "full-standard/scissor-jack-desktop-exploded.png",
+    "bytes": 426606,
+    "sha256": "2981e2dc9514d8e15bc698dd69b420194d61f995a5e43d68dbace3ed2eec2b0d"
+  },
+  {
+    "path": "full-standard/scissor-jack-desktop-selected.png",
+    "bytes": 408492,
+    "sha256": "5d12d17005dbf9b24a6aba9bd00cd9a991ec6a6bc7d8cf660effefc00f45a1f4"
+  },
+  {
+    "path": "full-standard/scissor-jack-desktop.png",
+    "bytes": 412268,
+    "sha256": "5894f7fef00ec13a837b806fd8384a20e674fc90a9d468e36c6e6707e520a854"
+  },
+  {
+    "path": "full-standard/scotch-yoke-360-default.png",
+    "bytes": 119116,
+    "sha256": "751b351fb5f6ca0b5badbc2a8bb5949556e3ff35a7175d816efd74d73454b677"
+  },
+  {
+    "path": "full-standard/scotch-yoke-360-exploded.png",
+    "bytes": 122373,
+    "sha256": "a7842b5f9133e04a363d82ef5785ec46c6d54fe37c41c692d120bffb2093eb03"
+  },
+  {
+    "path": "full-standard/scotch-yoke-360-parameters.png",
+    "bytes": 40754,
+    "sha256": "d8e5777c771bf9101dc8586207f892bf4df99411fe96f726deacb2ff0ae5465f"
+  },
+  {
+    "path": "full-standard/scotch-yoke-360-selected.png",
+    "bytes": 119116,
+    "sha256": "751b351fb5f6ca0b5badbc2a8bb5949556e3ff35a7175d816efd74d73454b677"
+  },
+  {
+    "path": "full-standard/scotch-yoke-360-step4.png",
+    "bytes": 112065,
+    "sha256": "40a5b43f6b38c5d2b70154b1d47f613e97de0f426139c370054f650726e8ddd4"
+  },
+  {
+    "path": "full-standard/scotch-yoke-390-default.png",
+    "bytes": 132981,
+    "sha256": "e3179520d6a03ca933fd3ed9ce9e7148d69299f3e0f0a28abec26072df2bc828"
+  },
+  {
+    "path": "full-standard/scotch-yoke-390-exploded.png",
+    "bytes": 136974,
+    "sha256": "92023722a1dcd95eb6026385608c3b0dfae72ede6b25df39696a930f849c6185"
+  },
+  {
+    "path": "full-standard/scotch-yoke-390-parameters.png",
+    "bytes": 45882,
+    "sha256": "cee73426f20b114906e577b0245dc4e59d96c18d3e9fe3b74b1b5a70e7252197"
+  },
+  {
+    "path": "full-standard/scotch-yoke-390-selected.png",
+    "bytes": 133672,
+    "sha256": "9ad24e672d7bffb61876ad98a43fe5416b37d3f279b24e1adf9dfd341eca19e2"
+  },
+  {
+    "path": "full-standard/scotch-yoke-dark.png",
+    "bytes": 425899,
+    "sha256": "508c5ede5e10504f3ae71d669efa59dec265eb50c215b0e540cd3751d24b0e77"
+  },
+  {
+    "path": "full-standard/scotch-yoke-desktop-default.png",
+    "bytes": 400792,
+    "sha256": "ca1e801264407fd7e4614f5bf28b3b4f4cdde70679605f1f29a400aa0c57046d"
+  },
+  {
+    "path": "full-standard/scotch-yoke-desktop-exploded.png",
+    "bytes": 423669,
+    "sha256": "c43131ec2d73790b596b4be4ee1b5c827bb0e890d4814ac34806494046451c4f"
+  },
+  {
+    "path": "full-standard/scotch-yoke-desktop-selected.png",
+    "bytes": 392976,
+    "sha256": "dee9181f1e5621b8185a574a664cf2bb7c4ed1fbce7bb1dc248177dedd096cf3"
+  },
+  {
+    "path": "full-standard/scotch-yoke-desktop.png",
+    "bytes": 396235,
+    "sha256": "8c85a05be394cbc1db0b9c6f5e464805f9098da0294fd8f3028368e72a0b91b3"
+  },
+  {
+    "path": "linkages/crank-rocker-360-default.png",
+    "bytes": 98048,
+    "sha256": "9d3728770ee78a2f311f9fbd69b83fb55626e3c27b4bdb63bc7cb78f430fdefc"
+  },
+  {
+    "path": "linkages/crank-rocker-360-exploded.png",
+    "bytes": 104469,
+    "sha256": "d7d770ce7e01556e34a8a6576242cb8f0d4bfb197c9b34d08e32ce5bcba6fbb1"
+  },
+  {
+    "path": "linkages/crank-rocker-360-readouts.png",
+    "bytes": 36519,
+    "sha256": "e6eaed5009e4f4f8dc681f62ea82338c6ad264cd9c82a9c4a5daf5b3b159a671"
+  },
+  {
+    "path": "linkages/crank-rocker-360-selected.png",
+    "bytes": 98951,
+    "sha256": "70fcd7cb9291436b6fbb7446663c4b6a78c7809ada801f726c5cc795a39e2ce1"
+  },
+  {
+    "path": "linkages/crank-rocker-390-default.png",
+    "bytes": 114523,
+    "sha256": "0bc2afec41ff19014a0ced2e4438de05a2571517479fc2c0616baa744fbccb1c"
+  },
+  {
+    "path": "linkages/crank-rocker-390-exploded.png",
+    "bytes": 120361,
+    "sha256": "ba885b9c9e404dc5e038f8c18c7cebe40ce5a43c4bbc2060c906f711edc1882b"
+  },
+  {
+    "path": "linkages/crank-rocker-390-readouts.png",
+    "bytes": 42386,
+    "sha256": "1ffffd2197c1fcf777cedce994722457c55ef124e7cfeeeeec847514652a5d3c"
+  },
+  {
+    "path": "linkages/crank-rocker-390-selected.png",
+    "bytes": 115431,
+    "sha256": "fe3e0267c1ff95421a6f7d5c2e34f20bef4f19c9e90463eb04d40c145fcec5cf"
+  },
+  {
+    "path": "linkages/crank-rocker-desktop.png",
+    "bytes": 331398,
+    "sha256": "124e56055f91ec8eaf8ba2a133d23823070287edba05cef5b27852b920544863"
+  },
+  {
+    "path": "linkages/crank-rocker-exploded-desktop.png",
+    "bytes": 339101,
+    "sha256": "93e4c8b998d340ad643b60efbdd62586f3d11ec290e64233a9a602130ab1bc44"
+  },
+  {
+    "path": "linkages/crank-rocker-selected-desktop.png",
+    "bytes": 331350,
+    "sha256": "562607fedcc7d16c8c474962713d7aaa0ae59663839031eb66b524accba8e60c"
+  },
+  {
+    "path": "linkages/double-rocker-360-default.png",
+    "bytes": 98886,
+    "sha256": "7a41e7f663eeb021c3461a4c8f8e1ddb26213d668f33fee35a8c17b14f6ea433"
+  },
+  {
+    "path": "linkages/double-rocker-360-exploded.png",
+    "bytes": 105304,
+    "sha256": "f4c2e9c2b67ee54a3267f20b4f77dc2dcc73a3a649ef7d2dcbe5411736adcaaa"
+  },
+  {
+    "path": "linkages/double-rocker-360-readouts.png",
+    "bytes": 35005,
+    "sha256": "a7bd408bf574958864a46a2b4b7953486c2c8b7e2e2c8d4903c38f435f96ea73"
+  },
+  {
+    "path": "linkages/double-rocker-360-selected.png",
+    "bytes": 99483,
+    "sha256": "22b0e5b3e6d062c796b29e6bae8fceb2408cdaee932a18cc90675c3b686c1238"
+  },
+  {
+    "path": "linkages/double-rocker-390-default.png",
+    "bytes": 115180,
+    "sha256": "0432b2ed047770566388a8fe3f40db723710ea31444661f9cb40bf6dd1e519cc"
+  },
+  {
+    "path": "linkages/double-rocker-390-exploded.png",
+    "bytes": 120106,
+    "sha256": "f46da697bfef54ee9e5d4d291aef70e8093ed16f02498ed2d91cde4bd618dc8f"
+  },
+  {
+    "path": "linkages/double-rocker-390-readouts.png",
+    "bytes": 41192,
+    "sha256": "b33721be09a559905641e5b0a863a13d5b8755fcfa6e700a1ae13b20e19c783a"
+  },
+  {
+    "path": "linkages/double-rocker-390-selected.png",
+    "bytes": 115969,
+    "sha256": "887efd6b20ca396195c6d5566db7f02e51772b64ae9331ea0d89ec232525ddc4"
+  },
+  {
+    "path": "linkages/double-rocker-desktop.png",
+    "bytes": 333488,
+    "sha256": "74d829ec12ad27bb5916e98a5ccdad2994d18b72f6de5379319984393bfeeaa2"
+  },
+  {
+    "path": "linkages/double-rocker-exploded-desktop.png",
+    "bytes": 338361,
+    "sha256": "5e8b1207ff5865a25539358aa57300122a000c4051ca67c355a6412c5595c4cd"
+  },
+  {
+    "path": "linkages/double-rocker-selected-desktop.png",
+    "bytes": 333247,
+    "sha256": "f2177c77168cc655a12392e041ff387518ea315ba7c7172b21ddb14d2ae59f89"
+  },
+  {
+    "path": "linkages/parallelogram-360-default.png",
+    "bytes": 103478,
+    "sha256": "0ae497fada56b25207f2cb95efe9ddb1ef6d25b3d6fded04a959ef37aba0fd79"
+  },
+  {
+    "path": "linkages/parallelogram-360-exploded.png",
+    "bytes": 106359,
+    "sha256": "849eec0ca9d6d9e378f730010cb0573a1637f75b6456af700bbc2efd9cb8cbe0"
+  },
+  {
+    "path": "linkages/parallelogram-360-readouts.png",
+    "bytes": 33947,
+    "sha256": "16de0c0afb310874a8208dd5639fb0fa8563b56ab18cdaf3ac01dbcc0fd9f496"
+  },
+  {
+    "path": "linkages/parallelogram-360-selected.png",
+    "bytes": 104237,
+    "sha256": "da4248b619796ee9d49acaac827f6536d83cee315a8d21edc98a6211f36afb3b"
+  },
+  {
+    "path": "linkages/parallelogram-390-default.png",
+    "bytes": 120147,
+    "sha256": "741f1624b9ef77358f98556d82e27561da307634c3ad9054660f209b76102731"
+  },
+  {
+    "path": "linkages/parallelogram-390-exploded.png",
+    "bytes": 121583,
+    "sha256": "dfa657a29ce61d7fa142d376ca67c82f55ed19b69c4b52b8a837f44c010261d5"
+  },
+  {
+    "path": "linkages/parallelogram-390-readouts.png",
+    "bytes": 39842,
+    "sha256": "ddb7d177b623b2e6efc196aee47134f885d691a0e283b7caae8273147f7c29ab"
+  },
+  {
+    "path": "linkages/parallelogram-390-selected.png",
+    "bytes": 120905,
+    "sha256": "6fdbeb94acd68d05b5d895faf86867abad48b3b4ec7edd213993f8725fc5b8c7"
+  },
+  {
+    "path": "linkages/parallelogram-desktop.png",
+    "bytes": 338160,
+    "sha256": "68f217f83f1e9be594de5faf178c885420ffa7a19ce871d3f3f5bd8627354dca"
+  },
+  {
+    "path": "linkages/parallelogram-exploded-desktop.png",
+    "bytes": 347528,
+    "sha256": "deb244666e68fbc8dc7bb2eb6aa5e77768f8370bed2a92abc12f503f448131b3"
+  },
+  {
+    "path": "linkages/parallelogram-selected-desktop.png",
+    "bytes": 338795,
+    "sha256": "040490392ef16db8e7a65dd995bdb3660c1ab708e40bbf7d31386ae9ce030aa9"
+  },
+  {
+    "path": "linkages/quick-return-360-default.png",
+    "bytes": 100731,
+    "sha256": "7b7536181973ea99404927463c69cfb852f513479d69226e8132481ff0d2d726"
+  },
+  {
+    "path": "linkages/quick-return-360-exploded.png",
+    "bytes": 105088,
+    "sha256": "d25c84834a0dd7450a160ea6b62154b1abff0dba25fdddaa619bc2f67ebeee16"
+  },
+  {
+    "path": "linkages/quick-return-360-readouts.png",
+    "bytes": 37375,
+    "sha256": "bd37ed34d91a5e5134be452ad9982e507df578da2528dd287f6ec2257892edc4"
+  },
+  {
+    "path": "linkages/quick-return-360-selected.png",
+    "bytes": 101467,
+    "sha256": "228b800f54296f779234d56f851e42f966660932698749462ba65cde23be9b65"
+  },
+  {
+    "path": "linkages/quick-return-390-default.png",
+    "bytes": 116737,
+    "sha256": "cbafd7cccf14bf5fef51c03d6e68ee0b13a8684d208c44cd7c1eb13911e291b9"
+  },
+  {
+    "path": "linkages/quick-return-390-exploded.png",
+    "bytes": 120303,
+    "sha256": "67f64b4fd0c58db5ba07534d7b29dbf17948d8416371210a344505b8b6e37186"
+  },
+  {
+    "path": "linkages/quick-return-390-readouts.png",
+    "bytes": 43489,
+    "sha256": "17ea5588f10219075b1a7375648939e4556282306627b039e78485453e63ebf9"
+  },
+  {
+    "path": "linkages/quick-return-390-selected.png",
+    "bytes": 117388,
+    "sha256": "f811fc3e4e9fcf6bf6defa5ae51473a586d5cb82beb292621db4d60c16244e9c"
+  },
+  {
+    "path": "linkages/quick-return-desktop.png",
+    "bytes": 341676,
+    "sha256": "6debb8b166547187f3bd8f9aceb6572256c5cf670798f6509c33741e74c07b1b"
+  },
+  {
+    "path": "linkages/quick-return-exploded-desktop.png",
+    "bytes": 347162,
+    "sha256": "057883934eaec0bd4473c37a4cc19f7fcc390dbc291346851f428ca35b86fa7f"
+  },
+  {
+    "path": "linkages/quick-return-selected-desktop.png",
+    "bytes": 343226,
+    "sha256": "68518eb589ff2c48fc9d5e26df7e07bfa06e48e3fb66481d5ac4730bc23c2de9"
+  },
+  {
+    "path": "linkages/scotch-yoke-360-default.png",
+    "bytes": 102423,
+    "sha256": "d8c0a6b9d9ddcf43392a91f46778fe9633cd1a8c21dd7ed0e0be3826ddb0c418"
+  },
+  {
+    "path": "linkages/scotch-yoke-360-exploded.png",
+    "bytes": 104838,
+    "sha256": "9a5692fe8dbbb4cad2213ae03c9f6428e0162d9d6874689724ae36e6f24ee1e7"
+  },
+  {
+    "path": "linkages/scotch-yoke-360-readouts.png",
+    "bytes": 38998,
+    "sha256": "4639d77c2000df9cce758d1471a242b7db59fddcfd4666d1923af3ad0582f130"
+  },
+  {
+    "path": "linkages/scotch-yoke-360-selected.png",
+    "bytes": 102972,
+    "sha256": "22ce7a857d8dd92606a5a27466c05aa14c8d8c4bf9c10699ccea05ae1e1c5119"
+  },
+  {
+    "path": "linkages/scotch-yoke-390-default.png",
+    "bytes": 118640,
+    "sha256": "a83035c317580257abf8bc195a2f294499c662e566ed17b52d79ebcfa7d91557"
+  },
+  {
+    "path": "linkages/scotch-yoke-390-exploded.png",
+    "bytes": 120449,
+    "sha256": "3476626a4138d7452cdc5cf2958dc613c2304b7cb0605e840ffa38d01f829a1b"
+  },
+  {
+    "path": "linkages/scotch-yoke-390-readouts.png",
+    "bytes": 45377,
+    "sha256": "55847aa2cc7e1dd5d0c34019618617917cbc79c42e8924e4ffc57b913243347b"
+  },
+  {
+    "path": "linkages/scotch-yoke-390-selected.png",
+    "bytes": 119379,
+    "sha256": "c7b6cfdf6ba4ac70eb059f0f4073550f4a20152032ee2914801ab13eeb7362e7"
+  },
+  {
+    "path": "linkages/scotch-yoke-desktop.png",
+    "bytes": 330815,
+    "sha256": "df17e9469f6e380b3e32a4ea465c9b2bb5a031f11f77c9736cb6f436a4883d85"
+  },
+  {
+    "path": "linkages/scotch-yoke-exploded-desktop.png",
+    "bytes": 352281,
+    "sha256": "daec06e44574beaff44159b4244bceb761f48cab82fdee9d18315b13ca2257b2"
+  },
+  {
+    "path": "linkages/scotch-yoke-selected-desktop.png",
+    "bytes": 332066,
+    "sha256": "4fddd2f563ac62f4e6f3691fa0ed511d4cfc8bcbc94c133c7c38682c010e49e7"
+  },
+  {
+    "path": "mechanisms/bevel-gears-360-default.png",
+    "bytes": 106042,
+    "sha256": "ec3390ef6d4129c0f64ff3d904c3bae72f795a156f9e1d8eccc8beec30bd4c85"
+  },
+  {
+    "path": "mechanisms/bevel-gears-360-exploded.png",
+    "bytes": 104036,
+    "sha256": "81fd6a5f854ac31932f6da434eb5623d3b8aea0467167a8d650c017c06a8f529"
+  },
+  {
+    "path": "mechanisms/bevel-gears-360-readouts.png",
+    "bytes": 32723,
+    "sha256": "e083b7d5c194e4aa46a2121e035e2dd0371e13e960bc8ac27d214046e3e0b532"
+  },
+  {
+    "path": "mechanisms/bevel-gears-360-selected.png",
+    "bytes": 107575,
+    "sha256": "a2c8560f402284fadd633d071df85140e26c4aa4014128be26f493ee996801dc"
+  },
+  {
+    "path": "mechanisms/bevel-gears-390-default.png",
+    "bytes": 119618,
+    "sha256": "ef5a06e62619b9591d38b019cbd81812d9671b3fb7ef63cd346c738210b9977a"
+  },
+  {
+    "path": "mechanisms/bevel-gears-390-exploded.png",
+    "bytes": 117023,
+    "sha256": "2f8832f027e3148aab3d283504b39d98a753690bde4a99d17a75f97a873e9014"
+  },
+  {
+    "path": "mechanisms/bevel-gears-390-readouts.png",
+    "bytes": 39275,
+    "sha256": "afaa8d8e8a9ec2459566c94049723efc21e7ddd001a9671430b697738ed8d19c"
+  },
+  {
+    "path": "mechanisms/bevel-gears-390-selected.png",
+    "bytes": 121166,
+    "sha256": "639a96bef3b3e26b73003761112b178b37c463ae3d12b9d09eb182103efe38fd"
+  },
+  {
+    "path": "mechanisms/bevel-gears-desktop.png",
+    "bytes": 344898,
+    "sha256": "85139ade4576e405e70801b425762316564fb6313e05a09711c98ac91ef7de2b"
+  },
+  {
+    "path": "mechanisms/bevel-gears-exploded-desktop.png",
+    "bytes": 336172,
+    "sha256": "cc90bbe16c584e760199b996dd721fc740337cae4aac2ddf798e9c502415715b"
+  },
+  {
+    "path": "mechanisms/bevel-gears-selected-desktop.png",
+    "bytes": 347994,
+    "sha256": "9092c5d182ed53108e2230ad53ae975c331bdbf7493468e8986b0c14e0bd920c"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-360-default.png",
+    "bytes": 100108,
+    "sha256": "9e69648c107a2b915e44dfe1fff3ebed95a68e80a76e2b60a15359977c2aca4b"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-360-exploded.png",
+    "bytes": 105382,
+    "sha256": "748f1e7e083fabfa0d135dac78a3203d943053d65bbd8ca065d35bd2fdf49622"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-360-readouts.png",
+    "bytes": 36054,
+    "sha256": "59a43bcf4584d87ffb989485608dd12771a738307e69b4c39d38b7efa5b6f533"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-360-selected.png",
+    "bytes": 100738,
+    "sha256": "a342acf1ba8d1265750697b6cd4554b4f27501a0c2852c283b365687702ad225"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-390-default.png",
+    "bytes": 115617,
+    "sha256": "abeca8bd764fe2481554e4a742bfce39eeb44d5ca2c2cfc62ba46330a8a0fed8"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-390-exploded.png",
+    "bytes": 119278,
+    "sha256": "3ac784c18e8091bdb35b48c60a88cd56c89936093f10a222a1e092c6f99f209a"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-390-readouts.png",
+    "bytes": 42338,
+    "sha256": "8a81b562d2472088d8bf9bdee585c9f49f09a202ef046c7705f4e6a4d2a8dd47"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-390-selected.png",
+    "bytes": 116259,
+    "sha256": "4d5807c386fcba70f25e451236e21607fa4159797586808f268a11acdf00ad44"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-desktop.png",
+    "bytes": 330264,
+    "sha256": "883fa44b5cac8ade85243722b5ed4ffd13ba528c1921d5a047b5a29c9f0cac22"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-exploded-desktop.png",
+    "bytes": 324846,
+    "sha256": "07edfb459e72625cdb64af2133e103ed8fbe9277e5ac7e218f935d65c42680dd"
+  },
+  {
+    "path": "mechanisms/eccentric-follower-selected-desktop.png",
+    "bytes": 329800,
+    "sha256": "acde32e9a92b751c712191d65324ba2392a9f707c98b7b06a42b7d3c12bf8138"
+  },
+  {
+    "path": "mechanisms/geneva-drive-360-default.png",
+    "bytes": 98985,
+    "sha256": "4b9bf6745e3c621cc4c11e1846bc27246a961317d18ba40731e97aeb839626f7"
+  },
+  {
+    "path": "mechanisms/geneva-drive-360-exploded.png",
+    "bytes": 102365,
+    "sha256": "c601f40e2aa2c20575b469468a33a1e51b403edbe58ac326101942b57c8ad2d5"
+  },
+  {
+    "path": "mechanisms/geneva-drive-360-readouts.png",
+    "bytes": 32502,
+    "sha256": "0cf653d350e706bcdf5ed74060d2ac804a068db6cea3982e5d4d24b644433674"
+  },
+  {
+    "path": "mechanisms/geneva-drive-360-selected.png",
+    "bytes": 99625,
+    "sha256": "67de56f7a729310e57d5ede8b26ac16af449034b3944726a76a60ac2155acf8d"
+  },
+  {
+    "path": "mechanisms/geneva-drive-390-default.png",
+    "bytes": 113384,
+    "sha256": "86eec1eefe7f95385da3e701e52fba9f017b276245627bb94816471cafee8518"
+  },
+  {
+    "path": "mechanisms/geneva-drive-390-exploded.png",
+    "bytes": 116572,
+    "sha256": "027495c3480890ef2cd0e7fc457c21a222c8c630e10621a4da9a9107b3850ef0"
+  },
+  {
+    "path": "mechanisms/geneva-drive-390-readouts.png",
+    "bytes": 38577,
+    "sha256": "b47f6fcfbcd6572a6efa4cd3e5c0dc9c3652b3079521bcc65609ef22f31f6c99"
+  },
+  {
+    "path": "mechanisms/geneva-drive-390-selected.png",
+    "bytes": 113787,
+    "sha256": "7bbc87517e9fae25935c77e02d378aa2276c2debe1831e866acd2681244a6fef"
+  },
+  {
+    "path": "mechanisms/geneva-drive-desktop.png",
+    "bytes": 322709,
+    "sha256": "11162355469e046ac4bc6cf8031b416e35c7185103501ad06246bc53e68a0d93"
+  },
+  {
+    "path": "mechanisms/geneva-drive-exploded-desktop.png",
+    "bytes": 321767,
+    "sha256": "eb62c7d0ec50a79104af373dfb313e48575d98aed4d06bd1c02e0ec4967f43bd"
+  },
+  {
+    "path": "mechanisms/geneva-drive-selected-desktop.png",
+    "bytes": 322587,
+    "sha256": "a6b4b23c546ce99c102e917a15f48d291879b982c118abc4b77f7a6b32159c3f"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-360-default.png",
+    "bytes": 98435,
+    "sha256": "b98c45b8ff90e07b74625ba47bc8099743c847a8ef9837ad13501bf5a5b2e0e0"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-360-exploded.png",
+    "bytes": 103313,
+    "sha256": "66be373e64997366f4323379c72bf31342153223c1cab85e452dad3d83103ed7"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-360-readouts.png",
+    "bytes": 33602,
+    "sha256": "9e38a71b1fc4a57816fa5edd8461b5192d367c641bc08baebeb1cb90fb84d6b4"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-360-selected.png",
+    "bytes": 99226,
+    "sha256": "df712485f1722c2b9960445ec3d0c82d0779917bd737b40a36a524295a5dfc46"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-390-default.png",
+    "bytes": 113718,
+    "sha256": "6a358d8aba7625cd5bd74a1e75dd90bb9f286b196fcfb27b6c9a30321b3f91df"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-390-exploded.png",
+    "bytes": 117888,
+    "sha256": "4285d7de6ff3561f90c409d454cd27e3bf42fdaf57c8a7ccc92192f642cadc09"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-390-readouts.png",
+    "bytes": 40165,
+    "sha256": "e3672ed5f399a5098db1ffd1a1480a8e826a564bfc07e02e94e5381fb7d08c02"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-390-selected.png",
+    "bytes": 114393,
+    "sha256": "6e629c2e4eead98f380a311037272472a1828db2f1629d843a2650f6c28e99d6"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-desktop.png",
+    "bytes": 333073,
+    "sha256": "9ecbd5c42b6ec27fe3adbff9ac5b03b2cadf0beca055c7238ee20b10a2449de8"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-exploded-desktop.png",
+    "bytes": 329007,
+    "sha256": "7238a3bff3e82c95591395680510b90a1e116cf62d7d15af14effe9fdfa34ba5"
+  },
+  {
+    "path": "mechanisms/ratchet-pawl-selected-desktop.png",
+    "bytes": 334787,
+    "sha256": "e4138bd1c5e093807d3c6ff84ada1dd5b325228e9e7cea2c694723f8d4577bb7"
+  },
+  {
+    "path": "mechanisms/roller-cam-360-default.png",
+    "bytes": 101191,
+    "sha256": "d3189d59373175c4b6ee358bb8efe9665eca9db55f154102081af5d7fd06027a"
+  },
+  {
+    "path": "mechanisms/roller-cam-360-exploded.png",
+    "bytes": 106836,
+    "sha256": "53d5bab56f18a6d69efc49df8f2d10db9ae5f6aa662f4af77c6affb0c3e27a43"
+  },
+  {
+    "path": "mechanisms/roller-cam-360-readouts.png",
+    "bytes": 34089,
+    "sha256": "bc3b044d239b9ee0e540bf89005889a7fb2cfb041f67b9aaf87057f885275d55"
+  },
+  {
+    "path": "mechanisms/roller-cam-360-selected.png",
+    "bytes": 101896,
+    "sha256": "5e21ed486c1e484ad807f07d89f042b988a8475bf4fb9da7a9e8549eb7e73844"
+  },
+  {
+    "path": "mechanisms/roller-cam-390-default.png",
+    "bytes": 115485,
+    "sha256": "22d61d4fcd95d2744b291c5cc3e34c5f4e373f1fb0fc211255680944faa770c3"
+  },
+  {
+    "path": "mechanisms/roller-cam-390-exploded.png",
+    "bytes": 120516,
+    "sha256": "1b60ffe8318acae55316161eaf501af76349d9ce020bb2bb5f2cb51484942a01"
+  },
+  {
+    "path": "mechanisms/roller-cam-390-readouts.png",
+    "bytes": 40532,
+    "sha256": "0afc38ac561538e0d390664ca9e82faccb8a3d4b978a26645d8b63d28df72f76"
+  },
+  {
+    "path": "mechanisms/roller-cam-390-selected.png",
+    "bytes": 116186,
+    "sha256": "62832fe3b5b3a7f39debcbb51e355bb0eb22dc6b8824598be3cf5179e635bb16"
+  },
+  {
+    "path": "mechanisms/roller-cam-desktop.png",
+    "bytes": 332785,
+    "sha256": "7821af7ca07257666047fe28b89fa6b4487c2e182228be2ebf6329816bb4472a"
+  },
+  {
+    "path": "mechanisms/roller-cam-exploded-desktop.png",
+    "bytes": 329686,
+    "sha256": "22c559e6682bea4a40524e774ea4227e2c6cc01a0f4f814f6edda2e35bf18a88"
+  },
+  {
+    "path": "mechanisms/roller-cam-selected-desktop.png",
+    "bytes": 332660,
+    "sha256": "b20c81851a747a13c62840f754c18ed020345fbbe4e8d8583c426ad12845f311"
+  },
+  {
+    "path": "mechanisms/scissor-jack-360-default.png",
+    "bytes": 100487,
+    "sha256": "9a54de393b327f7bde02bf75635f37d11beee8eb7113f9f2fbee3037fea478ee"
+  },
+  {
+    "path": "mechanisms/scissor-jack-360-exploded.png",
+    "bytes": 102824,
+    "sha256": "0d9584e228085d72b1ac2fb3104b9e43f6d17c03504342f628a66506b3a365c2"
+  },
+  {
+    "path": "mechanisms/scissor-jack-360-readouts.png",
+    "bytes": 36624,
+    "sha256": "088ffc7797f1bfb42bd6c071fb24b8db0cc85d0ec6dcf69ced8504ddcd4f28a5"
+  },
+  {
+    "path": "mechanisms/scissor-jack-360-selected.png",
+    "bytes": 101076,
+    "sha256": "0077ba1acf298e3f6327f83741fc5cfd1d4a3099b623b6bbae15d1e70661438e"
+  },
+  {
+    "path": "mechanisms/scissor-jack-390-default.png",
+    "bytes": 116334,
+    "sha256": "4327a8715ba2826d2d3df31fa61a164d37716f41bc3fb2a076cba285d58257a8"
+  },
+  {
+    "path": "mechanisms/scissor-jack-390-exploded.png",
+    "bytes": 117389,
+    "sha256": "d28e83239e2aa4eed22f73713d560d7e5bb76dbcadd16e8740c67a4b41ca20c8"
+  },
+  {
+    "path": "mechanisms/scissor-jack-390-readouts.png",
+    "bytes": 42598,
+    "sha256": "7a46f6fef162fee05303f9d9ddda3aab26455e99beb62986ea6b6ccefb5e6f55"
+  },
+  {
+    "path": "mechanisms/scissor-jack-390-selected.png",
+    "bytes": 116977,
+    "sha256": "56f58cced4d3ca41992788b1a65334968bcde6d87b06ff305fe613995e56b9da"
+  },
+  {
+    "path": "mechanisms/scissor-jack-desktop.png",
+    "bytes": 343541,
+    "sha256": "661f172be8912c9c2aa11f814f1a14b16de7cf044aed4b7629b8d2303082bee4"
+  },
+  {
+    "path": "mechanisms/scissor-jack-exploded-desktop.png",
+    "bytes": 346830,
+    "sha256": "7ff72013792c2918adc6a773c517afaf531bc1c865c51de720e0c40ae42cd721"
+  },
+  {
+    "path": "mechanisms/scissor-jack-selected-desktop.png",
+    "bytes": 343316,
+    "sha256": "4d805a22a9b6e93d678824cd47d7304f68a49da94018dbf30e32d01ea67836ab"
+  },
+  {
+    "path": "rack/dark.png",
+    "bytes": 343292,
+    "sha256": "35457e40fb9ea1c6ff650ee4c0f8e9909585bfa445098efdc6b34521f6ad8ae6"
+  },
+  {
+    "path": "rack/desktop.png",
+    "bytes": 402476,
+    "sha256": "fa66d6f11218c4d86dc00dc32753b90c7f0265db5be1adfb660f9fbe5dea2551"
+  },
+  {
+    "path": "rack/exploded.png",
+    "bytes": 316634,
+    "sha256": "fc2f07d9a3988e29c3fb9a5c85990841287d3848816fac3a6d74cc5c4d71b6a1"
+  },
+  {
+    "path": "rack/mobile.png",
+    "bytes": 222901,
+    "sha256": "49267678935001027e227615a8236632b5539b2ed15559177c799f8c4722e754"
+  },
+  {
+    "path": "standards-audit/bevel-gears-desktop.png",
+    "bytes": 344898,
+    "sha256": "85139ade4576e405e70801b425762316564fb6313e05a09711c98ac91ef7de2b"
+  },
+  {
+    "path": "standards-audit/bevel-gears-mobile.png",
+    "bytes": 119618,
+    "sha256": "ef5a06e62619b9591d38b019cbd81812d9671b3fb7ef63cd346c738210b9977a"
+  },
+  {
+    "path": "standards-audit/crank-rocker-desktop.png",
+    "bytes": 331398,
+    "sha256": "124e56055f91ec8eaf8ba2a133d23823070287edba05cef5b27852b920544863"
+  },
+  {
+    "path": "standards-audit/crank-rocker-mobile.png",
+    "bytes": 114523,
+    "sha256": "0bc2afec41ff19014a0ced2e4438de05a2571517479fc2c0616baa744fbccb1c"
+  },
+  {
+    "path": "standards-audit/double-rocker-desktop.png",
+    "bytes": 333488,
+    "sha256": "74d829ec12ad27bb5916e98a5ccdad2994d18b72f6de5379319984393bfeeaa2"
+  },
+  {
+    "path": "standards-audit/double-rocker-mobile.png",
+    "bytes": 115180,
+    "sha256": "0432b2ed047770566388a8fe3f40db723710ea31444661f9cb40bf6dd1e519cc"
+  },
+  {
+    "path": "standards-audit/eccentric-follower-desktop.png",
+    "bytes": 330264,
+    "sha256": "883fa44b5cac8ade85243722b5ed4ffd13ba528c1921d5a047b5a29c9f0cac22"
+  },
+  {
+    "path": "standards-audit/eccentric-follower-mobile.png",
+    "bytes": 115617,
+    "sha256": "abeca8bd764fe2481554e4a742bfce39eeb44d5ca2c2cfc62ba46330a8a0fed8"
+  },
+  {
+    "path": "standards-audit/friction-desktop.png",
+    "bytes": 498965,
+    "sha256": "f9713692870f103175a5967f48818ff8f353e1a1c4253e94d9f28beb19461121"
+  },
+  {
+    "path": "standards-audit/friction-mobile.png",
+    "bytes": 154705,
+    "sha256": "23a9339d0ff57836f1566454eb8171c5b6aceeebeb0b13e618b42be4d69dd36d"
+  },
+  {
+    "path": "standards-audit/geneva-drive-desktop.png",
+    "bytes": 322709,
+    "sha256": "11162355469e046ac4bc6cf8031b416e35c7185103501ad06246bc53e68a0d93"
+  },
+  {
+    "path": "standards-audit/geneva-drive-mobile.png",
+    "bytes": 113384,
+    "sha256": "86eec1eefe7f95385da3e701e52fba9f017b276245627bb94816471cafee8518"
+  },
+  {
+    "path": "standards-audit/parallelogram-desktop.png",
+    "bytes": 338160,
+    "sha256": "68f217f83f1e9be594de5faf178c885420ffa7a19ce871d3f3f5bd8627354dca"
+  },
+  {
+    "path": "standards-audit/parallelogram-mobile.png",
+    "bytes": 120147,
+    "sha256": "741f1624b9ef77358f98556d82e27561da307634c3ad9054660f209b76102731"
+  },
+  {
+    "path": "standards-audit/quick-return-desktop.png",
+    "bytes": 341676,
+    "sha256": "6debb8b166547187f3bd8f9aceb6572256c5cf670798f6509c33741e74c07b1b"
+  },
+  {
+    "path": "standards-audit/quick-return-mobile.png",
+    "bytes": 116737,
+    "sha256": "cbafd7cccf14bf5fef51c03d6e68ee0b13a8684d208c44cd7c1eb13911e291b9"
+  },
+  {
+    "path": "standards-audit/rack-desktop.png",
+    "bytes": 333532,
+    "sha256": "753a62fa321972fe0c2eb6ede902d6c232193e0989fd592f6c50b4e0ec84a6d3"
+  },
+  {
+    "path": "standards-audit/rack-mobile.png",
+    "bytes": 115101,
+    "sha256": "9a9ae6c3d6ed969370606e9f62b99085b854bc1328aa2d63a46fc9d5a566e871"
+  },
+  {
+    "path": "standards-audit/ratchet-pawl-desktop.png",
+    "bytes": 333073,
+    "sha256": "9ecbd5c42b6ec27fe3adbff9ac5b03b2cadf0beca055c7238ee20b10a2449de8"
+  },
+  {
+    "path": "standards-audit/ratchet-pawl-mobile.png",
+    "bytes": 113718,
+    "sha256": "6a358d8aba7625cd5bd74a1e75dd90bb9f286b196fcfb27b6c9a30321b3f91df"
+  },
+  {
+    "path": "standards-audit/roller-cam-desktop.png",
+    "bytes": 332785,
+    "sha256": "7821af7ca07257666047fe28b89fa6b4487c2e182228be2ebf6329816bb4472a"
+  },
+  {
+    "path": "standards-audit/roller-cam-mobile.png",
+    "bytes": 115485,
+    "sha256": "22d61d4fcd95d2744b291c5cc3e34c5f4e373f1fb0fc211255680944faa770c3"
+  },
+  {
+    "path": "standards-audit/scissor-jack-desktop.png",
+    "bytes": 343541,
+    "sha256": "661f172be8912c9c2aa11f814f1a14b16de7cf044aed4b7629b8d2303082bee4"
+  },
+  {
+    "path": "standards-audit/scissor-jack-mobile.png",
+    "bytes": 116334,
+    "sha256": "4327a8715ba2826d2d3df31fa61a164d37716f41bc3fb2a076cba285d58257a8"
+  },
+  {
+    "path": "standards-audit/scotch-yoke-desktop.png",
+    "bytes": 330815,
+    "sha256": "df17e9469f6e380b3e32a4ea465c9b2bb5a031f11f77c9736cb6f436a4883d85"
+  },
+  {
+    "path": "standards-audit/scotch-yoke-mobile.png",
+    "bytes": 118640,
+    "sha256": "a83035c317580257abf8bc195a2f294499c662e566ed17b52d79ebcfa7d91557"
+  },
+  {
+    "path": "visual-reference/bicycle-assembly.png",
+    "bytes": 373591,
+    "sha256": "2411dd3257eea597dafff4ddda9faa8ad88d7d28a4481b2961806373ebac634e"
+  },
+  {
+    "path": "visual-reference/bicycle-before-exploded.png",
+    "bytes": 303084,
+    "sha256": "ba9f821e4336503fac5e28a4a9203f1dc1f4434aab7870b3f4dab0ec3a4aa7fd"
+  },
+  {
+    "path": "visual-reference/bicycle-before.png",
+    "bytes": 301771,
+    "sha256": "9b0b095bd0d8e1a57e12d9887f6c9726eb913619cd8d4542b7eb1367d2ea8d60"
+  },
+  {
+    "path": "visual-reference/bicycle-dark.png",
+    "bytes": 378046,
+    "sha256": "71c04cc5188e7a87bef71b383bb3b470975fc3c2703826f7644f74ae3b76be91"
+  },
+  {
+    "path": "visual-reference/bicycle-exploded.png",
+    "bytes": 374058,
+    "sha256": "d6a415d6eeeb9ffbe6b770c1640dadefeedb5df252f9d44db3a549923173f83e"
+  },
+  {
+    "path": "visual-reference/bicycle-mobile-exploded.png",
+    "bytes": 118109,
+    "sha256": "29be96ca1d9e2229dcea6e1d46b3b8863a2ea62717d92c6ddf7b6ba365fe982e"
+  },
+  {
+    "path": "visual-reference/bicycle-mobile.png",
+    "bytes": 118935,
+    "sha256": "d17f6a71dead232cdd95adc6c401ffe73d01fb1f1f641b5582fd5e32ec379ff9"
+  },
+  {
+    "path": "visual-reference/bicycle-open.png",
+    "bytes": 348489,
+    "sha256": "d9e6fc9e629832eac0c0cacf78eb147667a845edae4f104da2c3a1e388d782a8"
+  },
+  {
+    "path": "visual-reference/bicycle-selected-transparent.png",
+    "bytes": 370542,
+    "sha256": "ec5643a0de1adbea8b200aba3c87011bcf8e91d23908b99913438c0ab6d91c38"
+  },
+  {
+    "path": "visual-reference/friction-assembly.png",
+    "bytes": 340416,
+    "sha256": "3682e5bda2a67c688805df903d3f1dc1a19b634f12d318b711acdde901ac8a4b"
+  },
+  {
+    "path": "visual-reference/friction-before-exploded.png",
+    "bytes": 209224,
+    "sha256": "fdd6c366bbe661be5df40501d9c1ddbfa4256792e1f92d973ec7d0c92fa9f430"
+  },
+  {
+    "path": "visual-reference/friction-before.png",
+    "bytes": 219233,
+    "sha256": "3f7f0e94a04c79088ba6f7393a15bb3bd31a3574bdf5029d977713328b3295b9"
+  },
+  {
+    "path": "visual-reference/friction-dark.png",
+    "bytes": 379535,
+    "sha256": "5673520dc861abee77c4f724e2098033482b90f6316bbacb095a2429de791f78"
+  },
+  {
+    "path": "visual-reference/friction-exploded.png",
+    "bytes": 326143,
+    "sha256": "64697f27287458344320a65502f1172fc664cf8040ed4325a4644d8947358ad4"
+  },
+  {
+    "path": "visual-reference/friction-mobile-exploded.png",
+    "bytes": 110340,
+    "sha256": "0f1f200aacf63ff03373967548d4f00971e1db74af15a92d8405655d0fbb832f"
+  },
+  {
+    "path": "visual-reference/friction-mobile.png",
+    "bytes": 113894,
+    "sha256": "3277d946e52e5a091bbce2ca9040449e3834960ae133a04ca90f76bdd3f2a8a8"
+  },
+  {
+    "path": "visual-reference/friction-open.png",
+    "bytes": 339359,
+    "sha256": "5b9078e1b351f93be6f2be6b768bd1daf99fe9307cee0c5623e850ab372355e8"
+  },
+  {
+    "path": "visual-reference/friction-selected-transparent.png",
+    "bytes": 340156,
+    "sha256": "2363b650da663707d3130f10545e03705aee52c58b9f027cff4709e4022b3871"
+  }
+]

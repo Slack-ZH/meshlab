@@ -1,0 +1,1271 @@
+{
+  "description": "Hashes of the original local source snapshot before documentation organization. Git may normalize line endings on commit; these SHA-256 hashes describe original local bytes, not Git blob IDs.",
+  "baseline": "56743457a2ef9b173002b845fd37e64027893be3",
+  "files": [
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 758,
+      "sha256": "2ef501a75e21704aa4e6108087956c8caa6f86255147b06de1ac3099d2942cb3"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1814,
+      "sha256": "0553c9a464cff436a4daad94b575abaa26d9a3c27f1f2a568b7ff40e96daea99"
+    },
+    {
+      "path": "handoff/README.md",
+      "bytes": 1908,
+      "sha256": "ec12f5e5fdd5c0838986bae8ea75c71cd2106ec1d5a6a263d73b27616e6224ce"
+    },
+    {
+      "path": "handoff/TASK-TEMPLATE.md",
+      "bytes": 1059,
+      "sha256": "4f9e37656e3a13f5a80fd16c709465d7e302036c6e258e0e006c5722bd84c6b2"
+    },
+    {
+      "path": "meshlab/.env.example",
+      "bytes": 91,
+      "sha256": "b7675bbe7fdf214408cd620cb081723c982f44d506b8b46cdcf4fa766bea0d55"
+    },
+    {
+      "path": "meshlab/.gitignore",
+      "bytes": 173,
+      "sha256": "fb1d32ab800e496fda3d0e118d6021e2aa4e827cefbf783edd9992f7a2ba371e"
+    },
+    {
+      "path": "meshlab/dist/app.js",
+      "bytes": 17639,
+      "sha256": "9e7b4ef283b05df98a42d954f59045ef506b35d404e0ce6eba261102c6b7ab45"
+    },
+    {
+      "path": "meshlab/dist/apple.css",
+      "bytes": 27278,
+      "sha256": "284057c618d29b2179ef79a7f509705832b09202bad102ee6a8861fc56a57c03"
+    },
+    {
+      "path": "meshlab/dist/apple.js",
+      "bytes": 3619,
+      "sha256": "0d9488032b0296f6565bf0f417ad5fc7d65229f2a6266d06c777f2c868b49fce"
+    },
+    {
+      "path": "meshlab/dist/archive.css",
+      "bytes": 12759,
+      "sha256": "68c1bddb2b9412823dc7a4732e02411919c02e5900e2b71b4b77045f93ca46f6"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_in_f.mesh",
+      "bytes": 619400,
+      "sha256": "e23beabff03ac7b274ddb3b438816372f0db21855846a8d68cf432862e7c2f89"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_in_r.mesh",
+      "bytes": 619400,
+      "sha256": "e23beabff03ac7b274ddb3b438816372f0db21855846a8d68cf432862e7c2f89"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_mid_f.mesh",
+      "bytes": 619400,
+      "sha256": "a762f110930bb7d4bf2ee01fbf39920f3761dc197f0133141cec2755544d2e13"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_mid_r.mesh",
+      "bytes": 619400,
+      "sha256": "a762f110930bb7d4bf2ee01fbf39920f3761dc197f0133141cec2755544d2e13"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_out_f.mesh",
+      "bytes": 619400,
+      "sha256": "e31f02610c3a7360788174beed69864acf13083497ea0a8e9841a8dba29fb1c2"
+    },
+    {
+      "path": "meshlab/dist/assets/bearing_out_r.mesh",
+      "bytes": 619400,
+      "sha256": "e31f02610c3a7360788174beed69864acf13083497ea0a8e9841a8dba29fb1c2"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_1.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_10.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_2.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_3.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_4.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_5.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_6.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_7.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_8.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/bolt_9.mesh",
+      "bytes": 8288,
+      "sha256": "093cbf5391011e231be876306344ecaf80bfc7385e2a47d7334fb2a0f7c6c98c"
+    },
+    {
+      "path": "meshlab/dist/assets/breather.mesh",
+      "bytes": 8288,
+      "sha256": "bb01d2540f8119965267fc5668dce8f80a4b8987785d80cd7659a56bf4a1fcf2"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_in_-1.mesh",
+      "bytes": 61064,
+      "sha256": "6ff820f8aa0001c251e7c58f8ee9874602bef5cf4da53e95082b97677c9c7b29"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_in_1.mesh",
+      "bytes": 61064,
+      "sha256": "df46e6cda4807916450bd335b9ade11b8846739b1a0f9f3f781d430701d9565c"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_mid_-1.mesh",
+      "bytes": 61064,
+      "sha256": "20afa234aee6310eee2c2c0fe49c8a8b37043a58c046cda9838a3bcb065117b4"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_mid_1.mesh",
+      "bytes": 61064,
+      "sha256": "2223c479008eb48234540b394b4cec8de2cdd362f02d624b5e32a1e98adf9f10"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_out_-1.mesh",
+      "bytes": 61064,
+      "sha256": "44c1d54b806ab8095397bf2f124dcb0c8fa7233b3366d696f3b26d9e69511217"
+    },
+    {
+      "path": "meshlab/dist/assets/cap_out_1.mesh",
+      "bytes": 61064,
+      "sha256": "a62847919398243ba0c289783a7de2ad98621008d276a8474526d3c2423de6bd"
+    },
+    {
+      "path": "meshlab/dist/assets/firebase-auth.js",
+      "bytes": 142216,
+      "sha256": "13bc81d6a604f877cc6e1fc56af20a636f4907d1eb1ef124fdbe4c42c792c709"
+    },
+    {
+      "path": "meshlab/dist/assets/gear1.mesh",
+      "bytes": 168260,
+      "sha256": "66d10d1a494ccb427cd65c1573975dce4f1c1b0c94fefd0420d013e4aaf53dea"
+    },
+    {
+      "path": "meshlab/dist/assets/gear2.mesh",
+      "bytes": 156236,
+      "sha256": "7efe237f302ad65f948b3e3c20bf4a1ba1482bd207eca922b7ccc370d6403739"
+    },
+    {
+      "path": "meshlab/dist/assets/housing_base.mesh",
+      "bytes": 124520,
+      "sha256": "8b629412562b46a2c63ed6dba747785a0567d6517b27186acf4be374fa43b109"
+    },
+    {
+      "path": "meshlab/dist/assets/housing_top.mesh",
+      "bytes": 92792,
+      "sha256": "7d8180bca7e78ff02b8f7dbea6f57804aa24770ba737a90ee90bc159dfbdde5b"
+    },
+    {
+      "path": "meshlab/dist/assets/input.mesh",
+      "bytes": 143852,
+      "sha256": "b139459a2109327a952337dce6472d84e432d42cb82d4b24e971aee10e6ad6c3"
+    },
+    {
+      "path": "meshlab/dist/assets/inspection.mesh",
+      "bytes": 440,
+      "sha256": "28e1a6a2b20c942f4c7cc784e2297caee38873c30ffd84a2ab42eb9f5e0acf5d"
+    },
+    {
+      "path": "meshlab/dist/assets/key1.mesh",
+      "bytes": 440,
+      "sha256": "bdf08d4848e4c3456bba8579756dbf58bb96e7e2d4fda039faaca6819d6c7cb6"
+    },
+    {
+      "path": "meshlab/dist/assets/key2.mesh",
+      "bytes": 440,
+      "sha256": "29c4c53c9c976c1fe0e346cd7306779dbb560cddcdb87a19e16693cd3f0db7b5"
+    },
+    {
+      "path": "meshlab/dist/assets/middle.mesh",
+      "bytes": 166328,
+      "sha256": "2314ce66e9b4b4f5d6ab0d87282ceb087add2af4d6487e40e6d08b3189bc4fd4"
+    },
+    {
+      "path": "meshlab/dist/assets/model.json",
+      "bytes": 23818,
+      "sha256": "d7bd7ccbfaad9ca598ca09af74ec2fe827de86c7e65e2ed69ef0f4360d4bc307"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_1.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_10.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_2.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_3.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_4.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_5.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_6.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_7.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_8.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/nut_9.mesh",
+      "bytes": 8336,
+      "sha256": "9a4058412ec257ae6b24fdf10849889d47f2223f45b2dca873c373b4e7aa6830"
+    },
+    {
+      "path": "meshlab/dist/assets/OrbitControls.js",
+      "bytes": 33657,
+      "sha256": "00021f896fee7accad035ada2b72abd9e12f21de349896576e8fd75d9542989e"
+    },
+    {
+      "path": "meshlab/dist/assets/output.mesh",
+      "bytes": 63128,
+      "sha256": "1e36c9720142cbbcaf8ba3a5f7ff5528a1873c4d66f709bdcbde9774c5d90e3e"
+    },
+    {
+      "path": "meshlab/dist/assets/reference-stage.mjs",
+      "bytes": 5702,
+      "sha256": "aa6915d1efd9d8203cd309d2471325d9b21b939a46d8174ee21665a9692bada1"
+    },
+    {
+      "path": "meshlab/dist/assets/seal_in.mesh",
+      "bytes": 15224,
+      "sha256": "9222ce4d9b1d15f2013b1db13350b99740013d0dfd496cdeca11c75e2fa78743"
+    },
+    {
+      "path": "meshlab/dist/assets/seal_out.mesh",
+      "bytes": 15224,
+      "sha256": "f69649409872464cf3bcb50bbe54a3743fb81c7c6b3f8cfff03d63ce7b913869"
+    },
+    {
+      "path": "meshlab/dist/assets/spacer_m1.mesh",
+      "bytes": 15224,
+      "sha256": "bb2b6dd66723d9d3a5ec8a71805740f01c3cee092f62e0dcbe661564801f68cc"
+    },
+    {
+      "path": "meshlab/dist/assets/spacer_m2.mesh",
+      "bytes": 15224,
+      "sha256": "dfc1f3140859a138de83029908a875931ff457d720b76099b048302b7125728c"
+    },
+    {
+      "path": "meshlab/dist/assets/spacer_o1.mesh",
+      "bytes": 15224,
+      "sha256": "679779e41e8f766e3eb988b81e1dcf9ba8d3896edd8a93c719e21f4900d02fb4"
+    },
+    {
+      "path": "meshlab/dist/assets/spacer_o2.mesh",
+      "bytes": 15224,
+      "sha256": "c582b628dbf40a2d554e3ea9ce1bd644682cd2dada35b0a98e031fe4b2d0b85e"
+    },
+    {
+      "path": "meshlab/dist/assets/three.module.js",
+      "bytes": 1369252,
+      "sha256": "da7f8aecb0b1e4a55e820cce5dc5a5a8eb13dc379758f215e8fb07937be7a6a3"
+    },
+    {
+      "path": "meshlab/dist/auth.js",
+      "bytes": 7172,
+      "sha256": "f5076adb79cf4e6a23bf7fa21a7abd9930c4305d873c4dbcac02607bf8e67fd5"
+    },
+    {
+      "path": "meshlab/dist/bevel-gears.html",
+      "bytes": 21103,
+      "sha256": "9088b06cbe9326e0c23a74e947677dea01ae6063cd5b2378f073f3b30f872bb0"
+    },
+    {
+      "path": "meshlab/dist/bicycle/app.mjs",
+      "bytes": 14138,
+      "sha256": "6ff5c6d4e210f868e38caf30f9f42662e8fcf7bc1dda3eba7768172093fd64e8"
+    },
+    {
+      "path": "meshlab/dist/bicycle/chat-context.mjs",
+      "bytes": 5456,
+      "sha256": "a0288b856ff04afd3bd96eadc56a15a3a072a4a46381090de9bc00c0f740bbad"
+    },
+    {
+      "path": "meshlab/dist/bicycle/DESIGN.md",
+      "bytes": 5215,
+      "sha256": "520a2e3bf3e69819c2bbd7e8e2820a501b7f2b2e7cbc62a3f7bca5c7d95b9994"
+    },
+    {
+      "path": "meshlab/dist/bicycle/mechanics.mjs",
+      "bytes": 4704,
+      "sha256": "8becd63521074108a8b3e70302a69331ca70b6f4644ab6a4fbbc507e182b7f33"
+    },
+    {
+      "path": "meshlab/dist/bicycle/style.css",
+      "bytes": 3225,
+      "sha256": "ff03ddc3e5aaf384f35175c06de2799277628e701b2a025250891cb208bde78e"
+    },
+    {
+      "path": "meshlab/dist/bicycle/viewer.mjs",
+      "bytes": 19878,
+      "sha256": "74ea5be9cb9b64d4c2f91212dc172075f930b0a85ff0a9278896a75b88b6c54f"
+    },
+    {
+      "path": "meshlab/dist/bicycle.html",
+      "bytes": 18506,
+      "sha256": "2c6dd259091e8ea31f93c65d49b0b789d7e7d954dded0c7eb09a861e3eff569d"
+    },
+    {
+      "path": "meshlab/dist/chat-config.json",
+      "bytes": 239,
+      "sha256": "6dbcce262369ef81842a8d132aed4d9fb47ce424242de54a2875f3da4414e115"
+    },
+    {
+      "path": "meshlab/dist/chat-stream.js",
+      "bytes": 2176,
+      "sha256": "3854ad95dba99b0b58c38c8f32bc5fee5e4fb8e8aab1ae70276509469a69feff"
+    },
+    {
+      "path": "meshlab/dist/chat.css",
+      "bytes": 8442,
+      "sha256": "53d29728d76dcaee4802632aa3d026cd5c7a09292c9232d6b3c2fe3180efe9c6"
+    },
+    {
+      "path": "meshlab/dist/chat.js",
+      "bytes": 14435,
+      "sha256": "56ad659a6c508ebdaf2efdcc4cd3f1ad7aadd5a33c45e4895121aa9e7124fbd3"
+    },
+    {
+      "path": "meshlab/dist/crank-rocker.html",
+      "bytes": 21421,
+      "sha256": "f8828cf1748f54a93e3ca6c3ad200cc85f454546e623a202c2c2aca5029e86c5"
+    },
+    {
+      "path": "meshlab/dist/double-rocker.html",
+      "bytes": 21262,
+      "sha256": "ec42609ecff7c1b26d531ef39de8e1b3c83f9bfc524e7cf02b7a243825eaa701"
+    },
+    {
+      "path": "meshlab/dist/downloads/design-parameters.json",
+      "bytes": 1399,
+      "sha256": "a7e54f3c576162a8d57016c195ac9af92492b0c375ef9a287def49746013f880"
+    },
+    {
+      "path": "meshlab/dist/downloads/gear1.step",
+      "bytes": 3390287,
+      "sha256": "7468b7d6ce1ea80ba6605aa63b1cdc9b85b55b06bc6db87607ef65f1504a7832"
+    },
+    {
+      "path": "meshlab/dist/downloads/gear2.step",
+      "bytes": 3609641,
+      "sha256": "6306488d45323356acf714b875b589cc19d87ed494b175f41a711fbe3632a205"
+    },
+    {
+      "path": "meshlab/dist/downloads/GL16-assembly.step",
+      "bytes": 11540776,
+      "sha256": "cf511fa8780800b4cc6527737baba4a85111f5f876b0d61d3d69df96897488b9"
+    },
+    {
+      "path": "meshlab/dist/downloads/GL16-design-report.pdf",
+      "bytes": 25066,
+      "sha256": "e8906d7a9e5b21852242a6d0ffd5fb5f8cff18b103cf967caa12278f59219c0f"
+    },
+    {
+      "path": "meshlab/dist/downloads/GL16-drawings.pdf",
+      "bytes": 25949,
+      "sha256": "9ba9440bc031b347176bf33b6efd5681b372e6646e3fe164f067620ca4ae398f"
+    },
+    {
+      "path": "meshlab/dist/downloads/GL16-engineering-package.zip",
+      "bytes": 4108284,
+      "sha256": "e6616ee144368788a995b8d51ead25dc5eea5202cb035a64bf25b864ade12da1"
+    },
+    {
+      "path": "meshlab/dist/downloads/housing_base.step",
+      "bytes": 358616,
+      "sha256": "58babf8c07ec9bc92f3019ca8337fb7b46d8594313d3e3eb85cb14aa1130c3ce"
+    },
+    {
+      "path": "meshlab/dist/downloads/housing_top.step",
+      "bytes": 301980,
+      "sha256": "bb7b652a35e2a078b4cb6f0df5cb9ee07f3b8092ee35f9f768372180e142f63f"
+    },
+    {
+      "path": "meshlab/dist/downloads/input.step",
+      "bytes": 1135119,
+      "sha256": "5b81847029e0bec714a2728f2c9b00f01539634347c74f397473d954a404ea39"
+    },
+    {
+      "path": "meshlab/dist/downloads/middle.step",
+      "bytes": 1210223,
+      "sha256": "e8ac1c7950e5daf68ea6b283affd669f70b31c37c996fb16674fbc467710e90e"
+    },
+    {
+      "path": "meshlab/dist/downloads/output.step",
+      "bytes": 70428,
+      "sha256": "832294e705ad6602058fa678df1b5d4d23fa55d7b13bb56d3c3f2310030d962c"
+    },
+    {
+      "path": "meshlab/dist/downloads/parts-list.csv",
+      "bytes": 3785,
+      "sha256": "1da49af61d703543c052b8640e367066be446961dfe4e837b633533bca6309b6"
+    },
+    {
+      "path": "meshlab/dist/downloads/README.txt",
+      "bytes": 786,
+      "sha256": "386779c0228897c3a5ece874192daa5170cf56993555db732810ff92eedf58fd"
+    },
+    {
+      "path": "meshlab/dist/eccentric-follower.html",
+      "bytes": 20735,
+      "sha256": "c5a62fab3084745c1c764816ea9acb24c167b109c842f2e9d048946701e02099"
+    },
+    {
+      "path": "meshlab/dist/experiments/app.mjs",
+      "bytes": 21155,
+      "sha256": "c472985c992cbb6f71a34dcf6ac579101dc24af725f51de3d761ccb9369c84c3"
+    },
+    {
+      "path": "meshlab/dist/experiments/catalog.mjs",
+      "bytes": 14924,
+      "sha256": "ae1b6ea8623c1f138501b730b4739d75698443462aee713504427f774fe9c678"
+    },
+    {
+      "path": "meshlab/dist/experiments/chat-context.mjs",
+      "bytes": 4643,
+      "sha256": "0c6ff49fe1d6b6f7dd66ae1715eb933107b16a4df457a81c950ebe86e226e9c2"
+    },
+    {
+      "path": "meshlab/dist/experiments/style.css",
+      "bytes": 6419,
+      "sha256": "8107a1ccd381812736e20b1458265fbed3a657cf1b1eeb49508aa6cc07259937"
+    },
+    {
+      "path": "meshlab/dist/favicon.svg",
+      "bytes": 235,
+      "sha256": "db93d0c0d9164fe1a175ceb361c7fd8b88f33e3e371f8f9df1fa655f9553b473"
+    },
+    {
+      "path": "meshlab/dist/friction/app.mjs",
+      "bytes": 14483,
+      "sha256": "0f26117b1d7554ea6d456c9bcac1b9af71ce991d3249e922419583c267b1f649"
+    },
+    {
+      "path": "meshlab/dist/friction/chat-context.mjs",
+      "bytes": 6076,
+      "sha256": "52c9614c26e9e54d39de7c59aaf906e33712faff416c942746e01fca2c0ea45b"
+    },
+    {
+      "path": "meshlab/dist/friction/DESIGN.md",
+      "bytes": 3539,
+      "sha256": "046b33f53ac88fb61536a60c4cd6357e10744583f567a63d65a559e7264428aa"
+    },
+    {
+      "path": "meshlab/dist/friction/mechanics.mjs",
+      "bytes": 3250,
+      "sha256": "37a262ca5077edde805ce3e455a8beabdbc79d976b0d822528f0abc2d3db779f"
+    },
+    {
+      "path": "meshlab/dist/friction/style.css",
+      "bytes": 3477,
+      "sha256": "1e2af3c45f0255d5f26cf78c9836df3d4dcdc506acae1347e5458c288c899b85"
+    },
+    {
+      "path": "meshlab/dist/friction/viewer.mjs",
+      "bytes": 15923,
+      "sha256": "bb4bb76dab4dab0d7e74c045e93ba405efaadc5953e1dac84310bb54575bfa09"
+    },
+    {
+      "path": "meshlab/dist/friction.html",
+      "bytes": 18896,
+      "sha256": "95a4b048d7259f716b716614086e9d395e2021fce72e968487f19b34f2e437cd"
+    },
+    {
+      "path": "meshlab/dist/geneva-drive.html",
+      "bytes": 20800,
+      "sha256": "cb7059a87ed65788e1b8059704bdb8e4124a8d7eef942793a98156f89e4d6bd7"
+    },
+    {
+      "path": "meshlab/dist/home-route.js",
+      "bytes": 428,
+      "sha256": "5d5df38e28126725adeb05710c7a742122a44b9dd4ba2057b2d94cc8479534e3"
+    },
+    {
+      "path": "meshlab/dist/index.html",
+      "bytes": 9687,
+      "sha256": "d9a01d08aebcb1e4d8fff887045e2454a2e8e21cb45e6feb99c4143869140627"
+    },
+    {
+      "path": "meshlab/dist/lab.html",
+      "bytes": 18958,
+      "sha256": "77c36922371f7b54d66c9689d40f9d9d3f6db58dd1da1b9a2ec6e53692115904"
+    },
+    {
+      "path": "meshlab/dist/linkages/app.mjs",
+      "bytes": 24118,
+      "sha256": "2f419c7a2f1e7244049e269e59368a5b4a3ec83f2b164067749530a8bcf29982"
+    },
+    {
+      "path": "meshlab/dist/linkages/DESIGN.md",
+      "bytes": 6535,
+      "sha256": "15773e3e406f9834485f15da11603e28ed4baedb01176ee0733542ae76b89371"
+    },
+    {
+      "path": "meshlab/dist/linkages/mechanics.mjs",
+      "bytes": 10312,
+      "sha256": "2973cdae1c20448ddbf814ce98cae3127850df20c1980f7fbc49ca49eb82bb49"
+    },
+    {
+      "path": "meshlab/dist/linkages/style.css",
+      "bytes": 15973,
+      "sha256": "e051be6189dcdc6cadd0d4d488bb2b79060e5b67f2ea161c9c344537d75a8de2"
+    },
+    {
+      "path": "meshlab/dist/linkages/viewer.mjs",
+      "bytes": 18000,
+      "sha256": "7058d665a0384a3a699b8cf3bf87400db26b42f71ac762a4a7dc06b84bdf1858"
+    },
+    {
+      "path": "meshlab/dist/liquid-glass.css",
+      "bytes": 9835,
+      "sha256": "15e246b002f3ab92606a47175f0eb21d0efc2c4145b7284aff20b9d1cb201aa6"
+    },
+    {
+      "path": "meshlab/dist/mechanisms/app.mjs",
+      "bytes": 20925,
+      "sha256": "ed21fdd7915222a13e359593e4ab168864662f210ff306be2d8f70d3cb4f43e6"
+    },
+    {
+      "path": "meshlab/dist/mechanisms/DESIGN.md",
+      "bytes": 6823,
+      "sha256": "685f51e720cdb2b61de7301eaea2e56726c71e26405140a0b84636e76a622a32"
+    },
+    {
+      "path": "meshlab/dist/mechanisms/mechanics.mjs",
+      "bytes": 15743,
+      "sha256": "8621b898d9819f547064ff836376ed314896dbe5a05145cb2ade7b2379951f68"
+    },
+    {
+      "path": "meshlab/dist/mechanisms/style.css",
+      "bytes": 714,
+      "sha256": "0890e344d5bd112ce1205223681f701336efb21ae66f8f0ac5b66565017bfbeb"
+    },
+    {
+      "path": "meshlab/dist/mechanisms/viewer.mjs",
+      "bytes": 16739,
+      "sha256": "1e390b9ad295f1357e1027ff8148feb11da38e54c7d154327cd98fd166bfdf8c"
+    },
+    {
+      "path": "meshlab/dist/parallelogram.html",
+      "bytes": 20714,
+      "sha256": "9ce2d243ebbd73355bc5602f250fe01b767dc4559e1360d41fc42abda9faac45"
+    },
+    {
+      "path": "meshlab/dist/previews/desktop-dark.png",
+      "bytes": 546863,
+      "sha256": "a495e91f1ef71a386209f770431e1d13185f690b44fcbcf04b02dbb017e3bdfb"
+    },
+    {
+      "path": "meshlab/dist/previews/desktop.png",
+      "bytes": 505788,
+      "sha256": "1c381b607cbf27ce6b9ebf17186d21c23092738d0708043f6726e9cd18604b1e"
+    },
+    {
+      "path": "meshlab/dist/previews/directory.png",
+      "bytes": 464720,
+      "sha256": "5770f514d7e1a14a9e6293d203bdc9450c421dd4fdf3c95baeb02cc494e18426"
+    },
+    {
+      "path": "meshlab/dist/previews/exploded.png",
+      "bytes": 508403,
+      "sha256": "d321ae148fbc16cd663d010b0f39873dab3a7cd1d91a58812b05f950b21bba9e"
+    },
+    {
+      "path": "meshlab/dist/previews/mobile-dark.png",
+      "bytes": 233657,
+      "sha256": "7b40e1d5153a0583ba04bbb0fa5c837d6e29bdc5abdb55b77714b7049094c4df"
+    },
+    {
+      "path": "meshlab/dist/previews/mobile.png",
+      "bytes": 220275,
+      "sha256": "c3b18853af9c4835776e40856ae2b4d4b2c44e83b8690452fc4dcb61839a6a7a"
+    },
+    {
+      "path": "meshlab/dist/previews/principle.png",
+      "bytes": 202176,
+      "sha256": "e20b2ebb208e276436bbf39543328cb85a4d5df036969a09b2eecd63cf9a9898"
+    },
+    {
+      "path": "meshlab/dist/previews/small-mobile.png",
+      "bytes": 175857,
+      "sha256": "5108c84205fed4f56f21603ccd696617ec0c829dc6e87654763309301a9e55f9"
+    },
+    {
+      "path": "meshlab/dist/previews/tablet.png",
+      "bytes": 381323,
+      "sha256": "ea8efcb19c17bbeffa89f87645ae9473799292ed820d941b24f198b9fa255e48"
+    },
+    {
+      "path": "meshlab/dist/quick-return.html",
+      "bytes": 21370,
+      "sha256": "d0a88ec9f27716c8fbfb8e1a535edec1deaa4e2946bc2f49d09d8c2b35609aa4"
+    },
+    {
+      "path": "meshlab/dist/rack/app.mjs",
+      "bytes": 19690,
+      "sha256": "fe44566cc0e2fe80f0e9e9cda6d778dba310610de828a38f754a24ef10817e19"
+    },
+    {
+      "path": "meshlab/dist/rack/chat-context.mjs",
+      "bytes": 3631,
+      "sha256": "cb6532e1016e788c8854d2f9fd05bfdc64bc5dbe64a0fa2e251b282d5178999c"
+    },
+    {
+      "path": "meshlab/dist/rack/mechanics.mjs",
+      "bytes": 4486,
+      "sha256": "1a09ff274abcf384d1be0f286972260923c42952c7730d852df3ff116321abd7"
+    },
+    {
+      "path": "meshlab/dist/rack/style.css",
+      "bytes": 4725,
+      "sha256": "c162b5bafc9563898c799b6fea242358a17f337fdf83f0c1b2181e9c08828ffd"
+    },
+    {
+      "path": "meshlab/dist/rack/viewer.mjs",
+      "bytes": 18606,
+      "sha256": "2d21498c4724363aebaf9714783f78534c8d26c1a682d86328a769ddca604515"
+    },
+    {
+      "path": "meshlab/dist/rack.html",
+      "bytes": 19249,
+      "sha256": "b9c4567d9e7a731da52741723665ec0d95ab07cc0df56d8a0e3945f51c5e7874"
+    },
+    {
+      "path": "meshlab/dist/ratchet-pawl.html",
+      "bytes": 20711,
+      "sha256": "ffa5a4422a17476cdb4d62950f450ffe91369a2f722afb724d8270d2b9e86ad5"
+    },
+    {
+      "path": "meshlab/dist/roller-cam.html",
+      "bytes": 22227,
+      "sha256": "d5116cfdf290421e195a51ee28f4a4054a9a0bd199f6688b5a6da4d5132e7565"
+    },
+    {
+      "path": "meshlab/dist/scissor-jack.html",
+      "bytes": 20716,
+      "sha256": "539220794c5842858cce03c3a4fa438aa732ca3060e5c6dfcbe703e9849a3421"
+    },
+    {
+      "path": "meshlab/dist/scotch-yoke.html",
+      "bytes": 20622,
+      "sha256": "b3ac621d9a78984100c646be34d9768b61bbe99af640ad8279e3b2879f5d3b69"
+    },
+    {
+      "path": "meshlab/dist/transmission-cards.js",
+      "bytes": 11469,
+      "sha256": "932f29360ac9125c4acba52942717e84509f762226c2c8b66f5be6fbe22ac611"
+    },
+    {
+      "path": "meshlab/dist/turbine/app.mjs",
+      "bytes": 18457,
+      "sha256": "a38adae1b3a423f1e554c91227565b5a29abfc9d86f2d4a1327ec8d62126685a"
+    },
+    {
+      "path": "meshlab/dist/turbine/blade-geometry.mjs",
+      "bytes": 4144,
+      "sha256": "010934233a6538f18341f9f81b6ba012367eb54280dedf33430f27081aad2b59"
+    },
+    {
+      "path": "meshlab/dist/turbine/chat-context.mjs",
+      "bytes": 6380,
+      "sha256": "ec63f98c13e055dd78a645a497d96f87ea39e5192fa2976cc79ef2de8f23549a"
+    },
+    {
+      "path": "meshlab/dist/turbine/GEOMETRY.md",
+      "bytes": 4117,
+      "sha256": "0a379f81b1173b343a3b798d795175ac6863e5ff5745afdc6d7a8940cdeb6e0f"
+    },
+    {
+      "path": "meshlab/dist/turbine/physics.mjs",
+      "bytes": 4935,
+      "sha256": "ffbb4bf42a90db5b6240ad267e8391d9303468d6a1c57900ec6e31169f093dd7"
+    },
+    {
+      "path": "meshlab/dist/turbine/style.css",
+      "bytes": 4644,
+      "sha256": "3391fc5ac6a1fd3c25423f9da028c190624c411e26a9ec5344b0a1ae152c1170"
+    },
+    {
+      "path": "meshlab/dist/turbine/vendor/if97.mjs",
+      "bytes": 64375,
+      "sha256": "8938ed26ba9a589a8f84f0d13e70bd2de33b70be8d1cb1c4399b7adf03676a26"
+    },
+    {
+      "path": "meshlab/dist/turbine/vendor/LICENSE.txt",
+      "bytes": 15882,
+      "sha256": "e8e7ae31e674e90ebd1967d0525f756e6f3d582dc2e28a1c696f36b9f57f2e61"
+    },
+    {
+      "path": "meshlab/dist/turbine/vendor/README.md",
+      "bytes": 914,
+      "sha256": "36f04080f5f1f76cf052de9dd21717cb59e0fae1394010f6c27fd622830ce652"
+    },
+    {
+      "path": "meshlab/dist/turbine/viewer.mjs",
+      "bytes": 22505,
+      "sha256": "65d1aad12761fcd96ce7587062fc562bf490b1da2af8fb6680a26034a5a6135b"
+    },
+    {
+      "path": "meshlab/dist/turbine.html",
+      "bytes": 18481,
+      "sha256": "f11611ce01b7ec942fdec1c223b53cd23a66c5bdb8d233e0ae73c4d04112ddb1"
+    },
+    {
+      "path": "meshlab/docs/AI-ROADMAP.md",
+      "bytes": 3214,
+      "sha256": "5fa689a303ce5ad5b4345c3163d6e0b6fa1f051135ec75e2f1714f821c858e17"
+    },
+    {
+      "path": "meshlab/docs/AI-SETUP.md",
+      "bytes": 5538,
+      "sha256": "665cdb24acc40b0d5f0067e11f3e892753c3b1835890bac4f8716f594f40225f"
+    },
+    {
+      "path": "meshlab/docs/DESIGN-REVIEW.md",
+      "bytes": 5477,
+      "sha256": "01db384dcce172e28a1f148ce94844e29aa99c781b91db62a041a623353945c1"
+    },
+    {
+      "path": "meshlab/docs/eleven-mechanisms-full-standard-20261117.md",
+      "bytes": 7715,
+      "sha256": "41285df28c75c16570fef21b23d0ebba6a30e5f7ad3605c61ef29c50bce7ab4e"
+    },
+    {
+      "path": "meshlab/docs/eleven-mechanisms-standard-audit-20261116.md",
+      "bytes": 8122,
+      "sha256": "2a69e83e6d7a5f5754a565514d0674d086af8a6b42aa6101c69973ebf933c24e"
+    },
+    {
+      "path": "meshlab/docs/linkages-acceptance-20261116.md",
+      "bytes": 3522,
+      "sha256": "eddd78945b82f53583b883879dc9524b0a7eca19290f1e70c8b0b140c877d263"
+    },
+    {
+      "path": "meshlab/docs/verification.json",
+      "bytes": 1309,
+      "sha256": "03f2b385671a79954bb11e258037a2d419eaf0f07550b064c176b7b9e05ceb68"
+    },
+    {
+      "path": "meshlab/docs/w-mechanisms-acceptance-20261116.md",
+      "bytes": 4099,
+      "sha256": "d8b471ed98f880ba6e1d31d34cafd17786d02904d76af3a85b5882f6e2700f65"
+    },
+    {
+      "path": "meshlab/HANDOFF.md",
+      "bytes": 3361,
+      "sha256": "9b5615ddd056819b05780a1554b61202942546d99c769accb3677e567c7a4113"
+    },
+    {
+      "path": "meshlab/HOMEPAGE.md",
+      "bytes": 2046,
+      "sha256": "34e6a37f6f58345901bda8a378da83806478372898653ecf7b4f9e8335eef415"
+    },
+    {
+      "path": "meshlab/package.json",
+      "bytes": 1646,
+      "sha256": "0a43441b313526d8d7cb8f887531d2b4579b4bd651f05dfd00c54a41ad8b867e"
+    },
+    {
+      "path": "meshlab/pnpm-lock.yaml",
+      "bytes": 62005,
+      "sha256": "758b21c78a6c34b18286a2fe54affbc14f2b8522b3a534217bc836a419f3ef70"
+    },
+    {
+      "path": "meshlab/pnpm-workspace.yaml",
+      "bytes": 96,
+      "sha256": "597fe6bcce53f13df0237c00bda329198ecc1d91bae9caf2c785e61a4c7f2237"
+    },
+    {
+      "path": "meshlab/README.md",
+      "bytes": 5476,
+      "sha256": "1bd224135fcba0959fade84e5c882d0fb25fa6741769770dd60f228dd0cde49e"
+    },
+    {
+      "path": "meshlab/requirements-engineering.txt",
+      "bytes": 52,
+      "sha256": "603381b14db2a1f548690f6368447e05a763d485182cd2ec2f8c7af5e1346ea8"
+    },
+    {
+      "path": "meshlab/requirements-test.txt",
+      "bytes": 21,
+      "sha256": "a2dcfb1d57a244092fdd47a8e83cfbd3dd01230a0ca64c57b2697cb5a8626d31"
+    },
+    {
+      "path": "meshlab/scripts/build-auth.mjs",
+      "bytes": 308,
+      "sha256": "c48c6b8bda46a13b1439342b7427eda83e8fe03a869763b44d3537ed2e366003"
+    },
+    {
+      "path": "meshlab/scripts/build-experiments.mjs",
+      "bytes": 10855,
+      "sha256": "7b5017f1383df11bda7799443d6cc0db7613344ba09af785d75244e69aee0168"
+    },
+    {
+      "path": "meshlab/scripts/build-linkage-pages.mjs",
+      "bytes": 157,
+      "sha256": "24198d69fb1aec3d56e141be323b28d49b6bc3a9de42f42eeeb45903df410d67"
+    },
+    {
+      "path": "meshlab/scripts/build-mechanism-pages.mjs",
+      "bytes": 159,
+      "sha256": "a1a61272af21b1396bbfa81071a409b9846611234ea1d368a58cfafc35a3814c"
+    },
+    {
+      "path": "meshlab/scripts/build_documents.py",
+      "bytes": 30035,
+      "sha256": "19ceafbbecaa32a9016e0f139b0cefa89f00133cfcf3367b7fbad4b81d20c472"
+    },
+    {
+      "path": "meshlab/scripts/build_model.py",
+      "bytes": 13352,
+      "sha256": "3ff44bb48a84b8d941fd9cc167160a83d3501c1623850098c8b3df98f9660989"
+    },
+    {
+      "path": "meshlab/scripts/check-experiment-standard.mjs",
+      "bytes": 861,
+      "sha256": "d952b40e3e3c0c6a432e7934850f0aed6e6d1c6fe3849357914bb06a0d61b074"
+    },
+    {
+      "path": "meshlab/scripts/experiment-page-contract.mjs",
+      "bytes": 4266,
+      "sha256": "b175a591c6a14fcb5f97e4af2d2b1b4d82fab2a2b023fbd1223166c0207ab945"
+    },
+    {
+      "path": "meshlab/scripts/experiment-teaching-checks.mjs",
+      "bytes": 2935,
+      "sha256": "99bb85e0eb3cde3c2798f5280267c0b70c0be4c9e36b66a784653d1d24d06c76"
+    },
+    {
+      "path": "meshlab/scripts/firebase-entry.js",
+      "bytes": 246,
+      "sha256": "3fc7d02227c68fb7fbdd6efb1e531b8540077ef03f8bf293421a00ab69127b46"
+    },
+    {
+      "path": "meshlab/scripts/fixtures/firebase-auth.js",
+      "bytes": 1216,
+      "sha256": "e39bee7fcac01d6d115bb3041af5b8a493fb56bb6ac758c2bf964e77cc90c33a"
+    },
+    {
+      "path": "meshlab/scripts/inspect-full-standard.mjs",
+      "bytes": 1280,
+      "sha256": "6fab9886427c9470f1806229008554a887d779284e9194e78b0187d79301688f"
+    },
+    {
+      "path": "meshlab/scripts/inspect-linkages.mjs",
+      "bytes": 397,
+      "sha256": "a028ba8d746236c315f429957fb6996aed5d33d3fe7be5d1f5065eacf7cbe1a7"
+    },
+    {
+      "path": "meshlab/scripts/inspect-mechanisms.mjs",
+      "bytes": 965,
+      "sha256": "4344586376c1a3bd23c9037bd22645bbca36b4ed456f6230d2136041ed908481"
+    },
+    {
+      "path": "meshlab/scripts/linkage-browser.mjs",
+      "bytes": 3547,
+      "sha256": "eeec8ce5017f183c469b681614361db5bdde38909e088251600a6599c731491e"
+    },
+    {
+      "path": "meshlab/scripts/manufacturer-reference.md",
+      "bytes": 128467,
+      "sha256": "ddb517401fc3a03ce1d3993a90626ec7aed8c547ab6f81a1f39791cb9c028132"
+    },
+    {
+      "path": "meshlab/scripts/serve-linkages.mjs",
+      "bytes": 1124,
+      "sha256": "a063bc299e3d463e107661da4756389f0ed5e37c50fb3287e3ad6771d1714fa3"
+    },
+    {
+      "path": "meshlab/scripts/test-auth.mjs",
+      "bytes": 2236,
+      "sha256": "b2deafa2ecfd612184d09367c3835721d7c342504f35941c2facb6bee5d1c50e"
+    },
+    {
+      "path": "meshlab/scripts/test-bicycle-chat.mjs",
+      "bytes": 8299,
+      "sha256": "23af11e7ada16e8c8bb81c7983a77b137fb37a34e2e3c737e1de52d3b626d74b"
+    },
+    {
+      "path": "meshlab/scripts/test-bicycle.mjs",
+      "bytes": 3239,
+      "sha256": "3225fdb9e534dab4eae812cb6f1a2d729459026fff350a41d77137acd0a7e418"
+    },
+    {
+      "path": "meshlab/scripts/test-budget-runtime.mjs",
+      "bytes": 2282,
+      "sha256": "165465695845c2eb5756b3656f1dd42423b7074b6aa5a38283c131866cbd1fb1"
+    },
+    {
+      "path": "meshlab/scripts/test-budget.mjs",
+      "bytes": 3112,
+      "sha256": "bf88fe44ce5abcdd515ec909c031e94b8e3d97b40be9b642fa1cb1c249e99fdb"
+    },
+    {
+      "path": "meshlab/scripts/test-chat.mjs",
+      "bytes": 7590,
+      "sha256": "c2a6be15ffdd7b43737e0a5230af735475dc991be5126a77bf89bc50cc98b9a8"
+    },
+    {
+      "path": "meshlab/scripts/test-experiment-contract.mjs",
+      "bytes": 2740,
+      "sha256": "41e732a7537a6c7d727901ea7bdc24dc66bbb778ac7463494b763e2fe6fe2af8"
+    },
+    {
+      "path": "meshlab/scripts/test-experiment-standard.mjs",
+      "bytes": 6100,
+      "sha256": "b5f5c608e5071e17fdef4a95ae9dd293ae383d55618f56898528e768bfea451d"
+    },
+    {
+      "path": "meshlab/scripts/test-friction-chat.mjs",
+      "bytes": 9106,
+      "sha256": "196e15231742121409417a22b69cbe6e17a53e5845f7ac7ea4771d0e35ce98e4"
+    },
+    {
+      "path": "meshlab/scripts/test-friction.mjs",
+      "bytes": 6910,
+      "sha256": "7442d52378f844c3345f08698e990928e91f595e303252e300078912072a8406"
+    },
+    {
+      "path": "meshlab/scripts/test-linkages.mjs",
+      "bytes": 6762,
+      "sha256": "1477b041c24492d475235f523655710e75717b6b72c21a157b430d303b4f1a5e"
+    },
+    {
+      "path": "meshlab/scripts/test-mechanisms.mjs",
+      "bytes": 9351,
+      "sha256": "44642eb9af556beca208af83a3e5d093d9d2837e3e8bf098402883e67e0ce8ca"
+    },
+    {
+      "path": "meshlab/scripts/test-rack.mjs",
+      "bytes": 7266,
+      "sha256": "e31a4d70acbaf6de39bdd7efe22a1b830dd47390744a73e41f21aa3cb9ccf69a"
+    },
+    {
+      "path": "meshlab/scripts/test-storage.mjs",
+      "bytes": 520,
+      "sha256": "4167e4e951001356d20abaef6b5641dfb9034eab67cde50a020675a9eb1e94f1"
+    },
+    {
+      "path": "meshlab/scripts/test-turbine-chat.mjs",
+      "bytes": 6789,
+      "sha256": "b572f10d2afcaa0492a5d69a4e362a21ffb3bb495590039c13893e1860af58c3"
+    },
+    {
+      "path": "meshlab/scripts/test-turbine-geometry.mjs",
+      "bytes": 4840,
+      "sha256": "06c76fc138510d2999e2ebcf3a03fa1bc3ffa6d1be4f03eb6dbd0aabef0e12e6"
+    },
+    {
+      "path": "meshlab/scripts/test-turbine.mjs",
+      "bytes": 3863,
+      "sha256": "6c04f9e11ed4f33ecddca480c4f5bd2c7a1b8a994e2f5b32766a8d0be5a8b8d1"
+    },
+    {
+      "path": "meshlab/scripts/validate_engineering.py",
+      "bytes": 1556,
+      "sha256": "08679faec2f540a8d3141ff038ead8c18d50a69f0973a4c9da309487d2f43eea"
+    },
+    {
+      "path": "meshlab/scripts/verify-bicycle.mjs",
+      "bytes": 20699,
+      "sha256": "7cd1b99a497d28ac9a93f57330a44df377ca9a6fe76bbe0cdcdc387cfe7ac8bc"
+    },
+    {
+      "path": "meshlab/scripts/verify-cloud.mjs",
+      "bytes": 2434,
+      "sha256": "3dcfd1fee708168a739831ec2b2620482769a55e33df6e5c716fb70ecdadbd4a"
+    },
+    {
+      "path": "meshlab/scripts/verify-experiment-chat.mjs",
+      "bytes": 6610,
+      "sha256": "afd9ac8dd0f38f66f8aaadb7b630dc4497c690cf8e1eb474f591f4a687426c7b"
+    },
+    {
+      "path": "meshlab/scripts/verify-experiment-compatibility.mjs",
+      "bytes": 2715,
+      "sha256": "ca864866ac3196420f2b885b3c5136992679fbea89d93a33272d79d483d74e87"
+    },
+    {
+      "path": "meshlab/scripts/verify-experiment-input.mjs",
+      "bytes": 4295,
+      "sha256": "772e64214660fa9b64d36881b95f8da839db64c6b90c304e9b1937d5e5a44b1e"
+    },
+    {
+      "path": "meshlab/scripts/verify-full-standard.mjs",
+      "bytes": 13527,
+      "sha256": "8ca7e87d166d26a8703ea08717f669a9ae33e046c9f60a2a781f30e178a8ec56"
+    },
+    {
+      "path": "meshlab/scripts/verify-layout.mjs",
+      "bytes": 12059,
+      "sha256": "a50fdfb0c42d6c823b7516fdbc00424f0a02ddd465ce40aa6257895c544dc7be"
+    },
+    {
+      "path": "meshlab/scripts/verify-linkages.mjs",
+      "bytes": 8052,
+      "sha256": "37027529262616398cc4e2888b55a202afeda5916084295a676358b2f63eb004"
+    },
+    {
+      "path": "meshlab/scripts/verify-mechanisms.mjs",
+      "bytes": 10203,
+      "sha256": "6d746ab8ab2638809506b6f96a4f7542bd34ced2d3e28621724288477316c92e"
+    },
+    {
+      "path": "meshlab/scripts/verify_browser.py",
+      "bytes": 5894,
+      "sha256": "09c1b2dc44f8ae540222e7c572c3d4307e4f543fb34a07c6ef385aa755affcea"
+    },
+    {
+      "path": "meshlab/scripts/verify_chat.py",
+      "bytes": 8869,
+      "sha256": "ec985d9a15bb731707d30dae7081ec1b5b7ea7460aa5c2fb7fc90a5a50cf8283"
+    },
+    {
+      "path": "meshlab/server/budget.mjs",
+      "bytes": 5293,
+      "sha256": "f87a7f877cffe1702f08c1d7a438d3fad7dd780449be8d102755e21059a80be6"
+    },
+    {
+      "path": "meshlab/server/chat-api.mjs",
+      "bytes": 16015,
+      "sha256": "7fa300d8a7add5b075e197a6ea0d120f79ad6520f078d66603986255d28a9457"
+    },
+    {
+      "path": "meshlab/server/firebase-auth.mjs",
+      "bytes": 2202,
+      "sha256": "68f0035f93c1ff636cb72a978d9728ff843769c4b58262dec57a23f0832219d0"
+    },
+    {
+      "path": "meshlab/server/local.mjs",
+      "bytes": 5842,
+      "sha256": "c192cd80da3cf166f818672db169769c7d5c0854eb1fba35264702ca8f4140b5"
+    },
+    {
+      "path": "meshlab/server/worker.mjs",
+      "bytes": 2609,
+      "sha256": "888379143a55a7ffdf2a39ee6ebb516dac4e3a257007350b52a25c894b455638"
+    },
+    {
+      "path": "meshlab/wrangler.jsonc",
+      "bytes": 668,
+      "sha256": "2f81f04d9d2a416bc6214530bf4fd836f045a88e09501f396bee21227a8281d9"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/assets/architecture.png",
+      "bytes": 105094,
+      "sha256": "78001c8cc53ac240d6134d42f5943a65b02f23338db864984e0eabc9e1daf62f"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/assets/exploded.png",
+      "bytes": 492057,
+      "sha256": "0d0ba0e27814201048b95bbb356aaa909348c0fbac61644efedf5843bbca3970"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/assets/inspection.json",
+      "bytes": 535,
+      "sha256": "d8a3854eb04c9f225ee8b8dbe8a7d65fea15b4238719a42bdafbea8ae59a6dc3"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/assets/lab.png",
+      "bytes": 482608,
+      "sha256": "652163af5df0aa402ee138e4738bff2d3734de93d8df35a2a2bc4ed318e27f23"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/README.md",
+      "bytes": 2952,
+      "sha256": "7ad6b6b87d2b572bc76f8af74093ec44d08bcb96c1e5b1b08430318910c702f2"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/啮合实验室_meshlab_项目说明书_第一版.docx",
+      "bytes": 624876,
+      "sha256": "3690ad5ba62c1039835436882f63519f14650b588ecb59a3b6fba4f09948a403"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/啮合实验室_meshlab_项目说明书_第一版.pdf",
+      "bytes": 1037821,
+      "sha256": "bb554dff4fb5765a80501195a5d2a80d5ffcda43a855e00a6e5e843dd638476a"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/对话整理与需求确认.md",
+      "bytes": 3343,
+      "sha256": "c3701fa58ed41736e4b90a5d787b85461dadae575f4f55d384f7a61babeb63f5"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/文件清单与校验.json",
+      "bytes": 3347,
+      "sha256": "f6333f88985228e19c17372fb8d6830a0009d5c5fce959766dab79c4f66e7629"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/核对记录.json",
+      "bytes": 400,
+      "sha256": "8751e0316639a7dff831082cf2209f1c08c35b62ea2d420401a926cf4af71203"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/项目研究与事实核对.md",
+      "bytes": 4242,
+      "sha256": "1864d92b0a7563b84b1fd89cac9f6101d584f59830b60b276733584f93a4265f"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/项目说明书_第一版.md",
+      "bytes": 23434,
+      "sha256": "467e431f33459b6503d2dae30b23bab8eae4c3fb08472354895f26ebdf8399f4"
+    },
+    {
+      "path": "meshlab郑州大学ai竞赛资料/项目说明书确认大纲.md",
+      "bytes": 2202,
+      "sha256": "1b91a81fa36db2d5dda5dce02ccccdfc9f7b9e42d5d950e6b64851c1552b319f"
+    },
+    {
+      "path": "project-docs/04-当前状态.md",
+      "bytes": 7618,
+      "sha256": "e7fab3d9e4b6bb8a1f3b9bbefbb7e9eb0307a48b123b1fd63db929fd81144a69"
+    },
+    {
+      "path": "project-docs/07-决策记录.md",
+      "bytes": 3976,
+      "sha256": "dadb9cb2aacb44d0b3e45f1ed980dbf64ef5ed79b8aadac38d8e566e7c2ce207"
+    },
+    {
+      "path": "project-docs/CODEX-OPTIMIZATION.md",
+      "bytes": 14010,
+      "sha256": "9da317bd2dad30826657e5c93c8e23a1bb91bf4409e44687ba404ecfbb90b1fc"
+    },
+    {
+      "path": "project-docs/机构交付标准.md",
+      "bytes": 6802,
+      "sha256": "ea809cd2c1de39faf43d352d44db7331c625462a8b02cf1a9dbcb9598a4279da"
+    },
+    {
+      "path": "project-docs/视觉基准.md",
+      "bytes": 2414,
+      "sha256": "e113fcd846c959295ffc16bfd92b50f47eda72525ffd95b52846e0084d7f3c9a"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/01-full-assembly-desktop.png",
+      "bytes": 403985,
+      "sha256": "c59d2c7deadd4b2e6873ea3e28c9ccff07f229daa3dfaf78ff0389ebd83a845b"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/02-open-assembly-desktop.png",
+      "bytes": 455271,
+      "sha256": "a33b635b00d83706085ab3c06d30c8813e147ded3562e00333e94be5a596bf3d"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/03-exploded-desktop.png",
+      "bytes": 461616,
+      "sha256": "27245e1f4f0e507070f0601651a2de2523c3891855a751c48d13f34d08d1c9ca"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/04-selected-highlight-desktop.png",
+      "bytes": 445351,
+      "sha256": "1fb2897464525298aa517416cfbfb9f32fce77ceac1a4bd9c4fab2f1dd5b8640"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/05-material-closeup.png",
+      "bytes": 290424,
+      "sha256": "66fbfaee64d55fef837e123bf0d040e713723634ed56edaea64f79a9b3a25ba9"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/06-mobile-layout.png",
+      "bytes": 140387,
+      "sha256": "139cecbd770b78205e49493249bcbf02bd00ba440c7fdfc64440bfdd9dc98078"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/07-motion-and-highlight.mp4",
+      "bytes": 331012,
+      "sha256": "8ef9913884ff142706d8cb5a19ced18c8fd9ced074e19439df9bb54b707e700a"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/08-material-and-lighting.json",
+      "bytes": 9758,
+      "sha256": "5254ebbd1d631b369bead899a87e134dae8e549c3caa692532cdf984bfe5a4ba"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/README-参考说明.txt",
+      "bytes": 1379,
+      "sha256": "039db2d585e46ff8e8aec331570513759975652f8e5c5c7ecf4f1a93e29d3474"
+    },
+    {
+      "path": "project-docs/资料/meshlab-visual-reference-20261116/发给设计模型.txt",
+      "bytes": 1085,
+      "sha256": "43d89c1a4d7ce12a211c97e371dbad7df0a996d76e04af5f39881c5f95d4798d"
+    },
+    {
+      "path": "project-docs/资料/啮合实验室_机械传动机构扩展清单.xlsx",
+      "bytes": 9573,
+      "sha256": "cd4b31e5d82e577a82663f28c50e72fa83c3e47124a055b6c300b7424710b025"
+    },
+    {
+      "path": "PROJECT.md",
+      "bytes": 8167,
+      "sha256": "b9d1cad841f67c56c37eb6b4461326a5b066237b381ec66a1a2d9ee2fff762a0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4930,
+      "sha256": "75b9308161b6e615511f5c81f0237ef4379f36a30a6fd30f29bcb8c68714c06c"
+    }
+  ]
+}

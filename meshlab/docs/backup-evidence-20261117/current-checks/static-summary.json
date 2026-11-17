@@ -1,0 +1,50 @@
+{
+  "command": "node scripts/check-experiment-standard.mjs",
+  "exitCode": 0,
+  "checks": [
+    {
+      "mechanism": "scotch-yoke",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "crank-rocker",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "parallelogram",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "double-rocker",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "quick-return",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "bevel-gears",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "scissor-jack",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "ratchet-pawl",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "eccentric-follower",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "roller-cam",
+      "status": "PASS"
+    },
+    {
+      "mechanism": "geneva-drive",
+      "status": "PASS"
+    }
+  ]
+}

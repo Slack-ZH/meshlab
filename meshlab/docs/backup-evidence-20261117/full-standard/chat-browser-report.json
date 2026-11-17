@@ -1,0 +1,184 @@
+{
+  "testedAt": "2026-11-16T16:15:59.914Z",
+  "mode": "mocked auth + health + chat; no external requests",
+  "checks": [
+    {
+      "name": "scotch-yoke question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam stop and new conversation discard pending replies",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive question snapshot, failed response and exact retry",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive follow-up owns current parameters and prior turns retain original data",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive invalid parameters and assembly state reach AI accurately",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive stop and new conversation discard pending replies",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

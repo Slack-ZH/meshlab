@@ -1,0 +1,103 @@
+{
+  "testedAt": "2026-11-16T16:23:37.427Z",
+  "checks": [
+    {
+      "name": "scotch-yoke physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke joint labels toggle and hide while disassembled",
+      "status": "PASS"
+    },
+    {
+      "name": "scotch-yoke phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker joint labels toggle and hide while disassembled",
+      "status": "PASS"
+    },
+    {
+      "name": "crank-rocker phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram joint labels toggle and hide while disassembled",
+      "status": "PASS"
+    },
+    {
+      "name": "parallelogram phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker joint labels toggle and hide while disassembled",
+      "status": "PASS"
+    },
+    {
+      "name": "double-rocker phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return joint labels toggle and hide while disassembled",
+      "status": "PASS"
+    },
+    {
+      "name": "quick-return phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive physical pointer drives input",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive phone four-step instructions and buttons remain visible without clipping",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

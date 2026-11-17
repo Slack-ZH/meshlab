@@ -1,0 +1,14 @@
+# Local-only backups and runtime files; website dist/ is intentionally tracked.
+.local-backups/
+node_modules/
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/
+__pycache__/
+.venv/
+test-results/
+playwright-report/
+*.log

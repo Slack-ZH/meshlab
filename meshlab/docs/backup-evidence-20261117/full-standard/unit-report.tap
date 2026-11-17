@@ -1,0 +1,550 @@
+TAP version 13
+# Subtest: question snapshot copies requested/displayed parameters and omits scene and account data
+ok 1 - question snapshot copies requested/displayed parameters and omits scene and account data
+  ---
+  duration_ms: 4.0634
+  type: 'test'
+  ...
+# Subtest: legacy cloud gets bicycle snapshot and question without another model part ID
+ok 2 - legacy cloud gets bicycle snapshot and question without another model part ID
+  ---
+  duration_ms: 2.9456
+  type: 'test'
+  ...
+# Subtest: new protocol preserves each question snapshot and retry values after parameters change
+ok 3 - new protocol preserves each question snapshot and retry values after parameters change
+  ---
+  duration_ms: 2.3603
+  type: 'test'
+  ...
+# Subtest: invalid input and stationary zero-power results remain distinct from an active valid state
+ok 4 - invalid input and stationary zero-power results remain distinct from an active valid state
+  ---
+  duration_ms: 0.8103
+  type: 'test'
+  ...
+# Subtest: server and browser sanitizer reject nonnumeric values and bound external text
+ok 5 - server and browser sanitizer reject nonnumeric values and bound external text
+  ---
+  duration_ms: 0.5903
+  type: 'test'
+  ...
+# Subtest: GL16 and turbine payloads remain byte-equivalent and mixed model history fails explicitly
+ok 6 - GL16 and turbine payloads remain byte-equivalent and mixed model history fails explicitly
+  ---
+  duration_ms: 2.56
+  type: 'test'
+  ...
+# Subtest: long questions fail clearly while old complete turns may be removed without changing the latest question
+ok 7 - long questions fail clearly while old complete turns may be removed without changing the latest question
+  ---
+  duration_ms: 0.9898
+  type: 'test'
+  ...
+# Subtest: local server selects bicycle instructions and avoids gearbox part injection
+ok 8 - local server selects bicycle instructions and avoids gearbox part injection
+  ---
+  duration_ms: 65.2724
+  type: 'test'
+  ...
+# Subtest: legacy formatted payload remains accepted by existing API and contains complete bicycle data
+ok 9 - legacy formatted payload remains accepted by existing API and contains complete bicycle data
+  ---
+  duration_ms: 4.593
+  type: 'test'
+  ...
+# Subtest: concurrent reservations cannot overspend a shared account
+ok 10 - concurrent reservations cannot overspend a shared account
+  ---
+  duration_ms: 14.268
+  type: 'test'
+  ...
+# Subtest: reservation, actual usage settlement and duplicate completion
+ok 11 - reservation, actual usage settlement and duplicate completion
+  ---
+  duration_ms: 1.3366
+  type: 'test'
+  ...
+# Subtest: unknown usage and process restart retain reserved money
+ok 12 - unknown usage and process restart retain reserved money
+  ---
+  duration_ms: 1.449
+  type: 'test'
+  ...
+# Subtest: accounts are isolated and day resets at Shanghai midnight
+ok 13 - accounts are isolated and day resets at Shanghai midnight
+  ---
+  duration_ms: 1.5183
+  type: 'test'
+  ...
+# Subtest: unpriced model and missing or invalid usage are handled conservatively
+ok 14 - unpriced model and missing or invalid usage are handled conservatively
+  ---
+  duration_ms: 1.8952
+  type: 'test'
+  ...
+# Subtest: scotch-yoke captures valid, stopped and invalid snapshots without sharing mutable state
+ok 15 - scotch-yoke captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 7.0739
+  type: 'test'
+  ...
+# Subtest: scotch-yoke uses exactly 20% physical playback while preserving engineering results
+ok 16 - scotch-yoke uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.6371
+  type: 'test'
+  ...
+# Subtest: scotch-yoke accepted by unchanged API using a mocked upstream without external calls
+ok 17 - scotch-yoke accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 63.0908
+  type: 'test'
+  ...
+# Subtest: crank-rocker captures valid, stopped and invalid snapshots without sharing mutable state
+ok 18 - crank-rocker captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 3.9967
+  type: 'test'
+  ...
+# Subtest: crank-rocker uses exactly 20% physical playback while preserving engineering results
+ok 19 - crank-rocker uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.2039
+  type: 'test'
+  ...
+# Subtest: crank-rocker accepted by unchanged API using a mocked upstream without external calls
+ok 20 - crank-rocker accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 4.3054
+  type: 'test'
+  ...
+# Subtest: parallelogram captures valid, stopped and invalid snapshots without sharing mutable state
+ok 21 - parallelogram captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 3.4451
+  type: 'test'
+  ...
+# Subtest: parallelogram uses exactly 20% physical playback while preserving engineering results
+ok 22 - parallelogram uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.3015
+  type: 'test'
+  ...
+# Subtest: parallelogram accepted by unchanged API using a mocked upstream without external calls
+ok 23 - parallelogram accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 4.8946
+  type: 'test'
+  ...
+# Subtest: double-rocker captures valid, stopped and invalid snapshots without sharing mutable state
+ok 24 - double-rocker captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 2.25
+  type: 'test'
+  ...
+# Subtest: double-rocker uses exactly 20% physical playback while preserving engineering results
+ok 25 - double-rocker uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.4161
+  type: 'test'
+  ...
+# Subtest: double-rocker accepted by unchanged API using a mocked upstream without external calls
+ok 26 - double-rocker accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 4.7976
+  type: 'test'
+  ...
+# Subtest: quick-return captures valid, stopped and invalid snapshots without sharing mutable state
+ok 27 - quick-return captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 4.396
+  type: 'test'
+  ...
+# Subtest: quick-return uses exactly 20% physical playback while preserving engineering results
+ok 28 - quick-return uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.168
+  type: 'test'
+  ...
+# Subtest: quick-return accepted by unchanged API using a mocked upstream without external calls
+ok 29 - quick-return accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 5.2485
+  type: 'test'
+  ...
+# Subtest: bevel-gears captures valid, stopped and invalid snapshots without sharing mutable state
+ok 30 - bevel-gears captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 4.6745
+  type: 'test'
+  ...
+# Subtest: bevel-gears uses exactly 20% physical playback while preserving engineering results
+ok 31 - bevel-gears uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.4517
+  type: 'test'
+  ...
+# Subtest: bevel-gears accepted by unchanged API using a mocked upstream without external calls
+ok 32 - bevel-gears accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 3.4753
+  type: 'test'
+  ...
+# Subtest: scissor-jack captures valid, stopped and invalid snapshots without sharing mutable state
+ok 33 - scissor-jack captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 1.6326
+  type: 'test'
+  ...
+# Subtest: scissor-jack uses exactly 20% physical playback while preserving engineering results
+ok 34 - scissor-jack uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.3695
+  type: 'test'
+  ...
+# Subtest: scissor-jack accepted by unchanged API using a mocked upstream without external calls
+ok 35 - scissor-jack accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 3.4175
+  type: 'test'
+  ...
+# Subtest: ratchet-pawl captures valid, stopped and invalid snapshots without sharing mutable state
+ok 36 - ratchet-pawl captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 585.8765
+  type: 'test'
+  ...
+# Subtest: ratchet-pawl uses exactly 20% physical playback while preserving engineering results
+ok 37 - ratchet-pawl uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.2111
+  type: 'test'
+  ...
+# Subtest: ratchet-pawl accepted by unchanged API using a mocked upstream without external calls
+ok 38 - ratchet-pawl accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 232.2016
+  type: 'test'
+  ...
+# Subtest: eccentric-follower captures valid, stopped and invalid snapshots without sharing mutable state
+ok 39 - eccentric-follower captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 1.0098
+  type: 'test'
+  ...
+# Subtest: eccentric-follower uses exactly 20% physical playback while preserving engineering results
+ok 40 - eccentric-follower uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.1532
+  type: 'test'
+  ...
+# Subtest: eccentric-follower accepted by unchanged API using a mocked upstream without external calls
+ok 41 - eccentric-follower accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 2.6741
+  type: 'test'
+  ...
+# Subtest: roller-cam captures valid, stopped and invalid snapshots without sharing mutable state
+ok 42 - roller-cam captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 4.5553
+  type: 'test'
+  ...
+# Subtest: roller-cam uses exactly 20% physical playback while preserving engineering results
+ok 43 - roller-cam uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.1707
+  type: 'test'
+  ...
+# Subtest: roller-cam accepted by unchanged API using a mocked upstream without external calls
+ok 44 - roller-cam accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 3.927
+  type: 'test'
+  ...
+# Subtest: geneva-drive captures valid, stopped and invalid snapshots without sharing mutable state
+ok 45 - geneva-drive captures valid, stopped and invalid snapshots without sharing mutable state
+  ---
+  duration_ms: 2.2795
+  type: 'test'
+  ...
+# Subtest: geneva-drive uses exactly 20% physical playback while preserving engineering results
+ok 46 - geneva-drive uses exactly 20% physical playback while preserving engineering results
+  ---
+  duration_ms: 0.1331
+  type: 'test'
+  ...
+# Subtest: geneva-drive accepted by unchanged API using a mocked upstream without external calls
+ok 47 - geneva-drive accepted by unchanged API using a mocked upstream without external calls
+  ---
+  duration_ms: 2.4075
+  type: 'test'
+  ...
+# Subtest: retry preserves original snapshot and follow-up owns its new snapshot
+ok 48 - retry preserves original snapshot and follow-up owns its new snapshot
+  ---
+  duration_ms: 2.0319
+  type: 'test'
+  ...
+# Subtest: all previous experiments retain byte-equivalent payloads across capabilities
+ok 49 - all previous experiments retain byte-equivalent payloads across capabilities
+  ---
+  duration_ms: 5.4858
+  type: 'test'
+  ...
+# Subtest: friction snapshot stays immutable and contains only question-relevant fields
+ok 50 - friction snapshot stays immutable and contains only question-relevant fields
+  ---
+  duration_ms: 5.1242
+  type: 'test'
+  ...
+# Subtest: legacy payload carries mechanics and selected part without gearbox context or new fields
+ok 51 - legacy payload carries mechanics and selected part without gearbox context or new fields
+  ---
+  duration_ms: 3.0675
+  type: 'test'
+  ...
+# Subtest: new protocol keeps snapshots per turn and retry after parameter changes
+ok 52 - new protocol keeps snapshots per turn and retry after parameter changes
+  ---
+  duration_ms: 2.1542
+  type: 'test'
+  ...
+# Subtest: overload context never labels theoretical speed or power as actual output
+ok 53 - overload context never labels theoretical speed or power as actual output
+  ---
+  duration_ms: 0.569
+  type: 'test'
+  ...
+# Subtest: invalid parameters preserve last model and zero input remains a valid stationary result
+ok 54 - invalid parameters preserve last model and zero input remains a valid stationary result
+  ---
+  duration_ms: 0.6116
+  type: 'test'
+  ...
+# Subtest: sanitizer bounds text and rejects invalid numbers, states and hidden client fields
+ok 55 - sanitizer bounds text and rejects invalid numbers, states and hidden client fields
+  ---
+  duration_ms: 0.4156
+  type: 'test'
+  ...
+# Subtest: all prior model payloads remain byte-equivalent under each capability combination
+ok 56 - all prior model payloads remain byte-equivalent under each capability combination
+  ---
+  duration_ms: 4.7419
+  type: 'test'
+  ...
+# Subtest: legacy length limit preserves latest question and removes old complete exchanges only
+ok 57 - legacy length limit preserves latest question and removes old complete exchanges only
+  ---
+  duration_ms: 1.3896
+  type: 'test'
+  ...
+# Subtest: mock API accepts legacy friction payload without charging or networking
+ok 58 - mock API accepts legacy friction payload without charging or networking
+  ---
+  duration_ms: 68.6118
+  type: 'test'
+  ...
+# Subtest: mock API accepts native friction payload without charging or networking
+ok 59 - mock API accepts native friction payload without charging or networking
+  ---
+  duration_ms: 4.2115
+  type: 'test'
+  ...
+# Subtest: four-bar lengths remain closed through each full demonstration range and parameter bounds
+ok 60 - four-bar lengths remain closed through each full demonstration range and parameter bounds
+  ---
+  duration_ms: 64.5507
+  type: 'test'
+  ...
+# Subtest: Scotch yoke and slider-crank have identical endpoints and independently known quarter-turn displacement
+ok 61 - Scotch yoke and slider-crank have identical endpoints and independently known quarter-turn displacement
+  ---
+  duration_ms: 1.8435
+  type: 'test'
+  ...
+# Subtest: quick-return joints close, both strokes share endpoints, and measured work/return fractions match theory
+ok 62 - quick-return joints close, both strokes share endpoints, and measured work/return fractions match theory
+  ---
+  duration_ms: 168.8259
+  type: 'test'
+  ...
+# Subtest: rotary playback respects real RPM and reciprocating playback never leaves the valid branch
+ok 63 - rotary playback respects real RPM and reciprocating playback never leaves the valid branch
+  ---
+  duration_ms: 12.7199
+  type: 'test'
+  ...
+# Subtest: bad numbers and invalid topology are rejected before applying
+ok 64 - bad numbers and invalid topology are rejected before applying
+  ---
+  duration_ms: 1.563
+  type: 'test'
+  ...
+# Subtest: production mesh layers follow joint positions and restore exactly after disassembly
+ok 65 - production mesh layers follow joint positions and restore exactly after disassembly
+  ---
+  duration_ms: 251.2373
+  type: 'test'
+  ...
+# Subtest: bevel gears share a cone apex and tangent generator and obey the exact tooth ratio
+ok 66 - bevel gears share a cone apex and tangent generator and obey the exact tooth ratio
+  ---
+  duration_ms: 2.5976
+  type: 'test'
+  ...
+# Subtest: scissor jack keeps all four arms rigid and converts turns to lead and nonlinear height
+ok 67 - scissor jack keeps all four arms rigid and converts turns to lead and nonlinear height
+  ---
+  duration_ms: 20.9441
+  type: 'test'
+  ...
+# Subtest: ratchet output advances on drive, stays on return, and its rigid pawl follows the tooth surface
+ok 68 - ratchet output advances on drive, stays on return, and its rigid pawl follows the tooth surface
+  ---
+  duration_ms: 405.3115
+  type: 'test'
+  ...
+# Subtest: eccentric follower remains tangent to the circular cam and stroke is exactly twice eccentricity
+ok 69 - eccentric follower remains tangent to the circular cam and stroke is exactly twice eccentricity
+  ---
+  duration_ms: 4.9225
+  type: 'test'
+  ...
+# Subtest: roller cam phases join smoothly and roller-offset profile remains tangent without penetration
+ok 70 - roller cam phases join smoothly and roller-offset profile remains tangent without penetration
+  ---
+  duration_ms: 39.1298
+  type: 'test'
+  ...
+# Subtest: Geneva pin stays in a slot during indexing and output holds throughout dwell for every slot count
+ok 71 - Geneva pin stays in a slot during indexing and output holds throughout dwell for every slot count
+  ---
+  duration_ms: 12.452
+  type: 'test'
+  ...
+# Subtest: Geneva driving pin clears the actual slotted wheel polygon
+ok 72 - Geneva driving pin clears the actual slotted wheel polygon
+  ---
+  duration_ms: 145.7495
+  type: 'test'
+  ...
+# Subtest: zero speed stays still and invalid numbers or tooth counts are rejected
+ok 73 - zero speed stays still and invalid numbers or tooth counts are rejected
+  ---
+  duration_ms: 1.3293
+  type: 'test'
+  ...
+# Subtest: Geneva locking sector clears the wheel through both drive and dwell
+ok 74 - Geneva locking sector clears the wheel through both drive and dwell
+  ---
+  duration_ms: 535.0895
+  type: 'test'
+  ...
+# Subtest: all six production meshes build, restore their pose and keep independent selection materials
+ok 75 - all six production meshes build, restore their pose and keep independent selection materials
+  ---
+  duration_ms: 239.4107
+  type: 'test'
+  ...
+# Subtest: rotation, one-tooth travel, reversals and zero speed use consistent units
+ok 76 - rotation, one-tooth travel, reversals and zero speed use consistent units
+  ---
+  duration_ms: 3.2419
+  type: 'test'
+  ...
+# Subtest: travel limits stop outward motion and allow an inward restart
+ok 77 - travel limits stop outward motion and allow an inward restart
+  ---
+  duration_ms: 0.8591
+  type: 'test'
+  ...
+# Subtest: disassembly and reassembly preserve both angle and physical rack position
+ok 78 - disassembly and reassembly preserve both angle and physical rack position
+  ---
+  duration_ms: 179.0704
+  type: 'test'
+  ...
+# Subtest: exploded production parts remain separated throughout boundary geometries
+ok 79 - exploded production parts remain separated throughout boundary geometries
+  ---
+  duration_ms: 246.9401
+  type: 'test'
+  ...
+# Subtest: gear and rack tooth profiles clear each other over a whole tooth engagement
+ok 80 - gear and rack tooth profiles clear each other over a whole tooth engagement
+  ---
+  duration_ms: 10823.8823
+  type: 'test'
+  ...
+# Subtest: chat uses an immutable snapshot and preserves all existing model builders
+ok 81 - chat uses an immutable snapshot and preserves all existing model builders
+  ---
+  duration_ms: 4.1598
+  type: 'test'
+  ...
+# Subtest: turbine question captures an immutable, small parameter and part snapshot
+ok 82 - turbine question captures an immutable, small parameter and part snapshot
+  ---
+  duration_ms: 1.7604
+  type: 'test'
+  ...
+# Subtest: both requested and last displayed parameter values survive invalid-input state
+ok 83 - both requested and last displayed parameter values survive invalid-input state
+  ---
+  duration_ms: 1.6083
+  type: 'test'
+  ...
+# Subtest: legacy cloud receives complete turbine snapshot and never a gearbox selected id
+ok 84 - legacy cloud receives complete turbine snapshot and never a gearbox selected id
+  ---
+  duration_ms: 0.9076
+  type: 'test'
+  ...
+# Subtest: new domain protocol retains per-turn snapshots and preserves GL16 requests
+ok 85 - new domain protocol retains per-turn snapshots and preserves GL16 requests
+  ---
+  duration_ms: 4.8572
+  type: 'test'
+  ...
+# Subtest: context sanitizer drops unknown fields and bounds strings and numeric values
+ok 86 - context sanitizer drops unknown fields and bounds strings and numeric values
+  ---
+  duration_ms: 0.5173
+  type: 'test'
+  ...
+# Subtest: legacy message limits fail explicitly instead of silently discarding the question
+ok 87 - legacy message limits fail explicitly instead of silently discarding the question
+  ---
+  duration_ms: 1.1136
+  type: 'test'
+  ...
+# Subtest: per-stage design snapshot is bounded and includes actual displayed heights and profile types
+ok 88 - per-stage design snapshot is bounded and includes actual displayed heights and profile types
+  ---
+  duration_ms: 1.6375
+  type: 'test'
+  ...
+# Subtest: server uses turbine system prompt and bounded snapshot without GL16 context
+ok 89 - server uses turbine system prompt and bounded snapshot without GL16 context
+  ---
+  duration_ms: 64.3825
+  type: 'test'
+  ...
+# Subtest: server rejects unknown model domains before a provider call
+ok 90 - server rejects unknown model domains before a provider call
+  ---
+  duration_ms: 2.9147
+  type: 'test'
+  ...
+1..90
+# tests 90
+# suites 0
+# pass 90
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11612.9176

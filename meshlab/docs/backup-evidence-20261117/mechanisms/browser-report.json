@@ -1,0 +1,240 @@
+{
+  "testedAt": "2026-11-16T14:35:56.102Z",
+  "scope": "W: rows 14,15,16,23,24,25",
+  "checks": [
+    {
+      "name": "bevel-gears default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "bevel-gears 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "scissor-jack 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "ratchet-pawl 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower direct pointer drive preserves grab offset",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "eccentric-follower 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam direct pointer drive preserves grab offset",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "roller-cam 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive default desktop model and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive selection and support modes",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive explode, four-step dismantling and reassembly preserve input",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive playback, pause, input slider and zero speed",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive parameter errors retain valid model and accepted edits rebuild",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive specific teaching interaction",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive direct pointer drive preserves grab offset",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive principles and fresh JSON/CSV exports",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive 390px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "geneva-drive 360px default, selected, exploded and readouts",
+      "status": "PASS"
+    },
+    {
+      "name": "homepage lists exactly the six W experiments and retains the previous five",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}
