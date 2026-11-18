@@ -1,3 +1,6 @@
+/* Page turns move reading focus to these non-interactive headings. */
+#hero-title:focus, #catalog-title:focus { outline: none; }
+
 .directory, .how {
   --muted: #486471;
   --rule: #b8cbd0;
