@@ -1,0 +1,189 @@
+.mark-definitions {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.opening { display: none; }
+.show-opening .opening {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: auto;
+  color: #e1f9f8;
+  background:
+    radial-gradient(ellipse at 50% 46%, #153c50 0%, #0a2336 35%, #051827 75%);
+  animation: opening-out 410ms 1.38s ease-in both;
+}
+.opening::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#a6e2ec0b 1px, transparent 1px),
+    linear-gradient(90deg, #a6e2ec0b 1px, transparent 1px);
+  background-position: center center;
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse, black 0%, transparent 70%);
+}
+.opening-lockup { position: relative; text-align: center; }
+.opening-dial {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  width: clamp(128px, 13vw, 172px);
+  aspect-ratio: 1;
+}
+.dial-ticks, .dial-axes, .dial-axes::before, .dial-axes::after {
+  position: absolute;
+  pointer-events: none;
+}
+.dial-ticks {
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, #9adbe1aa 0deg .7deg, transparent .7deg 7.5deg);
+  mask-image: radial-gradient(circle closest-side, transparent 89%, #000 90% 99%, transparent 100%);
+  animation: dial-register 970ms cubic-bezier(.18,.75,.2,1) both;
+}
+.dial-axes {
+  inset: 12%;
+  border: 1px solid #a7e4df3d;
+  border-radius: 50%;
+  animation: dial-register 1s cubic-bezier(.17,.8,.2,1) reverse both;
+}
+.dial-axes::before, .dial-axes::after {
+  content: "";
+  left: -36%;
+  right: -36%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg,transparent,#b3e3e77a 19%,transparent 23% 77%,#b3e3e77a 81%,transparent);
+}
+.dial-axes::after { rotate: 90deg; }
+.opening-mark {
+  width: 65%;
+  height: 65%;
+  stroke-width: .82;
+  stroke-dasharray: 1;
+  filter: drop-shadow(0 0 12px #a0ebee40);
+  animation: mark-draw 740ms cubic-bezier(.35,0,.23,1) both;
+}
+.opening-name {
+  margin-top: 13px;
+  font: 700 clamp(45px, 5vw, 68px)/.96 "Barlow Condensed", sans-serif;
+  letter-spacing: -.025em;
+  animation: name-rise 540ms 190ms cubic-bezier(.2,.8,.2,1) both;
+}
+.opening-subtitle {
+  margin-top: 12px;
+  padding-left: .28em;
+  font-size: 14px;
+  letter-spacing: .28em;
+  color: #a6c9d3;
+  animation: name-rise 540ms 290ms cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes mark-draw {
+  from { stroke-dashoffset: 1; rotate: -22deg; }
+  to { stroke-dashoffset: 0; rotate: 0deg; }
+}
+@keyframes dial-register {
+  from { transform: rotate(-42deg) scale(1.18); opacity: .12; }
+  to { transform: rotate(0deg) scale(1); opacity: .85; }
+}
+@keyframes name-rise {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes opening-out {
+  from { opacity: 1; visibility: visible; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+.pointer-field {
+  --light-x: 50%;
+  --light-y: 50%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 360ms ease-out;
+}
+.pointer-field.is-lit { opacity: 1; }
+.pointer-field::before {
+  content: "";
+  position: absolute;
+  left: var(--light-x);
+  top: var(--light-y);
+  width: 720px;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #71cfd62b 0%, #63b2cf12 32%, transparent 69%);
+}
+.blueprint {
+  display: block;
+  width: 100%;
+  height: 100%;
+  mask-image: radial-gradient(circle 255px at var(--light-x) var(--light-y), #000 8%, #000d 34%, transparent 100%);
+}
+.paper-light { z-index: 0; }
+.paper-light::before {
+  width: 510px;
+  background:
+    radial-gradient(circle, #4697ac38 1px, transparent 1.5px) 50% 50% / 16px 16px,
+    radial-gradient(circle, #fff9, transparent 70%);
+  mask-image: radial-gradient(circle, black, transparent 68%);
+}
+.content-surface > section { position: relative; }
+
+.motion-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.motion-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70px 55px at var(--button-x, 50%) var(--button-y, 50%), var(--button-light, #9bdde144), transparent);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.primary.motion-button { --button-light: #ffffffb0; }
+.learning-step.motion-button { --button-light: #78b5cb30; }
+.motion-button:focus-visible::after, .motion-button:active::after { opacity: 1; }
+.motion-button:active { scale: .975; }
+.motion-button svg {
+  translate: var(--icon-x, 0px) var(--icon-y, 0px);
+  transition: translate 140ms ease-out;
+}
+.button-wave {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: currentColor;
+  animation: button-wave 430ms ease-out both;
+}
+@keyframes button-wave {
+  from { transform: translate(-50%, -50%) scale(.06); opacity: .19; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .motion-button:hover::after { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .show-opening .opening, .pointer-field, .button-wave { display: none; }
+  .motion-button:active { scale: 1; }
+  .motion-button svg { translate: none; }
+}

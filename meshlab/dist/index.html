@@ -2,133 +2,165 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#edf3fc" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#101b2f" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="啮合实验室 meshlab：通过三维模型、运动演示、实时调参和AI问答，探索齿轮、链带、万向节、离合器、凸轮、变速器及动力系统。">
-  <title>啮合实验室 meshlab · 让机械原理触手可及</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="archive.css">
-  <link rel="stylesheet" href="liquid-glass.css">
-  <script src="transmission-cards.js?v=20261116-all1" defer></script>
-  <link rel="stylesheet" href="catalog-home.css?v=20261116-all1">
-  <script defer src="catalog-home.js?v=20261116-all1"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071a34">
+  <meta name="description" content="啮合实验室 meshlab，观察机械结构、拆解三维装配，沿着动力传递的路径理解机械。">
+  <title>啮合实验室 meshlab · 机械结构与交互实验</title>
+  <link rel="icon" href="homepage/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="homepage/assets/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="homepage/assets/gear.png" as="image">
+  <link rel="stylesheet" href="homepage/style.css">
+  <link rel="stylesheet" href="homepage/specimen.css">
+  <link rel="stylesheet" href="homepage/motion.css">
+  <link rel="stylesheet" href="homepage/glass.css">
+  <link rel="stylesheet" href="homepage/overview.css">
+  <script>
+    if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('show-opening');
+    }
+  </script>
+  <script src="homepage/motion.js" defer></script>
+  <script type="module" src="homepage/specimen-scene.js"></script>
+  <script src="homepage/transmission-cards.js" defer></script>
+  <script src="homepage/navigation.js" defer></script>
+  <script src="homepage/overview.js" defer></script>
+  <script src="homepage/scroll-transition.js" defer></script>
 </head>
 <body>
+  <svg class="mark-definitions" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <g id="meshlab-mark" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path pathLength="1" d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/>
+        <circle pathLength="1" cx="12" cy="12" r="3.5"/>
+      </g>
+    </defs>
+  </svg>
+  <div class="opening" aria-hidden="true">
+    <div class="opening-lockup">
+      <div class="opening-dial">
+        <div class="dial-ticks"></div>
+        <div class="dial-axes"></div>
+        <svg class="opening-mark" viewBox="0 0 24 24"><use href="#meshlab-mark"/></svg>
+      </div>
+      <div class="opening-name">meshlab</div>
+      <div class="opening-subtitle">啮合实验室</div>
+    </div>
+  </div>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="啮合实验室首页">meshlab<span>啮合实验室</span></a>
-    <nav aria-label="主导航">
-      <a href="#catalog-section">机构目录</a><a href="#about">关于实验室</a><a href="#how">如何使用</a>
-      <a class="nav-cta" href="lab.html">进入实验室 <span aria-hidden="true">↗</span></a>
-    </nav>
+    <a class="brand" href="./" aria-label="meshlab 啮合实验室首页"><svg class="brand-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#meshlab-mark"/></svg><span>啮合实验室</span></a>
+    <nav aria-label="主导航"><a class="desktop-link" href="#collection">机械展台</a><a class="desktop-link" href="#structures">结构目录</a><a class="desktop-link" href="#how">使用指南</a></nav>
+    <div class="header-actions"><a class="header-cta glass" href="#structures">查找结构</a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="打开导航菜单"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button></div>
+    <div id="mobile-nav" class="mobile-nav" hidden><a href="#collection">机械展台</a><a href="#structures">结构目录</a><a href="#how">使用指南</a></div>
   </header>
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="headline">
-        <div><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>把机械原理，变成直觉</p><h1 id="hero-title">机械原理，<br>不必只靠<span>想象。</span></h1></div>
-        <div class="intro"><p>一个可以观察、拆解、提问的机械交互实验室。把抽象的传动关系，变成眼前看得见的运动。</p><a href="lab.html" class="button">开始探索 <span aria-hidden="true">↗</span></a><a href="#how" class="text-link">了解如何使用 <span aria-hidden="true">↓</span></a></div>
-      </div>
-      <div class="archive-head">
-        <h2 id="archive-title">翻开一份机械档案</h2>
-      </div>
-      <div class="rail-frame"><div class="shelf" id="mechanical-rail" role="region" aria-roledescription="轮播图" aria-labelledby="archive-title"></div></div>
-      <div class="caption" aria-live="polite" aria-atomic="true"><h3 id="caption-title">齿轮传动</h3><p id="caption">通过相互啮合的齿轮，传递运动并改变转速与转矩。</p></div>
-      <noscript><p class="no-script">开启 JavaScript 即可浏览交互档案。你也可以先阅读下方介绍与使用指南。</p></noscript>
-    </section>
-<!-- catalog:start -->
-<section id="catalog-section" class="catalog-section" aria-labelledby="catalog-title"><div class="section-title"><p class="eyebrow">机构实验目录</p><h2 id="catalog-title">选择一个机构，直接开始。</h2><p>现有 44 个可交互实验。可搜索机构、零件或教学内容。</p></div><label class="catalog-search" for="catalog-search">查找机构<input id="catalog-search" type="search" placeholder="例如：万向节、离合器、行星、凸轮…"></label><p id="catalog-count" role="status">显示 44 个实验</p><div class="catalog-grid"><a class="catalog-entry" href="lab.html"><span class="catalog-number">基础实验</span><h3>两级斜齿减速器</h3><p>两级斜齿轮与装配拆解</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="turbine.html"><span class="catalog-number">基础实验</span><h3>参数化汽轮机</h3><p>汽缸、动静叶与级数参数</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="bicycle.html"><span class="catalog-number">基础实验</span><h3>自行车链传动</h3><p>牙盘、链条与后轮</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="friction.html"><span class="catalog-number">基础实验</span><h3>摩擦轮传动</h3><p>轮径、压紧与摩擦容量</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="spur.html"><span class="catalog-number">基础实验</span><h3>单级直齿圆柱齿轮</h3><p>齿数、模数与速比</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="idler.html"><span class="catalog-number">基础实验</span><h3>带惰轮齿轮列</h3><p>惰轮、转向与传动比</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="belt.html"><span class="catalog-number">基础实验</span><h3>交叉平带传动</h3><p>交叉带与开口带对照</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="timing.html"><span class="catalog-number">基础实验</span><h3>同步带传动</h3><p>带齿、轮槽与闭合关系</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="vice.html"><span class="catalog-number">基础实验</span><h3>台虎钳·丝杠螺母</h3><p>导程、开口与端点停机</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=universal-joint"><span class="catalog-number">清单 24</span><h3>单十字轴万向节</h3><p>调轴间夹角，看输入匀速时输出转速如何波动。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=double-universal"><span class="catalog-number">清单 25</span><h3>双万向节传动轴</h3><p>调整夹角和叉头相位，找出抵消转速波动的条件。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=chain-conveyor"><span class="catalog-number">清单 26</span><h3>链条输送机</h3><p>观察托板的载物段、回程段和张紧轮的位置。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=recirculating-ball-screw"><span class="catalog-number">清单 27</span><h3>滚珠丝杠</h3><p>剖开透明螺母，跟踪滚珠的循环路径。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=friction-clutch"><span class="catalog-number">清单 28</span><h3>摩擦片离合器</h3><p>操作压盘，观察飞轮、摩擦片接合与分离。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=roller-freewheel"><span class="catalog-number">清单 29</span><h3>滚柱式单向离合器</h3><p>切换相对转向，看滚柱如何楔紧和释放。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=centrifugal-clutch"><span class="catalog-number">清单 30</span><h3>离心离合器</h3><p>调整转速，看蹄块张开并与离合器鼓接触。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=oldham-coupling"><span class="catalog-number">清单 31</span><h3>奥尔德姆联轴器</h3><p>改变两根平行轴的偏置，观察中间滑块的补偿运动。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=bicycle-rear-derailleur"><span class="catalog-number">清单 32</span><h3>自行车后拨变速机构</h3><p>切换飞轮档位，看链条横移与导轮补偿。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=dual-wiper"><span class="catalog-number">清单 33</span><h3>汽车雨刮连杆</h3><p>用一个电机驱动两支雨刮，观察摆幅和相位。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=steering-rack"><span class="catalog-number">清单 34</span><h3>汽车转向齿轮齿条总成</h3><p>联动齿条、横拉杆和转向节，对比内外轮转角。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=valvetrain"><span class="catalog-number">清单 36</span><h3>发动机气门配气机构</h3><p>联动曲轴、凸轮轴与气门，观察四冲程中的开闭时序。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=planetary"><span class="catalog-number">清单 37</span><h3>简单行星齿轮传动</h3><p>轮流固定太阳轮、齿圈和行星架，对比输出转向与速比。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=three-speed-hub"><span class="catalog-number">清单 39</span><h3>自行车三速内变速花鼓</h3><p>切换三档，观察花鼓内部哪些零件参与传力。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=manual-gearbox"><span class="catalog-number">清单 40</span><h3>汽车手动变速箱</h3><p>选择档位，高亮从输入轴到输出轴的动力路径。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=synchronizer"><span class="catalog-number">清单 41</span><h3>变速箱同步器</h3><p>慢放拨叉移动、锥面同步、锁止与齿套接合。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=cvt"><span class="catalog-number">清单 42</span><h3>钢带式无级变速器 CVT</h3><p>联动两组锥轮，观察钢带工作半径与速比连续变化。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=rzeppa-joint"><span class="catalog-number">清单 43</span><h3>球笼式等速万向节</h3><p>调整半轴夹角，观察钢球在球道中的运动。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=conjugate-cam"><span class="catalog-number">清单 44</span><h3>双凸轮共轭机构</h3><p>观察两只凸轮如何共同约束从动件往返。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=indexing-cam"><span class="catalog-number">清单 45</span><h3>分度凸轮机构</h3><p>用包装机转盘演示转位和停歇。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=cycloidal"><span class="catalog-number">清单 46</span><h3>摆线针轮减速器</h3><p>追踪偏心输入、摆线轮、针齿和输出销的运动。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=harmonic"><span class="catalog-number">清单 47</span><h3>谐波减速器</h3><p>剖开观察柔轮变形，以及少量齿数差如何产生大速比。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=enveloping-worm"><span class="catalog-number">清单 48</span><h3>包络蜗杆传动</h3><p>对比普通圆柱蜗杆与包络蜗杆的齿面接触区域。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=rv-reducer"><span class="catalog-number">清单 49</span><h3>RV减速器</h3><p>观察前级直齿轮与双摆线轮的两级减速，比较输入、偏心轴和输出。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=dual-clutch-transmission"><span class="catalog-number">清单 50</span><h3>汽车双离合变速箱DCT</h3><p>切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=planetary-automatic"><span class="catalog-number">清单 51</span><h3>行星齿轮式自动变速箱AT</h3><p>切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=torque-converter"><span class="catalog-number">清单 52</span><h3>液力变矩器</h3><p>比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=hybrid-power-split"><span class="catalog-number">清单 53</span><h3>混合动力功率分流机构</h3><p>调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=four-wheel-transfer"><span class="catalog-number">清单 54</span><h3>四驱分动箱与中央差速器</h3><p>切换高低速及中央差速锁，对比前后传动轴同速与差速。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=tractor-pto"><span class="catalog-number">清单 55</span><h3>拖拉机动力输出传动</h3><p>选择540/1000转速挡和PTO独立离合器，观察动力输出轴与作业机具。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=cnc-feed"><span class="catalog-number">清单 56</span><h3>多轴数控机床进给传动</h3><p>联动丝杠直线进给和转台，观察刀具与工件的相对运动。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=robot-wrist"><span class="catalog-number">清单 57</span><h3>工业机器人腕部传动</h3><p>剖开多根同轴传动轴，看末端多轴动作如何合成。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=clock-escapement"><span class="catalog-number">清单 58</span><h3>机械钟表传动与擒纵机构</h3><p>从发条追踪至轮系、擒纵轮和摆轮，慢放锁止与释放。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=dual-rotor-gearbox"><span class="catalog-number">清单 59</span><h3>双转子直升机主减速器</h3><p>追踪两条动力路径，观察两套旋翼如何反向旋转。</p><span class="catalog-open">进入实验 ↗</span></a>
-<a class="catalog-entry" href="catalog.html?model=wind-turbine-gearbox"><span class="catalog-number">清单 60</span><h3>风电行星—平行轴增速箱</h3><p>从低速叶轮轴追踪至发电机轴，逐级显示转速和转向。</p><span class="catalog-open">进入实验 ↗</span></a></div><p id="catalog-empty" hidden>没有匹配的机构，试试其他关键词。</p></section>
-<!-- catalog:end -->
-    <section class="about" aria-labelledby="vice-title">
-      <div><p class="eyebrow">新实验 · LEAD SCREW & NUT / 008</p><h2 id="vice-title">台虎钳·丝杠螺母。<br>转动一圈，量一次位移。</h2></div>
-      <div class="about-copy"><p>看丝杠旋转驱动钳口张开或闭合，实时读取开口、位移和圈数。改变导程，比较每转进给量与理论运动推力。</p><a id="vice-entry" class="text-link" href="vice.html">进入丝杠螺母实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="timing-title">
-      <div><p class="eyebrow">新实验 · TIMING BELT DRIVE / 007</p><h2 id="timing-title">同步带传动。<br>每个带齿，推进同一步。</h2></div>
-      <div class="about-copy"><p>观察带齿逐个进入轮槽，调整齿数验证速比。改变目标中心距，看整数带齿数如何决定实际装配位置。</p><a id="timing-entry" class="text-link" href="timing.html">进入同步带实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="belt-title">
-      <div><p class="eyebrow">新实验 · CROSSED FLAT BELT / 006</p><h2 id="belt-title">交叉平带传动。<br>带路一换，方向随之改变。</h2></div>
-      <div class="about-copy"><p>切换交叉带与开口带对照，观察从动轮转向。调整轮径、中心距和带宽，比较包角、投影带长与传动关系。</p><a id="belt-entry" class="text-link" href="belt.html">进入交叉平带实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="idler-title">
-      <div><p class="eyebrow">新实验 · IDLER GEAR TRAIN / 005</p><h2 id="idler-title">带惰轮齿轮列。<br>加一个轮，换一个方向。</h2></div>
-      <div class="about-copy"><p>切换三轮传动与两轮直接啮合，比较输出转向。改变惰轮齿数，观察轴间距、自身转速和不变的首尾速比。</p><a id="idler-entry" class="text-link" href="idler.html">进入惰轮齿轮列实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="spur-title">
-      <div><p class="eyebrow">新实验 · SPUR GEARS / 004</p><h2 id="spur-title">直齿圆柱齿轮。<br>一齿接一齿，读懂速比。</h2></div>
-      <div class="about-copy"><p>改变两轮齿数，观察外啮合的反向传动。调整模数和齿宽看几何变化，比较转矩与功率的关系。</p><a id="spur-entry" class="text-link" href="spur.html">进入直齿齿轮实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="friction-title">
-      <div><p class="eyebrow">新实验 · FRICTION DRIVE / 003</p><h2 id="friction-title">摩擦轮传动。<br>贴合之间，传递运动。</h2></div>
-      <div class="about-copy"><p>调整两轮直径，观察相反转向与理论转速。改变压紧力和负载，理解摩擦容量与打滑风险。</p><a id="friction-entry" class="text-link" href="friction.html">进入摩擦轮实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="bicycle-title">
-      <div><p class="eyebrow">新实验 · CHAIN TRANSMISSION / 002</p><h2 id="bicycle-title">自行车链传动。<br>每踩一圈，发现更多。</h2></div>
-      <div class="about-copy"><p>观察链条、曲柄和后轮同步运动。调整前后齿数与踏频，理解速度、转矩和链长之间的关系。</p><a id="bicycle-entry" class="text-link" href="bicycle.html">进入自行车实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="about" aria-labelledby="turbine-title">
-      <div><p class="eyebrow">新实验 · THERMAL MACHINES / 001</p><h2 id="turbine-title">参数化汽轮机。<br>从蒸汽，到轴功。</h2></div>
-      <div class="about-copy"><p>打开汽缸，观察逐级静叶与动叶。调整结构和工况，比较两套方案的几何与估算轴功率。</p><a id="turbine-entry" class="text-link" href="turbine.html">进入汽轮机实验 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section id="about" class="about" aria-labelledby="about-title">
-      <div><p class="eyebrow">关于啮合实验室</p><h2 id="about-title">看清结构。<br>也读懂它的逻辑。</h2></div>
-      <div class="about-copy"><p>面对一张装配图，很难一下想清每个零件的关系。我们把三维模型、运动原理和工程资料放在一起，让你沿着自己的问题，一步步理解机械。</p><p>为机械专业学习、课程设计，以及每一个对机械结构好奇的人而做。</p><a class="text-link" href="lab.html?view=principle">看看动力如何传递 <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section id="how" class="how" aria-labelledby="how-title">
-      <div class="section-title"><p class="eyebrow">从好奇到理解</p><h2 id="how-title">上手，只需要三步。</h2></div>
-      <ol class="steps">
-        <li><span class="step-number" aria-hidden="true">01</span><h3>选一个模型</h3><p>选择减速器、汽轮机、链传动、齿轮、带传动或丝杠螺母实验，带着一个问题进入实验室。</p><a class="text-link" href="lab.html">探索减速器 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="turbine.html">探索汽轮机 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="bicycle.html">探索自行车 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="friction.html">探索摩擦轮 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="spur.html">探索直齿轮 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="idler.html">探索惰轮齿轮列 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="belt.html">探索交叉平带 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="timing.html">探索同步带 <span aria-hidden="true">↗</span></a> · <a class="text-link" href="vice.html">探索丝杠螺母 <span aria-hidden="true">↗</span></a></li>
-        <li><span class="step-number" aria-hidden="true">02</span><h3>转一转，拆开看</h3><p>拖动旋转，选取零件，展开结构；播放传动，观察动力如何传递。</p><a class="text-link" href="lab.html">探索装配结构 <span aria-hidden="true">↗</span></a></li>
-        <li><span class="step-number" aria-hidden="true">03</span><h3>追问为什么</h3><p>结合参数、公式和工程资料深入理解。登录后，还可以向 AI 助手提问。</p><a class="text-link" href="lab.html?view=engineering">阅读工程资料 <span aria-hidden="true">↗</span></a></li>
-      </ol>
-    </section>
-    <section class="start" aria-labelledby="start-title"><span class="model-tag">当前可体验 · GL16 减速器 / 参数化汽轮机 / 自行车链传动 / 摩擦轮传动 / 单级直齿轮 / 惰轮齿轮列 / 交叉平带 / 同步带 / 丝杠螺母</span><h2 id="start-title">让好奇，<br class="mobile-break">带动下一次发现。</h2><p>从一个零件开始，理解一整套机械。</p><a href="lab.html" class="button">进入啮合实验室 <span aria-hidden="true">↗</span></a></section>
+    <div class="stage-track" id="about">
+      <section class="hero" id="collection" aria-labelledby="hero-title">
+        <div class="brandword" aria-hidden="true">MESHLAB</div>
+        <div class="pointer-field" aria-hidden="true"><canvas class="blueprint"></canvas></div>
+        <div class="specimen-number" aria-hidden="true">01</div>
+        <div class="specimen-meta"><span id="specimen-en">HELICAL GEARS</span><span id="specimen-relation">旋转输入 / 两级减速</span></div>
+        <div class="stage-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="view-control" role="group" aria-label="模型显示方式" hidden><button type="button" data-mode="solid" aria-pressed="true">实体观察</button><button type="button" data-mode="xray" aria-pressed="false">结构透视</button></div>
+        <div class="hero-title"><h1 id="hero-title" tabindex="-1">每一种运动，<br><em>都有迹可循。</em></h1><span>MESHLAB / 机械交互实验室</span></div>
+        <h2 id="archive-title" class="sr-only">探索机械传动结构</h2>
+        <div class="rail-frame"><div class="shelf" id="mechanical-rail" role="region" aria-roledescription="轮播图" aria-labelledby="archive-title"></div></div>
+        <div class="caption" aria-live="polite" aria-atomic="true"><span id="caption-title" class="sr-only">齿轮传动</span><p id="caption">从真实的 GL16 齿轮组，理解两级传动如何配合。</p></div>
+        <div class="hero-intro"><p>观察三维结构，拆解装配关系。<br>让机械原理，变成眼前的发现。</p><a class="button primary glass" href="#structures">浏览结构目录</a></div>
+        <noscript><p class="no-script">开启 JavaScript 浏览展台，或<a href="#structures">查看结构目录</a>。</p></noscript>
+      </section>
+    </div>
+
+    <div id="catalog-section" class="catalog-page" role="region" aria-label="结构目录与使用指南" tabindex="0">
+      <section class="directory" id="structures" aria-labelledby="catalog-title">
+        <div class="catalog-mast">
+          <div class="shell catalog-heading">
+            <div class="catalog-intro">
+              <h2 id="catalog-title" tabindex="-1">结构目录</h2>
+              <p>按机构类型浏览，或搜索你想观察的零件与运动。</p>
+            </div>
+            <div class="catalog-dock" aria-hidden="true"></div>
+            <div class="catalog-lookup">
+              <form role="search" action="#structures" class="structure-search">
+                <label class="sr-only" for="q">搜索结构名称、零件或运动原理</label>
+                <input type="search" id="q" name="q" placeholder="搜索机构、零件或运动原理" autocomplete="off">
+                <button class="glass" type="submit">搜索</button>
+              </form>
+              <div class="examples" aria-label="搜索示例"><span>试试</span><a href="?q=万向节#structures">万向节</a><a href="?q=凸轮#structures">凸轮</a><a href="?q=机械臂#structures">机械臂</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="shell">
+          <div class="filters" role="group" aria-label="按结构分类筛选" hidden><!-- catalog:filters -->
+            <button type="button" data-filter="all" aria-pressed="true">全部<span>44</span></button>
+            <button type="button" data-filter="gears" aria-pressed="false">齿轮与减变速<span>14</span></button>
+            <button type="button" data-filter="flex" aria-pressed="false">带链与摩擦传动<span>6</span></button>
+            <button type="button" data-filter="joints" aria-pressed="false">轴连接与离合<span>7</span></button>
+            <button type="button" data-filter="motion" aria-pressed="false">直线与往复机构<span>7</span></button>
+            <button type="button" data-filter="systems" aria-pressed="false">动力与装备系统<span>10</span></button>
+          <!-- /catalog:filters --></div>
+          <div class="catalog-state"><p id="match-count" role="status" aria-live="polite">共 44 个实验</p><button id="clear-active" hidden type="button">清除筛选</button></div>
+          <div class="results"><!-- catalog:results -->
+            <a class="result" data-group="joints" data-terms="oldham-coupling 十字滑块联轴器" href="catalog.html?model=oldham-coupling"><small>轴连接与离合</small><h3>奥尔德姆联轴器</h3><p>改变两根平行轴的偏置，观察中间滑块的补偿运动。</p></a>
+            <a class="result" data-group="gears" data-terms="cycloidal" href="catalog.html?model=cycloidal"><small>齿轮与减变速</small><h3>摆线针轮减速器</h3><p>追踪偏心输入、摆线轮、针齿和输出销的运动。</p></a>
+            <a class="result" data-group="gears" data-terms="enveloping-worm" href="catalog.html?model=enveloping-worm"><small>齿轮与减变速</small><h3>包络蜗杆传动</h3><p>对比普通圆柱蜗杆与包络蜗杆的齿面接触区域。</p></a>
+            <a class="result" data-group="gears" data-terms="synchronizer 同步环" href="catalog.html?model=synchronizer"><small>齿轮与减变速</small><h3>变速箱同步器</h3><p>慢放拨叉移动、锥面同步、锁止与齿套接合。</p></a>
+            <a class="result" data-group="systems" data-terms="turbine 蒸汽 汽轮机 叶轮 叶片" href="turbine.html"><small>动力与装备系统</small><h3>参数化汽轮机</h3><p>汽缸、动静叶与级数参数</p></a>
+            <a class="result" data-group="gears" data-terms="idler" href="idler.html"><small>齿轮与减变速</small><h3>带惰轮齿轮列</h3><p>惰轮、转向与传动比</p></a>
+            <a class="result" data-group="gears" data-terms="spur 正齿轮 齿轮副" href="spur.html"><small>齿轮与减变速</small><h3>单级直齿圆柱齿轮</h3><p>齿数、模数与速比</p></a>
+            <a class="result" data-group="joints" data-terms="universal-joint 十字节 万向传动轴" href="catalog.html?model=universal-joint"><small>轴连接与离合</small><h3>单十字轴万向节</h3><p>调轴间夹角，看输入匀速时输出转速如何波动。</p></a>
+            <a class="result" data-group="systems" data-terms="cnc-feed CNC 机床 丝杆 进给" href="catalog.html?model=cnc-feed"><small>动力与装备系统</small><h3>多轴数控机床进给传动</h3><p>联动丝杠直线进给和转台，观察刀具与工件的相对运动。</p></a>
+            <a class="result" data-group="motion" data-terms="valvetrain 凸轮 配气 气门" href="catalog.html?model=valvetrain"><small>直线与往复机构</small><h3>发动机气门配气机构</h3><p>联动曲轴、凸轮轴与气门，观察四冲程中的开闭时序。</p></a>
+            <a class="result" data-group="motion" data-terms="indexing-cam 间歇运动 包装机 凸轮分割器" href="catalog.html?model=indexing-cam"><small>直线与往复机构</small><h3>分度凸轮机构</h3><p>用包装机转盘演示转位和停歇。</p></a>
+            <a class="result" data-group="systems" data-terms="wind-turbine-gearbox 风力发电 增速器" href="catalog.html?model=wind-turbine-gearbox"><small>动力与装备系统</small><h3>风电行星—平行轴增速箱</h3><p>从低速叶轮轴追踪至发电机轴，逐级显示转速和转向。</p></a>
+            <a class="result" data-group="gears" data-terms="cvt 无级变速箱 无极变速" href="catalog.html?model=cvt"><small>齿轮与减变速</small><h3>钢带式无级变速器 CVT</h3><p>联动两组锥轮，观察钢带工作半径与速比连续变化。</p></a>
+            <a class="result" data-group="systems" data-terms="robot-wrist 机械臂 机械手 机器人" href="catalog.html?model=robot-wrist"><small>动力与装备系统</small><h3>工业机器人腕部传动</h3><p>剖开多根同轴传动轴，看末端多轴动作如何合成。</p></a>
+            <a class="result" data-group="motion" data-terms="recirculating-ball-screw 丝杆 螺杆 ball screw" href="catalog.html?model=recirculating-ball-screw"><small>直线与往复机构</small><h3>滚珠丝杠</h3><p>剖开透明螺母，跟踪滚珠的循环路径。</p></a>
+            <a class="result" data-group="joints" data-terms="roller-freewheel 超越离合器" href="catalog.html?model=roller-freewheel"><small>轴连接与离合</small><h3>滚柱式单向离合器</h3><p>切换相对转向，看滚柱如何楔紧和释放。</p></a>
+            <a class="result" data-group="systems" data-terms="hybrid-power-split" href="catalog.html?model=hybrid-power-split"><small>动力与装备系统</small><h3>混合动力功率分流机构</h3><p>调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。</p></a>
+            <a class="result" data-group="systems" data-terms="clock-escapement 钟表 手表 摆轮" href="catalog.html?model=clock-escapement"><small>动力与装备系统</small><h3>机械钟表传动与擒纵机构</h3><p>从发条追踪至轮系、擒纵轮和摆轮，慢放锁止与释放。</p></a>
+            <a class="result" data-group="gears" data-terms="planetary 行星轮 太阳轮 齿圈" href="catalog.html?model=planetary"><small>齿轮与减变速</small><h3>简单行星齿轮传动</h3><p>轮流固定太阳轮、齿圈和行星架，对比输出转向与速比。</p></a>
+            <a class="result" data-group="flex" data-terms="belt 皮带 带轮" href="belt.html"><small>带链与摩擦传动</small><h3>交叉平带传动</h3><p>交叉带与开口带对照</p></a>
+            <a class="result" data-group="joints" data-terms="centrifugal-clutch" href="catalog.html?model=centrifugal-clutch"><small>轴连接与离合</small><h3>离心离合器</h3><p>调整转速，看蹄块张开并与离合器鼓接触。</p></a>
+            <a class="result" data-group="flex" data-terms="chain-conveyor 链传动 链式输送" href="catalog.html?model=chain-conveyor"><small>带链与摩擦传动</small><h3>链条输送机</h3><p>观察托板的载物段、回程段和张紧轮的位置。</p></a>
+            <a class="result" data-group="gears" data-terms="lab GL16 减速箱 斜齿轮" href="lab.html"><small>齿轮与减变速</small><h3>两级斜齿减速器</h3><p>两级斜齿轮与装配拆解</p></a>
+            <a class="result" data-group="flex" data-terms="friction" href="friction.html"><small>带链与摩擦传动</small><h3>摩擦轮传动</h3><p>轮径、压紧与摩擦容量</p></a>
+            <a class="result" data-group="joints" data-terms="friction-clutch" href="catalog.html?model=friction-clutch"><small>轴连接与离合</small><h3>摩擦片离合器</h3><p>操作压盘，观察飞轮、摩擦片接合与分离。</p></a>
+            <a class="result" data-group="gears" data-terms="manual-gearbox MT 手动变速器" href="catalog.html?model=manual-gearbox"><small>齿轮与减变速</small><h3>汽车手动变速箱</h3><p>选择档位，高亮从输入轴到输出轴的动力路径。</p></a>
+            <a class="result" data-group="gears" data-terms="dual-clutch-transmission 双离合 DCT 变速器" href="catalog.html?model=dual-clutch-transmission"><small>齿轮与减变速</small><h3>汽车双离合变速箱DCT</h3><p>切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。</p></a>
+            <a class="result" data-group="motion" data-terms="dual-wiper 雨刷 四杆 连杆 往复" href="catalog.html?model=dual-wiper"><small>直线与往复机构</small><h3>汽车雨刮连杆</h3><p>用一个电机驱动两支雨刮，观察摆幅和相位。</p></a>
+            <a class="result" data-group="motion" data-terms="steering-rack 转向机 方向机 直线" href="catalog.html?model=steering-rack"><small>直线与往复机构</small><h3>汽车转向齿轮齿条总成</h3><p>联动齿条、横拉杆和转向节，对比内外轮转角。</p></a>
+            <a class="result" data-group="joints" data-terms="rzeppa-joint 等速节 球笼 半轴 CV joint" href="catalog.html?model=rzeppa-joint"><small>轴连接与离合</small><h3>球笼式等速万向节</h3><p>调整半轴夹角，观察钢球在球道中的运动。</p></a>
+            <a class="result" data-group="motion" data-terms="conjugate-cam" href="catalog.html?model=conjugate-cam"><small>直线与往复机构</small><h3>双凸轮共轭机构</h3><p>观察两只凸轮如何共同约束从动件往返。</p></a>
+            <a class="result" data-group="joints" data-terms="double-universal" href="catalog.html?model=double-universal"><small>轴连接与离合</small><h3>双万向节传动轴</h3><p>调整夹角和叉头相位，找出抵消转速波动的条件。</p></a>
+            <a class="result" data-group="systems" data-terms="dual-rotor-gearbox 旋翼 直升飞机" href="catalog.html?model=dual-rotor-gearbox"><small>动力与装备系统</small><h3>双转子直升机主减速器</h3><p>追踪两条动力路径，观察两套旋翼如何反向旋转。</p></a>
+            <a class="result" data-group="systems" data-terms="four-wheel-transfer 4WD 中央差速锁" href="catalog.html?model=four-wheel-transfer"><small>动力与装备系统</small><h3>四驱分动箱与中央差速器</h3><p>切换高低速及中央差速锁，对比前后传动轴同速与差速。</p></a>
+            <a class="result" data-group="motion" data-terms="vice 虎钳 丝杆 螺杆" href="vice.html"><small>直线与往复机构</small><h3>台虎钳·丝杠螺母</h3><p>导程、开口与端点停机</p></a>
+            <a class="result" data-group="flex" data-terms="timing 齿形带 皮带" href="timing.html"><small>带链与摩擦传动</small><h3>同步带传动</h3><p>带齿、轮槽与闭合关系</p></a>
+            <a class="result" data-group="systems" data-terms="tractor-pto PTO" href="catalog.html?model=tractor-pto"><small>动力与装备系统</small><h3>拖拉机动力输出传动</h3><p>选择540/1000转速挡和PTO独立离合器，观察动力输出轴与作业机具。</p></a>
+            <a class="result" data-group="gears" data-terms="harmonic 柔轮 谐波齿轮" href="catalog.html?model=harmonic"><small>齿轮与减变速</small><h3>谐波减速器</h3><p>剖开观察柔轮变形，以及少量齿数差如何产生大速比。</p></a>
+            <a class="result" data-group="gears" data-terms="planetary-automatic AT 自动变速器" href="catalog.html?model=planetary-automatic"><small>齿轮与减变速</small><h3>行星齿轮式自动变速箱AT</h3><p>切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。</p></a>
+            <a class="result" data-group="systems" data-terms="torque-converter" href="catalog.html?model=torque-converter"><small>动力与装备系统</small><h3>液力变矩器</h3><p>比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。</p></a>
+            <a class="result" data-group="flex" data-terms="bicycle-rear-derailleur 单车 后拨 链轮 变速器" href="catalog.html?model=bicycle-rear-derailleur"><small>带链与摩擦传动</small><h3>自行车后拨变速机构</h3><p>切换飞轮档位，看链条横移与导轮补偿。</p></a>
+            <a class="result" data-group="flex" data-terms="bicycle 单车 脚踏车 链轮" href="bicycle.html"><small>带链与摩擦传动</small><h3>自行车链传动</h3><p>牙盘、链条与后轮</p></a>
+            <a class="result" data-group="gears" data-terms="three-speed-hub 单车 内三速" href="catalog.html?model=three-speed-hub"><small>齿轮与减变速</small><h3>自行车三速内变速花鼓</h3><p>切换三档，观察花鼓内部哪些零件参与传力。</p></a>
+            <a class="result" data-group="gears" data-terms="rv-reducer 摆线 RV" href="catalog.html?model=rv-reducer"><small>齿轮与减变速</small><h3>RV减速器</h3><p>观察前级直齿轮与双摆线轮的两级减速，比较输入、偏心轴和输出。</p></a>
+          <!-- /catalog:results --></div>
+          <div id="empty-results" hidden><p>没有找到匹配的结构。可以换个关键词，或清除当前筛选。</p><button class="glass" type="button" id="reset-filters">清除筛选</button></div>
+          <div class="more-wrap"><button class="glass" type="button" id="more-results" hidden>显示更多结构</button></div>
+          <noscript><p>当前列出全部实验。可以使用浏览器的页面查找功能搜索名称。</p></noscript>
+        </div>
+      </section>
+      <section id="how" class="how" aria-labelledby="how-title"><div class="shell how-grid">
+        <h2 id="how-title">第一次使用？</h2>
+        <div class="guide-list">
+          <details open><summary>怎样找到合适的结构？</summary><p>知道名称时，可以直接搜索“滚珠丝杠”或“CVT”。还没确定对象时，先选一个分类，再读实验说明，选你想观察的运动。<a href="#structures">浏览目录</a></p></details>
+          <details><summary>进入实验后，先看哪里？</summary><p>从输入端开始。播放模型，跟着运动找到输出端，再暂停并旋转模型。逐次改变一个参数，比较输出转速、位移或转向的变化。</p></details>
+          <details><summary>怎样理解零件和设计依据？</summary><p>在实验中打开零件目录，选中零件读它的作用。需要进一步核对时，查看该实验的「原理」或「资料」。支持模型助手的实验还可以在登录后针对零件提问。</p></details>
+        </div>
+      </div></section>
+      <footer><a href="#collection" class="footer-brand">meshlab <span>啮合实验室</span></a><nav aria-label="页脚导航"><a href="#collection">回到展台</a><a href="https://github.com/Slack-ZH/meshlab">GitHub</a></nav></footer>
+    </div>
   </main>
-  <footer><span>meshlab <span class="footer-divider">/</span> 啮合实验室</span><span>让机械原理触手可及</span><a href="https://github.com/Slack-ZH/meshlab">GitHub <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>

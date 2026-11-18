@@ -1,0 +1,178 @@
+{
+  "oldham-coupling": {
+    "group": "joints",
+    "aliases": "十字滑块联轴器"
+  },
+  "cycloidal": {
+    "group": "gears",
+    "aliases": ""
+  },
+  "enveloping-worm": {
+    "group": "gears",
+    "aliases": ""
+  },
+  "synchronizer": {
+    "group": "gears",
+    "aliases": "同步环"
+  },
+  "turbine": {
+    "group": "systems",
+    "aliases": "蒸汽 汽轮机 叶轮 叶片"
+  },
+  "idler": {
+    "group": "gears",
+    "aliases": ""
+  },
+  "spur": {
+    "group": "gears",
+    "aliases": "正齿轮 齿轮副"
+  },
+  "universal-joint": {
+    "group": "joints",
+    "aliases": "十字节 万向传动轴"
+  },
+  "cnc-feed": {
+    "group": "systems",
+    "aliases": "CNC 机床 丝杆 进给"
+  },
+  "valvetrain": {
+    "group": "motion",
+    "aliases": "凸轮 配气 气门"
+  },
+  "indexing-cam": {
+    "group": "motion",
+    "aliases": "间歇运动 包装机 凸轮分割器"
+  },
+  "wind-turbine-gearbox": {
+    "group": "systems",
+    "aliases": "风力发电 增速器"
+  },
+  "cvt": {
+    "group": "gears",
+    "aliases": "无级变速箱 无极变速"
+  },
+  "robot-wrist": {
+    "group": "systems",
+    "aliases": "机械臂 机械手 机器人"
+  },
+  "recirculating-ball-screw": {
+    "group": "motion",
+    "aliases": "丝杆 螺杆 ball screw"
+  },
+  "roller-freewheel": {
+    "group": "joints",
+    "aliases": "超越离合器"
+  },
+  "hybrid-power-split": {
+    "group": "systems",
+    "aliases": ""
+  },
+  "clock-escapement": {
+    "group": "systems",
+    "aliases": "钟表 手表 摆轮"
+  },
+  "planetary": {
+    "group": "gears",
+    "aliases": "行星轮 太阳轮 齿圈"
+  },
+  "belt": {
+    "group": "flex",
+    "aliases": "皮带 带轮"
+  },
+  "centrifugal-clutch": {
+    "group": "joints",
+    "aliases": ""
+  },
+  "chain-conveyor": {
+    "group": "flex",
+    "aliases": "链传动 链式输送"
+  },
+  "lab": {
+    "group": "gears",
+    "aliases": "GL16 减速箱 斜齿轮"
+  },
+  "friction": {
+    "group": "flex",
+    "aliases": ""
+  },
+  "friction-clutch": {
+    "group": "joints",
+    "aliases": ""
+  },
+  "manual-gearbox": {
+    "group": "gears",
+    "aliases": "MT 手动变速器"
+  },
+  "dual-clutch-transmission": {
+    "group": "gears",
+    "aliases": "双离合 DCT 变速器"
+  },
+  "dual-wiper": {
+    "group": "motion",
+    "aliases": "雨刷 四杆 连杆 往复"
+  },
+  "steering-rack": {
+    "group": "motion",
+    "aliases": "转向机 方向机 直线"
+  },
+  "rzeppa-joint": {
+    "group": "joints",
+    "aliases": "等速节 球笼 半轴 CV joint"
+  },
+  "conjugate-cam": {
+    "group": "motion",
+    "aliases": ""
+  },
+  "double-universal": {
+    "group": "joints",
+    "aliases": ""
+  },
+  "dual-rotor-gearbox": {
+    "group": "systems",
+    "aliases": "旋翼 直升飞机"
+  },
+  "four-wheel-transfer": {
+    "group": "systems",
+    "aliases": "4WD 中央差速锁"
+  },
+  "vice": {
+    "group": "motion",
+    "aliases": "虎钳 丝杆 螺杆"
+  },
+  "timing": {
+    "group": "flex",
+    "aliases": "齿形带 皮带"
+  },
+  "tractor-pto": {
+    "group": "systems",
+    "aliases": "PTO"
+  },
+  "harmonic": {
+    "group": "gears",
+    "aliases": "柔轮 谐波齿轮"
+  },
+  "planetary-automatic": {
+    "group": "gears",
+    "aliases": "AT 自动变速器"
+  },
+  "torque-converter": {
+    "group": "systems",
+    "aliases": ""
+  },
+  "bicycle-rear-derailleur": {
+    "group": "flex",
+    "aliases": "单车 后拨 链轮 变速器"
+  },
+  "bicycle": {
+    "group": "flex",
+    "aliases": "单车 脚踏车 链轮"
+  },
+  "three-speed-hub": {
+    "group": "gears",
+    "aliases": "单车 内三速"
+  },
+  "rv-reducer": {
+    "group": "gears",
+    "aliases": "摆线 RV"
+  }
+}
