@@ -155,10 +155,14 @@
   }, {passive:false});
 
   let swipe = null;
+  hero.addEventListener('specimenpagedown', () => {
+    if (canTurn(1, hero)) beginTurn(1);
+  });
   window.addEventListener('touchstart', event => {
     swipe = null;
     if (event.touches.length !== 1) return;
     const direction = scrollY < directoryTop / 2 ? 1 : -1;
+    if (direction > 0 && hero.contains(event.target)) return;
     if (!canTurn(direction, event.target)) return;
     const point = event.touches[0];
     swipe = {x:point.clientX, y:point.clientY, direction, committed:false};

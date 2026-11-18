@@ -18,6 +18,7 @@ html,body{background:#061b30}
 @media(prefers-reduced-motion:reduce){.card-visual img,.view-control button{transition:none}}
 @media(prefers-reduced-transparency:reduce),(prefers-contrast:more){.card::before{background:#224c66;backdrop-filter:none}.view-control{background:#0a2434}.caption{color:#d7eaf5}}
 .hero, .hero .shelf { touch-action: pan-y pinch-zoom; }
+.paged-home .hero, .paged-home .hero .shelf { touch-action: pinch-zoom; }
 .hero.dragging, .hero.dragging * { cursor: grabbing; user-select: none; }
 
 /* The rail and its perspective share the center of the visible first screen. */

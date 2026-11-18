@@ -59,7 +59,7 @@ for (let index = 0; index < count * 3; index++) {
   card.innerHTML = '<span class="card-state sr-only">机械档案</span>'
     + '<span class="card-visual" aria-hidden="true"><span class="model-surface" id="' + card.dataset.surface + '"><img src="homepage/assets/' + imageNames[index % count] + '.png" width="1000" height="760" alt="" draggable="false"></span></span>'
     + '<span class="card-bottom" aria-hidden="true"><span class="card-title">' + item[0] + '</span><span class="card-kind">' + (isModel ? 'GL16 模型' : '原理示意') + '</span></span>';
-  card.addEventListener('click', () => { if (!suppressClick) moveTo(index * step); });
+  card.addEventListener('click', () => moveTo(index * step));
   slot.append(card);
   shelf.append(slot);
   slots.push(slot);
@@ -206,18 +206,38 @@ shelf.addEventListener('keydown', event => {
 });
 stage.addEventListener('pointerdown', event => {
   if (!event.isPrimary) { endDrag(); return; }
-  if (event.button !== 0 || scrollY > 1 || event.target.closest('a,button:not(.card),input,select,textarea')) return;
-  stop();
   suppressClick = false;
-  drag = {id:event.pointerId, startX:event.clientX, startY:event.clientY, x:event.clientX,
+  const touch = event.pointerType === 'touch';
+  if (event.button !== 0 || stage.getBoundingClientRect().bottom < innerHeight / 2 ||
+      (!touch && event.target.closest('a,button:not(.card),input,select,textarea'))) return;
+  stop();
+  drag = {id:event.pointerId, touch, startX:event.clientX, startY:event.clientY, x:event.clientX,
     time:event.timeStamp, velocity:0, horizontal:false};
 });
+stage.addEventListener('click', event => {
+  if (suppressClick && event.detail > 0) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+}, true);
 window.addEventListener('pointermove', event => {
   if (!drag || event.pointerId !== drag.id) return;
   if (!drag.horizontal) {
     const dx = Math.abs(event.clientX - drag.startX), dy = Math.abs(event.clientY - drag.startY);
-    if (Math.max(dx, dy) < 5) return;
-    if (dx <= dy) { endDrag(); return; }
+    if (drag.touch && document.documentElement.classList.contains('paged-home')) {
+      // Let an initial thumb wobble resolve before choosing an axis for the whole stroke.
+      if (dy >= 16 && dy > dx * 1.35) {
+        const towardDirectory = event.clientY < drag.startY;
+        suppressClick = true;
+        endDrag();
+        if (towardDirectory) stage.dispatchEvent(new Event('specimenpagedown'));
+        return;
+      }
+      if (dx < 7 || dx < dy * .9) return;
+    } else {
+      if (Math.max(dx, dy) < 5) return;
+      if (dx <= dy) { endDrag(); return; }
+    }
     drag.horizontal = true;
     suppressClick = true;
     stage.classList.add('dragging');
@@ -243,15 +263,25 @@ function endDrag(event) {
   if (stage.hasPointerCapture(released.id)) stage.releasePointerCapture(released.id);
   stage.classList.remove('dragging');
   let projected = shelf.scrollLeft;
-  if (event?.type === 'pointerup' && released.horizontal && !reduced.matches) {
+  if (event?.type === 'pointerup' && released.horizontal) {
+    const travel = released.startX - released.x;
     const freshness = Math.max(0, 1 - (event.timeStamp - released.time) / 120);
-    const coast = Math.min(step * .95, Math.abs(released.velocity) * 145) * freshness;
-    projected += Math.sign(released.velocity) * coast;
+    if (!reduced.matches) {
+      const coast = Math.min(step * .95, Math.abs(released.velocity) * 145) * freshness;
+      projected += Math.sign(released.velocity) * coast;
+    }
+    const deliberateSwipe = Math.abs(travel) >= Math.min(32, step * .14) ||
+      (Math.abs(travel) >= 18 && Math.abs(released.velocity) * freshness > .3);
+    if (released.touch && deliberateSwipe && Math.sign(travel) === Math.sign(released.velocity)) {
+      // A short swipe from a centered model reaches its neighbor. Longer strokes keep their full travel.
+      const direction = Math.sign(travel);
+      const startSlot = Math.round((shelf.scrollLeft - travel) / step);
+      const neighbor = (startSlot + direction) * step;
+      projected = direction > 0 ? Math.max(projected, neighbor) : Math.min(projected, neighbor);
+    }
   }
   // Use one deceleration curve through to the centered model.
   settleAt(projected, 145);
-  // The click produced by this release must not recenter the card underneath it.
-  setTimeout(() => { suppressClick = false; }, 0);
 }
 window.addEventListener('pointerup', endDrag);
 window.addEventListener('pointercancel', endDrag);
