@@ -1,10 +1,10 @@
 # 机械机构扩展目录 · 35 项
 
-本批实现 WPS 清单第 24–34、36–37、39–60 项；第 35、38 项已有制作人，未纳入本批。原有 9 个独立实验继续保留。每一项都有自己的参数、部件描述和运动关系，不是用相同模型更换名称。
+这 35 项实验使用同一个三维查看器。表格里的名称可以直接打开对应的在线实验。首页还收录了 GL16、汽轮机等 9 个独立实验。
 
 ## 使用
 
-通过 HTTP 服务打开首页，在「机构目录」搜索，或打开 `catalog.html?model=<id>`。默认显示单十字轴万向节。模型下方可切换机构及调节参数；与既有实验相同的视图框、AI 面板、零件目录、播放、速度、爆炸展开、复原与逐步拆装按钮保持原位置。
+在[结构目录](https://slack-zh.github.io/meshlab/#structures)搜索名称，或从下表选一个实验。进入后拖动模型可旋转视角，模型下方可以选择其他机构和调整参数。
 
 1. 点击播放，拖动旋转模型；1× 演示速度为设置工况的 20%。
 2. 调整下方的尺寸、档位、夹角、输入转速或其他本机构参数；指标由当前参数与运动相位计算。
@@ -16,43 +16,43 @@
 
 ## 编号与能力
 
-| 清单编号 | 名称 | ID / 入口 | 本项实验能力 |
+| 清单编号 | 在线实验 | 模型 ID | 可以观察什么 |
 | --- | --- | --- | --- |
-| 24 | 单十字轴万向节 | [`universal-joint`](../catalog.html?model=universal-joint) | 调轴间夹角，看输入匀速时输出转速如何波动。 |
-| 25 | 双万向节传动轴 | [`double-universal`](../catalog.html?model=double-universal) | 调整夹角和叉头相位，找出抵消转速波动的条件。 |
-| 26 | 链条输送机 | [`chain-conveyor`](../catalog.html?model=chain-conveyor) | 观察托板的载物段、回程段和张紧轮的位置。 |
-| 27 | 滚珠丝杠 | [`recirculating-ball-screw`](../catalog.html?model=recirculating-ball-screw) | 剖开透明螺母，跟踪滚珠的循环路径。 |
-| 28 | 摩擦片离合器 | [`friction-clutch`](../catalog.html?model=friction-clutch) | 操作压盘，观察飞轮、摩擦片接合与分离。 |
-| 29 | 滚柱式单向离合器 | [`roller-freewheel`](../catalog.html?model=roller-freewheel) | 切换相对转向，看滚柱如何楔紧和释放。 |
-| 30 | 离心离合器 | [`centrifugal-clutch`](../catalog.html?model=centrifugal-clutch) | 调整转速，看蹄块张开并与离合器鼓接触。 |
-| 31 | 奥尔德姆联轴器 | [`oldham-coupling`](../catalog.html?model=oldham-coupling) | 改变两根平行轴的偏置，观察中间滑块的补偿运动。 |
-| 32 | 自行车后拨变速机构 | [`bicycle-rear-derailleur`](../catalog.html?model=bicycle-rear-derailleur) | 切换飞轮档位，看链条横移与导轮补偿。 |
-| 33 | 汽车雨刮连杆 | [`dual-wiper`](../catalog.html?model=dual-wiper) | 用一个电机驱动两支雨刮，观察摆幅和相位。 |
-| 34 | 汽车转向齿轮齿条总成 | [`steering-rack`](../catalog.html?model=steering-rack) | 联动齿条、横拉杆和转向节，对比内外轮转角。 |
-| 36 | 发动机气门配气机构 | [`valvetrain`](../catalog.html?model=valvetrain) | 联动曲轴、凸轮轴与气门，观察四冲程中的开闭时序。 |
-| 37 | 简单行星齿轮传动 | [`planetary`](../catalog.html?model=planetary) | 轮流固定太阳轮、齿圈和行星架，对比输出转向与速比。 |
-| 39 | 自行车三速内变速花鼓 | [`three-speed-hub`](../catalog.html?model=three-speed-hub) | 切换三档，观察花鼓内部哪些零件参与传力。 |
-| 40 | 汽车手动变速箱 | [`manual-gearbox`](../catalog.html?model=manual-gearbox) | 选择档位，高亮从输入轴到输出轴的动力路径。 |
-| 41 | 变速箱同步器 | [`synchronizer`](../catalog.html?model=synchronizer) | 慢放拨叉移动、锥面同步、锁止与齿套接合。 |
-| 42 | 钢带式无级变速器 CVT | [`cvt`](../catalog.html?model=cvt) | 联动两组锥轮，观察钢带工作半径与速比连续变化。 |
-| 43 | 球笼式等速万向节 | [`rzeppa-joint`](../catalog.html?model=rzeppa-joint) | 调整半轴夹角，观察钢球在球道中的运动。 |
-| 44 | 双凸轮共轭机构 | [`conjugate-cam`](../catalog.html?model=conjugate-cam) | 观察两只凸轮如何共同约束从动件往返。 |
-| 45 | 分度凸轮机构 | [`indexing-cam`](../catalog.html?model=indexing-cam) | 用包装机转盘演示转位和停歇。 |
-| 46 | 摆线针轮减速器 | [`cycloidal`](../catalog.html?model=cycloidal) | 追踪偏心输入、摆线轮、针齿和输出销的运动。 |
-| 47 | 谐波减速器 | [`harmonic`](../catalog.html?model=harmonic) | 剖开观察柔轮变形，以及少量齿数差如何产生大速比。 |
-| 48 | 包络蜗杆传动 | [`enveloping-worm`](../catalog.html?model=enveloping-worm) | 对比普通圆柱蜗杆与包络蜗杆的齿面接触区域。 |
-| 49 | RV减速器 | [`rv-reducer`](../catalog.html?model=rv-reducer) | 观察前级直齿轮与双摆线轮的两级减速，比较输入、偏心轴和输出。 |
-| 50 | 汽车双离合变速箱DCT | [`dual-clutch-transmission`](../catalog.html?model=dual-clutch-transmission) | 切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。 |
-| 51 | 行星齿轮式自动变速箱AT | [`planetary-automatic`](../catalog.html?model=planetary-automatic) | 切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。 |
-| 52 | 液力变矩器 | [`torque-converter`](../catalog.html?model=torque-converter) | 比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。 |
-| 53 | 混合动力功率分流机构 | [`hybrid-power-split`](../catalog.html?model=hybrid-power-split) | 调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。 |
-| 54 | 四驱分动箱与中央差速器 | [`four-wheel-transfer`](../catalog.html?model=four-wheel-transfer) | 切换高低速及中央差速锁，对比前后传动轴同速与差速。 |
-| 55 | 拖拉机动力输出传动 | [`tractor-pto`](../catalog.html?model=tractor-pto) | 选择540/1000转速挡和PTO独立离合器，观察动力输出轴与作业机具。 |
-| 56 | 多轴数控机床进给传动 | [`cnc-feed`](../catalog.html?model=cnc-feed) | 联动丝杠直线进给和转台，观察刀具与工件的相对运动。 |
-| 57 | 工业机器人腕部传动 | [`robot-wrist`](../catalog.html?model=robot-wrist) | 剖开多根同轴传动轴，看末端多轴动作如何合成。 |
-| 58 | 机械钟表传动与擒纵机构 | [`clock-escapement`](../catalog.html?model=clock-escapement) | 从发条追踪至轮系、擒纵轮和摆轮，慢放锁止与释放。 |
-| 59 | 双转子直升机主减速器 | [`dual-rotor-gearbox`](../catalog.html?model=dual-rotor-gearbox) | 追踪两条动力路径，观察两套旋翼如何反向旋转。 |
-| 60 | 风电行星—平行轴增速箱 | [`wind-turbine-gearbox`](../catalog.html?model=wind-turbine-gearbox) | 从低速叶轮轴追踪至发电机轴，逐级显示转速和转向。 |
+| 24 | [单十字轴万向节](https://slack-zh.github.io/meshlab/catalog.html?model=universal-joint) | `universal-joint` | 调轴间夹角，看输入匀速时输出转速如何波动。 |
+| 25 | [双万向节传动轴](https://slack-zh.github.io/meshlab/catalog.html?model=double-universal) | `double-universal` | 调整夹角和叉头相位，找出抵消转速波动的条件。 |
+| 26 | [链条输送机](https://slack-zh.github.io/meshlab/catalog.html?model=chain-conveyor) | `chain-conveyor` | 观察托板的载物段、回程段和张紧轮的位置。 |
+| 27 | [滚珠丝杠](https://slack-zh.github.io/meshlab/catalog.html?model=recirculating-ball-screw) | `recirculating-ball-screw` | 剖开透明螺母，跟踪滚珠的循环路径。 |
+| 28 | [摩擦片离合器](https://slack-zh.github.io/meshlab/catalog.html?model=friction-clutch) | `friction-clutch` | 操作压盘，观察飞轮、摩擦片接合与分离。 |
+| 29 | [滚柱式单向离合器](https://slack-zh.github.io/meshlab/catalog.html?model=roller-freewheel) | `roller-freewheel` | 切换相对转向，看滚柱如何楔紧和释放。 |
+| 30 | [离心离合器](https://slack-zh.github.io/meshlab/catalog.html?model=centrifugal-clutch) | `centrifugal-clutch` | 调整转速，看蹄块张开并与离合器鼓接触。 |
+| 31 | [奥尔德姆联轴器](https://slack-zh.github.io/meshlab/catalog.html?model=oldham-coupling) | `oldham-coupling` | 改变两根平行轴的偏置，观察中间滑块的补偿运动。 |
+| 32 | [自行车后拨变速机构](https://slack-zh.github.io/meshlab/catalog.html?model=bicycle-rear-derailleur) | `bicycle-rear-derailleur` | 切换飞轮档位，看链条横移与导轮补偿。 |
+| 33 | [汽车雨刮连杆](https://slack-zh.github.io/meshlab/catalog.html?model=dual-wiper) | `dual-wiper` | 用一个电机驱动两支雨刮，观察摆幅和相位。 |
+| 34 | [汽车转向齿轮齿条总成](https://slack-zh.github.io/meshlab/catalog.html?model=steering-rack) | `steering-rack` | 联动齿条、横拉杆和转向节，对比内外轮转角。 |
+| 36 | [发动机气门配气机构](https://slack-zh.github.io/meshlab/catalog.html?model=valvetrain) | `valvetrain` | 联动曲轴、凸轮轴与气门，观察四冲程中的开闭时序。 |
+| 37 | [简单行星齿轮传动](https://slack-zh.github.io/meshlab/catalog.html?model=planetary) | `planetary` | 轮流固定太阳轮、齿圈和行星架，对比输出转向与速比。 |
+| 39 | [自行车三速内变速花鼓](https://slack-zh.github.io/meshlab/catalog.html?model=three-speed-hub) | `three-speed-hub` | 切换三档，观察花鼓内部哪些零件参与传力。 |
+| 40 | [汽车手动变速箱](https://slack-zh.github.io/meshlab/catalog.html?model=manual-gearbox) | `manual-gearbox` | 选择档位，高亮从输入轴到输出轴的动力路径。 |
+| 41 | [变速箱同步器](https://slack-zh.github.io/meshlab/catalog.html?model=synchronizer) | `synchronizer` | 慢放拨叉移动、锥面同步、锁止与齿套接合。 |
+| 42 | [钢带式无级变速器 CVT](https://slack-zh.github.io/meshlab/catalog.html?model=cvt) | `cvt` | 联动两组锥轮，观察钢带工作半径与速比连续变化。 |
+| 43 | [球笼式等速万向节](https://slack-zh.github.io/meshlab/catalog.html?model=rzeppa-joint) | `rzeppa-joint` | 调整半轴夹角，观察钢球在球道中的运动。 |
+| 44 | [双凸轮共轭机构](https://slack-zh.github.io/meshlab/catalog.html?model=conjugate-cam) | `conjugate-cam` | 观察两只凸轮如何共同约束从动件往返。 |
+| 45 | [分度凸轮机构](https://slack-zh.github.io/meshlab/catalog.html?model=indexing-cam) | `indexing-cam` | 用包装机转盘演示转位和停歇。 |
+| 46 | [摆线针轮减速器](https://slack-zh.github.io/meshlab/catalog.html?model=cycloidal) | `cycloidal` | 追踪偏心输入、摆线轮、针齿和输出销的运动。 |
+| 47 | [谐波减速器](https://slack-zh.github.io/meshlab/catalog.html?model=harmonic) | `harmonic` | 剖开观察柔轮变形，以及少量齿数差如何产生大速比。 |
+| 48 | [包络蜗杆传动](https://slack-zh.github.io/meshlab/catalog.html?model=enveloping-worm) | `enveloping-worm` | 对比普通圆柱蜗杆与包络蜗杆的齿面接触区域。 |
+| 49 | [RV减速器](https://slack-zh.github.io/meshlab/catalog.html?model=rv-reducer) | `rv-reducer` | 观察前级直齿轮与双摆线轮的两级减速，比较输入、偏心轴和输出。 |
+| 50 | [汽车双离合变速箱DCT](https://slack-zh.github.io/meshlab/catalog.html?model=dual-clutch-transmission) | `dual-clutch-transmission` | 切换奇偶挡位与预选挡，追踪两个离合器和两根输入轴的动力路线。 |
+| 51 | [行星齿轮式自动变速箱AT](https://slack-zh.github.io/meshlab/catalog.html?model=planetary-automatic) | `planetary-automatic` | 切换离合器和制动器组合，观察低挡、直接挡、超速挡与倒挡。 |
+| 52 | [液力变矩器](https://slack-zh.github.io/meshlab/catalog.html?model=torque-converter) | `torque-converter` | 比较泵轮、涡轮、导轮与锁止离合器，观察速比、转矩比和效率。 |
+| 53 | [混合动力功率分流机构](https://slack-zh.github.io/meshlab/catalog.html?model=hybrid-power-split) | `hybrid-power-split` | 调节发动机与车轮支路速度，观察太阳轮发电机及机械、电气功率分流。 |
+| 54 | [四驱分动箱与中央差速器](https://slack-zh.github.io/meshlab/catalog.html?model=four-wheel-transfer) | `four-wheel-transfer` | 切换高低速及中央差速锁，对比前后传动轴同速与差速。 |
+| 55 | [拖拉机动力输出传动](https://slack-zh.github.io/meshlab/catalog.html?model=tractor-pto) | `tractor-pto` | 选择540/1000转速挡和PTO独立离合器，观察动力输出轴与作业机具。 |
+| 56 | [多轴数控机床进给传动](https://slack-zh.github.io/meshlab/catalog.html?model=cnc-feed) | `cnc-feed` | 联动丝杠直线进给和转台，观察刀具与工件的相对运动。 |
+| 57 | [工业机器人腕部传动](https://slack-zh.github.io/meshlab/catalog.html?model=robot-wrist) | `robot-wrist` | 剖开多根同轴传动轴，看末端多轴动作如何合成。 |
+| 58 | [机械钟表传动与擒纵机构](https://slack-zh.github.io/meshlab/catalog.html?model=clock-escapement) | `clock-escapement` | 从发条追踪至轮系、擒纵轮和摆轮，慢放锁止与释放。 |
+| 59 | [双转子直升机主减速器](https://slack-zh.github.io/meshlab/catalog.html?model=dual-rotor-gearbox) | `dual-rotor-gearbox` | 追踪两条动力路径，观察两套旋翼如何反向旋转。 |
+| 60 | [风电行星—平行轴增速箱](https://slack-zh.github.io/meshlab/catalog.html?model=wind-turbine-gearbox) | `wind-turbine-gearbox` | 从低速叶轮轴追踪至发电机轴，逐级显示转速和转向。 |
 
 ## 参数与教学范围
 
@@ -79,7 +79,7 @@ npm run test:catalog
 npm run build:catalog
 ```
 
-- `test:catalog`：依次交给 Node test runner 执行 `test-catalog-motion.mjs`、`test-catalog-machines.mjs`、`test-catalog-systems.mjs`、`test-catalog-integration.mjs`；包括参数边界、运动不变量和公共上下文/查看器检查。
+- `test:catalog` 检查各组机构的参数边界、运动关系、共用查看器和聊天上下文，并执行机械与系统机构的专项回归。
 - `build:catalog`：先运行 `build-catalog-page.mjs` 生成统一实验页面，再运行 `build-catalog-index.mjs` 生成首页目录与索引；会更新生成的 HTML 和相关缓存版本引用。
 - 描述符约定见 [CONTRACT.md](CONTRACT.md)。新增/调整模型后运行对应组测试及集成测试，并对变化的模型重新截取默认/关键工况/爆炸画面。
 

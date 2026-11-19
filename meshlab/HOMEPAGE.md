@@ -1,17 +1,21 @@
-# 首页与实验室
+# 首页与结构目录
 
-- `dist/index.html`：网站介绍、机械档案和使用指南。
-- `dist/archive.css`：首页设计变量、响应式布局、深色与辅助功能适配。
-- `dist/liquid-glass.css`：蓝色透明玻璃主题，包含背景模糊、透色、边缘高光与深色适配；用户关闭透明度或启用高对比度时切换为实色。
-- `dist/transmission-cards.js`：连续的横向空间卡片；鼠标滚轮、拖拽、触摸、方向键均可浏览。循环无底部进度条，不按项目吸附。机械档案区域不显示左右箭头或滚动提示小字。
-- `dist/lab.html`：原三维实验室。首页通过此地址进入，实验室品牌链接返回首页。
-- `dist/home-route.js`：支持 `lab.html?view=principle`、`engineering`、`assistant` 的直接入口。
+首页的「机械展台」可以转动浏览不同传动结构。要做实验，点「查找结构」或「浏览结构目录」，输入机构名称或常用别名。例如搜“机械臂”会找到「工业机器人腕部传动」。选中搜索结果即可打开实验。[进入结构目录](https://slack-zh.github.io/meshlab/#structures)
 
-机械档案中的五类图片是原理示意。当前可操作的真实三维模型是 GL16 两级斜齿减速器。
+目录收录 44 项实验，分为齿轮与减变速、带链与摩擦传动、轴连接与离合、直线与往复机构、动力与装备系统。GL16 是其中的减速器案例，可以直接进入[三维实验](https://slack-zh.github.io/meshlab/lab.html)、[传动原理](https://slack-zh.github.io/meshlab/lab.html?view=principle)或[工程资料](https://slack-zh.github.io/meshlab/lab.html?view=engineering)。
 
-居中的档案为当前项目：卡片与结构图放大、前移，邻近卡片按距中心的位置连续缩小、淡化。蓝色边框和背景光强调当前项目，名称与说明在下方同步更新。所有尺寸变化跟随滚动位置计算，不引入按项目吸附或箭头控件。
+## 维护入口
 
-页面使用原生 HTML/CSS/JavaScript，无新增依赖。现有 GitHub Pages workflow 继续直接发布 `meshlab/dist`。
+| 要改什么 | 对应文件 |
+| --- | --- |
+| 首页布局、展台和使用指南 | [首页 HTML](dist/index.html) 与[首页样式及脚本](dist/homepage/) |
+| 目录中的类别和搜索别名 | [分类配置](scripts/homepage-categories.json) |
+| 目录内容生成 | [目录生成脚本](scripts/build-catalog-index.mjs)。从含 `package.json` 的目录运行 `npm run build:catalog` 更新页面与索引。 |
+| GL16 原理、资料与助手的直达入口 | [实验页路由](dist/home-route.js) |
+
+GitHub Pages 发布 `meshlab/dist/`。每次调整目录后，可以打开首页搜一次名称、选一次分类，再点搜索结果确认进入了预期实验。
+
+## 早期版本检查记录
 
 2026-11-12 玻璃主题验证：浏览器实测 `backdrop-filter` 和鼠标跟随高光生效，减少动态时停止高光跟随，减少透明度时取消模糊并使用不透明面板。浅色与深色各抽样五处文字和实际合成背景，对比度均不低于 4.5:1。该抽样不是全页面无障碍合规认证。
 
