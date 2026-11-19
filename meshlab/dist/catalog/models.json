@@ -1,5 +1,5 @@
 {
-  "count": 44,
+  "count": 48,
   "source": "https://www.kdocs.cn/l/cnXEgCQ0UECb",
   "blankRows": [
     28,
@@ -91,6 +91,30 @@
       "title": "台虎钳·丝杠螺母",
       "url": "vice.html",
       "description": "导程、开口与端点停机",
+      "number": null
+    },
+    {
+      "title": "曲柄滑块 · 活塞运动",
+      "url": "slider-crank.html",
+      "description": "调节曲柄半径，拖动曲柄，观察活塞行程、止点和位移曲线。",
+      "number": null
+    },
+    {
+      "title": "汽车开放式差速器",
+      "url": "open-differential.html",
+      "description": "切换直行与转弯，比较左右半轴转速，观察差速齿轮运动。",
+      "number": null
+    },
+    {
+      "title": "电钻两挡行星减速器",
+      "url": "drill-planetary.html",
+      "description": "切换高低挡，跟踪两级行星传动的动力路径和夹头转速。",
+      "number": null
+    },
+    {
+      "title": "蜗轮蜗杆传动",
+      "url": "worm-drive.html",
+      "description": "调整蜗杆头数和蜗轮齿数，用蜗杆一圈验证蜗轮推进的齿数。",
       "number": null
     },
     {

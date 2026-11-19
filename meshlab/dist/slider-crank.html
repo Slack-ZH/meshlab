@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="曲柄滑块活塞实验：拖动曲柄观察上下止点、行程和位移曲线，实时调整曲柄半径、连杆长度与转速。">
+  <title>曲柄滑块 · meshlab 啮合实验室</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="slider-crank/style.css">
+  <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
+  <script type="module" src="slider-crank/app.js"></script>
+<link rel="stylesheet" href="lab-shell.css?v=20261116-immersive1"><link rel="stylesheet" href="slider-crank/piston-experiment.css?v=20261116-piston1"></head>
+<body>
+  <a class="skip-link" href="#main">跳到实验</a>
+  <header class="site-header"><a class="brand" href="./#structures">meshlab <span>啮合实验室</span></a><nav aria-label="主导航"><a href="./#structures">返回模型图鉴 ↗</a><a href="#principle">运动原理</a></nav></header>
+  <main id="main">
+    <div class="heading"><div><p class="eyebrow">旋转与往复运动</p><h1>曲柄滑块</h1><p class="subtitle">拖动曲柄，看活塞上下止点、行程和位移曲线。</p></div><p class="model-note">竖直活塞 · 对心机构<br>位移从上止点向下计量</p></div>
+    <div class="experiment">
+      <section class="panel model-panel" aria-label="交互模型">
+        <div class="viewer-toolbar"><span id="view-name">三维结构</span><div class="segmented" aria-label="观察视角"><button id="view-3d" aria-pressed="true">立体</button><button id="view-front" aria-pressed="false">正视</button></div></div>
+        <div id="viewport"><canvas id="fallback" hidden aria-label="曲柄滑块平面示意"></canvas><p id="viewer-status" role="status">正在装配曲柄滑块…</p></div>
+        <p class="viewer-hint" id="viewer-hint">拖动空白处旋转 · 滚轮缩放 · 拖动曲柄改变转角</p>
+        <div class="part-tabs" aria-label="选择零件"><button data-part="crank" aria-pressed="true"><i class="dot crank"></i>曲柄</button><button data-part="rod" aria-pressed="false"><i class="dot rod"></i>连杆</button><button data-part="slider" aria-pressed="false"><i class="dot slider"></i>活塞</button><button data-part="frame" aria-pressed="false"><i class="dot frame"></i>缸体与机架</button></div>
+        <div class="part-description"><strong id="part-title">曲柄</strong><p id="part-description">绕固定轴心旋转，带动连杆。轴心到活动铰点的距离为曲柄半径 r。</p></div>
+        <div class="playback"><button id="play" class="primary" aria-pressed="false">▶ 播放</button><button id="step" aria-label="前进五度">步进 +5°</button><button id="reset" class="reset">重置实验</button></div>
+        <div class="piston-limit-controls"><button id="dead-center">上止点 · 0°</button><button id="bottom-dead-center">下止点 · 180°</button></div><div class="angle-control"><label for="angle">曲柄转角 θ <output id="angle-value" for="angle">45.0°</output></label><input id="angle" type="range" min="0" max="360" step="0.1" value="45"><div class="range-labels"><span>0° 上止点</span><span>180° 下止点</span><span>360°</span></div></div>
+      </section>
+      <aside class="panel settings" aria-label="实验参数">
+        <h2>改变一个参数</h2><p class="muted">观察模型、行程与曲线如何变化。</p>
+        <div class="parameter"><label for="radius">曲柄半径 <span>r</span><output id="radius-value" for="radius">40 mm</output></label><input id="radius" type="range" min="20" max="70" step="1" value="40"><div class="range-labels"><span>20 mm</span><span>70 mm</span></div></div>
+        <div class="parameter"><label for="rodLength">连杆长度 <span>l</span><output id="rodLength-value" for="rodLength">140 mm</output></label><input id="rodLength" type="range" min="120" max="240" step="1" value="140"><div class="range-labels"><span>120 mm</span><span>240 mm</span></div></div>
+        <div class="parameter"><label for="rpm">曲柄转速 <span>n</span><output id="rpm-value" for="rpm">30 r/min</output></label><input id="rpm" type="range" min="5" max="60" step="1" value="30"><div class="range-labels"><span>5 r/min</span><span>60 r/min</span></div></div>
+        <div class="metrics"><div><span>活塞行程</span><strong><output id="stroke">80</output><small> mm</small></strong></div><div><span>连杆 / 曲柄</span><strong><output id="ratio">3.50</output><small> 倍</small></strong></div></div>
+        <div class="current"><h3>当前运动</h3><div><span>活塞位移 s</span><strong><output id="displacement">—</output> <small>mm</small></strong></div><div><span>活塞速度 v</span><strong><output id="velocity">—</output> <small>mm/s</small></strong></div><p id="phase">—</p></div>
+        <p class="assumption">按理想刚性机构计算，曲柄匀速旋转。位移从上止点起算，向下为正。演示倍率仅影响播放快慢，速度结果按设置转速计算。</p>
+      </aside>
+    </div>
+    <section class="curves" aria-label="一个周期的运动曲线">
+      <article class="panel chart-panel"><div class="chart-title"><h2>活塞位移曲线</h2><output id="curve-readout">θ 45.0° · s 14.6 mm</output></div><canvas id="displacement-chart" role="img" aria-label="活塞位移随曲柄转角的曲线，圆点标记当前状态"></canvas><p>横轴：曲柄转角 θ · 纵轴：向下位移 s / mm。拖动曲柄或曲线，圆点同步移动。</p></article>
+      <article class="panel chart-panel"><div class="chart-title"><h2>活塞速度</h2><span>v / mm·s⁻¹</span></div><canvas id="velocity-chart" role="img" aria-label="活塞速度随曲柄转角的曲线，圆点标记当前状态"></canvas><p>正值向下，负值向上；上下止点速度均为零。</p></article>
+    </section>
+    <section class="panel principle" id="principle"><div><p class="eyebrow">曲柄滑块 · 活塞运动实验</p><h2>转一圈，找出两个止点。</h2><ol class="piston-steps"><li>拖动模型下方曲柄，或拖动转角滑块。曲柄与连杆共线时，活塞达到上、下止点。</li><li>点击“上止点”与“下止点”，比较 0 mm 与 2r mm。两位置之差就是行程。</li><li>把曲柄半径从 40 mm 改为 50 mm，行程从 80 mm 增为 100 mm；改变连杆长度，行程保持不变，曲线形状会改变。</li></ol><p>竖直布置中，上止点离曲柄轴心最远，下止点离轴心最近。剖开缸体仅为观察运动，不模拟燃烧与气体压力。</p></div><div class="formula"><h3>位移从上止点向下计量</h3><p class="equation">y = r cos θ + √(l² − r² sin² θ)</p><p class="equation">s = (l + r) − y　　行程 S = 2r</p><p>y 为活塞销到曲柄轴心的竖直距离。θ 从竖直向上方向顺时针计量；0° / 360° 为上止点，180° 为下止点。上下止点速度为零，随后换向。</p><p>当前参数始终满足 l &gt; r。速度曲线和杆长比可在“参数 → 进阶”查看。</p></div></section>
+    <footer><span>meshlab · 让机械原理触手可及</span><a href="./#structures">回到模型图鉴 ↗</a></footer>
+    <noscript><p>请启用 JavaScript 以操作模型。对心曲柄滑块的滑块行程为曲柄半径的两倍。</p></noscript>
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="汽车开放式差速器实验：切换直行、左转与右转，对比左右半轴转速，观察差速齿轮的公转与自转。">
+  <title>汽车开放式差速器 · meshlab 啮合实验室</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="slider-crank/style.css"><link rel="stylesheet" href="lab-shell.css">
+  <link rel="stylesheet" href="open-differential/style.css">
+  <script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script>
+  <script type="module" src="open-differential/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到实验</a>
+  <header class="site-header"><a href="./#structures">meshlab</a></header>
+  <main id="main">
+    <h1>汽车开放式差速器</h1>
+    <section class="model-panel" aria-label="交互模型">
+      <div><span id="view-name">锥齿轮差速器 · 剖视</span><button id="view-3d">立体</button><button id="view-front">正视</button><button id="top-view">俯视</button></div>
+      <div id="viewport"><p id="viewer-status" role="status">正在装配差速器…</p></div>
+      <p class="viewer-hint">拖动旋转 · 滚轮 / 双指缩放 · 点击零件高亮</p>
+      <div class="visibility-controls"><label for="case-display">壳体显示 <select id="case-display"><option value="cutaway">剖开观察</option><option value="solid">完整壳体</option><option value="hidden">隐藏壳体</option></select></label><label><input type="checkbox" id="show-labels" checked> 零件标注</label></div>
+      <div class="playback"><button id="play" class="primary" aria-pressed="false">▶ 播放</button><button id="step">步进 +15°</button><button id="reset">重置实验</button></div>
+    </section>
+    <section id="differential-study" aria-label="直行与转弯实验">
+      <div class="diff-controls">
+        <p class="diff-eyebrow">01 / 切换行驶工况</p>
+        <div class="diff-mode-switch" role="group" aria-label="行驶工况"><button data-drive="straight" aria-pressed="true">↑ 直行</button><button data-drive="left" aria-pressed="false">↰ 左转</button><button data-drive="right" aria-pressed="false">↱ 右转</button></div>
+        <div class="diff-road-row">
+          <svg class="diff-road" viewBox="0 0 160 122" role="img" aria-label="车辆俯视，左轮与右轮随行驶工况变化">
+            <defs><marker id="road-arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 5 2.5 0 5" fill="currentColor"/></marker></defs>
+            <path id="drive-path" d="M80 103V9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#road-arrow)"/>
+            <rect x="53" y="36" width="54" height="71" rx="12" class="diff-car"/><path d="M61 59H99M60 83H100" class="diff-car-line"/>
+            <rect x="45" y="45" width="8" height="19" rx="2" class="diff-wheel"/><rect x="107" y="45" width="8" height="19" rx="2" class="diff-wheel"/>
+            <rect x="43" y="83" width="10" height="22" rx="2" class="diff-wheel"/><rect x="107" y="83" width="10" height="22" rx="2" class="diff-wheel"/>
+            <path d="M53 94H107" class="diff-car-line"/><text x="23" y="99">左</text><text x="129" y="99">右</text><text x="80" y="30" text-anchor="middle">车头</text>
+          </svg>
+          <div><h2 id="drive-title">两侧等速，同步前行</h2><p id="drive-explanation">左右半轴与壳体等速。行星锥齿轮只随壳体公转，相对壳体不自转。</p><p class="diff-small">选择工况开始演示 · 以车头方向区分左右</p></div>
+        </div>
+        <div class="diff-actions"><button id="focus-spider">观察差速齿轮</button><button data-open="parameters">调整转弯半径 →</button></div>
+      </div>
+      <div class="diff-comparison">
+        <div class="diff-section-title"><p class="diff-eyebrow">02 / 比较半轴转速</p><span>r/min · 同一前进方向为正</span></div>
+        <div class="diff-speed-grid">
+          <div><span>左半轴 <small id="left-role">等速</small></span><strong><output id="left-rpm">60</output></strong><div class="diff-speed-track"><i id="left-bar"></i></div></div>
+          <div class="diff-carrier-speed"><span>差速器壳体</span><strong><output id="carrier-speed">60</output></strong><div class="diff-speed-track"><i id="carrier-bar"></i></div></div>
+          <div><span>右半轴 <small id="right-role">等速</small></span><strong><output id="right-rpm">60</output></strong><div class="diff-speed-track"><i id="right-bar"></i></div></div>
+        </div>
+        <p class="diff-equation">两侧平均转速 = 壳体转速 <output id="mean-equation">(60 + 60) ÷ 2 = 60</output></p>
+        <div class="diff-spider-readout"><div><span>差速齿轮自转</span><strong><output id="spider-rpm">0</output><small> r/min</small></strong></div><p id="spider-state">相对壳体静止 · 仍随壳体公转</p></div>
+        <details class="diff-part-note"><summary>当前零件：<span id="part-title">开放式差速器</span></summary><p id="part-description">选择模型中的零件或打开零件目录，查看它在动力传递中的作用。</p></details>
+      </div>
+    </section>
+    <div class="part-tabs" aria-label="选择差速器零件"><button data-diff-part="input">主动锥齿轮</button><button data-diff-part="ring">主减速大齿轮</button><button data-diff-part="carrier">差速器壳体</button><button data-diff-part="left">左半轴齿轮与半轴</button><button data-diff-part="right">右半轴齿轮与半轴</button><button data-diff-part="spider">行星锥齿轮（差速齿轮）</button></div>
+    <div id="diff-structure">
+      <div class="parameter"><label for="track-width">轮距 t <output id="track-width-value">1.6 m</output></label><input id="track-width" type="range" min="1.2" max="2" step="0.1" value="1.6"><div class="range-labels"><span>1.2 m</span><span>2.0 m</span></div></div>
+      <div class="lab-structure-summary"><h3>对称锥齿轮差速器</h3><p>半轴齿轮 20 齿 · 行星锥齿轮 10 齿 · 主减速比 4 : 1。轮距用于车辆转弯计算，差速器本体尺寸保持不变。</p></div>
+    </div>
+    <div id="diff-running">
+      <div class="parameter"><label for="carrier-rpm">壳体转速 <output id="carrier-rpm-value">60 r/min</output></label><input id="carrier-rpm" type="range" min="10" max="120" step="1" value="60"><div class="range-labels"><span>10 r/min</span><span>120 r/min</span></div></div>
+      <div class="parameter"><label for="turn-radius">转弯半径 R <output id="turn-radius-value">4 m</output></label><input id="turn-radius" type="range" min="3" max="20" step="0.5" value="4"><div class="range-labels"><span>3 m · 急弯</span><span>20 m · 缓弯</span></div></div>
+      <p id="radius-note" class="lab-help">R 指转弯中心到后轴中点的距离；直行时不参与转速计算。</p>
+    </div>
+    <div id="diff-advanced"><h3>实验约定</h3><p>左右轮胎半径相同，纯滚动，无侧滑；输入匀速，忽略惯性和摩擦。转弯工况决定两侧速度差，不模拟打滑或差速锁。</p><p>齿轮采用简化直齿锥齿教学几何，主减速器未采用量产汽车常见的准双曲面齿形。显示的转速为实际工况数值；动画基础慢放为 1/5，演示倍率只改变观看速度。</p><p>行星齿轮自转数值为相对壳体的大小。两颗行星轮的轴指向相反，因此局部自转方向相同、空间方向相反。</p></div>
+    <section id="principle" class="principle">
+      <div><p class="eyebrow">汽车开放式差速器 · 实验指引</p><h2>转弯时，外轮需要多走一段路。</h2><ol><li>选择直行：左右半轴各 60 r/min，行星齿轮随壳体公转但不自转。</li><li>选择左转：默认轮距 1.6 m、半径 4 m，左侧 48、右侧 72 r/min；换为右转，两侧数值互换。</li><li>点击“观察差速齿轮”，看行星轮一边随壳体公转，一边沿自身轴自转。</li><li>减小转弯半径，观察转速差增大，而两侧平均转速保持不变。</li></ol><p>这个实验比较的是运动关系。实际行驶还受轮胎、地面附着与载荷影响。</p><p>资料：<a href="https://www.eaton.com/br/en-us/products/differentials-traction-control/open-differential.html" target="_blank" rel="noopener noreferrer">Eaton · 开放式差速器工作原理 ↗</a></p></div>
+      <div class="formula"><h3>运动关系</h3><p class="equation">n左 + n右 = 2n壳</p><p>转弯时：n内 = n壳 × (1 − t / 2R)<br>n外 = n壳 × (1 + t / 2R)</p><p>行星齿轮相对壳体的自转大小：<br>|n行星| = (Z半轴 / Z行星) × |n右 − n左| / 2</p><p>本模型 Z半轴 / Z行星 = 20 / 10 = 2。直行时速度差为零，行星齿轮无相对自转。转弯时自转使两侧相对壳体的转速一减一增。</p></div>
+    </section>
+    <footer><a href="./#structures">回到模型图鉴 ↗</a></footer>
+    <noscript>请启用 JavaScript。对称开放式差速器的左右半轴平均转速等于壳体转速。</noscript>
+  </main>
+</body>
+</html>

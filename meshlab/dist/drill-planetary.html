@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light dark">
+<meta name="description" content="电钻两挡行星减速器实验：切换高低挡，追踪齿圈的锁止与联接、两级动力路径和输出转速。">
+<title>电钻两挡行星减速器 · meshlab</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="slider-crank/style.css"><link rel="stylesheet" href="lab-shell.css"><link rel="stylesheet" href="drill-planetary/style.css">
+<script type="importmap">{"imports":{"three":"./assets/three.module.js"}}</script><script type="module" src="drill-planetary/app.js"></script>
+</head><body>
+<a class="skip-link" href="#main">跳到实验</a><header class="site-header"><a href="./#structures">meshlab</a></header>
+<main id="main"><h1>电钻两挡行星减速器</h1>
+<section class="model-panel" aria-label="交互模型"><span id="view-name">两级行星传动 · 教学剖视</span><button id="view-3d">立体</button><button id="view-front">正视</button><button id="top-view">俯视</button><button id="front-view">沿轴观察</button>
+<div id="viewport"><p id="viewer-status" role="status">正在装配两挡行星减速器…</p></div><p class="viewer-hint">拖动旋转 · 滚轮 / 双指缩放 · 点击零件或下方动力路径</p>
+<div class="visibility-controls"><label for="ring-display">齿圈显示 <select id="ring-display"><option value="cutaway">剖开展示</option><option value="full">完整齿圈</option><option value="hidden">隐藏齿圈</option></select></label><label><input id="show-labels" type="checkbox" checked> 零件标注</label></div>
+<div class="playback"><button id="play" aria-pressed="false">▶ 播放</button><button id="step">步进 +30°</button><button id="reset">重置实验</button></div></section>
+<section id="drill-study" aria-label="两挡动力路径实验">
+ <div class="drill-controls"><p class="drill-eyebrow">01 / 选择机械挡位</p>
+ <div class="drill-mode-switch" role="group" aria-label="机械挡位"><button data-gear="low" aria-pressed="true"><b>Ⅰ 低挡</b><span>两级减速 · 16 : 1</span></button><button data-gear="high" aria-pressed="false"><b>Ⅱ 高挡</b><span>一级减速 + 二级直联</span></button></div>
+ <h2 id="shift-title">二级齿圈锁止在机壳上</h2><p id="shift-description">二级行星轮沿固定齿圈滚动，再减速 4 : 1，由行星架带动夹头。</p>
+ <div class="drill-lock-state"><span>一级齿圈 <b>固定</b></span><span>二级齿圈 <b id="ring-state">固定机壳</b></span></div>
+ <p class="drill-small" id="shift-note" role="status">换挡自动暂停并对齿；点击播放，观察各级运动。</p>
+ <div class="drill-actions"><button id="inspect-shift">查看换挡联接</button><button id="trace-next">追踪动力 →</button></div></div>
+ <div class="drill-results"><div class="drill-result-heading"><p class="drill-eyebrow">02 / 输出转速</p><span>工况值 · r/min</span></div>
+ <div class="drill-main-results"><div><span>电机输入</span><strong><output id="motor-speed">6000</output></strong></div><div><span>总减速比</span><strong><output id="total-ratio">16</output><small> : 1</small></strong></div><div><span>夹头输出</span><strong class="drill-output"><output id="output-speed">375</output></strong></div></div>
+ <div class="drill-comparison" aria-label="同一输入下的两挡转速对比"><div data-compare="low"><span>低挡</span><i><b id="low-bar"></b></i><output id="low-speed">375</output></div><div data-compare="high"><span>高挡</span><i><b id="high-bar"></b></i><output id="high-speed">1500</output></div></div>
+ <p class="drill-formula" id="speed-equation">6000 ÷ 4 ÷ 4 = 375 r/min</p>
+ <details class="drill-part-note"><summary>零件解读：<span id="part-title">两挡行星减速器</span></summary><p id="part-description">从电机出发，沿两级太阳轮、行星轮和行星架追踪动力。</p></details></div>
+ <div class="drill-path-area"><div class="drill-result-heading"><p class="drill-eyebrow">03 / 点击节点，沿轴追踪动力</p><span>齿圈锁止提供反力，不作为输出</span></div><nav id="power-path" aria-label="动力传递路径"></nav><p id="path-explanation">点击任一节点，高亮对应部件；“追踪动力”逐段前进。</p></div>
+</section>
+<div class="part-tabs" aria-label="选择减速器零件"><button data-drill-part="motor">电机外壳</button><button data-drill-part="sun1">一级太阳轮 / 输入轴</button><button data-drill-part="planet1">一级行星轮</button><button data-drill-part="ring1">一级固定齿圈</button><button data-drill-part="carrier1">一级行星架</button><button data-drill-part="sun2">二级太阳轮</button><button data-drill-part="planet2">二级行星轮</button><button data-drill-part="ring2">二级可移齿圈</button><button data-drill-part="carrier2">二级行星架 / 联接盘</button><button data-drill-part="selector">换挡拨叉</button><button data-drill-part="housing">机壳锁止环</button><button data-drill-part="output">输出轴 / 夹头</button></div>
+<div id="drill-structure"><h3>两级同轴行星结构</h3><p>每级太阳轮 18 齿、行星轮 18 齿、内齿圈 54 齿，均布 3 颗行星轮。</p><p>一级齿圈始终固定；二级齿圈可沿轴向移动，选择与机壳锁止或与二级行星架联接。</p><p>此处展示固定齿数组合，通过运行参数与换挡研究转速关系。</p></div>
+<div id="drill-running"><div class="parameter"><label for="drill-rpm">电机转速 <output id="drill-rpm-value">6000 r/min</output></label><input id="drill-rpm" type="range" min="1000" max="12000" step="100" value="6000"><div class="range-labels"><span>1000 r/min</span><span>12000 r/min</span></div></div><div class="drill-operating-summary"><h3>当前挡位输出</h3><p><output id="operating-output">低挡 · 375 r/min</output></p><p>两挡比较使用相同的电机转速。调整参数保留视角与角度。</p><button data-open="observe">返回换挡与路径实验 →</button></div></div>
+<div id="drill-advanced"><h3>运动计算与模型边界</h3><p>理想刚性齿轮、无滑动，不模拟电机负载曲线、效率、冲击和扭矩离合器。齿形、牙嵌联接与拨叉均为教学简化，不代表某一品牌的制造结构。</p><p>显示的是设定工况转速。动画按实际转速 1/240 慢放，演示倍率只影响观看速度；步进表示输入轴前进 30°。</p><p>换挡自动暂停并将齿轮相位归至对齿位置，再移动二级齿圈。实际工具的换挡方式请遵循对应说明书。</p><div class="drill-stage-audit"><h3>二级运动（r/min）</h3><dl><dt>太阳轮</dt><dd id="audit-sun">1500</dd><dt>齿圈</dt><dd id="audit-ring">0</dd><dt>行星架</dt><dd id="audit-carrier">375</dd><dt>行星轮相对行星架自转</dt><dd id="audit-planet">−1125</dd></dl></div></div>
+<section id="principle" class="principle"><div><p class="eyebrow">电钻两挡行星减速器</p><h2>换一个约束，得到另一种转速。</h2><ol><li>低挡：二级齿圈与机壳锁止，观察两级连续减速，夹头输出 375 r/min。</li><li>高挡：二级齿圈与行星架联接，二级整体等速转动，夹头输出 1500 r/min。</li><li>点击动力路径节点，高亮各级输入与输出；再选择二级行星轮，比较它有无相对自转。</li><li>保持输入不变，两挡输出相差 4 倍；改变电机转速，两挡输出同步按比例变化。</li></ol><p>低挡通过较大的减速比降低转速，理想条件下提高转矩倍数。这里不估计实际钻孔能力或负载转矩。</p><p>机构参考：<a href="https://patents.google.com/patent/US4834192A/sv" target="_blank" rel="noopener noreferrer">两速动力工具的齿圈锁止与联接原理 ↗</a>。本实验采用独立设计的两级、18 / 54 齿教学组合。</p></div><div class="formula"><h3>行星齿轮基本关系</h3><p class="equation">Z太阳(n太阳 − n架)<br>+ Z齿圈(n齿圈 − n架) = 0</p><p>固定齿圈时，i = 1 + Z齿圈 / Z太阳 = 4。<br>齿圈与行星架联接时，n齿圈 = n架，因此 n太阳 = n架，i = 1。</p><p class="equation">低挡：i总 = 4 × 4 = 16<br>高挡：i总 = 4 × 1 = 4</p><p>高挡中行星轮仍随行星架公转，但不再相对行星架自转。固定齿圈传递约束反力；其角速度为零，不输出转动功率。</p></div></section>
+<footer><a href="./#structures">回到模型图鉴 ↗</a></footer><noscript>请启用 JavaScript。低挡总减速比 16 : 1，高挡 4 : 1。</noscript></main></body></html>

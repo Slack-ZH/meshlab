@@ -174,5 +174,21 @@
   "rv-reducer": {
     "group": "gears",
     "aliases": "摆线 RV"
+  },
+  "slider-crank": {
+    "group": "motion",
+    "aliases": "活塞 连杆 曲柄滑块 上止点 下止点 行程"
+  },
+  "open-differential": {
+    "group": "gears",
+    "aliases": "开放式差速器 开式差速器 半轴 左右车轮 转弯"
+  },
+  "drill-planetary": {
+    "group": "gears",
+    "aliases": "电钻 两挡 两档 行星减速器 夹头"
+  },
+  "worm-drive": {
+    "group": "gears",
+    "aliases": "圆柱蜗杆 蜗轮 蜗杆 交错轴 头数 导程"
   }
 }

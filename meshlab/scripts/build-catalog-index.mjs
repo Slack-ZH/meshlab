@@ -1,7 +1,12 @@
 import fs from 'node:fs';
 import {models} from '../dist/catalog/registry.mjs';
 const base=new URL('../dist/',import.meta.url),escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const old=[['两级斜齿减速器','lab.html','两级斜齿轮与装配拆解'],['参数化汽轮机','turbine.html','汽缸、动静叶与级数参数'],['自行车链传动','bicycle.html','牙盘、链条与后轮'],['摩擦轮传动','friction.html','轮径、压紧与摩擦容量'],['单级直齿圆柱齿轮','spur.html','齿数、模数与速比'],['带惰轮齿轮列','idler.html','惰轮、转向与传动比'],['交叉平带传动','belt.html','交叉带与开口带对照'],['同步带传动','timing.html','带齿、轮槽与闭合关系'],['台虎钳·丝杠螺母','vice.html','导程、开口与端点停机']].map(([title,url,description])=>({title,url,description,number:null}));
+const old=[['两级斜齿减速器','lab.html','两级斜齿轮与装配拆解'],['参数化汽轮机','turbine.html','汽缸、动静叶与级数参数'],['自行车链传动','bicycle.html','牙盘、链条与后轮'],['摩擦轮传动','friction.html','轮径、压紧与摩擦容量'],['单级直齿圆柱齿轮','spur.html','齿数、模数与速比'],['带惰轮齿轮列','idler.html','惰轮、转向与传动比'],['交叉平带传动','belt.html','交叉带与开口带对照'],['同步带传动','timing.html','带齿、轮槽与闭合关系'],['台虎钳·丝杠螺母','vice.html','导程、开口与端点停机'],
+  ['曲柄滑块 · 活塞运动','slider-crank.html','调节曲柄半径，拖动曲柄，观察活塞行程、止点和位移曲线。'],
+  ['汽车开放式差速器','open-differential.html','切换直行与转弯，比较左右半轴转速，观察差速齿轮运动。'],
+  ['电钻两挡行星减速器','drill-planetary.html','切换高低挡，跟踪两级行星传动的动力路径和夹头转速。'],
+  ['蜗轮蜗杆传动','worm-drive.html','调整蜗杆头数和蜗轮齿数，用蜗杆一圈验证蜗轮推进的齿数。'],
+].map(([title,url,description])=>({title,url,description,number:null}));
 const additions=models.map(m=>({id:m.id,number:m.number,title:m.title,description:m.description,url:'catalog.html?model='+encodeURIComponent(m.id)})),items=[...old,...additions];
 fs.writeFileSync(new URL('catalog/models.json',base),JSON.stringify({count:items.length,source:'https://www.kdocs.cn/l/cnXEgCQ0UECb',blankRows:additions.map(m=>m.number+4),items},null,2)+'\n');
 const categories = JSON.parse(fs.readFileSync(new URL('homepage-categories.json', import.meta.url), 'utf8'));

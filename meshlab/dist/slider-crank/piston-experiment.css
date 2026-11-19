@@ -1,0 +1,45 @@
+.immersive-lab[data-model=crank] .lab-task-panel[data-task=observe]{display:block;padding:18px 32px}
+.immersive-lab .piston-study{display:grid;grid-template-columns:minmax(270px,350px) minmax(0,1fr);gap:42px;max-width:1320px;margin:auto;align-items:start}
+.immersive-lab .piston-controls #phase{font-size:13px;color:var(--accent);font-weight:500;margin:0 0 10px}
+.immersive-lab .piston-measures{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.immersive-lab .piston-measures>div{display:flex;flex-direction:column;gap:3px;padding:0}
+.immersive-lab .piston-measures span{color:var(--muted);font-size:11px}
+.immersive-lab .piston-measures strong{font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.4}
+.immersive-lab .piston-measures small{font-size:10px;font-weight:400;margin-left:2px}
+.immersive-lab .piston-limit-controls{display:flex;gap:8px;margin:0 0 10px}
+.immersive-lab .piston-limit-controls button{flex:1;font-size:12px;min-height:34px}
+.immersive-lab .piston-limit-controls button[aria-pressed=true]{color:var(--accent);background:var(--selected);border-color:var(--accent)}
+.immersive-lab .piston-controls .angle-control{max-width:none;display:block}
+.immersive-lab .piston-controls .angle-control label{font-size:12px;display:flex;justify-content:space-between;margin:0}
+.immersive-lab .piston-part-note{font-size:12px;border:0;margin-top:8px;padding:0;line-height:1.6}
+.immersive-lab .piston-part-note summary{color:var(--muted)}
+.immersive-lab .piston-part-note .part-description{padding-top:6px;font-size:12px}
+.immersive-lab .piston-part-note .part-description strong{font-size:13px}
+.immersive-lab .piston-part-note .part-description p{font-size:12px}
+.immersive-lab .piston-study .curves{display:block;grid-column:auto;border:0;padding:0;margin:0}
+.immersive-lab .piston-study .chart-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.immersive-lab .piston-study .chart-title h2{font-size:14px}
+.immersive-lab #curve-readout{font-size:12px;font-variant-numeric:tabular-nums;color:var(--accent)}
+.immersive-lab #displacement-chart{height:185px;cursor:crosshair;touch-action:none}
+.immersive-lab .piston-study .chart-panel>p{font-size:11px;margin:3px 0 0;line-height:1.5}
+.immersive-lab #lab-group-advanced .chart-panel{grid-column:1/-1;max-width:900px;width:100%}
+.immersive-lab #lab-group-advanced .metrics{grid-template-columns:1fr}
+.immersive-lab .piston-model-label{position:absolute;z-index:2;pointer-events:none;font-size:12px;line-height:1.4;padding:3px 6px;color:#516173;background:#f6f8fbe8;border-radius:4px;white-space:nowrap;transform:translateY(-50%)}
+.immersive-lab .piston-stroke{transform:translate(-100%,-50%)}
+.immersive-lab .piston-drag{color:#0667d5;font-size:11px}
+.immersive-lab .piston-model-label.at-stop{background:#0667d5;color:#fff}
+.immersive-lab .piston-steps{padding-left:20px;font-size:13px;line-height:1.8;margin:12px 0}
+.immersive-lab .piston-steps li{margin-bottom:8px}
+@media(max-width:1000px) and (min-width:701px){.immersive-lab .piston-study{grid-template-columns:280px minmax(0,1fr);gap:22px}.immersive-lab[data-model=crank] .lab-task-panel[data-task=observe]{padding:16px 20px}}
+@media(max-width:700px){
+ .immersive-lab[data-model=crank] .lab-task-panel[data-task=observe]{padding:8px 14px}
+ .immersive-lab .piston-study{grid-template-columns:1fr;gap:8px}
+ .immersive-lab .piston-controls #phase{font-size:11px;margin-bottom:4px}
+ .immersive-lab .piston-measures{margin-bottom:5px;gap:8px}.immersive-lab .piston-measures strong{font-size:18px}.immersive-lab .piston-measures span{font-size:10px}
+ .immersive-lab .piston-limit-controls{margin-bottom:4px}.immersive-lab .piston-limit-controls button{min-height:32px;padding:4px 8px}
+ .immersive-lab .piston-controls .angle-control .range-labels{display:none}.immersive-lab .piston-controls .angle-control input{height:26px;min-height:26px}
+ .immersive-lab .piston-part-note{margin-top:0;font-size:10px}
+ .immersive-lab #displacement-chart{height:125px}.immersive-lab .piston-study .chart-title h2{font-size:12px}.immersive-lab #curve-readout{font-size:11px}
+ .immersive-lab .piston-study .chart-panel>p{font-size:10px}
+ .immersive-lab .piston-model-label{font-size:10px;padding:2px 4px}.immersive-lab .piston-drag{font-size:10px}
+}

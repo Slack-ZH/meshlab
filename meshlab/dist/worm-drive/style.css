@@ -1,0 +1,66 @@
+.immersive-lab #worm-study{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:28px;width:min(1280px,100%);margin:auto}
+.immersive-lab .worm-eyebrow{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.immersive-lab #combination{font-size:17px;margin:9px 0 5px}
+.immersive-lab .worm-description{font-size:12px;color:var(--muted);line-height:1.6}
+.immersive-lab .worm-parameter-link{margin:9px 0 10px;font-size:12px}
+.immersive-lab .worm-thread-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted)}
+.immersive-lab #inspect-mesh{font-size:10px;padding:2px 7px;min-height:26px}
+.immersive-lab #thread-picker{display:flex;gap:5px;margin:7px 0}
+.immersive-lab #thread-picker button{font-size:11px;min-height:30px;padding:5px 10px}
+.immersive-lab #thread-picker button[aria-pressed=true]{background:var(--selected);border-color:var(--accent);color:var(--accent)}
+.immersive-lab #thread-explanation,.immersive-lab .worm-part-note{font-size:10px;line-height:1.6;color:var(--muted)}
+.immersive-lab .worm-part-note{margin-top:6px}
+.immersive-lab .worm-part-note p{font-size:12px;padding:7px 0}
+.immersive-lab .worm-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.immersive-lab .worm-heading>span{font-size:10px;color:var(--muted)}
+.immersive-lab .worm-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:13px 0 10px}
+.immersive-lab .worm-metrics span{font-size:11px;color:var(--muted)}
+.immersive-lab .worm-metrics strong{display:block;font-size:27px;font-weight:500;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.4}
+.immersive-lab .worm-metrics small{font-size:11px;color:var(--muted)}
+.immersive-lab .worm-output{color:var(--accent)}
+.immersive-lab .worm-equation{font-size:12px;padding:7px 0;border-top:1px solid var(--line);margin-bottom:7px;font-variant-numeric:tabular-nums}
+.immersive-lab #heads-comparison{display:grid;gap:4px;margin-top:7px}
+.immersive-lab #heads-comparison button{display:flex;gap:10px;align-items:center;min-height:26px;padding:3px 7px;font-size:10px;border-color:transparent;color:var(--muted)}
+.immersive-lab #heads-comparison button[aria-pressed=true]{background:var(--selected);color:var(--accent)}
+.immersive-lab #heads-comparison i{flex:1;height:3px;background:var(--soft);border-radius:3px;overflow:hidden}
+.immersive-lab #heads-comparison b{display:block;height:3px;background:#929eab}
+.immersive-lab #heads-comparison button[aria-pressed=true] b{background:var(--accent)}
+.immersive-lab #heads-comparison output{width:67px;text-align:right;font-variant-numeric:tabular-nums}
+.immersive-lab #one-turn-relation{font-size:12px;margin-top:13px}
+.immersive-lab .worm-cycle-readout{display:flex;align-items:center;gap:14px;margin:15px 0 9px;font-variant-numeric:tabular-nums}
+.immersive-lab .worm-cycle-readout>div{flex:1}
+.immersive-lab .worm-cycle-readout output{display:block;font-size:23px;line-height:1.4}
+.immersive-lab .worm-cycle-readout span{font-size:10px;color:var(--muted)}
+.immersive-lab .worm-cycle-readout>div:last-child{border-left:1px solid var(--line);padding-left:14px}
+.immersive-lab #cycle-state{font-size:11px;color:var(--muted);min-height:18px}
+.immersive-lab #run-turn{font-size:12px;margin-top:10px}
+.immersive-lab .worm-axis-note{display:grid;gap:3px;border-top:1px solid var(--line);padding-top:10px;margin-top:13px}
+.immersive-lab .worm-axis-note b{font-size:12px;font-weight:500}
+.immersive-lab .worm-axis-note span{font-size:11px;color:var(--muted)}
+.immersive-lab #worm-structure,.immersive-lab #worm-running{display:contents}
+.immersive-lab .worm-dimensions,.immersive-lab .worm-running-summary{font-size:12px;color:var(--muted)}
+.immersive-lab .worm-dimensions dl,.immersive-lab #worm-advanced dl{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin:10px 0}
+.immersive-lab .worm-dimensions dd,.immersive-lab #worm-advanced dd{margin:0;color:var(--text);font-variant-numeric:tabular-nums}
+.immersive-lab .worm-running-summary{grid-column:span 2}
+.immersive-lab .worm-running-summary p{margin:8px 0}
+.immersive-lab #running-output{font-size:23px;color:var(--text)}
+.immersive-lab #worm-advanced{grid-column:1/-1;max-width:850px;font-size:13px;color:var(--muted);display:grid;gap:12px}
+.immersive-lab #worm-advanced dl{max-width:490px;margin:0}
+.immersive-lab .worm-label{position:absolute;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);background:#ffffffec;border:1px solid #dde2e8;color:#354150;border-radius:5px;padding:3px 7px;font-size:11px;line-height:1.5}
+.immersive-lab .worm-label[data-active=true]{color:#0667d5;border-color:#a5c8f1;background:#f1f7ff}
+.immersive-lab[data-model=worm] .visibility-controls{display:grid;gap:7px}
+.immersive-lab[data-model=worm] .lab-motion-speed{display:flex;align-items:center;gap:7px;font-size:12px}
+.immersive-lab[data-model=worm] .lab-motion-speed select{min-height:30px;padding:3px 6px}
+.immersive-lab[data-model=worm] #viewer-status{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:min(420px,85%);text-align:center;font-size:13px;color:#526071}
+.immersive-lab[data-model=worm] #principle li{margin:8px 0}
+@media(min-width:761px) and (max-width:1000px){.immersive-lab #worm-study{grid-template-columns:1fr 1fr}.immersive-lab .worm-cycle{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}.immersive-lab .worm-cycle-readout{grid-row:1/4;grid-column:2;margin:0}.immersive-lab .worm-axis-note{grid-column:2;grid-row:4/6;margin:0}.immersive-lab #one-turn-relation{margin:0}}
+@media(max-width:760px){
+ .immersive-lab #worm-study{grid-template-columns:1fr;gap:22px}
+ .immersive-lab .worm-controls{order:1}.immersive-lab .worm-results{order:2}.immersive-lab .worm-cycle{order:3}
+ .immersive-lab .worm-label{font-size:9px;padding:2px 5px}
+ .immersive-lab[data-model=worm] .lab-motion-speed span,.immersive-lab .worm-step-prefix{display:none}
+ .immersive-lab[data-model=worm] .lab-player .playback{gap:7px}
+ .immersive-lab #thread-picker button{min-height:40px}
+ .immersive-lab #heads-comparison button{min-height:38px}
+ .immersive-lab .worm-running-summary{grid-column:auto}
+}
