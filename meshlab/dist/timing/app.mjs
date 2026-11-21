@@ -82,7 +82,7 @@ function syncPose() {
   $('explode').value=amount*100;$('explode').style.setProperty('--progress',(amount*100)+'%');$('explode-value').textContent=Math.round(amount*100)+'%';
   $('step-number').textContent=String(step).padStart(2,'0')+' / '+String(steps.length-1).padStart(2,'0');
   $('step-title').textContent=steps[step];
-  $('step-copy').textContent=step===0?'先停止转动，按顺序观察同步带、带轮和轴承。':'继续分离组件；按“上一步”可反向装配。';
+  $('step-copy').textContent=step===0?'先停止转动，按顺序观察同步带、带轮和轴承。':'先退出锁紧环和前挡边，再沿轴移出闭合带、带轮、传动轴；最后横向排布。';
   $('step-prev').disabled=step===0;$('step-next').disabled=step===steps.length-1;
   $('housing-mode').value=s.housingMode||'solid';$('labels-toggle').checked=!!s.labelsOn;
   $('pose-status').textContent=amount>0?'自由展开 · '+Math.round(amount*100)+'%':steps[step];

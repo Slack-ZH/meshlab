@@ -69,7 +69,8 @@ test('zero speed and invalid inputs do not create undefined power or static effi
   assert.throws(()=>estimate({...defaults,crossed:'true'}));
 });
 const moduleUrl=path=>new URL(path,import.meta.url).href;
-const source=(await readFile(new URL('../dist/belt/viewer.mjs',import.meta.url),'utf8')).replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`).replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};').replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/belt/mechanics.mjs')}'`);
+const source=(await readFile(new URL('../dist/belt/viewer.mjs',import.meta.url),'utf8')).replace("from '../legacy-disassembly.mjs'",`from '${new URL('../dist/legacy-disassembly.mjs',import.meta.url).href}'`)
+  .replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`).replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};').replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/belt/mechanics.mjs')}'`);
 const {BeltViewer,steps}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 function cpuViewer(){const v=Object.create(BeltViewer.prototype);Object.assign(v,{scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(),renderer:{info:{memory:{geometries:0}}},parts:[],selected:'belt',amount:0,step:0,speed:1,labelsOn:false,housingMode:'solid',onSelect(){},render(){},home(){},fitModel(){}});return v;}
 const overlap=(a,b)=>a.min.every((n,i)=>a.max[i]>b.min[i]+1e-5&&b.max[i]>n+1e-5);
@@ -88,10 +89,10 @@ test('production RAF advancement and belt markers match signed rotation and no-s
   }
   v.clearGeometry();
 });
-test('production nine-part mesh preserves selected belt, rebuilds on mode/geometry and explodes without overlap',()=>{
+test('production eleven-part mesh preserves selected belt, rebuilds on mode/geometry and explodes without overlap',()=>{
   const v=cpuViewer();
   for(const crossed of [true,false])for(const [driverDiameter,drivenDiameter,centerDistance,beltWidth] of [[60,240,260,36],[200,60,600,8],[120,180,360,20]]){
-    const p={...defaults,crossed,driverDiameter,drivenDiameter,centerDistance,beltWidth};v.build(p);assert.equal(v.parts.length,9);assert.equal(v.selected,'belt');
+    const p={...defaults,crossed,driverDiameter,drivenDiameter,centerDistance,beltWidth};v.build(p);assert.equal(v.parts.length,11);assert.equal(v.selected,'belt');
     const data=beltMeshData(v.g);assert.equal(v.beltBody.geometry.getAttribute('position').count,data.vertices.length/3);assert.equal(v.beltBody.geometry.index.count,data.indices.length);
     v.explode(1);const parts=v.state().parts;for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++)assert.equal(overlap(parts[i],parts[j]),false);
     v.assembly(steps.length-1);assert.deepEqual(v.state().parts.map(p=>p.position),parts.map(p=>p.position));v.restore();

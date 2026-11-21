@@ -40,10 +40,13 @@ function renderMotion(){
  const metrics=result?.metrics||[],host=$('drive-metrics');
  if(host.children.length!==metrics.length){host.replaceChildren(...metrics.map(()=>{const el=document.createElement('div');el.append(document.createElement('span'),document.createElement('strong'),document.createElement('small'));return el;}));}
  metrics.forEach((m,i)=>{const n=host.children[i];n.children[0].textContent=m.label;n.children[1].textContent=fmt(m.value);n.children[2].textContent=m.unit||'';});
- text('contact-summary',(viewer?.playing?'正在运动。':'已暂停。')+(result?.status||'')+' 1× 演示为设定输入转速的20%慢放。');
+ const stages=viewer?.stages||[],active=stages[Math.ceil((viewer?.amount||0)*stages.length-1e-8)-1];
+ text('contact-summary',active?active.title+'。'+active.description:(viewer?.playing?'正在运动。':'已暂停。')+(result?.status||'')+' 1× 演示为设定输入转速的20%慢放。');
 }
 function onMotion(s){if(!model)return;result=s.result||result;if(valid)renderMotion();syncControls();announce();}
-function syncControls(){if(!viewer)return;text('play',viewer.playing?'Ⅱ':'▶');$('play').setAttribute('aria-label',viewer.playing?'暂停机构运动':'播放机构运动');$('explode').value=viewer.amount*100;$('explode').style.setProperty('--progress',viewer.amount*100+'%');text('explode-value',Math.round(viewer.amount*100)+'%');text('step-number',String(step).padStart(2,'0')+' / 04');text('step-title',step?'展开 '+step*25+'%':'完整装配');text('step-copy','用分步展开观察各组件的装配关系。');$('step-prev').disabled=step===0;$('step-next').disabled=step===4;}
+function syncControls(){if(!viewer)return;text('play',viewer.playing?'Ⅱ':'▶');$('play').setAttribute('aria-label',viewer.playing?'暂停机构运动':'播放机构运动');$('explode').value=viewer.amount*100;$('explode').style.setProperty('--progress',viewer.amount*100+'%');text('explode-value',Math.round(viewer.amount*100)+'%');const stages=viewer.stages||[];step=Math.max(0,Math.ceil(viewer.amount*stages.length-1e-8));
+ const active=stages[step-1];text('step-number',String(step).padStart(2,'0')+' / '+String(stages.length).padStart(2,'0'));text('step-title',active?.title||'完整装配');text('step-copy',active?.description||'开始拆解时，机构将停机并回到对位姿态。点击下一步查看第一个动作。');$('step-prev').disabled=step===0;$('step-next').disabled=step===stages.length;}
+
 function renderParts(){
  if(!viewer)return;const query=$('part-search').value.trim(),all=viewer.parts.filter(p=>!p.hiddenInList);text('part-count',all.length);const shown=all.filter(p=>(p.name.includes(query)||(p.description||'').includes(query))&&(partFilter==='all'||p.category===partFilter));
  $('parts-list').replaceChildren(...shown.map((p,i)=>{const b=document.createElement('button');b.type='button';b.className='part-item';b.dataset.part=p.id;b.textContent=String(i+1).padStart(2,'0')+'　'+p.name;b.classList.toggle('active',selectedPart?.id===p.id);b.onclick=()=>viewer.select(p.id);return b;}));
@@ -66,7 +69,7 @@ $('part-search').oninput=renderParts;
 $('play').onclick=()=>{if(!valid){status('请修正参数后播放。');return;}if(viewer?.amount){status('请先复原装配再播放。');return;}if(!params.inputRPM){status('输入转速为0，请调高转速。');return;}viewer?.setPlaying(!viewer.playing);};
 $('speed').oninput=e=>{if(viewer)viewer.speed=Number(e.target.value);text('speed-value',Number(e.target.value).toFixed(1)+'×');};
 $('explode').oninput=e=>viewer?.setExplode(Number(e.target.value)/100);$('explode-all').onclick=()=>viewer?.setExplode(1);$('assemble-all').onclick=()=>{step=0;viewer?.restore();};
-for(const [id,delta]of [['step-next',1],['step-prev',-1]])$(id).onclick=()=>{step=Math.max(0,Math.min(4,step+delta));viewer?.setExplode(step/4);syncControls();};
+for(const [id,delta]of [['step-next',1],['step-prev',-1]])$(id).onclick=()=>{const count=viewer?.stages.length||0;if(!count)return;step=Math.max(0,Math.min(count,step+delta));viewer.setExplode(step/count);syncControls();};
 $('home-view').onclick=()=>viewer?.home();$('front-view').onclick=()=>viewer?.view('front');$('top-view').onclick=()=>viewer?.view('top');
 $('fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.querySelector('.viewer-panel').requestFullscreen();}catch{status('浏览器当前未允许全屏。');}};
 $('housing-mode').onchange=e=>viewer?.setHousing(e.target.value);$('labels-toggle').onchange=e=>{if(viewer){viewer.labelsOn=e.target.checked;viewer.render();}};

@@ -2,6 +2,7 @@ import { materialOptions, highlight, metalLighting, referenceGround } from '../m
 import * as THREE from 'three';
 import { OrbitControls } from '../assets/OrbitControls.js';
 import { createExplodedView } from '../exploded-view.js';
+import {disassemblySteps,sliderDisassemblyEntries,linkGeometry} from './disassembly.js';
 
 // Vertical, sectioned cylinder. Theta is clockwise from the +Y axis.
 export async function createScene({container,onAngle,onSelect,onDragStart}) {
@@ -12,7 +13,7 @@ export async function createScene({container,onAngle,onSelect,onDragStart}) {
   const controls=new OrbitControls(camera,renderer.domElement);
   controls.enableDamping=true;controls.dampingFactor=.12;controls.enablePan=false;controls.minZoom=.6;controls.maxZoom=3;
   controls.minPolarAngle=.15;controls.maxPolarAngle=Math.PI-.15;
-  const explosion=createExplodedView({camera,controls,container});
+  const explosion=createExplodedView({camera,controls,container,steps:disassemblySteps});
   let dirty=true,radius=40,rodLength=140,dimensionKey='',view='3d',lastPose=null;
   controls.addEventListener('change',()=>dirty=true);
   metalLighting(THREE,scene,renderer);
@@ -24,15 +25,15 @@ export async function createScene({container,onAngle,onSelect,onDragStart}) {
   function cylinder(parent,r,h,material,part,x=0,y=0,z=0,axis='z'){const o=mesh(parent,cylinderGeometry,material,part);o.scale.set(r,h,r);if(axis==='z')o.rotation.x=Math.PI/2;o.position.set(x,y,z);return o;}
   function link(part,width,depth,z){
     const group=new THREE.Group();scene.add(group);group.position.z=z;
-    const bar=box(group,1,width,depth,mats[part],part);cylinder(group,width/2,depth,mats[part],part);
-    const tip=cylinder(group,width/2,depth,mats[part],part);
-    return {group,setLength(length){bar.scale.x=length;bar.position.x=length/2;tip.position.x=length;}};
+    const body=mesh(group,new THREE.BufferGeometry(),mats[part],part);
+    return {group,setLength(length){body.geometry.dispose();body.geometry=linkGeometry(THREE,length,part);}};
   }
+  function endCap(r,bore,part,x,y,z){const shape=new THREE.Shape();shape.absarc(0,0,r,0,Math.PI*2);const hole=new THREE.Path();hole.absarc(0,0,bore,0,Math.PI*2,true);shape.holes.push(hole);const geo=new THREE.ExtrudeGeometry(shape,{depth:4,bevelEnabled:false,curveSegments:48});geo.translate(0,0,-2);const cap=mesh(scene,geo,mats.dark,part);cap.position.set(x,y,z);return cap;}
   const crank=link('crank',17,10,8),rod=link('rod',11,8,20);
-  const crankPin=cylinder(scene,5,28,mats.steel,'crank',0,0,15),crankCap=cylinder(scene,7,4,mats.dark,'crank',0,0,31);
+  const crankPin=cylinder(scene,5,28,mats.steel,'crank',0,0,15),crankCap=endCap(7,5.3,'crank',0,0,31);
   const dragRing=mesh(scene,new THREE.TorusGeometry(9,1.2,8,48),mats.crank,'crank');
   const flywheel=cylinder(scene,1,8,mats.dark,'crank',0,0,-50);
-  cylinder(scene,13,64,mats.steel,'frame',0,0,-22);cylinder(scene,7,4,mats.dark,'frame',0,0,17);
+  cylinder(scene,13,74,mats.steel,'frame',0,0,-17);const mainCap=endCap(17,13.3,'frame',0,0,17);
   box(scene,34,38,20,mats.frame,'frame',0,0,-35);
   const pedestal=box(scene,28,1,24,mats.frame,'frame',0,0,-35),base=box(scene,1,10,95,mats.frame,'frame',0,0,-25);
   const feet=[-1,1].map(side=>box(scene,24,5,82,mats.dark,'frame',side*58,0,-25));
@@ -88,22 +89,11 @@ export async function createScene({container,onAngle,onSelect,onDragStart}) {
     crank.group.rotation.z=Math.atan2(pose.crankY,pose.crankX);rod.group.position.set(pose.crankX,pose.crankY,20);rod.group.rotation.z=pose.rodAngle;
     crankPin.position.set(pose.crankX,pose.crankY,15);crankCap.position.set(pose.crankX,pose.crankY,31);dragRing.position.set(pose.crankX,pose.crankY,34);piston.position.y=pose.pistonY;
   }
-  // These assembly roots never overlap: rings stay on the piston, and the rod
-  // and crank retain their complete geometry while separating along the pins.
-  const movingParts=[
-    {object:crank.group,offset:[0,0,50]},
-    {object:rod.group,offset:[40,0,100]},
-    {object:piston,offset:[0,75,0]},
-    {object:casing,offset:[-85,0,-65]},
-    {object:flywheel,offset:[0,0,-65]},
-    ...[crankPin,crankCap,dragRing].map(object=>({object,offset:[0,0,50]})),
-  ];
-  const movingRoots=new Set(movingParts.map(({object})=>object));
-  const fixedParts=pickables.filter(object=>{
-    for(let current=object;current;current=current.parent)if(movingRoots.has(current))return false;
-    return true;
-  });
-  explosion.setParts([...movingParts,...fixedParts.map(object=>({object,offset:[0,0,0]}))]);
+  // Keep the wrist-pin/piston/rod assembly captured. Lift it through the open
+  // cylinder end only after the crank pin has completely left both eyes.
+  const roots=[crank.group,rod.group,piston,casing,flywheel,crankPin,crankCap,dragRing,mainCap],movingRoots=new Set(roots);
+  const fixedParts=pickables.filter(object=>{for(let current=object;current;current=current.parent)if(movingRoots.has(current))return false;return true;});
+  explosion.setParts(sliderDisassemblyEntries({crank:crank.group,rod:rod.group,piston,crankPin,crankCap,dragRing,mainCap,casing,flywheel,fixedParts,getDimensions:()=>({radius,rodLength})}));
   function select(part){for(const key of ['crank','rod','slider','frame'])highlight(mats[key],key===part);dirty=true;}
   function setView(next){view=next;fitCamera(true);}
   function resize(){renderer.setSize(Math.max(container.clientWidth,1),Math.max(container.clientHeight,1),false);fitCamera(false);}

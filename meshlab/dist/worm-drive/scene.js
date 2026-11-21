@@ -4,6 +4,7 @@ import {materialOptions,metalLighting,referenceGround,highlight} from '../mechan
 import {threadGeometry,wheelGeometry} from './geometries.js';
 import {geometry,wormResults} from './kinematics.js';
 import {createExplodedView} from '../exploded-view.js';
+import {disassemblySteps,wormDisassemblyEntries} from './disassembly.js';
 
 export function createWormScene(container,parameters,onSelect){
   const scene=new THREE.Scene();scene.background=new THREE.Color('#f0f2f5');
@@ -11,7 +12,7 @@ export function createWormScene(container,parameters,onSelect){
   metalLighting(THREE,scene,renderer,.7);referenceGround(THREE,scene,{size:1600,y:-110});
   const camera=new THREE.OrthographicCamera(-240,240,148,-148,1,2400);
   const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.09;controls.minZoom=.5;controls.maxZoom=3;
-  const explosion=createExplodedView({camera,controls,container});
+  const explosion=createExplodedView({camera,controls,container,steps:disassemblySteps});
   const labelObjects=new Map();
   const materials=new Map(),labels=[];let model=null,worm=null,wheel=null,supports=null,axes=null,pickable=[],result=wormResults(parameters),selected=null,labelsVisible=true,supportsVisible=true,axesVisible=true;
   const mat=(id,category)=>{const key=id+':'+category;if(!materials.has(key))materials.set(key,new THREE.MeshStandardMaterial(materialOptions(category)));return materials.get(key);};
@@ -46,11 +47,11 @@ export function createWormScene(container,parameters,onSelect){
     const nextSupports=new THREE.Group();nextSupports.name='support-frame';next.add(nextSupports);
     box(nextSupports,'frame',[218,6,126],[0,-105,0]);
     for(const sign of [-1,1]){
-      box(nextSupports,'frame',[9,a+86,12],[sign*85,(a-114)/2,-18]);
-      box(nextSupports,'frame',[26,8,30],[sign*80,a-17,-4]);
+      box(nextSupports,'frame',[9,a+82,12],[sign*85,(a-114)/2,-18]);
+      box(nextSupports,'frame',[26,8,30],[sign*80,a-19,-4]);
       ring(nextSupports,'bearings',12,3,[sign*80,a,0],'x');
       box(nextSupports,'frame',[30,77,18],[0,-62,sign*47]);
-      box(nextSupports,'frame',[32,10,25],[0,-18,sign*47]);
+      box(nextSupports,'frame',[32,10,25],[0,-20,sign*47]);
       ring(nextSupports,'bearings',12,3,[0,0,sign*47],'z');
       for(const x of [-8,8])cylinder(nextSupports,'frame',2.5,3,[x,-100,sign*47],'y','fastener');
     }
@@ -63,17 +64,8 @@ export function createWormScene(container,parameters,onSelect){
     model=next;worm=nextWorm;wheel=nextWheel;supports=nextSupports;axes=nextAxes;
     // Register physical meshes only: the axis guides stay at the assembled reference.
     labelObjects.clear();
-    explosion.setParts(pickable.map(object=>{
-      const id=object.userData.part;
-      if(!labelObjects.has(id))labelObjects.set(id,object);
-      let offset;
-      if(id==='worm'||id.startsWith('thread-'))offset=[-30,80,0];
-      else if(id==='wheel')offset=[0,0,48];
-      else if(id==='output')offset=[0,0,132];
-      else if(id==='bearings')offset=object.position.x!==0?[Math.sign(object.position.x)*55,30,0]:[0,0,Math.sign(object.position.z)*90];
-      else offset=[0,0,-70];
-      return {object,offset};
-    }));
+    for(const object of pickable)if(!labelObjects.has(object.userData.part))labelObjects.set(object.userData.part,object);
+    explosion.setParts(wormDisassemblyEntries({worm:nextWorm,wheel:nextWheel,pickable}));
     selectPart(selected);updateLabels(p);
   }
   function addLabel(id,text,point){const el=document.createElement('div');el.className='worm-label';el.dataset.part=id;el.textContent=text;container.append(el);labels.push({id,el,point});}

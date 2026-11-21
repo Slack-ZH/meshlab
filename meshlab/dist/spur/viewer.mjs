@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {axialPlan,axialPose} from '../legacy-disassembly.mjs';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {geometry,validate,ANIMATION_SCALE,gearOutline} from './mechanics.mjs';
 
@@ -100,15 +101,15 @@ export class SpurViewer {
       const rotor=new THREE.Group();rotor.position.set(x,0,0);gear.group.add(rotor);this.gear(gear,teeth,rootRadius,w,color,rotor);this.spinGroups.push({group:rotor,side});
       const shaft=this.part(side+'-shaft',name+'轴',name+'轴与轮毂同步转动并传递转矩。轴径按较小齿轮根圆缩放；键槽和配合公差未作制造级建模。','示意轴径 '+(2*shaftRadius).toFixed(2)+' mm · 两轴平行',3);shaft.category='transmission';
       const shaftSpin=new THREE.Group();shaftSpin.position.set(x,0,0);shaft.group.add(shaftSpin);this.cylinder(shaft,shaftRadius,w+74*s,steel,[0,0,-13*s],shaftSpin);
-      this.mesh(shaft,new THREE.BoxGeometry(2*s,2*s,10*s),dark,[0,6.9*s,w/2+14*s],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
+      this.mesh(shaft,new THREE.BoxGeometry(2*s,2*s,10*s),dark,[0,6.2*s,w/2+14*s],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
       const support=this.part(side+'-support',name+'轴承支座','轴承支座约束轴线并保持标准中心距。改变模数或齿数时，两支座随轴线移动。支座比例随轴径调整，不代表轴承承载选型。','无大底座 · 轴承支承示意',4);support.category='housing';this.bearing(support,x,-w/2-24*s);
       const collar=this.part(side+'-collar',name+'锁紧环','锁紧环限制轮毂轴向移动。拆装时先释放锁紧环，再沿轴线移开齿轮，最后抽轴并分离支座。','分组拆装示意',1);collar.category='transmission';
       const collarSpin=new THREE.Group();collarSpin.position.set(x,0,w/2+7*s);collar.group.add(collarSpin);this.ring(collar,12*s,7.7*s,6*s,steel,collarSpin);
       this.mesh(collar,new THREE.BoxGeometry(3*s,3*s,3*s),dark,[0,11*s,0],collarSpin);this.spinGroups.push({group:collarSpin,side});
     }
     this.updateMotion();this.scene.updateMatrixWorld(true);
-    // Preserve each shaft's assembly line. Separate the two lines laterally, then
-    // put support -> shaft -> wheel -> collar in the same axial order on both.
+    // Compute column spacing; axialPlan below withdraws every fitted part first.
+    // Only the final phase spreads the already separated shaft columns.
     const largestRadius=Math.max(this.g.driverAddendumRadius,this.g.drivenAddendumRadius);
     const columnSpread=largestRadius*1.2+50,axialGap=Math.max(55,largestRadius*.8);
     this.explosionLayout={columnSpread,axialGap,order:['support','shaft','gear','collar']};
@@ -121,6 +122,8 @@ export class SpurViewer {
       const middle=(cursor-axialGap)/2;
       for(const {part,z} of layers)part.offset.set(sign*columnSpread,0,z-middle);
     }
+    this.disassemblyPlan=axialPlan(this.parts.map(p=>{const b=new THREE.Box3().setFromObject(p.group);return {id:p.id,min:b.min.toArray(),max:b.max.toArray(),spread:p.id==='belt'?0:p.id.endsWith('-flange')?this.parts.find(x=>x.id===p.id.replace('-flange','-pulley')).offset.x:p.offset.x};}),{gap:axialGap,stages:steps.length-1});
+    for(const p of this.parts)p.offset.fromArray(this.disassemblyPlan[p.id].final);
     this.pose();this.select(this.parts.some(x=>x.id===this.selected)?this.selected:'driver-gear');
     if(hadRoot)this.fitModel();else this.home();
   }
@@ -134,7 +137,7 @@ export class SpurViewer {
     const assembled=this.amount===0&&this.step===0;
     for(const p of this.parts){
       const factor=this.step?THREE.MathUtils.clamp(this.step-p.step+1,0,1):this.amount;
-      p.group.position.copy(p.offset).multiplyScalar(factor);
+      p.group.position.fromArray(axialPose(this.disassemblyPlan[p.id],this.step||this.amount*(steps.length-1)));
       const hideForMode=['open','hidden'].includes(this.housingMode)&&p.category==='housing';
       p.group.visible=!(assembled&&hideForMode);
       if(p.category==='housing')p.group.traverse(o=>{if(!o.isMesh)return;const transparent=assembled&&this.housingMode==='transparent';o.material.transparent=transparent;o.material.opacity=transparent?.18:1;o.material.depthWrite=!transparent;});

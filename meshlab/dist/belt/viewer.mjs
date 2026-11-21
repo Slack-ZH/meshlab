@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import {axialPlan,axialPose} from '../legacy-disassembly.mjs';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {geometry,validate,ANIMATION_SCALE,beltSample,beltMeshData} from './mechanics.mjs';
 
-export const steps=['完整传动','取下锁紧环','移开整条平带','沿轴向移开带轮','抽出轴系与支座'];
+export const steps=['完整传动','取下锁紧环与前挡边','沿轴向移开闭合带','沿轴向移开带轮','抽出传动轴','分离支座并排布'];
 const geometryKeys=['crossed','driverDiameter','drivenDiameter','centerDistance','beltWidth'];
 const steel=0xa4b0bd,dark=0x354353,blue=0x2082a2,warm=0xba8750;
 export class BeltViewer {
@@ -102,16 +103,17 @@ export class BeltViewer {
       const rotor=new THREE.Group();rotor.position.set(x,0,0);pulley.group.add(rotor);this.pulley(pulley,radius,w,color,rotor);this.spinGroups.push({group:rotor,side});
       const shaft=this.part(side+'-shaft',name+'轴',name+'轴支承带轮并传递转矩。轴、轮毂与锁紧环作为同步转动的教学组件；键槽和配合公差不作制造级建模。','示意轴径 15 mm · 两轴平行',4);shaft.category='transmission';
       const shaftSpin=new THREE.Group();shaftSpin.position.set(x,0,0);shaft.group.add(shaftSpin);this.cylinder(shaft,7.5,w+74,steel,[0,0,-13],shaftSpin);
-      this.mesh(shaft,new THREE.BoxGeometry(2,2,10),dark,[0,6.9,w/2+14],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
+      this.mesh(shaft,new THREE.BoxGeometry(2,2,10),dark,[0,6.2,w/2+14],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
       const support=this.part(side+'-support',name+'轴承支座','独立轴承支座约束轴线。中心距由参数设定，两支座随轴距移动；省略张紧执行器，不根据模型形状推算预张力。','无大底座 · 支座随中心距移动',4);support.category='housing';this.bearing(support,x,-w/2-24);
       const collar=this.part(side+'-collar',name+'锁紧环','锁紧环限制轮毂轴向移动。拆装时先释放锁紧环，再沿轴线移开带轮，最后抽轴并分离支座。','分组拆装示意',1);collar.category='transmission';
       const collarSpin=new THREE.Group();collarSpin.position.set(x,0,w/2+7);collar.group.add(collarSpin);this.ring(collar,12,7.7,6,steel,collarSpin);
       this.mesh(collar,new THREE.BoxGeometry(3,3,3),dark,[0,11,0],collarSpin);this.spinGroups.push({group:collarSpin,side});
     }
     const belt=this.part('belt','闭合平带','完整平带把两个带轮连成连续传动。交叉模式采用两段平滑半扭转并在交点离面分层，避免实体穿模；这只是结构教学示意。移动色标沿显示中心线等速行进，绕轮段与带轮角速度一致。','带宽 '+p.beltWidth+' mm · 带厚 2 mm',2);belt.category='transmission';this.makeBelt(belt);
+    for(const side of ['driver','driven']){const pulley=this.parts.find(p=>p.id===side+'-pulley'),spin=pulley.group.children[0],flange=this.part(side+'-flange',(side==='driver'?'主动':'从动')+'轮可拆前挡边','先沿轴退出前挡边，再取出闭合带；后挡边保留在带轮上。','教学可拆挡边，紧固螺钉未细分',1);flange.category='transmission';const rotor=new THREE.Group();rotor.position.copy(spin.position);flange.group.add(rotor);for(const mesh of [...spin.children])if(mesh.position.z>this.g.pulleyWidth/2){rotor.add(mesh);mesh.userData.partId=flange.id;}this.spinGroups.push({group:rotor,side});}
     this.updateMotion();this.scene.updateMatrixWorld(true);
-    // Preserve each shaft's assembly line. Separate the two lines laterally, then
-    // put support -> shaft -> wheel -> collar in the same axial order on both.
+    // Compute column spacing; axialPlan below withdraws every fitted part first.
+    // Only the final phase spreads the already separated shaft columns.
     const largestRadius=Math.max(this.g.driverRadius,this.g.drivenRadius);
     const columnSpread=largestRadius*1.2+50,axialGap=Math.max(55,largestRadius*.8);
     this.explosionLayout={columnSpread,axialGap,order:['support','shaft','pulley','collar']};
@@ -127,6 +129,8 @@ export class BeltViewer {
     const beltBox=new THREE.Box3().setFromObject(belt.group);
     const frontmost=Math.max(...this.parts.filter(part=>part.id!=='belt').map(part=>new THREE.Box3().setFromObject(part.group).max.z+part.offset.z));
     belt.offset.set(0,0,frontmost+50-beltBox.min.z);
+    this.disassemblyPlan=axialPlan(this.parts.map(p=>{const b=new THREE.Box3().setFromObject(p.group);return {id:p.id,min:b.min.toArray(),max:b.max.toArray(),spread:p.id==='belt'?0:p.id.endsWith('-flange')?this.parts.find(x=>x.id===p.id.replace('-flange','-pulley')).offset.x:p.offset.x};}),{gap:axialGap,stages:steps.length-1});
+    for(const p of this.parts)p.offset.fromArray(this.disassemblyPlan[p.id].final);
     this.pose();this.select(this.parts.some(x=>x.id===this.selected)?this.selected:'belt');
     if(hadRoot)this.fitModel();else this.home();
   }
@@ -153,7 +157,7 @@ export class BeltViewer {
     const assembled=this.amount===0&&this.step===0;
     for(const p of this.parts){
       const factor=this.step?THREE.MathUtils.clamp(this.step-p.step+1,0,1):this.amount;
-      p.group.position.copy(p.offset).multiplyScalar(factor);
+      p.group.position.fromArray(axialPose(this.disassemblyPlan[p.id],this.step||this.amount*(steps.length-1)));
       const hideForMode=['open','hidden'].includes(this.housingMode)&&p.category==='housing';
       p.group.visible=!(assembled&&hideForMode);
       if(p.category==='housing')p.group.traverse(o=>{if(!o.isMesh)return;const transparent=assembled&&this.housingMode==='transparent';o.material.transparent=transparent;o.material.opacity=transparent?.18:1;o.material.depthWrite=!transparent;});

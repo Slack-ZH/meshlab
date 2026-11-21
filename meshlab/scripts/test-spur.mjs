@@ -64,6 +64,7 @@ test('invalid and noninteger parameters fail before constructing a mesh',()=>{
 });
 const moduleUrl=path=>new URL(path,import.meta.url).href;
 const source=(await readFile(new URL('../dist/spur/viewer.mjs',import.meta.url),'utf8'))
+  .replace("from '../legacy-disassembly.mjs'",`from '${new URL('../dist/legacy-disassembly.mjs',import.meta.url).href}'`)
   .replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`)
   .replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};')
   .replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/spur/mechanics.mjs')}'`);

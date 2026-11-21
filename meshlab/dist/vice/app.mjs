@@ -99,7 +99,7 @@ function syncPose(snapshot) {
   $('explode').value=amount*100;$('explode').style.setProperty('--progress',(amount*100)+'%');$('explode-value').textContent=Math.round(amount*100)+'%';
   $('step-number').textContent=String(step).padStart(2,'0')+' / '+String(steps.length-1).padStart(2,'0');
   $('step-title').textContent=steps[step];
-  $('step-copy').textContent=step===0?'先停止转动，按顺序观察钳口、丝杠和螺母。':'继续分离组件；按“上一步”可反向装配。';
+  $('step-copy').textContent=step===0?'先停止转动，按顺序观察钳口、丝杠和螺母。':'丝杠按导程旋出，止推环、钳口与手柄保持总成；再移教学可拆侧盖、侧向取出螺母。整体铸造钳体不适用此侧盖步骤。';
   $('step-prev').disabled=step===0;$('step-next').disabled=step===steps.length-1;
   $('housing-mode').value=s.housingMode||'open';$('labels-toggle').checked=!!s.labelsOn;
   $('pose-status').textContent=amount>0?'自由展开 · '+Math.round(amount*100)+'%':steps[step];

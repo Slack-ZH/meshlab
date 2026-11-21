@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import {phase} from '../legacy-disassembly.mjs';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {geometry,chainPoint,PITCH,validate} from './mechanics.mjs';
 
-export const steps=['完整传动','移开曲柄与脚踏','取下闭合链条','分离前后链轮','分离车架与轴系'];
+export const steps=['完整传动','退出两侧曲柄与后轴外螺母','沿轴取下闭链与双链轮总成','后移车轮花鼓轴总成'];
 const geometryKeys=['frontTeeth','rearTeeth','centerDistance','wheelDiameter','crankLength'];
 const steel=0xa4b0bd,dark=0x354353,blue=0x2082a2,warm=0xba8750;
 export class BicycleViewer {
@@ -110,7 +111,7 @@ export class BicycleViewer {
     this.ring(rearPart,10,5.3,42,dark,this.rearSpin).position.z=-22;
     const ringPart=this.part('chainring','前牙盘','前牙盘随曲柄旋转，通过滚子链向后链轮传递运动。修改齿数会重建齿形并同步调整链条长度与中心距。',p.frontTeeth+' 齿 · 名义节距 12.7 mm',3);
     this.frontSpin=new THREE.Group();this.frontSpin.position.set(front,0,0);ringPart.group.add(this.frontSpin);this.sprocket(ringPart,p.frontTeeth,this.g.frontRadius,warm,this.frontSpin,8.3);
-    const chain=this.part('chain','滚子链','内外链节交替连接，滚子在链轮齿槽中通过。模型将运动近似为连续节线；完整链条整体移开，不把链片当作可无工具分离的零件。',this.g.chainLinks+' 节 · 12.7 mm 名义节距 · 内宽 3.30 mm',2);this.makeChain(chain);
+    const chain=this.part('chain','滚子链','内外链节交替连接。未建快拆链节，拆解时闭链与两个链轮一起沿轴退出并保持啮合，不能把闭链刚体拉过齿顶。',this.g.chainLinks+' 节 · 12.7 mm 名义节距 · 内宽 3.30 mm',2);this.makeChain(chain);
     const crank=this.part('crank','曲柄与脚踏','曲柄把踩踏运动传给前牙盘。左右曲柄相差 180°，脚踏绕自己的轴转动；演示中脚踏保持水平。','两侧曲柄 '+p.crankLength+' mm',1);
     this.crankSpin=new THREE.Group();this.crankSpin.position.set(front,0,0);crank.group.add(this.crankSpin);
     for(const [a,z] of [[0,14],[Math.PI,-84]]){
@@ -119,11 +120,11 @@ export class BicycleViewer {
     }
     this.pedals=[];
     for(const z of [31,-101]){const pedal=new THREE.Group();crank.group.add(pedal);this.mesh(crank,new THREE.BoxGeometry(43,12,28),dark,[0,0,0],pedal);for(const x of [-15,0,15])this.mesh(crank,new THREE.BoxGeometry(2,13,29),steel,[x,0,0],pedal);this.pedals.push({group:pedal,z});}
+    const axlePart=this.parts.find(p=>p.id==='rear-axle'),endNut=axlePart.group.children.at(-1);axlePart.group.remove(endNut);endNut.geometry.dispose();endNut.material.dispose();const lock=this.part('rear-locknut','后轴外侧锁紧螺母','先退外侧螺母，才可让后链轮套沿轴退出。','轴孔有间隙；螺纹为教学简化',1);this.ring(lock,10,5.3,7,steel).position.set(rear,0,10);
+    const left=this.part('crank-left','左曲柄与脚踏','左右曲柄分别向各自外侧退出；不把两侧曲柄当作贯穿车架的刚体。','左侧沿负Z轴退出',1);this.leftCrankSpin=new THREE.Group();this.leftCrankSpin.position.copy(this.crankSpin.position);left.group.add(this.leftCrankSpin);for(const mesh of [...this.crankSpin.children].slice(2)){this.leftCrankSpin.add(mesh);mesh.userData.partId=left.id;}left.group.add(this.pedals[1].group);
     this.updateMotion();this.scene.updateMatrixWorld(true);
-    // Lay out disassembly layers from actual component bounds, including pedals.
-    let cursor=0;const layers=[];
-    for(const part of this.parts){const box=new THREE.Box3().setFromObject(part.group),depth=box.max.z-box.min.z;layers.push({part,z:cursor-box.min.z});cursor+=depth+32;}
-    for(const {part,z} of layers)part.offset.set(0,0,z-cursor/2);
+    const boxes=this.parts.map(p=>new THREE.Box3().setFromObject(p.group)),depth=Math.max(...boxes.map(b=>b.max.z))-Math.min(...boxes.map(b=>b.min.z));
+    for(const p of this.parts){p.offset.set(0,0,['crank','rear-locknut'].includes(p.id)?3*depth+300:p.id==='crank-left'?-3*depth-300:['chain','chainring','rear-sprocket'].includes(p.id)?depth+100:['wheel','rear-axle'].includes(p.id)?-depth-100:0);p.step=['crank','crank-left','rear-locknut'].includes(p.id)?1:['chain','chainring','rear-sprocket'].includes(p.id)?2:['wheel','rear-axle'].includes(p.id)?3:0;}
     this.pose();this.select(this.parts.some(x=>x.id===this.selected)?this.selected:'chainring');
     if(hadRoot)this.fitModel();else this.home();
   }
@@ -131,7 +132,7 @@ export class BicycleViewer {
     if(!this.root)return;
     this.frontSpin.rotation.z=this.g.tangentAngle+this.rotations.front;
     this.rearSpin.rotation.z=this.g.tangentAngle+this.g.tangentLength/this.g.rearRadius+this.rotations.rear;
-    this.wheelSpin.rotation.z=this.rotations.wheel;this.crankSpin.rotation.z=this.rotations.front-.9;
+    this.wheelSpin.rotation.z=this.rotations.wheel;this.crankSpin.rotation.z=this.rotations.front-.9;if(this.leftCrankSpin)this.leftCrankSpin.rotation.z=this.rotations.front-.9;
     this.pedals.forEach(({group,z},i)=>{const a=this.rotations.front-.9+i*Math.PI;group.position.set(-this.g.effectiveCenterDistance/2+this.p.crankLength*Math.cos(a),this.p.crankLength*Math.sin(a),z);});
     const {plates,rollers,pins}=this.chainMeshes,n=this.g.chainLinks,dummy=this.dummy;
     let min=Infinity,max=0;
@@ -153,7 +154,7 @@ export class BicycleViewer {
   pose(){
     const assembled=this.amount===0&&this.step===0;
     for(const p of this.parts){
-      const factor=this.step?THREE.MathUtils.clamp(this.step-p.step+1,0,1):this.amount;
+      const factor=p.step?phase(this.step||this.amount*(steps.length-1),p.step-1):0;
       p.group.position.copy(p.offset).multiplyScalar(factor);
       const hideForMode=this.housingMode==='open'&&['frame','wheel'].includes(p.id)||this.housingMode==='hidden'&&p.id==='frame';
       p.group.visible=!(assembled&&hideForMode);

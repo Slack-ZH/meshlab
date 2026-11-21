@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {shapeMesh} from './geometry.mjs';
+import {disassemblyParts,prepareDisassembly,applyDisassembly} from './disassembly.mjs';
 import {validateParameters} from './registry.mjs';
 
 export class CatalogViewer {
@@ -19,26 +20,29 @@ export class CatalogViewer {
  build(model,params){
   validateParameters(model,params);
   const spec=model.build(params);if(!spec?.parts?.length)throw new Error('模型没有生成零件');
-  const prepared=spec.parts.map(p=>{const group=new THREE.Group();group.position.set(...(p.position||[0,0,0]));group.rotation.set(...(p.rotation||[0,0,0]));for(const s of p.shapes||[]){const mesh=shapeMesh(s);mesh.userData.partId=p.id;mesh.userData.originalOpacity=mesh.material.opacity;group.add(mesh);}return {...p,group,offset:new THREE.Vector3()};});
-  this.clear();this.model=model;this.params={...params};this.phase=0;this.playing=false;this.amount=0;this.root=new THREE.Group();this.scene.add(this.root);this.parts=prepared;for(const p of prepared)this.root.add(p.group);this.applyPose();this.setHousing(this.housingMode);this.selected=prepared.find(p=>!p.hiddenInList)?.id||prepared[0].id;this.home();this.onSelect?.(this.parts.find(p=>p.id===this.selected));this.onMotion?.(this.state());
+  const prepared=disassemblyParts(model,spec.parts).map(p=>{const group=new THREE.Group();group.position.set(...(p.position||[0,0,0]));group.rotation.set(...(p.rotation||[0,0,0]));for(const s of p.shapes||[]){const mesh=shapeMesh(s);mesh.userData.partId=p.id;mesh.userData.originalOpacity=mesh.material.opacity;group.add(mesh);}return {...p,group,offset:new THREE.Vector3()};});
+  this.clear();this.model=model;this.params={...params};this.phase=0;this.playing=false;this.amount=0;this.root=new THREE.Group();this.scene.add(this.root);this.parts=prepared;this.partsById=new Map(prepared.map(part=>[part.id,part]));this.stages=[];for(const p of prepared)this.root.add(p.group);this.prepareExplosion();this.setHousing(this.housingMode);this.selected=prepared.find(p=>!p.hiddenInList)?.id||prepared[0].id;this.home();this.onSelect?.(this.parts.find(p=>p.id===this.selected));this.onMotion?.(this.state());
  }
  applyPose(){
-  this.result=this.model.sample(this.params,this.phase);for(const p of this.parts){const s=this.result?.poses?.[p.id]||{};p.group.position.set(...(s.position||p.position||[0,0,0]));p.group.position.addScaledVector(p.offset,this.amount);p.group.rotation.set(...(s.rotation||p.rotation||[0,0,0]));p.group.scale.set(...(s.scale||[1,1,1]));if(s.visible!==undefined)p.group.visible=!!s.visible;}
+  applyDisassembly(this.stages,this.partsById,this.amount);this.result=this.model.sample(this.params,this.phase);for(const p of this.parts){const s=this.result?.poses?.[p.poseSource||p.id]||{};p.group.position.set(...(s.position||p.position||[0,0,0]));p.group.position.add(p.offset);p.group.rotation.set(...(s.rotation||p.rotation||[0,0,0]));p.group.scale.set(...(s.scale||[1,1,1]));if(s.visible!==undefined)p.group.visible=!!s.visible;}
  }
  setPlaying(value){this.playing=!!value&&this.amount===0&&this.params?.inputRPM>0;this.last=undefined;this.onMotion?.(this.state());this.render();}
  setParameters(params){validateParameters(this.model,params);this.params={...params};if(!params.inputRPM)this.playing=false;this.applyPose();this.onMotion?.(this.state());this.render();}
  prepareExplosion(){
-  this.amount=0;for(const p of this.parts)p.offset.set(0,0,0);this.applyPose();this.root.updateMatrixWorld(true);
-  const groups=new Map();for(const p of this.parts){const key=p.assemblyGroup||p.id;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(p);}
-  const boxes=[...groups.values()].map(parts=>{const box=new THREE.Box3();for(const p of parts)box.union(new THREE.Box3().setFromObject(p.group));return{parts,box};});
-  const overall=new THREE.Box3().setFromObject(this.root),size=overall.getSize(new THREE.Vector3()),gap=Math.max(8,Math.max(size.x,size.y,size.z)*.08);let cursor=0;
-  for(const {parts,box} of boxes){const extent=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3()),target=new THREE.Vector3(cursor+extent.x/2,0,0),offset=target.sub(center);for(const p of parts)p.offset.copy(offset);cursor+=extent.x+gap;}
-  for(const p of this.parts)p.offset.x-=(cursor-gap)/2;
+  this.amount=0;this.phase=0;this.applyPose();this.root.updateMatrixWorld(true);
+  this.stages=prepareDisassembly(this.model,this.parts,this.params);
  }
- setExplode(value){const amount=Math.max(0,Math.min(1,value));if(amount>0&&!this.amount){this.playing=false;this.prepareExplosion();this.modelUp();this.direction.set(...(Math.abs(this.camera.up.z)>.9?[.15,-1,.2]:[.15,.2,1])).normalize();}this.amount=amount;this.applyPose();this.fit();this.onMotion?.(this.state());this.render();}
+ setExplode(value){const amount=Math.max(0,Math.min(1,value));if(amount>0&&!this.amount){this.playing=false;this.prepareExplosion();this.modelUp();this.direction.set(...(Math.abs(this.camera.up.z)>.9?[.68,-1,.32]:[.68,.42,1])).normalize();}if(this.amount>0&&this.controls)this.direction.copy(this.camera.position).sub(this.controls.target).normalize();this.amount=amount;this.applyPose();this.fit();this.onMotion?.(this.state());this.render();}
  select(id){const part=this.parts.find(p=>p.id===id);if(!part)return;const group=part.assemblyGroup;const shown=part.hiddenInList?this.parts.find(p=>p.assemblyGroup===group&&!p.hiddenInList)||part:part;this.selected=shown.id;this.onSelect?.(shown);this.render();}
  setHousing(mode){this.housingMode=mode;for(const p of this.parts){if(p.category!=='housing')continue;p.group.visible=mode!=='hidden'&&mode!=='open';p.group.traverse(o=>{if(o.material){o.material.opacity=mode==='transparent'?.22:o.userData.originalOpacity??1;o.material.transparent=o.material.opacity<1;o.material.depthWrite=o.material.opacity>=1;}});}this.render();}
- fit(){if(!this.root)return;const box=new THREE.Box3().setFromObject(this.root);if(box.isEmpty())return;const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());if(![...size,...center].every(Number.isFinite))return;const distance=Math.max(size.y,size.x/this.camera.aspect,size.z*.7)/(2*Math.tan(this.camera.fov*Math.PI/360))*1.4+size.z*.5;this.controls.target.copy(center);this.camera.position.copy(center).addScaledVector(this.direction,Math.max(distance,20));this.camera.near=Math.max(.01,distance/1000);this.camera.far=Math.max(10000,distance*20);this.camera.updateProjectionMatrix();this.controls.minDistance=Math.max(1,distance*.05);this.controls.maxDistance=Math.max(5000,distance*8);this.controls.update();this.render();}
+ fit(){if(!this.root)return;const box=new THREE.Box3().setFromObject(this.root);if(box.isEmpty())return;const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());if(![...size,...center].every(Number.isFinite))return;const toward=this.direction.clone().normalize();
+  const horizontal=new THREE.Vector3().crossVectors(this.camera.up,toward).normalize(),vertical=new THREE.Vector3().crossVectors(toward,horizontal);
+  const tangent=Math.tan(this.camera.fov*Math.PI/360)/this.camera.zoom;let distance=20;
+  for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y]) for (const z of [box.min.z,box.max.z]) {
+    const corner=new THREE.Vector3(x,y,z).sub(center);
+    distance=Math.max(distance,corner.dot(toward)+1.12*Math.max(Math.abs(corner.dot(horizontal))/(this.camera.aspect*tangent),Math.abs(corner.dot(vertical))/tangent));
+  }
+  this.controls.target.copy(center);this.camera.position.copy(center).addScaledVector(this.direction,Math.max(distance,20));this.camera.near=Math.max(.01,distance/1000);this.camera.far=Math.max(10000,distance*20);this.camera.updateProjectionMatrix();this.controls.minDistance=Math.max(1,distance*.05);this.controls.maxDistance=Math.max(5000,distance*8);this.controls.update();this.render();}
  modelUp(){const up=this.model?.cameraUp;this.camera.up.set(...(Array.isArray(up)&&up.length===3&&up.every(Number.isFinite)&&Math.hypot(...up)>0?up:[0,1,0])).normalize();}
  home(){this.modelUp();const d=this.model?.cameraDirection;this.direction.set(...(Array.isArray(d)&&d.length===3&&d.every(Number.isFinite)&&Math.hypot(...d)>0?d:[.4,.28,1])).normalize();this.fit();}
  view(which){this.modelUp();const zUp=Math.abs(this.camera.up.z)>.9;if(zUp&&which==='top'){this.camera.up.set(0,1,0);this.direction.set(.001,0,1);}else this.direction.set(...(which==='top'?[0,1,.001]:zUp?[0,-1,0]:[0,0,1]));this.fit();}

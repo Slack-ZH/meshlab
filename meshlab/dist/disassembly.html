@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071a34">
+  <meta name="description" content="啮合实验室 48 个机构的拆解顺序速查，按五类分组，直接进入实验，并标明保留总成与教学特例。">
+  <title>拆解顺序清单 · 啮合实验室 meshlab</title>
+  <link rel="icon" href="homepage/assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:light;--night:#071a34;--ink:#18324d;--muted:#47617e;--blue:#245b97;--line:#cbd9e7;--paper:#edf3f9;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-synthesis:none}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #438bce;outline-offset:4px}h1,h2,p{margin:0}[hidden]{display:none!important}.wrap{max-width:1240px;margin:auto;padding-inline:clamp(20px,4vw,56px)}
+    .skip{position:fixed;top:-70px;left:20px;z-index:5;background:white;padding:10px 20px}.skip:focus{top:12px}.masthead{background:radial-gradient(ellipse at 85% 15%,#194b77,var(--night) 70%);color:#eef6ff}.topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:20px}.brand{font-size:16px;font-weight:650;letter-spacing:.03em}.brand span{font-size:12px;font-weight:400;color:#b2c9e4;margin-left:9px}.back{font-size:13px;color:#c5dcf5;min-height:44px;display:flex;align-items:center}.back:hover{color:white}.intro{padding-block:32px 47px}.eyebrow{font-size:11px;letter-spacing:.12em;color:#93c4ff;margin-bottom:12px}.hero-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:13px 24px}h1{font-size:clamp(30px,4.4vw,46px);line-height:1.3;letter-spacing:-.03em;font-weight:600}.total{font-size:13px;color:#b2c9e4}.intro-copy{max-width:760px;color:#c2d5eb;margin-top:18px;line-height:1.9}.date{font-size:12px;color:#91b0d2;margin-top:15px}
+    .guide{padding-block:29px 18px}.guide-note{border-left:3px solid #86b5e5;padding-left:16px;font-size:13px;color:var(--muted);max-width:980px}.guide-note strong{color:var(--ink);font-weight:600}.tools{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:24px}.jump{display:flex;gap:7px;flex-wrap:wrap}.jump a{padding:9px 12px;min-height:44px;border:1px solid #c5d5e6;border-radius:7px;font-size:12px;background:#f7faff;white-space:nowrap}.jump a:hover{background:#e0edfb;border-color:#82abd4}.jump b{font-weight:500;margin-left:7px;color:#6684a3}.search{display:flex;gap:8px;align-items:center;max-width:100%;flex:0 1 280px}.search input{min-width:0;width:100%;border:1px solid #b9cde1;border-radius:7px;background:#f8fbff;color:var(--ink);padding:10px 12px;min-height:44px}.search button{border:0;border-radius:7px;padding:10px;color:var(--blue);background:#e0ebf7;min-height:44px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.search-status{color:var(--muted);font-size:12px;margin-top:12px;min-height:21px}
+    main{padding-bottom:40px}.category{margin-top:22px;scroll-margin-top:20px}.section-title{display:flex;gap:13px;align-items:center;padding:16px 0 18px}.section-no{font-size:12px;font-variant-numeric:tabular-nums;color:#6c8ba9}h2{font-size:22px;letter-spacing:-.02em;font-weight:600}.count{margin-left:auto;font-size:12px;color:var(--muted)}.column-head,.mechanism{display:grid;grid-template-columns:minmax(160px,1.05fr) minmax(220px,2fr) minmax(180px,1.25fr);gap:24px}.column-head{padding:11px 19px;background:#dde8f3;color:#536f8b;font-size:11px;border-radius:9px 9px 0 0;letter-spacing:.03em}.mechanisms{margin:0;padding:0;list-style:none;border:1px solid var(--line);border-top:0;border-radius:0 0 9px 9px;overflow:hidden;background:#f7faff}.mechanism{padding:17px 18px;align-items:start;border-top:1px solid #d9e3ee}.mechanism:first-child{border-top:0}.lab-link{font-weight:600;color:#1e548a;display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.65}.lab-link span{font-size:13px;color:#7a9dbd;font-weight:400}.lab-link:hover{color:#0c78bf;text-decoration:underline;text-underline-offset:4px}.sequence{font-size:13px;line-height:1.85;overflow-wrap:anywhere}.note{font-size:12px;line-height:1.85;color:#5d7590;overflow-wrap:anywhere}.empty{padding:50px 20px;text-align:center;color:var(--muted);background:#f7faff;border:1px solid var(--line);border-radius:9px;margin-top:24px}
+    footer{border-top:1px solid var(--line);color:var(--muted);padding-block:23px 30px;font-size:12px}.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}footer a{color:var(--blue);padding-block:8px}
+    @media(max-width:1000px){.tools{align-items:stretch}.search{flex-basis:100%;max-width:420px}.column-head,.mechanism{grid-template-columns:minmax(150px,1fr) minmax(220px,1.8fr) minmax(150px,1fr);gap:18px}}
+    @media(max-width:680px){.topbar{padding-block:12px}.brand span{display:none}.intro{padding-block:24px 32px}.hero-title{gap:8px 14px}.intro-copy{font-size:13px}.guide{padding-top:23px}.jump{gap:6px}.jump a{padding:8px 10px;font-size:11px}.search{max-width:none}.category{margin-top:17px}.section-title{padding-block:12px 14px}h2{font-size:20px}.column-head{display:none}.mechanisms{border-top:1px solid var(--line);border-radius:9px}.mechanism{display:block;padding:17px}.lab-link{font-size:15px;min-height:29px}.sequence{margin-top:6px}.note{margin-top:9px;border-left:2px solid #c9dbec;padding-left:10px}.section-no{font-size:11px}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{.masthead{background:white;color:#18324d}.intro-copy,.date,.total,.eyebrow{color:#47617e}.topbar,.tools,.search-status,footer,.skip{display:none}.wrap{padding-inline:0}.intro{padding-block:0 15px}.guide{padding-block:10px}.category{break-inside:auto}.mechanism{break-inside:avoid}.lab-link span{display:none}body{background:white;font-size:11px}.section-title{padding-block:12px}.sequence,.note{font-size:10px}}
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#checklist">跳到机构清单</a>
+  <header class="masthead">
+    <div class="wrap topbar"><a class="brand" href="index.html">啮合实验室<span>meshlab</span></a><a class="back" href="index.html">← 返回首页</a></div>
+    <div class="wrap intro"><p class="eyebrow">MESHLAB / DISASSEMBLY GUIDE</p><div class="hero-title"><h1>拆解顺序清单</h1><span class="total">48 个机构 · 5 类实验</span></div><p class="intro-copy">先看拆解的先后关系，再进入模型逐步操作。每一行对应一个实验入口，整理默认状态下的重点步骤与需要保留的总成。</p><p class="date">截至 <time datetime="2026-11-21">2026 年 11 月 21 日</time></p></div>
+  </header>
+  <div class="wrap guide"><p class="guide-note"><strong>阅读方式：</strong>箭头表示重点先后顺序，省略已脱开零件的侧移停放。实验中的细分步骤以当前参数和模式为准；“保留总成”表示这一组一起移动。这是教学模型的拆装说明，不作为实物维修工序。</p><div class="tools"><nav class="jump" aria-label="按机构类型跳转"><a href="#gears">齿轮与减变速<b>17</b></a><a href="#flex">带链与摩擦传动<b>6</b></a><a href="#joints">轴连接与离合<b>7</b></a><a href="#motion">直线与往复机构<b>8</b></a><a href="#systems">动力与装备系统<b>10</b></a></nav><div class="search"><label class="sr-only" for="mechanism-search">搜索机构名称或拆解步骤</label><input id="mechanism-search" type="search" placeholder="搜索机构、零件或步骤" autocomplete="off"><button id="clear-search" type="button" hidden>清空</button></div></div><p class="search-status" id="search-status" role="status" aria-live="polite">显示全部 48 个机构</p></div>
+  <main class="wrap" id="checklist" tabindex="-1">
+<section class="category" id="gears" aria-labelledby="title-gears">
+        <div class="section-title"><span class="section-no">01</span><h2 id="title-gears">齿轮与减变速</h2><span class="count">17 项</span></div>
+        <div class="column-head" aria-hidden="true"><span>进入实验</span><span>重点拆解顺序</span><span>保留与教学特例</span></div>
+        <ul class="mechanisms">
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=cycloidal">摆线针轮减速器<span aria-hidden="true">↗</span></a><p class="sequence">输出销轴法兰 → 摆线盘 → 后退偏心轴</p><p class="note">先退输出销，再退盘；固定针齿壳保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=enveloping-worm">包络蜗杆传动<span aria-hidden="true">↗</span></a><p class="sequence">四处轴端支承 → 整体取出蜗杆、蜗轮匹配副</p><p class="note">默认包络模式保留匹配副；切圆柱模式后，先抬蜗杆脱啮，再沿轴退蜗轮。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=synchronizer">变速箱同步器<span aria-hidden="true">↗</span></a><p class="sequence">拨叉 → 齿套 → 空套齿轮与摩擦锥 → 同步锁环 → 花键毂</p><p class="note">锁环从摩擦锥一侧退出；输出轴留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="idler.html">带惰轮齿轮列<span aria-hidden="true">↗</span></a><p class="sequence">锁紧环 → 沿轴退齿轮 → 抽轴 → 支座 → 侧向展开</p><p class="note">默认三轮；直接啮合模式使用对应的两轮拆序。</p></li>
+          <li class="mechanism"><a class="lab-link" href="spur.html">单级直齿圆柱齿轮<span aria-hidden="true">↗</span></a><p class="sequence">锁紧环 → 沿轴退齿轮 → 抽轴 → 支座 → 侧向展开</p><p class="note">无键槽教学轴系；沿轴退出后再分开展示。</p></li>
+          <li class="mechanism"><a class="lab-link" href="drill-planetary.html">电钻两挡行星减速器<span aria-hidden="true">↗</span></a><p class="sequence">夹头 → 拨环与二级联接盘 → 两级齿圈 → 电机与一级太阳轮 → 行星轮组 → 行星架轴组 → 二级太阳轮</p><p class="note">沿对应轴端退出；电机与一级太阳轮轴保持总成。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=cvt">钢带式无级变速器 CVT<span aria-hidden="true">↗</span></a><p class="sequence">两只前锥盘 → 整条钢带 → 从动后锥盘轴组</p><p class="note">钢片与承载环带保持闭合总成；主动后锥盘保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=planetary">简单行星齿轮传动<span aria-hidden="true">↗</span></a><p class="sequence">行星架 → 内齿圈 → 行星轮组 → 太阳轮轴组</p><p class="note">先轴向脱啮，再侧移；支承环留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="lab.html">两级斜齿减速器<span aria-hidden="true">↗</span></a><p class="sequence">螺母、螺栓 → 上盖 → 轴端盖与油封 → 整体提起轴系 → 分列三根轴 → 下箱体</p><p class="note">齿轮、轴承与平键留在各轴总成；整体提轴系为教学展示。</p></li>
+          <li class="mechanism"><a class="lab-link" href="open-differential.html">汽车开放式差速器<span aria-hidden="true">↗</span></a><p class="sequence">主动锥齿轮与半轴 → 紧固件 → 大锥齿圈 → 端盖 → 半轴齿轮 → 十字销与行星轮组 → 行星轮</p><p class="note">先打开壳体，再整体取销轮组，最后在壳外分轮。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=manual-gearbox">汽车手动变速箱<span aria-hidden="true">↗</span></a><p class="sequence">拨叉与标记 → 两根轴 → 四、三、二档齿轮副 → 一档齿套</p><p class="note">默认一档；成对齿轮一起退出，一档轮副留作参照；换档会调整齿套次序。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=dual-clutch-transmission">汽车双离合变速箱DCT<span aria-hidden="true">↗</span></a><p class="sequence">飞轮 → K1、K2 → 输出轴总成 → 三、一档输入轮 → 奇数轴 → 四、二档输入轮</p><p class="note">偶数挡空心轴保留；输出齿轮与齿套随输出轴总成。</p></li>
+          <li class="mechanism"><a class="lab-link" href="worm-drive.html">蜗轮蜗杆传动<span aria-hidden="true">↗</span></a><p class="sequence">输出支座 → 上移蜗杆轴承组脱啮 → 沿轴退出蜗轮轴承组</p><p class="note">圆柱蜗杆场景；轴承随各自轴组，不越过轴肩。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=harmonic">谐波减速器<span aria-hidden="true">↗</span></a><p class="sequence">柔轮输出端 → 波发生器 → 完整柔轮总成</p><p class="note">柔轮保持教学变形，不模拟卸载回弹；刚轮保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=planetary-automatic">行星齿轮式自动变速箱AT<span aria-hidden="true">↗</span></a><p class="sequence">两端盖与壳筒 → 输出鼓 → 输入离合器 → 制动环 → 太阳轮轴 → 行星架组 → 行星轮</p><p class="note">默认工况顺序；超速挡的制动环与离合器成组取出。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=three-speed-hub">自行车三速内变速花鼓<span aria-hidden="true">↗</span></a><p class="sequence">花鼓壳 → 选档与输入套 → 行星架 → 内齿圈 → 行星轮组 → 太阳轮轴组</p><p class="note">默认一档；棘爪、单向离合器未逐件建模。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=rv-reducer">RV减速器<span aria-hidden="true">↗</span></a><p class="sequence">输出架 → 前级输入齿轮 → 双盘偏心轴总成 → 外侧摆线盘</p><p class="note">后侧摆线盘与偏心轴保留总成；固定针齿圈保留。</p></li>
+        </ul>
+      </section>
+<section class="category" id="flex" aria-labelledby="title-flex">
+        <div class="section-title"><span class="section-no">02</span><h2 id="title-flex">带链与摩擦传动</h2><span class="count">6 项</span></div>
+        <div class="column-head" aria-hidden="true"><span>进入实验</span><span>重点拆解顺序</span><span>保留与教学特例</span></div>
+        <ul class="mechanisms">
+          <li class="mechanism"><a class="lab-link" href="belt.html">交叉平带传动<span aria-hidden="true">↗</span></a><p class="sequence">锁紧环与前挡边 → 整条闭带 → 带轮 → 轴 → 支座</p><p class="note">默认交叉带；前挡边设为可拆，柔带不模拟弯曲。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=chain-conveyor">链条输送机<span aria-hidden="true">↗</span></a><p class="sequence">输送物 → 降下张紧轮 → 两侧机架 → 吊起输送总成</p><p class="note">双链、托板、链轮与横轴成组取出，不拆闭链。</p></li>
+          <li class="mechanism"><a class="lab-link" href="friction.html">摩擦轮传动<span aria-hidden="true">↗</span></a><p class="sequence">锁紧环 → 沿轴退摩擦轮 → 抽轴 → 支座 → 侧向展开</p><p class="note">先轴向脱开，再横移；不模拟压装力。</p></li>
+          <li class="mechanism"><a class="lab-link" href="timing.html">同步带传动<span aria-hidden="true">↗</span></a><p class="sequence">锁紧环与前挡边 → 整条同步带 → 带轮 → 轴 → 支座</p><p class="note">带齿保持完整；先移开挡边，再沿轴退带。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=bicycle-rear-derailleur">自行车后拨变速机构<span aria-hidden="true">↗</span></a><p class="sequence">外导板与导轮销 → 闭链、牙盘、飞轮与导轮组</p><p class="note">闭链保持总成；挂架与内导板保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="bicycle.html">自行车链传动<span aria-hidden="true">↗</span></a><p class="sequence">左右曲柄 → 后轴外螺母 → 闭链与前后链轮组 → 后轮轴总成</p><p class="note">闭链与链轮一起退出；轮、花鼓、轴保留总成。</p></li>
+        </ul>
+      </section>
+<section class="category" id="joints" aria-labelledby="title-joints">
+        <div class="section-title"><span class="section-no">03</span><h2 id="title-joints">轴连接与离合</h2><span class="count">7 项</span></div>
+        <div class="column-head" aria-hidden="true"><span>进入实验</span><span>重点拆解顺序</span><span>保留与教学特例</span></div>
+        <ul class="mechanisms">
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=oldham-coupling">奥尔德姆联轴器<span aria-hidden="true">↗</span></a><p class="sequence">输出毂 → 中间滑块</p><p class="note">沿轴向解除正交槽配合；输入毂留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=universal-joint">单十字轴万向节<span aria-hidden="true">↗</span></a><p class="sequence">输入支承 → 沿销轴取下轴承杯与半盖 → 从开口处分开叉头</p><p class="note">教学模型采用分体叉耳。十字轴留作参照，固定半座从开口处脱离销轴。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=roller-freewheel">滚柱式单向离合器<span aria-hidden="true">↗</span></a><p class="sequence">外环 → 从背面退出保持架 → 径向取出滚柱</p><p class="note">内凸轮环留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=centrifugal-clutch">离心离合器<span aria-hidden="true">↗</span></a><p class="sequence">输出鼓 → 回位弹簧 → 沿径向导杆退蹄块</p><p class="note">蹄块沿各自导向退出，轮毂留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=friction-clutch">摩擦片离合器<span aria-hidden="true">↗</span></a><p class="sequence">分离轴承与拨叉 → 压盘 → 摩擦盘输出轴组</p><p class="note">沿输出端退件；摩擦盘与输出轴保持总成。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=rzeppa-joint">球笼式等速万向节<span aria-hidden="true">↗</span></a><p class="sequence">径向退观察轨架 → 钢球 → 保持架 → 沿半轴退星形套</p><p class="note">可分轨架是教学特例，不代表真实整体球笼拆法。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=double-universal">双万向节传动轴<span aria-hidden="true">↗</span></a><p class="sequence">轴承杯与半盖 → 两端外叉头 → 从开口中取出两个十字轴</p><p class="note">中间轴与内叉保留连接和装配相位。</p></li>
+        </ul>
+      </section>
+<section class="category" id="motion" aria-labelledby="title-motion">
+        <div class="section-title"><span class="section-no">04</span><h2 id="title-motion">直线与往复机构</h2><span class="count">8 项</span></div>
+        <div class="column-head" aria-hidden="true"><span>进入实验</span><span>重点拆解顺序</span><span>保留与教学特例</span></div>
+        <ul class="mechanisms">
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=valvetrain">发动机气门配气机构<span aria-hidden="true">↗</span></a><p class="sequence">正时凸轮轴 → 两只凸轮 → 挺柱 → 弹簧 → 向下退气门 → 曲轴正时组</p><p class="note">气门沿导向孔退出；弹簧锁夹等细节未细分。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=indexing-cam">分度凸轮机构<span aria-hidden="true">↗</span></a><p class="sequence">停歇定位销 → 分度转台 → 滚子组</p><p class="note">先解除锁位；盘形凸轮留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=recirculating-ball-screw">滚珠丝杠<span aria-hidden="true">↗</span></a><p class="sequence">两端支承 → 整体吊离丝杠螺母副</p><p class="note">滚珠、回珠管、螺母与丝杠保持配合。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=dual-wiper">汽车雨刮连杆<span aria-hidden="true">↗</span></a><p class="sequence">两支刮臂 → 同步杆与驱动连杆 → 摇杆和电机曲柄</p><p class="note">连杆沿销轴退出；风挡留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=steering-rack">汽车转向齿轮齿条总成<span aria-hidden="true">↗</span></a><p class="sequence">横拉杆 → 车轮转向节 → 转向小齿轮 → 让开通道 → 沿纵轴退齿条</p><p class="note">球头连接作教学分离；支座留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="slider-crank.html">曲柄滑块 · 活塞运动<span aria-hidden="true">↗</span></a><p class="sequence">曲柄销与销帽 → 沿缸轴提出活塞连杆组 → 主轴端帽 → 曲柄</p><p class="note">腕销与活塞环留在活塞组；飞轮、主轴、机架保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=conjugate-cam">双凸轮共轭机构<span aria-hidden="true">↗</span></a><p class="sequence">共用凸轮轴 → 前后两只共轭凸轮</p><p class="note">凸轮沿各自轴端退出，从动框留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="vice.html">台虎钳·丝杠螺母<span aria-hidden="true">↗</span></a><p class="sequence">旋出丝杠与活动钳口组 → 可拆侧盖 → 侧取固定螺母 → 钳口垫</p><p class="note">手柄、止推环随活动钳口总成；侧盖是教学结构。</p></li>
+        </ul>
+      </section>
+<section class="category" id="systems" aria-labelledby="title-systems">
+        <div class="section-title"><span class="section-no">05</span><h2 id="title-systems">动力与装备系统</h2><span class="count">10 项</span></div>
+        <div class="column-head" aria-hidden="true"><span>进入实验</span><span>重点拆解顺序</span><span>保留与教学特例</span></div>
+        <ul class="mechanisms">
+          <li class="mechanism"><a class="lab-link" href="turbine.html">参数化汽轮机<span aria-hidden="true">↗</span></a><p class="sequence">上半壳 → 轴端组件 → 下半壳 → 半静叶隔板</p><p class="note">动叶与主轴保留为转子总成，不逐片拆叶根。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=cnc-feed">多轴数控机床进给传动<span aria-hidden="true">↗</span></a><p class="sequence">主轴 → Z 滑枕 → Z 丝杠 → C 转台 → Y 丝杠、滑台 → X 丝杠、鞍座</p><p class="note">X、Y 轴先抽丝杠再提滑台；床身与立柱保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=wind-turbine-gearbox">风电行星—平行轴增速箱<span aria-hidden="true">↗</span></a><p class="sequence">发电机定子 → 高速轴 → 中间复合轴 → 后端大轮轴 → 叶轮输入组 → 太阳轮 → 行星架组 → 行星轮</p><p class="note">复合齿轮轴保持整体；固定内齿圈保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=robot-wrist">工业机器人腕部传动<span aria-hidden="true">↗</span></a><p class="sequence">剖开前臂壳 → 末端法兰工具 → 转向组件 → 内轴 → 两侧支承销 → 俯仰架 → 中套轴</p><p class="note">工具与支承销方向随初始腕角变化；外轴保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=hybrid-power-split">混合动力功率分流机构<span aria-hidden="true">↗</span></a><p class="sequence">电气模块 → 机体与两定子 → 输入连接 → 两转子 → 太阳轮 → 行星架组 → 行星轮</p><p class="note">电气模块与连线为示意；齿圈留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=clock-escapement">机械钟表传动与擒纵机构<span aria-hidden="true">↗</span></a><p class="sequence">游丝示意件 → 摆轮 → 擒纵叉 → 擒纵轮轴 → 过轮轴 → 中心轴 → 发条盒</p><p class="note">先叉后轮；复合轮轴与发条盒保留，不演示释能维修。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=dual-rotor-gearbox">双转子直升机主减速器<span aria-hidden="true">↗</span></a><p class="sequence">上下旋翼 → 底部安装板 → 复合惰轮轴 → 输入总成 → 下抽内轴、空心轴</p><p class="note">大齿轮从下方退出；轴承环留作参照。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=four-wheel-transfer">四驱分动箱与中央差速器<span aria-hidden="true">↗</span></a><p class="sequence">差速器剖分壳 → 中央差速器总成 → 高低挡套 → 太阳轮 → 行星架组 → 行星轮</p><p class="note">中央差速器芯与前后轴保持总成；齿圈保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=tractor-pto">拖拉机动力输出传动<span aria-hidden="true">↗</span></a><p class="sequence">作业机具 → PTO 输出分支 → 车桥车轮组 → 行驶中间轴组 → PTO 离合器</p><p class="note">先分离两条输出分支；发动机与主动轮组保留。</p></li>
+          <li class="mechanism"><a class="lab-link" href="catalog.html?model=torque-converter">液力变矩器<span aria-hidden="true">↗</span></a><p class="sequence">流线标记 → 两端盖与壳筒 → 锁止离合器 → 涡轮轴组 → 导轮</p><p class="note">流线为辅助标记；泵轮留作参照。</p></li>
+        </ul>
+      </section>
+    <p class="empty" id="empty-result" hidden>没有找到对应机构。可以换一个零件名称，或清空搜索查看全部。</p>
+  </main>
+  <footer><div class="wrap footer-inner"><span>啮合实验室 · 观察结构，理解传动</span><a href="#top" id="back-to-top">回到页首 ↑</a></div></footer>
+  <script>
+    const input=document.getElementById('mechanism-search'),clear=document.getElementById('clear-search'),status=document.getElementById('search-status'),empty=document.getElementById('empty-result');
+    const groups=[...document.querySelectorAll('.category')],rows=[...document.querySelectorAll('.mechanism')];
+    function filter(){const query=input.value.trim().toLocaleLowerCase();let total=0;for(const row of rows){row.hidden=!row.textContent.toLocaleLowerCase().includes(query);if(!row.hidden)total++;}for(const group of groups){const count=[...group.querySelectorAll('.mechanism')].filter(row=>!row.hidden).length;group.hidden=count===0;group.querySelector('.count').textContent=count+' 项';}clear.hidden=!query;empty.hidden=total!==0;status.textContent=query?'找到 '+total+' / 48 个机构':'显示全部 48 个机构';}
+    input.addEventListener('input',filter);clear.addEventListener('click',()=>{input.value='';filter();input.focus();});
+    document.getElementById('back-to-top').addEventListener('click',event=>{event.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+  </script>
+</body>
+</html>

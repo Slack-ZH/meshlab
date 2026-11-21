@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
+import {gearOffset} from '../dist/legacy-disassembly.mjs';
 import * as THREE from '../dist/assets/three.module.js';
 import {defaults as bicycleDefaults} from '../dist/bicycle/mechanics.mjs';
 import {models,diagnostics as d} from '../dist/catalog/models-motion.mjs';
@@ -15,7 +16,7 @@ test('GL16 production RPM handler drives all three animated shafts and keeps slo
   const frame=source.split(/\r?\n/).find(s=>s.startsWith('let last=performance.now();function frame'));
   const els=new Map(),$=id=>{if(!els.has(id))els.set(id,{hidden:true});return els.get(id);};
   const parts=[1,-.25,.0625].map((spin,i)=>({amount:0,data:{id:'shaft'+i,spin},mesh:{position:new THREE.Vector3(),rotation:{z:0}},base:new THREE.Vector3(),offset:new THREE.Vector3()}));
-  const ctx=vm.createContext({$,THREE,parts,performance:{now:()=>0},requestAnimationFrame(){},angle:0,playing:true,speed:1,inputRPM:1440,mode:'explore',step:0,explodeTarget:0,reduced:false,floor:{position:{}},grid:{position:{}},controls:{update(){}},needsRender:false});
+  const ctx=vm.createContext({$,THREE,parts,gearOffset,disassemblyProgress:0,performance:{now:()=>0},requestAnimationFrame(){},angle:0,playing:true,speed:1,inputRPM:1440,mode:'explore',step:0,explodeTarget:0,reduced:false,floor:{position:{}},grid:{position:{}},controls:{update(){}},needsRender:false});
   vm.runInContext(handler+'\n'+frame,ctx);
   const advance=(rpm,speed=1)=>{ctx.speed=speed;$( 'calc-rpm').oninput({target:{value:String(rpm)}});const old=ctx.angle;ctx.frame((ctx.now=(ctx.now||0)+20));return ctx.angle-old;};
   const base=advance(1440),half=advance(720),slow=advance(720,.5);close(half,base/2);close(slow,base/4);close(base,.02*1.256637);
@@ -26,6 +27,7 @@ test('GL16 production RPM handler drives all three animated shafts and keeps slo
 
 const moduleUrl=path=>new URL(path,import.meta.url).href;
 const bicycleSource=(await readFile(new URL('../dist/bicycle/viewer.mjs',import.meta.url),'utf8'))
+  .replace("from '../legacy-disassembly.mjs'",`from '${moduleUrl('../dist/legacy-disassembly.mjs')}'`)
   .replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`)
   .replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};')
   .replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/bicycle/mechanics.mjs')}'`);

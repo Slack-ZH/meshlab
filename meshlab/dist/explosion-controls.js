@@ -17,7 +17,7 @@ export function connectExplosion(scene, pause) {
     $('explode').style.setProperty('--progress', `${state.target * 100}%`);
     $('explode-value').value = `${Math.round(state.target * 100)}%`;
     $('explode-all').setAttribute('aria-pressed', String(state.target > 0));
-    note.textContent = state.available ? instructions : '当前模型没有可分离的多个零件。';
+    note.textContent = state.available ? (state.stepTitle || instructions) : '当前模型没有可分离的多个零件。';
   }
   explosion.subscribe(sync);
   const expand = value => {

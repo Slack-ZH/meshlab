@@ -56,7 +56,8 @@ test('actual Float32 production thread triangles stay separated at multiple tran
   }
 });
 const moduleUrl=path=>new URL(path,import.meta.url).href;
-const source=(await readFile(new URL('../dist/vice/viewer.mjs',import.meta.url),'utf8')).replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`).replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};').replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/vice/mechanics.mjs')}'`);
+const source=(await readFile(new URL('../dist/vice/viewer.mjs',import.meta.url),'utf8')).replace("from '../legacy-disassembly.mjs'",`from '${new URL('../dist/legacy-disassembly.mjs',import.meta.url).href}'`)
+  .replace("from 'three'",`from '${moduleUrl('../dist/assets/three.module.js')}'`).replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};').replace("from './mechanics.mjs'",`from '${moduleUrl('../dist/vice/mechanics.mjs')}'`);
 const {ViceViewer,steps}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
 function cpuViewer(){const v=Object.create(ViceViewer.prototype);Object.assign(v,{scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(),renderer:{info:{memory:{geometries:0}}},parts:[],selected:'screw',amount:0,step:0,speed:1,labelsOn:false,housingMode:'open',onSelect(){},render(){},home(){},fitModel(){}});return v;}
 test('production advance stops at either end, reverses without jumps, and throttles motion notices',()=>{
@@ -81,13 +82,13 @@ test('production T-handle triangles have radial clearance from both guide rails 
     }
   }v.clearGeometry();
 });
-test('real inner/outer mesh, housing modes, nine components and extreme exploded boxes',()=>{
+test('real inner/outer mesh, housing modes, ten components and separated service-assembly boxes',()=>{
   const v=cpuViewer();
   for(const [lead,screwDiameter,jawWidth,maxOpening] of [[2,20,40,20],[8,20,40,140],[2,36,120,140],[8,36,40,20],[4,24,80,100]]){
-    v.build({...defaults,lead,screwDiameter,jawWidth,maxOpening});assert.equal(v.parts.length,9);assert.equal(v.selected,'screw');assert.equal(v.nutHalf.visible,true);assert.equal(v.nutFull.visible,false);
+    v.build({...defaults,lead,screwDiameter,jawWidth,maxOpening});assert.equal(v.parts.length,10);assert.equal(v.selected,'screw');assert.equal(v.nutHalf.visible,true);assert.equal(v.nutFull.visible,false);
     assert.equal(v.screwBody.geometry.attributes.position.count,threadMeshData(v.g).vertices.length/3);assert.equal(v.nutFull.geometry.attributes.position.count,threadMeshData(v.g,{kind:'nut'}).vertices.length/3);
     v.setHousingMode('solid');assert.equal(v.nutFull.visible,true);assert.equal(v.nutHalf.visible,false);v.setHousingMode('transparent');assert.equal(v.nutFull.material.transparent,true);v.setHousingMode('hidden');assert.equal(v.parts.find(p=>p.id==='nut').group.visible,false);v.setHousingMode('open');
-    v.explode(1);const parts=v.state().parts;for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++)assert.equal(overlap(parts[i],parts[j]),false,`${parts[i].id}/${parts[j].id} ${lead}/${screwDiameter}/${jawWidth}/${maxOpening}`);
+    v.explode(1);const parts=v.state().parts;for(let i=0;i<parts.length;i++)for(let j=i+1;j<parts.length;j++)if(v.parts.find(p=>p.id===parts[i].id).assemblyGroup!==v.parts.find(p=>p.id===parts[j].id).assemblyGroup)assert.equal(overlap(parts[i],parts[j]),false,`${parts[i].id}/${parts[j].id} ${lead}/${screwDiameter}/${jawWidth}/${maxOpening}`);
     v.assembly(steps.length-1);assert.deepEqual(v.state().parts.map(p=>p.position),parts.map(p=>p.position));v.restore();
     assert.ok(v.movers.every(group=>group.position.x===maxOpening/2));assert.ok(v.rotors.every(group=>group.rotation.x===0));
   }

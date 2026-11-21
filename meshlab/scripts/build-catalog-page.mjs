@@ -1,10 +1,20 @@
 import fs from 'node:fs';
 const source=new URL('../dist/timing.html',import.meta.url),target=new URL('../dist/catalog.html',import.meta.url);
-let html=fs.readFileSync(source,'utf8').replaceAll('timing/style.css?v=20261116-timing1','catalog/style.css?v=20261116-all1').replaceAll('timing/app.mjs?v=20261116-timing1','catalog/app.mjs?v=20261117-audit1').replaceAll('chat.js?v=20261116-vice1','chat.js?v=20261116-all1').replaceAll('同步带传动','机械机构').replaceAll('播放同步带传动','播放机构运动');
+let html=fs.readFileSync(source,'utf8')
+  .replaceAll('timing/style.css?v=20261116-timing1','catalog/style.css?v=20261116-all1')
+  .replaceAll('timing/app.mjs?', 'catalog/app.mjs?')
+  .replace(/<script type="importmap">(.*?)<\/script>/,(_,json)=>{
+    const map=JSON.parse(json),version=map.imports['./timing/viewer.mjs'].split('?')[1];
+    delete map.imports['./timing/viewer.mjs'];
+    for(const file of ['./catalog/viewer.mjs','./catalog/models-motion.mjs'])map.imports[file]=file+'?'+version;
+    return '<script type="importmap">'+JSON.stringify(map)+'</script>';
+  })
+  .replace('00 / 04','00 / —').replaceAll('chat.js?v=20261116-vice1','chat.js?v=20261116-all1')
+  .replaceAll('同步带传动','机械机构').replaceAll('播放同步带传动','播放机构运动');
 const parameterStart=html.indexOf('<section id="parameters"'),readingStart=html.indexOf('<section id="performance"');
 html=html.slice(0,parameterStart)+`<section id="parameters" class="parameter-panel" aria-labelledby="parameter-title"><div class="settings"><section id="structure">
 <div class="parameter-heading"><div><h2 id="parameter-title">参数调节</h2><p class="hint" id="parameter-hint">调整参数，观察结构与运动的关系。</p></div><button id="reset-parameters" class="subtle-button" type="button">恢复默认</button></div>
-<div class="preset-row"><label for="model-select">机构目录</label><select id="model-select" aria-label="机构目录"></select><a href="./#catalog-section" class="text-button">查看全部机构 ↗</a></div>
+<div class="preset-row"><label for="model-select">机构目录</label><select id="model-select" aria-label="机构目录"></select><a href="disassembly.html" class="text-button">查看全部机构 ↗</a></div>
 <div id="geometry-fields" class="fields"></div><p id="invalid-input" class="input-error" role="alert" hidden></p>
 <div id="drive-metrics" class="drive-metrics" aria-live="off"></div><p id="contact-summary" class="contact-summary"></p><p id="model-limits" class="hint scope-note"></p>
 </section></div></section></div>

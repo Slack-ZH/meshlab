@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {axialPlan,axialPose} from '../legacy-disassembly.mjs';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {geometry,validate,ANIMATION_SCALE} from './mechanics.mjs';
 
@@ -108,15 +109,15 @@ export class FrictionViewer {
       const rotor=new THREE.Group();rotor.position.set(x,0,0);wheel.group.add(rotor);this.wheel(wheel,radius,w,color,rotor);this.spinGroups.push({group:rotor,side});
       const shaft=this.part(side+'-shaft',name+'轴',name+'轴支承摩擦轮并传递转矩。轴、轮毂与锁紧环在此作为同步转动的教学组件；键槽和配合公差不作制造级建模。','示意轴径 15 mm · 两轴平行',3);shaft.category='transmission';
       const shaftSpin=new THREE.Group();shaftSpin.position.set(x,0,0);shaft.group.add(shaftSpin);this.cylinder(shaft,7.5,w+74,steel,[0,0,-13],shaftSpin);
-      this.mesh(shaft,new THREE.BoxGeometry(2,2,10),dark,[0,6.9,w/2+14],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
+      this.mesh(shaft,new THREE.BoxGeometry(2,2,10),dark,[0,6.2,w/2+14],shaftSpin);this.spinGroups.push({group:shaftSpin,side});
       const support=this.part(side+'-support',name+'轴承支座','独立轴承支座约束轴线。改变轮径会调整中心距；支座示意省略基础与压紧执行机构，压紧力作为外部给定的接触载荷。','无大底座 · 支座随中心距移动',4);support.category='housing';this.bearing(support,x,-w/2-24);
       const collar=this.part(side+'-collar',name+'锁紧环','锁紧环限制轮毂轴向移动。拆装时先释放锁紧环，再沿轴线移开摩擦轮，最后抽轴并分离支座。','分组拆装示意',1);collar.category='transmission';
       const collarSpin=new THREE.Group();collarSpin.position.set(x,0,w/2+7);collar.group.add(collarSpin);this.ring(collar,12,7.7,6,steel,collarSpin);
       this.mesh(collar,new THREE.BoxGeometry(3,3,3),dark,[0,11,0],collarSpin);this.spinGroups.push({group:collarSpin,side});
     }
     this.updateMotion();this.scene.updateMatrixWorld(true);
-    // Preserve each shaft's assembly line. Separate the two lines laterally, then
-    // put support -> shaft -> wheel -> collar in the same axial order on both.
+    // Compute column spacing; axialPlan below withdraws every fitted part first.
+    // Only the final phase spreads the already separated shaft columns.
     const largestRadius=Math.max(this.g.driverRadius,this.g.drivenRadius);
     const columnSpread=largestRadius*1.2+50,axialGap=Math.max(55,largestRadius*.8);
     this.explosionLayout={columnSpread,axialGap,order:['support','shaft','wheel','collar']};
@@ -129,6 +130,8 @@ export class FrictionViewer {
       const middle=(cursor-axialGap)/2;
       for(const {part,z} of layers)part.offset.set(sign*columnSpread,0,z-middle);
     }
+    this.disassemblyPlan=axialPlan(this.parts.map(p=>{const b=new THREE.Box3().setFromObject(p.group);return {id:p.id,min:b.min.toArray(),max:b.max.toArray(),spread:p.id==='belt'?0:p.id.endsWith('-flange')?this.parts.find(x=>x.id===p.id.replace('-flange','-pulley')).offset.x:p.offset.x};}),{gap:axialGap,stages:steps.length-1});
+    for(const p of this.parts)p.offset.fromArray(this.disassemblyPlan[p.id].final);
     this.pose();this.select(this.parts.some(x=>x.id===this.selected)?this.selected:'driver-wheel');
     if(hadRoot)this.fitModel();else this.home();
   }
@@ -142,7 +145,7 @@ export class FrictionViewer {
     const assembled=this.amount===0&&this.step===0;
     for(const p of this.parts){
       const factor=this.step?THREE.MathUtils.clamp(this.step-p.step+1,0,1):this.amount;
-      p.group.position.copy(p.offset).multiplyScalar(factor);
+      p.group.position.fromArray(axialPose(this.disassemblyPlan[p.id],this.step||this.amount*(steps.length-1)));
       const hideForMode=['open','hidden'].includes(this.housingMode)&&p.category==='housing';
       p.group.visible=!(assembled&&hideForMode);
       if(p.category==='housing')p.group.traverse(o=>{if(!o.isMesh)return;const transparent=assembled&&this.housingMode==='transparent';o.material.transparent=transparent;o.material.opacity=transparent?.18:1;o.material.depthWrite=!transparent;});

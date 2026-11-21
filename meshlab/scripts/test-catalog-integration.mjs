@@ -16,6 +16,9 @@ import {createChatApi} from '../server/chat-api.mjs';
 import worker from '../server/worker.mjs';
 import {BudgetLedger} from '../server/budget.mjs';
 import {MemoryStorage} from './test-storage.mjs';
+import {motionPlans} from '../dist/catalog/disassembly-motion.mjs';
+import {machinePlans} from '../dist/catalog/disassembly-machines.mjs';
+import {systemPlans} from '../dist/catalog/disassembly-systems.mjs';
 
 const url=relative=>new URL(relative,import.meta.url).href;
 const dataURL=source=>'data:text/javascript;base64,'+Buffer.from(source).toString('base64');
@@ -25,13 +28,38 @@ const geometryURL=dataURL(geometrySource),{geometryFor,shapeMesh}=await import(g
 const viewerSource=fs.readFileSync(new URL('../dist/catalog/viewer.mjs',import.meta.url),'utf8')
  .replace("from 'three'",`from '${url('../dist/assets/three.module.js')}'`)
  .replace("import {OrbitControls} from '../assets/OrbitControls.js';",'const OrbitControls=class {};')
+ .replace("from './disassembly.mjs'",`from '${url('../dist/catalog/disassembly.mjs')}'`)
  .replace("from './geometry.mjs'",`from '${geometryURL}'`)
  .replace("from './registry.mjs'",`from '${url('../dist/catalog/registry.mjs')}'`);
 const {CatalogViewer}=await import(dataURL(viewerSource));
 const near=(a,b,tolerance=1e-5)=>assert.ok(Math.abs(a-b)<tolerance,`${a} != ${b}`);
 const clone=value=>JSON.parse(JSON.stringify(value));
 function fakeViewer(){return Object.assign(Object.create(CatalogViewer.prototype),{scene:new THREE.Scene(),camera:new THREE.PerspectiveCamera(),parts:[],amount:0,phase:0,playing:false,speed:1,housingMode:'solid',direction:new THREE.Vector3(.4,.28,1),render(){},home(){},fit(){}});}
-function groupBoxes(viewer){const groups=new Map();viewer.root.updateMatrixWorld(true);for(const p of viewer.parts){const key=p.assemblyGroup||p.id;if(!groups.has(key))groups.set(key,new THREE.Box3());groups.get(key).union(new THREE.Box3().setFromObject(p.group));}return [...groups.entries()];}
+// Two parts form a rigid module only if their displacement is identical at EVERY
+// stage, not merely because their terminal offsets happen to coincide.
+function rigidModules(viewer){const groups=new Map();for(const p of viewer.parts){const signature=JSON.stringify(viewer.stages.map(s=>s.moves.find(m=>m.ids.includes(p.id))?.offset.toArray()||[0,0,0]));if(!groups.has(signature))groups.set(signature,[]);groups.get(signature).push(p);}return [...groups.values()];}
+function groupBoxes(viewer){viewer.root.updateMatrixWorld(true);return rigidModules(viewer).map(parts=>{const b=new THREE.Box3();for(const p of parts)b.union(new THREE.Box3().setFromObject(p.group));return [parts.map(p=>p.id).join('+'),b];});}
+function assertEngineClearsMotorBore(viewer){
+ const engine=viewer.partsById.get('hsd-engine'),stator=viewer.partsById.get('hsd-mg2-case'),shell=stator.group.children[0],spec=stator.shapes[0],inverse=shell.matrixWorld.clone().invert();
+ assert.equal(spec.kind,'ring');const angles=new Set(),positions=shell.geometry.attributes.position;
+ for(let i=0;i<positions.count;i++){const x=positions.getX(i),y=positions.getY(i);if(Math.hypot(x,y)<(spec.inner+spec.outer)/2)angles.add(Math.atan2(y,x));}
+ const sorted=[...angles].sort((a,b)=>a-b);assert.ok(sorted.length>=32);let gap=0;for(let i=0;i<sorted.length;i++)gap=Math.max(gap,(sorted[(i+1)%sorted.length]-sorted[i]+Math.PI*2)%(Math.PI*2));
+ const actualHoleInradius=spec.inner*Math.cos(gap/2);let maxRadius=0;
+ for(const mesh of engine.group.children){const a=mesh.geometry.attributes.position;for(let i=0;i<a.count;i++){const v=new THREE.Vector3().fromBufferAttribute(a,i).applyMatrix4(mesh.matrixWorld).applyMatrix4(inverse);maxRadius=Math.max(maxRadius,Math.hypot(v.x,v.y));}}
+ assert.ok(maxRadius<actualHoleInradius,`MG2 stator bore ${actualHoleInradius} does not clear engine envelope ${maxRadius}`);
+}
+function auditSystemMidpointCrossings(viewer){
+ const conflicts=[];for(let i=0;i<viewer.stages.length;i++){
+  viewer.amount=i/viewer.stages.length;viewer.applyPose();const start=groupBoxes(viewer);viewer.amount=(i+.5)/viewer.stages.length;viewer.applyPose();const middle=groupBoxes(viewer);
+  for(let a=0;a<start.length;a++)for(let b=a+1;b<start.length;b++)if(!start[a][1].intersectsBox(start[b][1])&&middle[a][1].intersectsBox(middle[b][1])){
+   const ids=[start[a][0],start[b][0]].sort();
+   // A solid inside the actual open stator bore is a Box3 false positive.
+   if(viewer.model.id==='hybrid-power-split'&&ids.join('|')==='hsd-engine|hsd-mg2-case')assertEngineClearsMotorBore(viewer);
+   else conflicts.push(`${i+1} ${viewer.stages[i].title}: ${ids.join(' / ')}`);
+  }
+ }
+ assert.deepEqual(conflicts,[],viewer.model.id+' new midpoint box intersections: '+conflicts.join('; '));
+}
 function snapshot(model,changes={}){const p=defaultParameters(model),part=model.build(p).parts.find(p=>!p.hiddenInList);return captureCatalogContext({model,parameters:p,modelParameters:p,selectedPart:part,result:model.sample(p,1.3),phase:1.3,playing:false,geometryValid:true,description:model.description,limits:model.limits,principle:model.principle,...changes});}
 const question=(model=models[0])=>({role:'user',content:'请解释当前参数和选中零件。',catalogContext:snapshot(model)});
 
@@ -53,11 +81,33 @@ test('model-specific home camera is opt-in and reset uses the same direction',()
  v.build({...models[0],cameraUp:[0,0,1]},defaultParameters(models[0]));v.setExplode(1);assert.deepEqual(v.camera.up.toArray(),[0,0,1]);assert.ok(Math.abs(v.direction.dot(v.camera.up))<.3);v.clear();
 });
 
-for(const model of models)test(`${model.number} ${model.id}: real production buffers and group explosion have finite, disjoint bounds`,()=>{
+for(const model of models)test(`${model.number} ${model.id}: real buffers, rigid-module disassembly, stage midpoints and reverse travel`,()=>{
  const viewer=fakeViewer(),p=defaultParameters(model);viewer.build(model,p);assert.ok(viewer.parts.length>1);
  for(const part of viewer.parts){assert.ok(part.group.children.length,model.id+' empty part '+part.id);for(const mesh of part.group.children){const geometry=mesh.geometry;assert.ok(geometry.attributes.position.count>0);for(const [name,a] of Object.entries(geometry.attributes)){assert.ok(a.array.every(Number.isFinite),model.id+' nonfinite '+name);}if(geometry.index){assert.ok(geometry.index.array.every(i=>i<geometry.attributes.position.count));}geometry.computeBoundingBox();assert.equal(geometry.boundingBox.isEmpty(),false);}}
- for(const phase of [0,.7,5.8]){viewer.phase=phase;viewer.amount=0;viewer.applyPose();viewer.prepareExplosion();viewer.amount=1;viewer.applyPose();const groups=groupBoxes(viewer);for(const [id,b] of groups){assert.ok([...b.min,...b.max].every(Number.isFinite),model.id+' nonfinite bounds '+id);}for(let i=0;i<groups.length;i++)for(let j=i+1;j<groups.length;j++)assert.equal(groups[i][1].intersectsBox(groups[j][1]),false,`${model.id} exploded ${groups[i][0]} overlaps ${groups[j][0]}`);}
+ viewer.phase=5.8;viewer.amount=0;viewer.applyPose();viewer.prepareExplosion();assert.equal(viewer.phase,0,'disassembly must park the mechanism');
+ const raw=({...motionPlans,...machinePlans,...systemPlans})[model.id](viewer.parts,p),base=new Map(viewer.parts.map(p=>[p.id,{position:p.group.position.clone(),rotation:p.group.quaternion.clone(),scale:p.group.scale.clone()}]));
+ assert.equal(viewer.stages.length,raw.length);assert.ok(raw.length>1);
+ for(let i=0;i<raw.length;i++){assert.equal(viewer.stages[i].title,raw[i].title);assert.equal(viewer.stages[i].moves.length,raw[i].moves.length);for(let j=0;j<raw[i].moves.length;j++){const actual=viewer.stages[i].moves[j],declared=raw[i].moves[j];assert.deepEqual(actual.ids,declared.ids);assert.ok(actual.offset.length()>0);near(actual.offset.clone().normalize().dot(new THREE.Vector3(...declared.axis).normalize()),1);if(declared.distance!==undefined)near(actual.offset.length(),declared.distance);}}
+ const count=viewer.stages.length,saved=new Map(),points=[0,...viewer.stages.map((_,i)=>(i+.5)/count),1];
+ function inspect(amount){viewer.amount=amount;viewer.applyPose();viewer.root.updateMatrixWorld(true);const progress=amount*count;
+  for(const part of viewer.parts){const expected=new THREE.Vector3();for(let i=0;i<count;i++){const move=viewer.stages[i].moves.find(m=>m.ids.includes(part.id)),fraction=Math.max(0,Math.min(1,progress-i));if(move)expected.addScaledVector(move.offset,fraction);}near(part.offset.distanceTo(expected),0);near(part.group.position.distanceTo(base.get(part.id).position.clone().add(expected)),0);near(part.group.quaternion.angleTo(base.get(part.id).rotation),0);near(part.group.scale.distanceTo(base.get(part.id).scale),0);}
+  const boxes=groupBoxes(viewer);for(const [id,b]of boxes)assert.ok([...b.min,...b.max].every(Number.isFinite),model.id+' midpoint nonfinite '+id);
+  return viewer.parts.map(part=>({id:part.id,position:part.group.position.toArray(),offset:part.offset.toArray()}));
+ }
+ for(const amount of points)saved.set(amount,inspect(amount));
+ const groups=groupBoxes(viewer),collisions=[];for(let i=0;i<groups.length;i++)for(let j=i+1;j<groups.length;j++)if(groups[i][1].intersectsBox(groups[j][1]))collisions.push(`${groups[i][0]} overlaps ${groups[j][0]}`);
+ for(const amount of [...points].reverse())assert.deepEqual(inspect(amount),saved.get(amount),model.id+' reverse path differs at '+amount);
+ if(model.number>=49)auditSystemMidpointCrossings(viewer);
+ viewer.amount=1;viewer.applyPose();assert.deepEqual(collisions,[],model.id+' final rigid-module bounds: '+collisions.join('; '));
  viewer.setPlaying(true);assert.equal(viewer.playing,false,'cannot run exploded');viewer.restore();assert.equal(viewer.amount,0);assert.equal(viewer.phase,0);viewer.clear();
+});
+
+test('systems disassembly endpoint geometry and angled wrists also clear parked modules at stage midpoints',()=>{
+ for(const model of models.filter(m=>m.number>=49)){
+  const defaults=defaultParameters(model),variants=['min','max'].map(boundary=>Object.fromEntries(modelFields(model).map(f=>[f.key,f.options?defaults[f.key]:f[boundary]])));
+  if(model.id==='robot-wrist')for(const axis4 of [-90,90])for(const axis5 of [-40,40])variants.push({...defaults,axis4,axis5});
+  for(const p of variants){const v=fakeViewer();v.build(model,p);auditSystemMidpointCrossings(v);v.amount=1;v.applyPose();const groups=groupBoxes(v);for(let i=0;i<groups.length;i++)for(let j=i+1;j<groups.length;j++)assert.equal(groups[i][1].intersectsBox(groups[j][1]),false,model.id+' endpoint final overlap '+groups[i][0]+' / '+groups[j][0]);v.clear();}
+ }
 });
 
 test('parameter boundaries and invalid viewer mutations retain the last valid geometry',()=>{
@@ -141,4 +191,25 @@ test('generated catalog page provides all static app IDs once and shares the ori
  const html=fs.readFileSync(new URL('../dist/catalog.html',import.meta.url),'utf8'),app=fs.readFileSync(new URL('../dist/catalog/app.mjs',import.meta.url),'utf8'),timing=fs.readFileSync(new URL('../dist/timing.html',import.meta.url),'utf8');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);for(const [,id]of app.matchAll(/\$\('([^']+)'\)/g))assert.ok(ids.includes(id),'missing '+id);
  const controls=['play','speed','explode','explode-all','assemble-all','step-prev','step-next','home-view','front-view','top-view','fullscreen','housing-mode','labels-toggle'];const order=text=>controls.slice().sort((a,b)=>text.indexOf('id="'+a+'"')-text.indexOf('id="'+b+'"'));assert.deepEqual(order(html),order(timing));assert.ok(html.indexOf('id="parameters"')>html.indexOf('id="viewport"'));assert.match(app,/\$\('chat-reset'\)\.click\(\)/);
+});
+
+test('production catalog UI handlers follow per-model stages, reverse, slider, restore and play guard',()=>{
+ const original=fs.readFileSync(new URL('../dist/catalog/app.mjs',import.meta.url),'utf8');
+ const source=original.replace(/^import[^\n]+\n/gm,'').split("for(const m of models)$('model-select')")[0]+
+  '\nglobalThis.disassemblyUI={setViewer(v){viewer=v;model=v.model;params=v.params;result=v.result;valid=true;v.onMotion=onMotion;syncControls();},setMode};';
+ const elements=new Map();
+ function element(){return {textContent:'',value:'',children:[],hidden:false,disabled:false,style:{setProperty(){}},classList:{toggle(){}},setAttribute(){},append(...items){this.children.push(...items);},replaceChildren(...items){this.children=items;},addEventListener(){},focus(){}};}
+ const get=id=>{if(!elements.has(id))elements.set(id,element());return elements.get(id);};
+ const context={document:{getElementById:get,querySelectorAll:()=>[],createElement:element},window:{dispatchEvent(){}},models,modelFields,defaultParameters,validateParameters,parseParameterValue,Event,console};
+ runInNewContext(source,context);
+ for(const number of [49,51,57]){
+  const model=models.find(m=>m.number===number),v=fakeViewer();v.build(model,defaultParameters(model));context.disassemblyUI.setViewer(v);context.disassemblyUI.setMode('steps');
+  const count=v.stages.length;assert.equal(get('step-prev').disabled,true);assert.equal(get('step-next').disabled,false);
+  for(let i=1;i<=count;i++){get('step-next').onclick();near(v.amount,i/count);assert.equal(get('step-title').textContent,v.stages[i-1].title);assert.equal(get('step-copy').textContent,v.stages[i-1].description);assert.equal(get('step-number').textContent,String(i).padStart(2,'0')+' / '+String(count).padStart(2,'0'));}
+  assert.equal(get('step-next').disabled,true);get('play').onclick();assert.equal(v.playing,false);assert.match(get('status-message').textContent,/复原/);
+  for(let i=count-1;i>=0;i--){get('step-prev').onclick();near(v.amount,i/count);}assert.equal(get('step-prev').disabled,true);
+  v.phase=2;v.playing=true;get('explode').oninput({target:{value:'43'}});near(v.amount,.43);assert.equal(v.phase,0);assert.equal(v.playing,false);assert.equal(get('step-title').textContent,v.stages[Math.ceil(.43*count-1e-8)-1].title);
+  get('explode-all').onclick();near(v.amount,1);get('assemble-all').onclick();near(v.amount,0);assert.equal(get('step-prev').disabled,true);get('play').onclick();assert.equal(v.playing,true);
+  context.disassemblyUI.setMode('free');assert.equal(v.playing,false);assert.equal(get('assembly-controls').hidden,true);assert.equal(get('free-controls').hidden,false);v.clear();
+ }
 });

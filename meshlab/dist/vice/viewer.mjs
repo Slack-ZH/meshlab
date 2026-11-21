@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import {phase} from '../legacy-disassembly.mjs';
 import {OrbitControls} from '../assets/OrbitControls.js';
 import {geometry,validate,ANIMATION_SCALE,threadMeshData,motion} from './mechanics.mjs';
 
-export const steps=['完整台虎钳','取下手柄','移开活动钳口','取出丝杠与固定螺母','分离固定体与导轨'];
+export const steps=['完整台虎钳','旋出丝杠与活动钳口总成','移开教学可拆侧盖','侧向取出固定螺母','分离钳口垫'];
 const geometryKeys=['lead','screwDiameter','jawWidth','maxOpening'];
 const steel=0xa4b0bd,dark=0x354353,blue=0x2082a2,warm=0xba8750;
 export class ViceViewer {
@@ -91,21 +92,15 @@ export class ViceViewer {
     const screw=this.part('screw','右旋梯形丝杠','丝杠在固定螺母内旋转并沿轴向移动，其肩部和止推环捕获活动钳口。单线导程等于螺距，丝杠每转一周，活动钳口移动一个导程。正向张开，反向闭合；到行程端点停止。','外径 '+D+' mm · 导程 '+p.lead+' mm/转',3);screw.category='transmission';
     const screwMover=new THREE.Group(),screwRotor=new THREE.Group();screw.group.add(screwMover);screwMover.add(screwRotor);this.movers.push(screwMover);this.rotors.push(screwRotor);this.screwBody=this.thread(screw,'screw',false,screwRotor);
     this.cylinderX(screw,g.journalRadius,g.journalEnd-g.threadEnd,steel,[(g.journalEnd+g.threadEnd)/2,0,0],screwRotor);
-    const collar=this.part('collar','轴向捕获止推环','两侧止推环把丝杠的轴向移动传给活动钳口，同时允许丝杠旋转。模型省略滚动体、垫片摩擦和装配公差。','随丝杠移动与旋转',1);collar.category='transmission';const collarMover=new THREE.Group(),collarRotor=new THREE.Group();collar.group.add(collarMover);collarMover.add(collarRotor);this.movers.push(collarMover);this.rotors.push(collarRotor);
+    const collar=this.part('collar','轴向捕获止推环','两侧止推环捕获活动钳口。拆解保留丝杠、止推环、钳口与手柄为总成；旋出螺母后再展示，不虚构整环穿过钳口。','随丝杠移动与旋转',1);collar.category='transmission';const collarMover=new THREE.Group(),collarRotor=new THREE.Group();collar.group.add(collarMover);collarMover.add(collarRotor);this.movers.push(collarMover);this.rotors.push(collarRotor);
     for(const x of [g.padThickness-2,g.padThickness+g.jawDepth+2])this.ringX(collar,g.journalRadius*1.6,g.journalRadius*1.015,4,warm,[x,0,0],collarRotor);
     const handle=this.part('handle','T形操作手柄','手柄与丝杠一起旋转和轴向移动。输入转速与转矩为给定运行工况；真实手动操作的加速、停顿及夹紧弹性未求解。','T柄转一周 = 钳口移动 '+p.lead+' mm',1);handle.category='transmission';const handleMover=new THREE.Group(),handleRotor=new THREE.Group();handle.group.add(handleMover);handleMover.add(handleRotor);this.movers.push(handleMover);this.rotors.push(handleRotor);
     this.cylinderX(handle,g.journalRadius*1.35,16,dark,[g.journalEnd+3,0,0],handleRotor);const arm=g.handleLength;this.tube(handle,[g.journalEnd+3,0,-arm/2],[g.journalEnd+3,0,arm/2],2.6,steel,handleRotor);for(const sign of [-1,1])this.mesh(handle,new THREE.SphereGeometry(4,16,12),warm,[g.journalEnd+3,0,sign*arm/2],handleRotor);
+    const sideCover=this.part('side-cover','可拆侧盖','教学模型采用可拆侧盖：丝杠旋出后，先沿法向移走侧盖，再侧向取出螺母；实际整体铸造钳体不能照此拆开。','紧固件未细分；用于揭示内部连接',2);sideCover.category='housing';for(const wall of this.frontBody){sideCover.group.add(wall);wall.userData.partId=sideCover.id;}
     this.updateMotion();this.scene.updateMatrixWorld(true);
-    const boxes=new Map(this.parts.map(p=>[p.id,new THREE.Box3().setFromObject(p.group)]));
-    const box=id=>boxes.get(id),set=(id,x,y,z)=>this.parts.find(p=>p.id===id).offset.set(x,y,z),gap=Math.max(30,W*.4);
-    const axisOrder=['nut','screw','moving-jaw','collar','handle'];
-    const axisLength=axisOrder.reduce((sum,id)=>sum+box(id).max.x-box(id).min.x,0)+gap*(axisOrder.length-1);
-    let cursor=-axisLength/2;for(const id of axisOrder){const b=box(id);set(id,cursor-b.min.x,0,-(b.min.z+b.max.z)/2);cursor+=b.max.x-b.min.x+gap;}
-    const axisTop=Math.max(...axisOrder.map(id=>box(id).max.y)),axisBottom=Math.min(...axisOrder.map(id=>box(id).min.y));
-    const upperOrder=['fixed-body','fixed-pad','moving-pad'],upperLength=upperOrder.reduce((sum,id)=>sum+box(id).max.x-box(id).min.x,0)+gap*(upperOrder.length-1);
-    cursor=-upperLength/2;for(const id of upperOrder){const b=box(id);set(id,cursor-b.min.x,axisTop+gap-b.min.y,-(b.min.z+b.max.z)/2);cursor+=b.max.x-b.min.x+gap;}
-    const gb=box('guide');set('guide',-(gb.min.x+gb.max.x)/2,axisBottom-gap-gb.max.y,-(gb.min.z+gb.max.z)/2);
-    this.explosionLayout={order:axisOrder,upperOrder,gap,axisLength};
+    const boxes=new Map(this.parts.map(p=>[p.id,new THREE.Box3().setFromObject(p.group)])),body=boxes.get('fixed-body'),guideBox=boxes.get('guide');
+    this.disassemblyPlan={withdraw:Math.max(g.nutEnd,guideBox.max.x)-(g.threadStart+mid)+40,nutOut:W+80,coverOut:2*W+200,padLift:W+70};
+    for(const part of this.parts)part.assemblyGroup=['fixed-body','guide'].includes(part.id)?'body-guide':['screw','moving-jaw','collar','handle'].includes(part.id)?'captured-carriage':part.id;
     this.pose();this.select(this.parts.some(x=>x.id===this.selected)?this.selected:'screw');if(hadRoot)this.fitModel();else this.home();this.onMotion?.();
   }
   blockedDirection(){return !!this.p&&(this.jawOpening<=1e-9&&this.p.direction<0||this.jawOpening>=this.p.maxOpening-1e-9&&this.p.direction>0);}
@@ -125,7 +120,9 @@ export class ViceViewer {
   setHousingMode(mode){if(!['solid','open','transparent','hidden'].includes(mode))throw new RangeError('无效固定体显示方式');this.housingMode=mode;this.open=mode==='open';this.pose();this.fitModel();}
   pose(){
     const assembled=this.amount===0&&this.step===0;
-    for(const part of this.parts){const factor=this.step?THREE.MathUtils.clamp(this.step-part.step+1,0,1):this.amount;part.group.position.copy(part.offset).multiplyScalar(factor);part.group.visible=!(assembled&&this.housingMode==='hidden'&&part.category==='housing');
+    const progress=this.step||this.amount*(steps.length-1),plan=this.disassemblyPlan,withdraw=plan.withdraw*phase(progress,0);
+    for(const rotor of this.rotors)rotor.rotation.x=2*Math.PI*((this.jawOpening-this.p.maxOpening/2)+withdraw)/this.p.lead;
+    for(const part of this.parts){const carriage=['screw','moving-jaw','collar','handle','moving-pad'].includes(part.id),body=['fixed-body','guide'].includes(part.id);part.group.position.set(carriage?withdraw:0,['fixed-pad','moving-pad'].includes(part.id)?plan.padLift*phase(progress,3):0,part.id==='nut'?plan.nutOut*phase(progress,2):part.id==='side-cover'?plan.coverOut*phase(progress,1):0);part.group.visible=!(assembled&&this.housingMode==='hidden'&&part.category==='housing');
       if(part.category==='housing')part.group.traverse(o=>{if(!o.isMesh)return;const transparent=assembled&&this.housingMode==='transparent';o.material.transparent=transparent;o.material.opacity=transparent?.22:1;o.material.depthWrite=!transparent;if(o.userData.cutaway)o.visible=!(assembled&&this.housingMode==='open');});
     }
     if(this.nutFull){this.nutFull.visible=!(assembled&&this.housingMode==='open');this.nutHalf.visible=assembled&&this.housingMode==='open';}

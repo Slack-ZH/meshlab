@@ -3,18 +3,18 @@ import { Vector3, Matrix3, Box3 } from './assets/three.module.js';
 // Offsets describe displacement in world millimetres, independent of the
 // animated, rotated or scaled parents used by each mechanism. Call restore()
 // before changing its assembled pose, and update() immediately before drawing.
-export function createExplodedView({ camera, controls, container, reducedMotion } = {}) {
+export function createExplodedView({ camera, controls, container, reducedMotion, steps = [] } = {}) {
   const motionPreference = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
   const shouldSnap = reducedMotion ?? (() => motionPreference?.matches === true);
   let parts = [], target = 0, amount = 0, applied = false, cameraScale = 1;
   let lastTime = null, needsDraw = true, needsFit = true, viewportSize = '';
   const listeners = new Set(), byObject = new Map();
-  const worldOffset = part => {
-    const value = typeof part.offset === 'function' ? part.offset() : part.offset;
+  const worldOffset = offset => {
+    const value = typeof offset === 'function' ? offset() : offset;
     const vector = value?.isVector3 ? value.clone() : new Vector3(...(value || [0, 0, 0]));
     return [vector.x, vector.y, vector.z].every(Number.isFinite) ? vector : new Vector3();
   };
-  const state = () => ({ target, amount, partCount: parts.length, available: parts.length > 1 });
+  const state = () => ({ target, amount, partCount: parts.length, available: parts.length > 1, stepTitle: steps[Math.ceil(amount * steps.length - 1e-8) - 1] || '', stepCount: steps.length });
   const notify = () => { needsDraw = true; for (const fn of listeners) fn(state()); };
   function restore() {
     if (!applied) return;
@@ -48,7 +48,13 @@ export function createExplodedView({ camera, controls, container, reducedMotion 
     for (const p of parts) {
       p.base.copy(p.object.position);
       p.object.updateWorldMatrix(true, false);
-      p.displacement.copy(worldOffset(p)).multiplyScalar(amount);
+      if (p.path) {
+        p.displacement.set(0,0,0);
+        for (const move of p.path) {
+          const fraction = Math.min(1, Math.max(0, amount * steps.length - move.step));
+          if (fraction) p.displacement.addScaledVector(worldOffset(move.offset), fraction);
+        }
+      } else p.displacement.copy(worldOffset(p.offset)).multiplyScalar(amount);
     }
     for (const p of parts) {
       const delta = p.displacement.clone();
@@ -106,6 +112,7 @@ export function createExplodedView({ camera, controls, container, reducedMotion 
     const before = amount;
     amount = shouldSnap() ? target : amount + (target - amount) * (1 - Math.exp(-7 * Math.max(0, Math.min(dt, .05))));
     if (Math.abs(amount - target) < .0005) amount = target;
+    if (Math.ceil(before*steps.length-1e-8)!==Math.ceil(amount*steps.length-1e-8)) notify();
     const poseChanged = !applied || before !== amount;
     if (poseChanged) apply();
     if (amount < before && before > 0 && cameraScale < 1) {

@@ -3,6 +3,7 @@ import { OrbitControls } from '../assets/OrbitControls.js';
 import { materialOptions, metalLighting, referenceGround, highlight } from '../mechanical-style.js';
 import { gearGeometry } from './gears.js';
 import { createExplodedView } from '../exploded-view.js';
+import { drillSteps, drillPath } from './disassembly.js';
 
 export function createDrillScene(container,onSelect){
   const scene=new THREE.Scene();scene.background=new THREE.Color('#f0f2f5');
@@ -11,7 +12,7 @@ export function createDrillScene(container,onSelect){
   metalLighting(THREE,scene,renderer,.7);const ground=referenceGround(THREE,scene,{size:1800,y:-74});
   const camera=new THREE.OrthographicCamera(-280,280,120,-120,1,2500);
   const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.09;controls.minZoom=.5;controls.maxZoom=3;
-  const explosion=createExplodedView({camera,controls,container});
+  const explosion=createExplodedView({camera,controls,container,steps:drillSteps});
   const root=new THREE.Group();scene.add(root);const materials=new Map(),pickable=[],labels=[];
   const clipPlane=new THREE.Plane(new THREE.Vector3(0,0,-1),10);
   const mat=(part,category='gear')=>{const key=part+':'+category;if(!materials.has(key))materials.set(key,new THREE.MeshStandardMaterial(materialOptions(category)));return materials.get(key);};
@@ -19,6 +20,12 @@ export function createDrillScene(container,onSelect){
   const mesh=(parent,geo,part,category='gear')=>{const m=new THREE.Mesh(geo,mat(part,category));m.userData.part=part;m.castShadow=true;m.receiveShadow=true;parent.add(m);pickable.push(m);return m;};
   function cylinder(parent,part,r,length,x,y=0,z=0,category='shaft'){
     const m=mesh(parent,new THREE.CylinderGeometry(r,r,length,40),part,category);m.rotation.z=-Math.PI/2;m.position.set(x,y,z);return m;
+  }
+  function annulus(parent,part,outer,inner,length,x,y=0,z=0,category='shaft'){
+    const shape=new THREE.Shape();shape.absarc(0,0,outer,0,Math.PI*2,false);
+    const hole=new THREE.Path();hole.absarc(0,0,inner,0,Math.PI*2,true);shape.holes.push(hole);
+    const geometry=new THREE.ExtrudeGeometry(shape,{depth:length,bevelEnabled:false,curveSegments:64});geometry.translate(0,0,-length/2);geometry.rotateY(Math.PI/2);
+    const object=mesh(parent,geometry,part,category);object.position.set(x,y,z);return object;
   }
   function hoop(parent,part,r,tube,x,category='housing'){
     const m=mesh(parent,new THREE.TorusGeometry(r,tube,10,80),part,category);m.rotation.y=Math.PI/2;m.position.x=x;return m;
@@ -31,16 +38,16 @@ export function createDrillScene(container,onSelect){
     for(let i=0;i<12;i++){const a=i*Math.PI/6+phase;const m=box(parent,part,[6,5,10],[x,60.5*Math.cos(a),60.5*Math.sin(a)],'cover');m.rotation.x=a;}
   }
   // Stationary motor casing and bearing cap; its shaft belongs to the first sun.
-  cylinder(root,'motor',32,55,-146,0,0,'housing');cylinder(root,'motor',29,6,-176,0,0,'cover');
-  cylinder(root,'motor',21,6,-116,0,0,'cover');
+  annulus(root,'motor',32,8,55,-146,0,0,'housing');cylinder(root,'motor',29,6,-176,0,0,'cover');
+  annulus(root,'motor',21,7.3,6,-116,0,0,'cover');
   for(let i=0;i<8;i++){const a=i*Math.PI/4;const m=box(root,'motor',[28,1.5,3],[-149,32*Math.cos(a),32*Math.sin(a)],'cover');m.rotation.x=a;}
-  const geoSun=gearGeometry({count:18,radius:18,width:28,bore:6});
+  const geoSun=gearGeometry({count:18,radius:18,width:28,bore:7.3});
   const geoPlanet=gearGeometry({count:18,radius:18,width:28,bore:5});
   const geoRing=gearGeometry({count:54,radius:54,width:34,internal:true,outer:62});
   const stages=[];
   for(const [index,x] of [[1,-65],[2,58]]){
     const stage=group(root,`stage-${index}`);stage.position.x=x;
-    const sun=group(stage,`sun-${index}`);mesh(sun,geoSun,`sun${index}`);marker(sun,`sun${index}`,15,16);
+    const sun=group(stage,`sun-${index}`);mesh(sun,index===2?gearGeometry({count:18,radius:18,width:28,bore:8.3}):geoSun,`sun${index}`);marker(sun,`sun${index}`,15,16);
     const carrier=group(stage,`carrier-${index}`);cylinder(carrier,`carrier${index}`,12,9,22);
     const planets=[];
     for(let j=0;j<3;j++){
@@ -50,16 +57,19 @@ export function createDrillScene(container,onSelect){
       const planet=group(carrier,`planet-${index}-${j}`);planet.position.set(0,36*Math.cos(a),36*Math.sin(a));mesh(planet,geoPlanet,`planet${index}`);marker(planet,`planet${index}`,15,16);planets.push(planet);
       cylinder(carrier,`carrier${index}`,7,3,31,36*Math.cos(a),36*Math.sin(a),'fastener');
     }
-    const ring=group(stage,`ring-${index}`);mesh(ring,geoRing,`ring${index}`);marker(ring,`ring${index}`,18,61);
+    const ring=group(stage,`ring-${index}`);mesh(ring,geoRing,`ring${index}`);box(ring,`ring${index}`,[1.1,3,2.5],[18,60,0],'seal');
     stages.push({sun,carrier,planets,ring});
   }
-  cylinder(stages[0].sun,'sun1',7,53,-41); // Motor -> stage I sun.
+  cylinder(stages[0].sun,'sun1',7,75,-30); // Motor -> stage I sun.
   cylinder(stages[0].carrier,'carrier1',8,91,72); // Rigid carrier I -> sun II.
   cylinder(stages[1].carrier,'carrier2',9,71,63);
   // The fixed reaction ring and rotating carrier coupling flank the sliding ring.
   hoop(root,'housing',61,3,29,'cover');dogs(root,'housing',30,Math.PI/12);
-  hoop(stages[1].carrier,'carrier2',61,3,35,'shaft');dogs(stages[1].carrier,'carrier2',34,Math.PI/12);
-  for(let j=0;j<3;j++){const a=j*Math.PI*2/3;const arm=box(stages[1].carrier,'carrier2',[5,59,5],[35,30*Math.cos(a),30*Math.sin(a)],'shaft');arm.rotation.x=a;}
+  const coupling=group(stages[1].carrier,'stage-2-coupling');
+  hoop(coupling,'carrier2',61,3,35,'shaft');dogs(coupling,'carrier2',34,Math.PI/12);
+  annulus(coupling,'carrier2',15,9.3,5,35);
+  for(let j=0;j<3;j++){const a=j*Math.PI*2/3;const arm=box(coupling,'carrier2',[5,47,5],[35,35.5*Math.cos(a),35.5*Math.sin(a)],'shaft');arm.rotation.x=a;}
+  coupling.traverse(object=>{if(object.isMesh)object.userData.disassemblyRole='coupling2';});
   dogs(stages[1].ring,'ring2',-19);dogs(stages[1].ring,'ring2',19);
   // Fixed supports indicate the non-rotating housing without hiding the gears.
   for(const x of [-85,29]){
@@ -68,24 +78,17 @@ export function createDrillScene(container,onSelect){
   }
   box(root,'housing',[170,6,46],[-28,-72,0]);
   const fork=group(root,'shift-fork');
-  hoop(fork,'selector',65,2.3,0,'cover');box(fork,'selector',[5,22,8],[0,76,0],'cover');box(fork,'selector',[22,8,24],[0,90,0],'cover');
-  box(root,'housing',[68,4,12],[58,84,0],'shaft');
+  hoop(fork,'selector',67,2.3,0,'cover');box(fork,'selector',[5,14,8],[0,73,0],'cover');box(fork,'selector',[22,8,24],[0,94,0],'cover');
+  annulus(fork,'selector',6,2.4,5,0,84,0,'cover');
+  cylinder(root,'housing',2,68,58,84,0,'shaft');
   // Output spindle and three-jaw chuck. No cutting/drilling process is simulated.
   const output=group(root,'chuck');
-  cylinder(output,'output',25,30,164,0,0,'cover');cylinder(output,'output',22,18,187,0,0,'shaft');
+  annulus(output,'output',25,9.3,30,164,0,0,'cover');annulus(output,'output',22,9.3,18,187,0,0,'shaft');
   for(let i=0;i<24;i++){const a=i*Math.PI/12;const m=box(output,'output',[25,1.1,1.8],[164,25*Math.cos(a),25*Math.sin(a)],'seal');m.rotation.x=a;}
   for(let j=0;j<3;j++){const a=j*Math.PI*2/3;const jaw=box(output,'output',[18,7,7],[201,7*Math.cos(a),7*Math.sin(a)],'fastener');jaw.rotation.x=a;}
-  // Offset physical leaves while retaining the carrier/planet rotation hierarchy.
-  const offsets={motor:[-175,0,0],sun1:[-120,0,0],ring1:[-85,0,0],carrier1:[-45,0,0],sun2:[55,0,0],ring2:[20,0,0],carrier2:[125,0,0],selector:[20,95,0],output:[185,0,0],housing:[0,0,-105]};
-  const radialOffsets=new Map();
-  stages.forEach((stage,index)=>stage.planets.forEach(planet=>{
-    const offset=()=>{
-      const radial=new THREE.Vector3(0,planet.position.y,planet.position.z).applyQuaternion(stage.carrier.getWorldQuaternion(new THREE.Quaternion())).normalize().multiplyScalar(52);
-      radial.x=index===0?-80:90;return radial.toArray();
-    };
-    planet.traverse(object=>{if(object.isMesh)radialOffsets.set(object,offset);});
-  }));
-  explosion.setParts(pickable.map(object=>({object,offset:radialOffsets.get(object)||offsets[object.userData.part]})));
+  // Each physical leaf follows its mechanism path; the engine converts world
+  // offsets through the still-intact carrier/planet rotation hierarchy.
+  explosion.setParts(pickable.map(object=>({object,path:drillPath(object.userData.disassemblyRole||object.userData.part)})));
   const labelObjects=new Map();
   for(const object of pickable)if(!labelObjects.has(object.userData.part))labelObjects.set(object.userData.part,object);
   // The input speed label is attached to the stationary motor casing.

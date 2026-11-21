@@ -77,7 +77,7 @@ function syncPose() {
   $('explode').value=amount*100;$('explode').style.setProperty('--progress',(amount*100)+'%');$('explode-value').textContent=Math.round(amount*100)+'%';
   $('step-number').textContent=String(step).padStart(2,'0')+' / '+String(steps.length-1).padStart(2,'0');
   $('step-title').textContent=steps[step];
-  $('step-copy').textContent=step===0?'先停下曲柄，按顺序观察各个传动组件。':'继续分离组件；按“上一步”可反向装配。';
+  $('step-copy').textContent=step===0?'先停下曲柄，按顺序观察各个传动组件。':'先分两侧曲柄，再沿轴取出保持啮合的闭链总成；车轮与花鼓轴、中轴与车架保留为子总成。';
   $('step-prev').disabled=step===0;$('step-next').disabled=step===steps.length-1;
   $('housing-mode').value=s.housingMode||'solid';$('labels-toggle').checked=!!s.labelsOn;
   $('pose-status').textContent=amount>0?'自由展开 · '+Math.round(amount*100)+'%':steps[step];
