@@ -6,6 +6,7 @@ const old=[['两级斜齿减速器','lab.html','两级斜齿轮与装配拆解']
   ['汽车开放式差速器','open-differential.html','切换直行与转弯，比较左右半轴转速，观察差速齿轮运动。'],
   ['电钻两挡行星减速器','drill-planetary.html','切换高低挡，跟踪两级行星传动的动力路径和夹头转速。'],
   ['蜗轮蜗杆传动','worm-drive.html','调整蜗杆头数和蜗轮齿数，用蜗杆一圈验证蜗轮推进的齿数。'],
+  ['滚动轴承结构','bearing.html','切换深沟球、圆柱滚子、圆锥滚子与推力球轴承，观察滚道剖视、纯滚动运动与轴向拆装。'],
 ].map(([title,url,description])=>({title,url,description,number:null}));
 const additions=models.map(m=>({id:m.id,number:m.number,title:m.title,description:m.description,url:'catalog.html?model='+encodeURIComponent(m.id)})),items=[...old,...additions];
 fs.writeFileSync(new URL('catalog/models.json',base),JSON.stringify({count:items.length,source:'https://www.kdocs.cn/l/cnXEgCQ0UECb',blankRows:additions.map(m=>m.number+4),items},null,2)+'\n');
@@ -38,5 +39,5 @@ replaceBlock('filters', buttons);
 replaceBlock('results', entries);
 html = html.replace(/(id="match-count" role="status" aria-live="polite">)共 \d+ 个实验/, '$1共 ' + items.length + ' 个实验');
 fs.writeFileSync(path, html);
-for(const name of fs.readdirSync(base).filter(n=>n.endsWith('.html'))){const file=new URL(name,base),s=fs.readFileSync(file,'utf8');fs.writeFileSync(file,s.replace(/chat\.js\?v=[^"']+/g,'chat.js?v=20261116-all1'));}
+for(const name of fs.readdirSync(base).filter(n=>n.endsWith('.html'))){const file=new URL(name,base),s=fs.readFileSync(file,'utf8');fs.writeFileSync(file,s.replace(/chat\.js\?v=[^"']+/g,'chat.js?v=20261123-bearing1'));}
 console.log(`Generated ${items.length} direct experiment links (${models.length} new)`);

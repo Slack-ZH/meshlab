@@ -190,5 +190,9 @@
   "worm-drive": {
     "group": "gears",
     "aliases": "圆柱蜗杆 蜗轮 蜗杆 交错轴 头数 导程"
+  },
+  "bearing": {
+    "group": "other",
+    "aliases": "轴承 滚动轴承 深沟球 圆柱滚子 圆锥滚子 推力球 保持架 滚道 滚珠 滚子 6208 N208 30208 51208 bearing"
   }
 }

@@ -17,9 +17,10 @@
     "test:belt": "node --test scripts/test-belt.mjs scripts/test-belt-chat.mjs",
     "test:timing": "node --test scripts/test-timing.mjs scripts/test-timing-chat.mjs",
     "test:vice": "node --test scripts/test-vice.mjs scripts/test-vice-chat.mjs",
+    "test:bearing": "node --test scripts/test-bearing.mjs scripts/test-bearing-chat.mjs",
     "test:catalog": "node --test scripts/test-catalog-motion.mjs scripts/test-catalog-machines.mjs scripts/test-catalog-systems.mjs scripts/test-catalog-integration.mjs scripts/test-catalog-machines-audit.mjs scripts/test-catalog-systems-audit.mjs",
-    "test:audit": "node --test scripts/test-turbine-geometry.mjs scripts/test-bicycle.mjs scripts/test-friction.mjs scripts/test-spur.mjs scripts/test-idler.mjs scripts/test-belt.mjs scripts/test-timing.mjs scripts/test-vice.mjs scripts/test-catalog-motion.mjs scripts/test-catalog-machines.mjs scripts/test-catalog-systems.mjs scripts/test-catalog-integration.mjs scripts/test-legacy-motion-audit.mjs scripts/test-catalog-machines-audit.mjs scripts/test-catalog-systems-audit.mjs",
-    "test:disassembly": "node --test scripts/*disassembly*.mjs scripts/test-exploded-view.mjs scripts/test-catalog-integration.mjs scripts/test-turbine-geometry.mjs",
+    "test:audit": "node --test scripts/test-turbine-geometry.mjs scripts/test-bicycle.mjs scripts/test-friction.mjs scripts/test-spur.mjs scripts/test-idler.mjs scripts/test-belt.mjs scripts/test-timing.mjs scripts/test-vice.mjs scripts/test-bearing.mjs scripts/test-catalog-motion.mjs scripts/test-catalog-machines.mjs scripts/test-catalog-systems.mjs scripts/test-catalog-integration.mjs scripts/test-legacy-motion-audit.mjs scripts/test-catalog-machines-audit.mjs scripts/test-catalog-systems-audit.mjs",
+    "test:disassembly": "node --test scripts/*disassembly*.mjs scripts/test-exploded-view.mjs scripts/test-catalog-integration.mjs scripts/test-turbine-geometry.mjs scripts/test-bearing.mjs",
     "audit:parameters": "node scripts/audit-catalog-parameters.mjs --mesh",
     "build:catalog": "node scripts/build-catalog-page.mjs && node scripts/build-catalog-index.mjs"
   },

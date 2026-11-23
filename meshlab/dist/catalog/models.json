@@ -1,5 +1,5 @@
 {
-  "count": 48,
+  "count": 49,
   "source": "https://www.kdocs.cn/l/cnXEgCQ0UECb",
   "blankRows": [
     28,
@@ -115,6 +115,12 @@
       "title": "蜗轮蜗杆传动",
       "url": "worm-drive.html",
       "description": "调整蜗杆头数和蜗轮齿数，用蜗杆一圈验证蜗轮推进的齿数。",
+      "number": null
+    },
+    {
+      "title": "滚动轴承结构",
+      "url": "bearing.html",
+      "description": "切换深沟球、圆柱滚子、圆锥滚子与推力球轴承，观察滚道剖视、纯滚动运动与轴向拆装。",
       "number": null
     },
     {
